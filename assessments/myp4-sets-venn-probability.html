@@ -653,9 +653,224 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Login Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .modal-content h2 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .modal-content p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 15px;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        .modal-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .modal-btn:hover {
+            transform: scale(1.02);
+        }
+        .guest-link {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .guest-link a {
+            color: var(--primary);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /* History Panel */
+        .history-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(99,102,241,0.4);
+            z-index: 100;
+        }
+        .history-panel {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 320px;
+            max-height: 400px;
+            overflow-y: auto;
+            background: var(--bg-card);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            z-index: 100;
+            display: none;
+        }
+        .history-panel.show {
+            display: block;
+        }
+        .history-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .history-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .history-item:hover {
+            background: var(--bg-hover);
+        }
+        .history-item:last-child {
+            border-bottom: none;
+        }
+        .history-item .date {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        .history-item .score {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .history-item .name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .history-empty {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        /* Back Home Button */
+        .back-home-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(99,102,241,0.4);
+            z-index: 100;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .back-home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(99,102,241,0.5);
+        }
+        #login-modal { display: flex; }
+        #back-home-btn { display: none; }
+        #back-home-btn.show { display: flex; }
     </style>
 </head>
 <body>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Welcome!</h2>
+            <p>Enter your name to start the assessment</p>
+            <div class="form-group">
+                <label for="student-name">Your Name *</label>
+                <input type="text" id="student-name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="student-class">Class (optional)</label>
+                <input type="text" id="student-class" placeholder="e.g., MYP4-A">
+            </div>
+            <button class="modal-btn" onclick="startWithLogin()">Start Quiz</button>
+            <div class="guest-link"><a onclick="startAsGuest()">Continue as Guest</a></div>
+        </div>
+    </div>
+
+    <!-- History Toggle Button -->
+    <button class="history-toggle" onclick="toggleHistory()" title="View History">📋</button>
+
+    <!-- History Panel -->
+    <div id="history-panel" class="history-panel">
+        <div class="history-header">
+            <span>📊 Your History</span>
+            <button onclick="toggleHistory()" style="background:none;border:none;cursor:pointer;font-size:18px;color:var(--text-primary);">×</button>
+        </div>
+        <div id="history-list"></div>
+    </div>
+
+    <!-- Back to Home Button (shown after quiz) -->
+    <a id="back-home-btn" class="back-home-btn" href="../index.html">
+        ← Back to Home
+    </a>
     <div class="app-container">
         <!-- Sidebar -->
         <aside class="sidebar hidden" id="sidebar">
@@ -1061,8 +1276,13 @@
         const questionNav = document.getElementById('question-nav');
         const timerDisplay = document.getElementById('timer');
 
+        // Student data
+        let studentData = { name: 'Guest', class: '' };
+
         // Initialize
-        document.getElementById('start-btn').addEventListener('click', startQuiz);
+        document.getElementById('start-btn').addEventListener('click', function() {
+            document.getElementById('login-modal').style.display = 'flex';
+        });
         document.getElementById('submit-btn').addEventListener('click', submitQuiz);
         document.getElementById('review-btn').addEventListener('click', showResults);
         document.getElementById('prev-btn').addEventListener('click', prevQuestion);
@@ -1070,6 +1290,32 @@
         document.getElementById('flag-btn').addEventListener('click', toggleFlag);
         document.getElementById('download-pdf-btn').addEventListener('click', downloadPDF);
         document.getElementById('retry-btn').addEventListener('click', retryQuiz);
+
+        function startWithLogin() {
+            const nameInput = document.getElementById('student-name');
+            const classInput = document.getElementById('student-class');
+            const name = nameInput.value.trim();
+            
+            if (!name) {
+                nameInput.style.borderColor = '#ef4444';
+                nameInput.focus();
+                return;
+            }
+            
+            studentData = {
+                name: name,
+                class: classInput.value.trim() || 'Not specified'
+            };
+            
+            document.getElementById('login-modal').style.display = 'none';
+            startQuiz();
+        }
+
+        function startAsGuest() {
+            studentData = { name: 'Guest', class: 'Not specified' };
+            document.getElementById('login-modal').style.display = 'none';
+            startQuiz();
+        }
 
         function startQuiz() {
             startScreen.classList.add('hidden');
@@ -1334,6 +1580,68 @@
         function submitQuiz() {
             clearInterval(timerInterval);
             showResults();
+            
+            // Save result and show back home button
+            const { correct, incorrect, skipped, total } = calculateResults();
+            const score = correct;
+            saveResult(score, correct, incorrect, skipped, total);
+            document.getElementById('back-home-btn').classList.add('show');
+        }
+
+        function saveResult(score, correct, wrong, skipped, total) {
+            const result = {
+                id: Date.now(),
+                studentName: studentData.name,
+                studentClass: studentData.class,
+                quizName: 'Sets, Venn & Probability',
+                quizFile: 'myp4-sets-venn-probability.html',
+                score: score,
+                total: total,
+                percentage: ((score / total) * 100).toFixed(1),
+                correct: correct,
+                wrong: wrong,
+                skipped: skipped,
+                date: new Date().toLocaleString()
+            };
+
+            let history = JSON.parse(localStorage.getItem('kanimath_history') || '[]');
+            history.unshift(result);
+            history = history.slice(0, 20);
+            localStorage.setItem('kanimath_history', JSON.stringify(history));
+        }
+
+        function toggleHistory() {
+            const panel = document.getElementById('history-panel');
+            panel.classList.toggle('show');
+            if (panel.classList.contains('show')) {
+                renderHistory();
+            }
+        }
+
+        function renderHistory() {
+            const history = JSON.parse(localStorage.getItem('kanimath_history') || '[]');
+            const container = document.getElementById('history-list');
+            
+            if (history.length === 0) {
+                container.innerHTML = '<div class="history-empty">No history yet.<br>Complete a quiz to see your results!</div>';
+                return;
+            }
+
+            container.innerHTML = history.map(item => `
+                <div class="history-item" onclick="showHistoryDetail(${item.id})">
+                    <div class="name">${item.studentName}${item.studentClass !== 'Not specified' ? ' (' + item.studentClass + ')' : ''}</div>
+                    <div class="score">${item.score}/${item.total} (${item.percentage}%)</div>
+                    <div class="date">${item.quizName} • ${item.date}</div>
+                </div>
+            `).join('');
+        }
+
+        function showHistoryDetail(id) {
+            const history = JSON.parse(localStorage.getItem('kanimath_history') || '[]');
+            const item = history.find(h => h.id === id);
+            if (item) {
+                alert(`${item.studentName}\n${item.quizName}\nScore: ${item.score}/${item.total} (${item.percentage}%)\nCorrect: ${item.correct} | Wrong: ${item.wrong} | Skipped: ${item.skipped}\nDate: ${item.date}`);
+            }
         }
 
         function downloadPDF() {
