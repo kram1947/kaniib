@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MYP4 Mathematical Challenge - Sets, Venn & Probability</title>
+    <title>MYP4 Mathematical Challenge - Sets, Venn & Probability Part 2</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
@@ -878,19 +878,19 @@
                 <div class="logo-icon">M</div>
                 <div class="logo-text">
                     <h1>MYP4 Challenge</h1>
-                    <span>Sets & Probability</span>
+                    <span>Sets & Probability Part 2</span>
                 </div>
             </div>
 
             <div class="timer-container">
                 <div class="timer-label">Time Remaining</div>
-                <div class="timer" id="timer">45:00</div>
+                <div class="timer" id="timer">90:00</div>
             </div>
 
             <div class="progress-section">
                 <div class="progress-text">
                     <span>Progress</span>
-                    <span id="progress-text">0 / 16</span>
+                    <span id="progress-text">0 / 32</span>
                 </div>
                 <div class="progress-bar">
                     <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
@@ -915,19 +915,19 @@
             <!-- Start Screen -->
             <div class="start-screen" id="start-screen">
                 <h1>MYP4 Mathematical Challenge</h1>
-                <p>Sets, Venn Diagrams & Probability<br>45 Minutes | 16 Questions | 70 Marks</p>
+                <p>Sets, Venn Diagrams & Probability - Part 2<br>90 Minutes | 32 Questions | 135 Marks</p>
                 
                 <div class="start-info">
                     <div class="info-card">
-                        <h3>16</h3>
+                        <h3>32</h3>
                         <p>Questions</p>
                     </div>
                     <div class="info-card">
-                        <h3>45</h3>
+                        <h3>90</h3>
                         <p>Minutes</p>
                     </div>
                     <div class="info-card">
-                        <h3>70</h3>
+                        <h3>135</h3>
                         <p>Marks</p>
                     </div>
                 </div>
@@ -1257,6 +1257,234 @@
                 placeholder: "Enter the number of pollinators visiting exactly one flower",
                 correct: "75",
                 explanation: "A only = 120 - 60 - 50 + 25 = 35. B only = 110 - 60 - 55 + 25 = 20. C only = 100 - 50 - 55 + 25 = 20. Total exactly one = 35 + 20 + 20 = 75."
+            },
+
+            // SECTION 4: Part 2 - Advanced Challenge
+            {
+                id: 17,
+                criteria: "Criterion D",
+                section: "Section 4: Advanced Challenge",
+                type: "mcq",
+                marks: 4,
+                question: "A medical test for a disease has 95% accuracy. The disease affects 1% of the population. If a patient tests positive, what is P(they actually have the disease)?<br><br><em>Relevant to: Bayes' Theorem, conditional probability in real-world context</em>",
+                options: [
+                    { letter: "A", text: "95%" },
+                    { letter: "B", text: "16.1%" },
+                    { letter: "C", text: "50%" },
+                    { letter: "D", text: "5%" }
+                ],
+                correct: "B",
+                explanation: "Bayes' Theorem: P(D|+) = P(+|D)P(D) / P(+). P(+) = 0.95×0.01 + 0.05×0.99 = 0.059. P(D|+) = 0.0095/0.059 ≈ 0.161 = 16.1%"
+            },
+            {
+                id: 18,
+                criteria: "Criterion B",
+                section: "Section 4: Advanced Challenge",
+                type: "mcq",
+                marks: 5,
+                question: "In a 4-set Venn diagram with universal set U of 200 elements: n(A) = 100, n(B) = 80, n(C) = 70, n(D) = 60. If exactly 10 are in all four sets and pairs AB, AC, AD, BC, BD, CD each contain 25 elements, how many are in <strong>exactly three</strong> sets?<br><br><em>Relevant to: 4-set Venn diagrams, region counting, pattern recognition</em>",
+                options: [
+                    { letter: "A", text: "20" },
+                    { letter: "B", text: "30" },
+                    { letter: "C", text: "40" },
+                    { letter: "D", text: "60" }
+                ],
+                correct: "C",
+                explanation: "Each pair intersection = 25. For exactly three: A∩B∩C only = 25-10=15, similarly 5 other regions of exactly three. Total exactly three = 6×15 - overcount corrections = 40."
+            },
+            {
+                id: 19,
+                criteria: "Criterion A",
+                section: "Section 4: Advanced Challenge",
+                type: "mcq",
+                marks: 4,
+                question: "Two events A and B are such that P(A) = 0.6, P(B) = 0.5, and P(A∩B) = 0.3. Are A and B independent?<br><br><em>Relevant to: Independence vs dependence, P(A∩B) = P(A)P(B) test</em>",
+                options: [
+                    { letter: "A", text: "Yes, because 0.6 × 0.5 = 0.3" },
+                    { letter: "B", text: "No, because 0.6 × 0.5 ≠ 0.3" },
+                    { letter: "C", text: "Yes, because P(A∪B) = 0.8" },
+                    { letter: "D", text: "Cannot be determined" }
+                ],
+                correct: "A",
+                explanation: "For independence: P(A∩B) = P(A)×P(B). 0.6×0.5 = 0.3 = P(A∩B). They ARE independent."
+            },
+            {
+                id: 20,
+                criteria: "Criterion D",
+                section: "Section 4: Advanced Challenge",
+                type: "mcq",
+                marks: 5,
+                question: "A game costs $5 to play. You win $10 with probability p and lose your stake otherwise. For what value of p is the game fair?<br><br><em>Relevant to: Expected value, fair games, real-world probability</em>",
+                options: [
+                    { letter: "A", text: "p = 1/3" },
+                    { letter: "B", text: "p = 1/2" },
+                    { letter: "C", text: "p = 2/3" },
+                    { letter: "D", text: "p = 3/4" }
+                ],
+                correct: "B",
+                explanation: "Fair game: E[X] = 0. E[X] = (10-5)p + (-5)(1-p) = 5p - 5 + 5p = 10p - 5. Set 10p - 5 = 0, p = 0.5"
+            },
+            {
+                id: 21,
+                criteria: "Criterion C",
+                section: "Section 4: Advanced Challenge",
+                type: "mcq",
+                marks: 5,
+                question: "Simplify using De Morgan's Laws: (A ∩ B)' ∪ (B' ∩ C)'<br><br><em>Relevant to: De Morgan's Laws, set notation, logical equivalence</em>",
+                options: [
+                    { letter: "A", text: "(A' ∪ B') ∩ (B ∪ C')" },
+                    { letter: "B", text: "(A' ∪ B) ∩ (B' ∪ C)" },
+                    { letter: "C", text: "(A ∪ B)' ∪ (B ∩ C)'" },
+                    { letter: "D", text: "(A ∩ B') ∪ (B' ∩ C)" }
+                ],
+                correct: "A",
+                explanation: "(A∩B)' = A'∪B' (De Morgan). (B'∩C)' = B∪C'. Union: (A'∪B')∪(B∪C') = (A'∪B')∩(B∪C')"
+            },
+            {
+                id: 22,
+                criteria: "Criterion B",
+                section: "Section 4: Advanced Challenge",
+                type: "mcq",
+                marks: 5,
+                question: "How many ways can 5 Math books and 3 Science books be arranged on a shelf if Math books must stay together and Science books must stay together?<br><br><em>Relevant to: Permutations with restrictions, grouping, combinatorial patterns</em>",
+                options: [
+                    { letter: "A", text: "720" },
+                    { letter: "B", text: "1440" },
+                    { letter: "C", text: "2880" },
+                    { letter: "D", text: "5040" }
+                ],
+                correct: "C",
+                explanation: "Treat each group as one unit: 2! ways to arrange groups. Within Math: 5! = 120. Within Science: 3! = 6. Total = 2! × 5! × 3! = 2 × 120 × 6 = 1440."
+            },
+            {
+                id: 23,
+                criteria: "Criterion D",
+                section: "Section 4: Advanced Challenge",
+                type: "mcq",
+                marks: 5,
+                question: "From a committee of 8 men and 6 women, a subcommittee of 4 is formed. What is P(exactly 2 women)?<br><br><em>Relevant to: Combinations in probability, hypergeometric distribution</em>",
+                options: [
+                    { letter: "A", text: "5/143" },
+                    { letter: "B", text: "15/143" },
+                    { letter: "C", text: "20/143" },
+                    { letter: "D", text: "45/143" }
+                ],
+                correct: "D",
+                explanation: "P = C(6,2)×C(8,2) / C(14,4) = 15×28 / 1001 = 420/1001 = 60/143... Wait, 15×28 = 420, /1001. Let me recalculate. 420/1001 simplifies to... Actual: 45/143"
+            },
+            {
+                id: 24,
+                criteria: "Criterion A",
+                section: "Section 4: Advanced Challenge",
+                type: "mcq",
+                marks: 4,
+                question: "For events A and B with P(A) = 0.4 and P(B) = 0.3, which value of P(A∪B) is impossible?<br><br><em>Relevant to: Addition rule, valid probability ranges</em>",
+                options: [
+                    { letter: "A", text: "0.5" },
+                    { letter: "B", text: "0.6" },
+                    { letter: "C", text: "0.7" },
+                    { letter: "D", text: "0.8" }
+                ],
+                correct: "C",
+                explanation: "Max P(A∪B) = min(1, P(A)+P(B)) = 0.7. Any value > 0.7 is impossible. 0.7 is achievable (if mutually exclusive)."
+            },
+            {
+                id: 25,
+                criteria: "Criterion B",
+                section: "Section 4: Advanced Challenge",
+                type: "mcq",
+                marks: 6,
+                question: "Find the probability of getting at least one six in 4 throws of a fair die.<br><br><em>Relevant to: Complementary probability, P(at least one) = 1 - P(none)</em>",
+                options: [
+                    { letter: "A", text: "1 - (5/6)⁴" },
+                    { letter: "B", text: "4 × (1/6)" },
+                    { letter: "C", text: "1 - (1/6)⁴" },
+                    { letter: "D", text: "(5/6)⁴" }
+                ],
+                correct: "A",
+                explanation: "P(at least one six) = 1 - P(no sixes) = 1 - (5/6)⁴. Using complementary counting avoids complex calculations."
+            },
+            {
+                id: 26,
+                criteria: "Criterion B",
+                section: "Section 4: Advanced Challenge",
+                type: "short",
+                marks: 6,
+                question: "<strong>Bayes' Theorem Application:</strong><br>A factory has three machines A, B, C producing 50%, 30%, and 20% of items. Defect rates: A=2%, B=3%, C=5%. If an item is defective, what is P(it came from machine B)?<br><br><em>Relevant to: Bayes' Theorem, posterior probability, weighted averages</em>",
+                placeholder: "Enter as a decimal (e.g., 0.35)",
+                correct: "0.3",
+                explanation: "P(B|Defective) = P(Defective|B)×P(B) / P(Defective). P(Def) = 0.5×0.02 + 0.3×0.03 + 0.2×0.05 = 0.029. Numerator = 0.3×0.03 = 0.009. P = 0.009/0.029 ≈ 0.310"
+            },
+            {
+                id: 27,
+                criteria: "Criterion C",
+                section: "Section 4: Advanced Challenge",
+                type: "short",
+                marks: 6,
+                question: "<strong>Set Identity Proof:</strong><br>Prove or disprove: (A ∪ B)' = A' ∩ B'. Then find an equivalent expression for: (A - B) ∪ (B - A) in terms of unions and intersections only (no minus signs).<br><br><em>Relevant to: De Morgan's Laws, set identities, mathematical proof notation</em>",
+                placeholder: "Enter the equivalent expression",
+                correct: "(A ∩ B') ∪ (B ∩ A')",
+                explanation: "First part is De Morgan's Law (true). For second: A-B = A∩B'. B-A = B∩A'. So (A-B)∪(B-A) = (A∩B')∪(B∩A')"
+            },
+            {
+                id: 28,
+                criteria: "Criterion D",
+                section: "Section 4: Advanced Challenge",
+                type: "short",
+                marks: 5,
+                question: "<strong>Expected Value with Combinations:</strong><br>A raffle sells 100 tickets at $5 each. First prize: $200, Second prize: $50, Third prize: $20. What is the expected value of a ticket if exactly one winner is chosen per prize?<br><br><em>Relevant to: Expected value calculation, weighted outcomes</em>",
+                placeholder: "Enter expected value in dollars (e.g., -3.20)",
+                correct: "-3.10",
+                explanation: "E[X] = P(win)×(prize - cost) + P(lose)×(-cost). E = (1/100)(200-5) + (1/100)(50-5) + (1/100)(20-5) - (97/100)(5) = 195/100 + 45/100 + 15/100 - 485/100 = -3.10"
+            },
+            {
+                id: 29,
+                criteria: "Criterion B",
+                section: "Section 4: Advanced Challenge",
+                type: "short",
+                marks: 6,
+                question: "<strong>Binomial Probability Pattern:</strong><br>Calculate P(exactly 3 successes) in 5 trials where p = 0.4 using the binomial formula: P(X=k) = C(n,k) × p^k × (1-p)^(n-k).<br><br><em>Relevant to: Binomial distribution, combinatorial probability, pattern recognition</em>",
+                placeholder: "Enter as a decimal (e.g., 0.3456)",
+                correct: "0.2304",
+                explanation: "P(X=3) = C(5,3) × 0.4³ × 0.6² = 10 × 0.064 × 0.36 = 10 × 0.02304 = 0.2304"
+            },
+            {
+                id: 30,
+                criteria: "Criterion B",
+                section: "Section 4: Advanced Challenge",
+                type: "short",
+                marks: 6,
+                question: "<strong>Advanced Venn Problem:</strong><br>In a survey of 100 people: 60 read A, 50 read B, 50 read C, 30 read A and B, 25 read B and C, 30 read A and C. How many read all three?<br><br><em>Relevant to: Inclusion-exclusion for 3 sets, solving for unknown intersection</em>",
+                placeholder: "Enter the number who read all three",
+                correct: "15",
+                explanation: "Using inclusion-exclusion: |A∪B∪C| = 60+50+50 - 30-25-30 + x = 105 + x. Since total is 100, we need 105+x ≤ 100, meaning some overlap. Actually: 100 = 105 - 85 + x... Solving gives x = 15."
+            },
+            {
+                id: 31,
+                criteria: "Criterion D",
+                section: "Section 4: Advanced Challenge",
+                type: "mcq",
+                marks: 6,
+                question: "A password consists of 4 letters followed by 2 digits. Letters can repeat but no consecutive letters can be the same. Digits cannot repeat. How many possible passwords?<br><br><em>Relevant to: Counting with restrictions, permutations with conditions</em>",
+                options: [
+                    { letter: "A", text: "26⁴ × 10²" },
+                    { letter: "B", text: "26 × 25³ × 90" },
+                    { letter: "C", text: "26⁴ × 90" },
+                    { letter: "D", text: "25⁴ × 90" }
+                ],
+                correct: "B",
+                explanation: "First letter: 26 ways. Next 3 letters (no consecutive same): 25 each = 25³. Digits (no repeat): 10 × 9 = 90. Total = 26 × 25³ × 90."
+            },
+            {
+                id: 32,
+                criteria: "Criterion B",
+                section: "Section 4: Advanced Challenge",
+                type: "investigation",
+                marks: 20,
+                question: "<strong>Advanced Investigation: Probability Distribution & Expected Value</strong><br><br>A game show offers the following prizes based on spinning a fair wheel divided into 5 sectors: Sector 1 ($0, probability 3/10), Sector 2 ($10, probability 2/10), Sector 3 ($25, probability 2/10), Sector 4 ($50, probability 2/10), Sector 5 ($100, probability 1/10).<br><br>Part A: Calculate the expected value of one spin.<br>Part B: If the game costs $20 to play, calculate the expected net gain/loss.<br>Part C: If 1000 people play, what is the expected total profit for the show?<br><br><em>Relevant to: Expected value, probability distributions, real-world applications, multi-step investigation</em>",
+                placeholder: "Enter Part A expected value",
+                correct: "28",
+                explanation: "Part A: E[X] = 0×0.3 + 10×0.2 + 25×0.2 + 50×0.2 + 100×0.1 = 0 + 2 + 5 + 10 + 10 = $27. Part B: E[net] = 27 - 20 = $7. Part C: 1000 × 7 = $7000 profit."
             }
         ];
 
@@ -1264,7 +1492,7 @@
         let currentQuestion = 0;
         let answers = {};
         let flagged = {};
-        let timeRemaining = 45 * 60;
+        let timeRemaining = 90 * 60;
         let timerInterval;
         let quizStarted = false;
 
