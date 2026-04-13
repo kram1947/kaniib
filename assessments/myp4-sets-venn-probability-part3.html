@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYP4 Elite Assessment: Statistics & Probability</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfbf9;
+            color: #1c1917;
+        }
+        h1, h2, h3, h4, h5, .serif {
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 40vh;
+            max-height: 400px;
+            min-height: 300px;
+        }
+        
+        @media (max-width: 640px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+
+        .tab-active {
+            border-bottom: 2px solid #b45309;
+            color: #b45309;
+            font-weight: 600;
+        }
+
+        .math-block {
+            overflow-x: auto;
+            padding: 0.5rem 0;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+
+    <!-- Header -->
+    <header class="bg-stone-900 text-stone-50 shadow-md z-10 sticky top-0">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <h1 class="text-2xl font-bold tracking-tight">MYP4 Elite Assessment</h1>
+                <p class="text-sm text-stone-400 font-medium mt-1">Unit: Statistics & Probability - Advanced Challenge</p>
+            </div>
+            <div class="bg-stone-800 px-4 py-2 rounded-lg border border-stone-700 text-sm">
+                <span class="text-stone-400">Target Time:</span> <span class="font-bold text-amber-500">90 Minutes</span>
+            </div>
+        </div>
+        <!-- Navigation Tabs -->
+        <nav class="max-w-6xl mx-auto px-4 flex overflow-x-auto hide-scrollbar border-t border-stone-800">
+            <button onclick="switchTab('intro')" id="tab-intro" class="px-4 py-3 text-sm text-stone-300 hover:text-white whitespace-nowrap tab-active transition-colors">Overview & Context</button>
+            <button onclick="switchTab('sec1')" id="tab-sec1" class="px-4 py-3 text-sm text-stone-300 hover:text-white whitespace-nowrap transition-colors">Sec 1: Set Theory</button>
+            <button onclick="switchTab('sec2')" id="tab-sec2" class="px-4 py-3 text-sm text-stone-300 hover:text-white whitespace-nowrap transition-colors">Sec 2: Statistics</button>
+            <button onclick="switchTab('sec3')" id="tab-sec3" class="px-4 py-3 text-sm text-stone-300 hover:text-white whitespace-nowrap transition-colors">Sec 3: Probability</button>
+            <button onclick="switchTab('sec4')" id="tab-sec4" class="px-4 py-3 text-sm text-stone-300 hover:text-white whitespace-nowrap transition-colors">Sec 4: Investigation</button>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow w-full max-w-6xl mx-auto p-4 md:p-8">
+        
+        <!-- INTRO TAB -->
+        <div id="content-intro" class="space-y-8 animate-fade-in">
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-stone-200">
+                <h2 class="text-3xl font-bold text-stone-800 mb-4 serif">Statement of Inquiry</h2>
+                <blockquote class="border-l-4 border-amber-600 pl-4 py-2 text-xl italic text-stone-600 mb-6 serif">
+                    "We must take care to ask the right questions and to measure the correct data to understand relationships so we can use information to make the world a better and fairer place."
+                </blockquote>
+                <p class="text-stone-600 leading-relaxed mb-4">
+                    Welcome to the Elite Assessment. This paper bridges the rigorous conceptual framework of IB MYP with the complex, out-of-the-box problem-solving styles of Math Kangaroo and AMC 10.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+                    <div class="bg-stone-50 p-5 rounded-lg border border-stone-100">
+                        <div class="text-amber-700 font-bold mb-2">Section 1: Set Theory</div>
+                        <p class="text-sm text-stone-600">PIE, derangements, set-builder notation (Q1-5)</p>
+                    </div>
+                    <div class="bg-stone-50 p-5 rounded-lg border border-stone-100">
+                        <div class="text-amber-700 font-bold mb-2">Section 2: Statistics</div>
+                        <p class="text-sm text-stone-600">Mean/Median, Z-scores, variance (Q6-10)</p>
+                    </div>
+                    <div class="bg-stone-50 p-5 rounded-lg border border-stone-100">
+                        <div class="text-amber-700 font-bold mb-2">Section 3: Probability</div>
+                        <p class="text-sm text-stone-600">Combinatorial probability (Q16-20)</p>
+                    </div>
+                    <div class="bg-stone-50 p-5 rounded-lg border border-stone-100">
+                        <div class="text-amber-700 font-bold mb-2">Section 4: Investigation</div>
+                        <p class="text-sm text-stone-600">Pattern synthesis & geometry (Q21-25)</p>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <button onclick="switchTab('sec1')" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-all">Begin Assessment</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 1 TAB: SET THEORY -->
+        <div id="content-sec1" class="hidden space-y-8">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-stone-800 serif">Section 1: Set Theory & Logical Intersection</h2>
+                <p class="text-stone-600 mt-2">Apply the Principle of Inclusion-Exclusion and investigate patterns.</p>
+            </div>
+
+            <!-- Q1 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-bold text-lg text-stone-800">Question 1 <span class="text-sm font-normal text-stone-500 ml-2">(7 Points)</span></h3>
+                </div>
+                <div class="math-block text-stone-700 mb-6">
+                    <strong>The Triple Set Divergence</strong><br><br>
+                    In a survey of 1,000 digital consumers: 550 use Platform A, 450 use Platform B, 400 use Platform C. 250 use both A and B, 200 use both B and C, 150 use both A and C. 100 use all three. Calculate those who use none.
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="q1-options">
+                    <button onclick="checkMCQ('q1', 0, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">A) 50</button>
+                    <button onclick="checkMCQ('q1', 1, true)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">B) 100</button>
+                    <button onclick="checkMCQ('q1', 2, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">C) 150</button>
+                    <button onclick="checkMCQ('q1', 3, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">D) 200</button>
+                </div>
+                <div id="q1-feedback" class="hidden mt-4 p-4 rounded-lg text-sm"></div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-bold text-lg text-stone-800">Question 2 <span class="text-sm font-normal text-stone-500 ml-2">(7 Points)</span></h3>
+                </div>
+                <div class="math-block text-stone-700 mb-6">
+                    <strong>Derangements</strong><br><br>
+                    Four students (X, Y, Z, W) submit papers. Papers are redistributed randomly. What's P(no student gets their own)?
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="q2-options">
+                    <button onclick="checkMCQ('q2', 0, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">A) 1/8</button>
+                    <button onclick="checkMCQ('q2', 1, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">B) 1/4</button>
+                    <button onclick="checkMCQ('q2', 2, true)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">C) 3/8</button>
+                    <button onclick="checkMCQ('q2', 3, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">D) 1/2</button>
+                </div>
+                <div id="q2-feedback" class="hidden mt-4 p-4 rounded-lg text-sm"></div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-bold text-lg text-stone-800">Question 3 <span class="text-sm font-normal text-stone-500 ml-2">(8 Points)</span></h3>
+                </div>
+                <div class="math-block text-stone-700 mb-6">
+                    <strong>Set-Builder Notation</strong><br><br>
+                    S = {x ∈ ℤ | 1 ≤ x ≤ 500, x divisible by 4, 6, or 15}. Find |S|.
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="q3-options">
+                    <button onclick="checkMCQ('q3', 0, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">A) 125</button>
+                    <button onclick="checkMCQ('q3', 1, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">B) 150</button>
+                    <button onclick="checkMCQ('q3', 2, true)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">C) 184</button>
+                    <button onclick="checkMCQ('q3', 3, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">D) 200</button>
+                </div>
+                <div id="q3-feedback" class="hidden mt-4 p-4 rounded-lg text-sm"></div>
+            </div>
+        </div>
+
+        <!-- SECTION 2 TAB: STATISTICS -->
+        <div id="content-sec2" class="hidden space-y-8">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-stone-800 serif">Section 2: Descriptive Statistics & Algebraic Measures</h2>
+                <p class="text-stone-600 mt-2">Deep application of mean, median, variance, and Z-scores.</p>
+            </div>
+
+            <!-- Interactive Statistics Chart -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 mb-8">
+                <h3 class="font-bold text-xl text-stone-800 mb-2">Context: Distribution Comparison</h3>
+                <p class="text-sm text-stone-600 mb-6">Comparing two distributions: Group A (σ=12.5) vs Group B (σ=19.1).</p>
+                <div class="chart-container">
+                    <canvas id="statsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-bold text-lg text-stone-800">Question 4</h3>
+                </div>
+                <div class="math-block text-stone-700 mb-4">
+                    <strong>Mean-Median Identity</strong><br><br>
+                    Data set {2, 5, 10, 15, x}. Median = Mean. Find sum of all possible integer x.
+                </div>
+                <button onclick="toggleMarkscheme('ms6')" class="mt-4 text-amber-700 hover:text-amber-800 font-semibold text-sm flex items-center gap-1 transition-colors">
+                    <span id="ms6-icon">▶</span> Show Markscheme
+                </button>
+                <div id="ms6" class="hidden mt-4 p-5 bg-stone-50 border-l-4 border-emerald-500 rounded-r-lg text-sm text-stone-700">
+                    <strong>Answer:</strong> 26 (x = 8 and x = 18)
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-bold text-lg text-stone-800">Question 5</h3>
+                </div>
+                <div class="math-block text-stone-700 mb-4">
+                    <strong>Z-Score Comparison</strong><br><br>
+                    Fred: Math 75 (μ=60, σ=20), History 45 (μ=55, σ=15), Drama 90 (μ=95, σ=2). Best subject relative to class?
+                </div>
+                <button onclick="toggleMarkscheme('ms7')" class="mt-4 text-amber-700 hover:text-amber-800 font-semibold text-sm flex items-center gap-1 transition-colors">
+                    <span id="ms7-icon">▶</span> Show Markscheme
+                </button>
+                <div id="ms7" class="hidden mt-4 p-5 bg-stone-50 border-l-4 border-emerald-500 rounded-r-lg text-sm text-stone-700">
+                    <strong>Answer:</strong> Mathematics (Z = 0.75)
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3 TAB: PROBABILITY -->
+        <div id="content-sec3" class="hidden space-y-8">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-stone-800 serif">Section 3: Combinatorial Probability</h2>
+                <p class="text-stone-600 mt-2">Geometric probability, dice sums, and permutations.</p>
+            </div>
+
+            <!-- Q12 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-bold text-lg text-stone-800">Question 6 <span class="text-sm font-normal text-stone-500 ml-2">(9 Points)</span></h3>
+                </div>
+                <div class="math-block text-stone-700 mb-6">
+                    <strong>Geometric Probability</strong><br><br>
+                    A 100 cm string is cut randomly. P(longer piece ≥ 4 × shorter piece)?
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="q12-options">
+                    <button onclick="checkMCQ('q12', 0, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">A) 0.2</button>
+                    <button onclick="checkMCQ('q12', 1, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">B) 0.3</button>
+                    <button onclick="checkMCQ('q12', 2, true)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover-bg-amber-50 transition-colors">C) 0.4</button>
+                    <button onclick="checkMCQ('q12', 3, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">D) 0.5</button>
+                </div>
+                <div id="q12-feedback" class="hidden mt-4 p-4 rounded-lg text-sm"></div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-bold text-lg text-stone-800">Question 7 <span class="text-sm font-normal text-stone-500 ml-2">(7 Points)</span></h3>
+                </div>
+                <div class="math-block text-stone-700 mb-6">
+                    <strong>Dice Sum Distributions</strong><br><br>
+                    Two dice rolled. P(sum is prime)?
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="q13-options">
+                    <button onclick="checkMCQ('q13', 0, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">A) 1/6</button>
+                    <button onclick="checkMCQ('q13', 1, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">B) 1/4</button>
+                    <button onclick="checkMCQ('q13', 2, true)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">C) 5/12</button>
+                    <button onclick="checkMCQ('q13', 3, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">D) 1/3</button>
+                </div>
+                <div id="q13-feedback" class="hidden mt-4 p-4 rounded-lg text-sm"></div>
+            </div>
+        </div>
+
+        <!-- SECTION 4 TAB: INVESTIGATION -->
+        <div id="content-sec4" class="hidden space-y-8">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold text-stone-800 serif">Section 4: Criterion B Investigation</h2>
+                <p class="text-stone-600 mt-2">Higher-order pattern synthesis and geometric series.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                <div class="mb-6 border-b border-stone-100 pb-4">
+                    <h3 class="font-bold text-xl text-stone-800 mb-2">The Setup</h3>
+                    <p class="text-stone-700">
+                        Advanced pattern investigation requiring synthesis of sequences, geometry, and probability.
+                    </p>
+                </div>
+
+                <!-- Q25 -->
+                <div>
+                    <h4 class="font-semibold text-stone-800">Question 25: Geometric Series in Probability</h4>
+                    <p class="text-stone-700 mt-1">Alice, Bob, Carol toss a die in order. Find P(Carol is first to toss a six).</p>
+                    
+                    <button onclick="toggleMarkscheme('ms25')" class="mt-2 text-amber-700 hover:text-amber-800 font-semibold text-sm flex items-center gap-1 transition-colors">
+                        <span id="ms25-icon">▶</span> Show Markscheme
+                    </button>
+                    <div id="ms25" class="hidden mt-2 p-3 bg-stone-50 border-l-4 border-emerald-500 rounded-r-lg text-sm text-stone-700 math-block">
+                        P(Carol wins) = a/(1-r) where a = 25/216 and r = (5/6)³ = 125/216. Answer = 25/91
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-6 text-center text-sm border-t border-stone-800 mt-auto">
+        <p>MYP4 Elite Assessment | Statistics & Probability Unit</p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        let currentTab = 'intro';
+        const mcqAnswers = {
+            q1: { correct: 1, explanation: "Using PIE: |A∪B∪C| = 550+450+400−250−200−150+100 = 900. None = 1000−900 = 100." },
+            q2: { correct: 2, explanation: "!4 = 4!×(1/2−1/6+1/24) = 9. P = 9/24 = 3/8." },
+            q3: { correct: 2, explanation: "Using PIE with LCM: |S| = 125+83+33−41−16−8+8 = 184." },
+            q12: { correct: 2, explanation: "x ≤ 20 or x ≥ 80. Total = 40. P = 40/100 = 0.4" },
+            q13: { correct: 2, explanation: "Prime sums: 2,3,5,7,11. Total = 15 ways. P = 15/36 = 5/12." }
+        };
+
+        function switchTab(tabId) {
+            document.querySelectorAll('main > div').forEach(div => div.classList.add('hidden'));
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('tab-active');
+                btn.classList.add('text-stone-300');
+            });
+            
+            document.getElementById(`content-${tabId}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.add('tab-active');
+            activeBtn.classList.remove('text-stone-300');
+            
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+
+            if(tabId === 'sec2' && !window.statsChartDrawn) {
+                drawStatsChart();
+                window.statsChartDrawn = true;
+            }
+        }
+
+        function checkMCQ(qId, selectedIdx, isCorrect) {
+            const optionsDiv = document.getElementById(`${qId}-options`);
+            const buttons = optionsDiv.querySelectorAll('button');
+            const feedbackDiv = document.getElementById(`${qId}-feedback`);
+            const actualCorrectIdx = mcqAnswers[qId].correct;
+
+            buttons.forEach((btn, idx) => {
+                btn.classList.remove('bg-emerald-100', 'border-emerald-500', 'bg-red-100', 'border-red-500', 'text-emerald-800', 'text-red-800');
+                btn.classList.add('border-stone-200');
+                
+                if (idx === actualCorrectIdx) {
+                    btn.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-800');
+                } else if (idx === selectedIdx && selectedIdx !== actualCorrectIdx) {
+                    btn.classList.add('bg-red-100', 'border-red-500', 'text-red-800');
+                }
+            });
+
+            feedbackDiv.classList.remove('hidden', 'bg-red-50', 'text-red-800', 'bg-emerald-50', 'text-emerald-800');
+            
+            if (selectedIdx === actualCorrectIdx) {
+                feedbackDiv.classList.add('bg-emerald-50', 'text-emerald-800');
+                feedbackDiv.innerHTML = `<strong>Correct!</strong> <br> ${mcqAnswers[qId].explanation}`;
+            } else {
+                feedbackDiv.classList.add('bg-red-50', 'text-red-800');
+                feedbackDiv.innerHTML = `<strong>Incorrect.</strong> <br> ${mcqAnswers[qId].explanation}`;
+            }
+
+            if (window.MathJax) {
+                MathJax.typesetPromise([feedbackDiv]);
+            }
+        }
+
+        function toggleMarkscheme(msId) {
+            const msDiv = document.getElementById(msId);
+            const icon = document.getElementById(`${msId}-icon`);
+            if (msDiv.classList.contains('hidden')) {
+                msDiv.classList.remove('hidden');
+                icon.textContent = '▼';
+            } else {
+                msDiv.classList.add('hidden');
+                icon.textContent = '▶';
+            }
+            if (window.MathJax) {
+                MathJax.typesetPromise([msDiv]);
+            }
+        }
+
+        function drawStatsChart() {
+            const ctx = document.getElementById('statsChart').getContext('2d');
+            const grades = [30, 40, 50, 60, 70, 80, 90, 100];
+            const groupA = [2, 5, 15, 35, 50, 30, 8, 2];
+            const groupB = [5, 12, 25, 30, 25, 10, 3, 0];
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: grades,
+                    datasets: [
+                        {
+                            label: 'Group A (σ=12.5)',
+                            data: groupA,
+                            backgroundColor: 'rgba(56, 189, 248, 0.7)',
+                            borderColor: '#38bdf8',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Group B (σ=19.1)',
+                            data: groupB,
+                            backgroundColor: 'rgba(251, 191, 36, 0.7)',
+                            borderColor: '#fbbf24',
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: true }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Number of Students' }
+                        },
+                        x: {
+                            title: { display: true, text: 'Test Score' }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
