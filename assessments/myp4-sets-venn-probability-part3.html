@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MYP4 Elite Assessment: Statistics & Probability</title>
+    <title>MYP4 Mathematical Challenge: Sets & Probability</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -55,20 +55,19 @@
     <header class="bg-stone-900 text-stone-50 shadow-md z-10 sticky top-0">
         <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
-                <h1 class="text-2xl font-bold tracking-tight">MYP4 Elite Assessment</h1>
-                <p class="text-sm text-stone-400 font-medium mt-1">Unit: Statistics & Probability - Advanced Challenge</p>
+                <h1 class="text-2xl font-bold tracking-tight">MYP4 Mathematical Challenge</h1>
+                <p class="text-sm text-stone-400 font-medium mt-1">Unit: Sets, Venn Diagrams, and Probability - Part 3</p>
             </div>
             <div class="bg-stone-800 px-4 py-2 rounded-lg border border-stone-700 text-sm">
-                <span class="text-stone-400">Target Time:</span> <span class="font-bold text-amber-500">90 Minutes</span>
+                <span class="text-stone-400">Target Time:</span> <span class="font-bold text-amber-500">45 Minutes</span>
             </div>
         </div>
         <!-- Navigation Tabs -->
         <nav class="max-w-6xl mx-auto px-4 flex overflow-x-auto hide-scrollbar border-t border-stone-800">
             <button onclick="switchTab('intro')" id="tab-intro" class="px-4 py-3 text-sm text-stone-300 hover:text-white whitespace-nowrap tab-active transition-colors">Overview & Context</button>
-            <button onclick="switchTab('sec1')" id="tab-sec1" class="px-4 py-3 text-sm text-stone-300 hover:text-white whitespace-nowrap transition-colors">Sec 1: Set Theory</button>
-            <button onclick="switchTab('sec2')" id="tab-sec2" class="px-4 py-3 text-sm text-stone-300 hover:text-white whitespace-nowrap transition-colors">Sec 2: Statistics</button>
-            <button onclick="switchTab('sec3')" id="tab-sec3" class="px-4 py-3 text-sm text-stone-300 hover:text-white whitespace-nowrap transition-colors">Sec 3: Probability</button>
-            <button onclick="switchTab('sec4')" id="tab-sec4" class="px-4 py-3 text-sm text-stone-300 hover:text-white whitespace-nowrap transition-colors">Sec 4: Investigation</button>
+            <button onclick="switchTab('sec1')" id="tab-sec1" class="px-4 py-3 text-sm text-stone-300 hover:text-white whitespace-nowrap transition-colors">Sec 1: Kangaroo Logic</button>
+            <button onclick="switchTab('sec2')" id="tab-sec2" class="px-4 py-3 text-sm text-stone-300 hover:text-white whitespace-nowrap transition-colors">Sec 2: AoPS Applications</button>
+            <button onclick="switchTab('sec3')" id="tab-sec3" class="px-4 py-3 text-sm text-stone-300 hover:text-white whitespace-nowrap transition-colors">Sec 3: Crit B Investigation</button>
         </nav>
     </header>
 
@@ -80,27 +79,23 @@
             <div class="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-stone-200">
                 <h2 class="text-3xl font-bold text-stone-800 mb-4 serif">Statement of Inquiry</h2>
                 <blockquote class="border-l-4 border-amber-600 pl-4 py-2 text-xl italic text-stone-600 mb-6 serif">
-                    "We must take care to ask the right questions and to measure the correct data to understand relationships so we can use information to make the world a better and fairer place."
+                    "An individual's understanding of risk and chance is highly dependent on both logic and their personal experience."
                 </blockquote>
                 <p class="text-stone-600 leading-relaxed mb-4">
-                    Welcome to the Elite Assessment. This paper bridges the rigorous conceptual framework of IB MYP with the complex, out-of-the-box problem-solving styles of Math Kangaroo and AMC 10.
+                    Welcome to the MYP4 High-Challenge Assessment. This paper bridges the rigorous conceptual framework of the IB Middle Years Programme with the complex, out-of-the-box problem-solving styles of Math Kangaroo and the Art of Problem Solving (AoPS) / AMC 10.
                 </p>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                     <div class="bg-stone-50 p-5 rounded-lg border border-stone-100">
-                        <div class="text-amber-700 font-bold mb-2">Section 1: Set Theory</div>
-                        <p class="text-sm text-stone-600">PIE, derangements, set-builder notation (Q1-5)</p>
+                        <div class="text-amber-700 font-bold mb-2">Section 1: Kangaroo Style</div>
+                        <p class="text-sm text-stone-600">Multiple-choice logic puzzles requiring quick deductions involving set notation, 2-set Venn diagrams, and grids.</p>
                     </div>
                     <div class="bg-stone-50 p-5 rounded-lg border border-stone-100">
-                        <div class="text-amber-700 font-bold mb-2">Section 2: Statistics</div>
-                        <p class="text-sm text-stone-600">Mean/Median, Z-scores, variance (Q6-10)</p>
+                        <div class="text-amber-700 font-bold mb-2">Section 2: AoPS Style</div>
+                        <p class="text-sm text-stone-600">Deep applications. Theoretical probability, Inclusion-Exclusion Principle (PIE), and real-world life tables analysis.</p>
                     </div>
                     <div class="bg-stone-50 p-5 rounded-lg border border-stone-100">
-                        <div class="text-amber-700 font-bold mb-2">Section 3: Probability</div>
-                        <p class="text-sm text-stone-600">Combinatorial probability (Q16-20)</p>
-                    </div>
-                    <div class="bg-stone-50 p-5 rounded-lg border border-stone-100">
-                        <div class="text-amber-700 font-bold mb-2">Section 4: Investigation</div>
-                        <p class="text-sm text-stone-600">Pattern synthesis & geometry (Q21-25)</p>
+                        <div class="text-amber-700 font-bold mb-2">Section 3: Criterion B</div>
+                        <p class="text-sm text-stone-600">A multi-step mathematical investigation generalizing Venn diagram regions using formal notation.</p>
                     </div>
                 </div>
                 <div class="mt-8 text-center">
@@ -109,27 +104,29 @@
             </div>
         </div>
 
-        <!-- SECTION 1 TAB: SET THEORY -->
+        <!-- SECTION 1 TAB: KANGAROO -->
         <div id="content-sec1" class="hidden space-y-8">
             <div class="mb-6">
-                <h2 class="text-3xl font-bold text-stone-800 serif">Section 1: Set Theory & Logical Intersection</h2>
-                <p class="text-stone-600 mt-2">Apply the Principle of Inclusion-Exclusion and investigate patterns.</p>
+                <h2 class="text-3xl font-bold text-stone-800 serif">Section 1: Kangaroo Logic (Multiple Choice)</h2>
+                <p class="text-stone-600 mt-2">Identify the correct answer using logical deduction. Select your answer to check your reasoning.</p>
             </div>
 
             <!-- Q1 -->
             <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="font-bold text-lg text-stone-800">Question 1 <span class="text-sm font-normal text-stone-500 ml-2">(7 Points)</span></h3>
+                    <h3 class="font-bold text-lg text-stone-800">Question 1 <span class="text-sm font-normal text-stone-500 ml-2">(3 Points)</span></h3>
+                    <span class="bg-stone-100 text-stone-600 text-xs px-2 py-1 rounded font-mono">Sets & Notation</span>
                 </div>
                 <div class="math-block text-stone-700 mb-6">
-                    <strong>The Triple Set Divergence</strong><br><br>
-                    In a survey of 1,000 digital consumers: 550 use Platform A, 450 use Platform B, 400 use Platform C. 250 use both A and B, 200 use both B and C, 150 use both A and C. 100 use all three. Calculate those who use none.
+                    Let the universal set \( U = \{x \mid x \in \mathbb{Z}, -3 \leq x \leq 5\} \).<br>
+                    Let \( A = \{x \mid x > 0\} \) and \( B = \{x \mid x \text{ is a multiple of } 2\} \).<br><br>
+                    Calculate the cardinality of the set \( (A \cup B)' \).
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="q1-options">
-                    <button onclick="checkMCQ('q1', 0, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">A) 50</button>
-                    <button onclick="checkMCQ('q1', 1, true)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">B) 100</button>
-                    <button onclick="checkMCQ('q1', 2, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">C) 150</button>
-                    <button onclick="checkMCQ('q1', 3, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">D) 200</button>
+                    <button onclick="checkMCQ('q1', 0, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">A) 1</button>
+                    <button onclick="checkMCQ('q1', 1, true)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">B) 2</button>
+                    <button onclick="checkMCQ('q1', 2, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">C) 3</button>
+                    <button onclick="checkMCQ('q1', 3, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">D) 7</button>
                 </div>
                 <div id="q1-feedback" class="hidden mt-4 p-4 rounded-lg text-sm"></div>
             </div>
@@ -137,17 +134,17 @@
             <!-- Q2 -->
             <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="font-bold text-lg text-stone-800">Question 2 <span class="text-sm font-normal text-stone-500 ml-2">(7 Points)</span></h3>
+                    <h3 class="font-bold text-lg text-stone-800">Question 2 <span class="text-sm font-normal text-stone-500 ml-2">(4 Points)</span></h3>
+                    <span class="bg-stone-100 text-stone-600 text-xs px-2 py-1 rounded font-mono">Logical Deduction</span>
                 </div>
                 <div class="math-block text-stone-700 mb-6">
-                    <strong>Derangements</strong><br><br>
-                    Four students (X, Y, Z, W) submit papers. Papers are redistributed randomly. What's P(no student gets their own)?
+                    In a room of 50 students, 35 play football, 20 play basketball, and 5 play neither. If a student is selected at random, what is the theoretical probability that they play <strong>exactly one</strong> of these sports?
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="q2-options">
-                    <button onclick="checkMCQ('q2', 0, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">A) 1/8</button>
-                    <button onclick="checkMCQ('q2', 1, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">B) 1/4</button>
-                    <button onclick="checkMCQ('q2', 2, true)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">C) 3/8</button>
-                    <button onclick="checkMCQ('q2', 3, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">D) 1/2</button>
+                    <button onclick="checkMCQ('q2', 0, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">A) \(\frac{1}{5}\)</button>
+                    <button onclick="checkMCQ('q2', 1, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">B) \(\frac{1}{2}\)</button>
+                    <button onclick="checkMCQ('q2', 2, true)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">C) \(\frac{7}{10}\)</button>
+                    <button onclick="checkMCQ('q2', 3, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">D) \(\frac{9}{10}\)</button>
                 </div>
                 <div id="q2-feedback" class="hidden mt-4 p-4 rounded-lg text-sm"></div>
             </div>
@@ -155,142 +152,174 @@
             <!-- Q3 -->
             <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="font-bold text-lg text-stone-800">Question 3 <span class="text-sm font-normal text-stone-500 ml-2">(8 Points)</span></h3>
+                    <h3 class="font-bold text-lg text-stone-800">Question 3 <span class="text-sm font-normal text-stone-500 ml-2">(5 Points)</span></h3>
+                    <span class="bg-stone-100 text-stone-600 text-xs px-2 py-1 rounded font-mono">Sample Spaces</span>
                 </div>
                 <div class="math-block text-stone-700 mb-6">
-                    <strong>Set-Builder Notation</strong><br><br>
-                    S = {x ∈ ℤ | 1 ≤ x ≤ 500, x divisible by 4, 6, or 15}. Find |S|.
+                    Two fair six-sided dice are rolled. Let Event \( A \) be "the sum of the dice is a prime number", and Event \( B \) be "at least one die shows a 2". <br><br>
+                    Calculate the probability of \( A \cap B \).
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="q3-options">
-                    <button onclick="checkMCQ('q3', 0, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">A) 125</button>
-                    <button onclick="checkMCQ('q3', 1, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">B) 150</button>
-                    <button onclick="checkMCQ('q3', 2, true)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">C) 184</button>
-                    <button onclick="checkMCQ('q3', 3, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">D) 200</button>
+                    <button onclick="checkMCQ('q3', 0, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">A) \(\frac{1}{6}\)</button>
+                    <button onclick="checkMCQ('q3', 1, true)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">B) \(\frac{1}{9}\)</button>
+                    <button onclick="checkMCQ('q3', 2, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">C) \(\frac{5}{36}\)</button>
+                    <button onclick="checkMCQ('q3', 3, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">D) \(\frac{11}{36}\)</button>
                 </div>
                 <div id="q3-feedback" class="hidden mt-4 p-4 rounded-lg text-sm"></div>
             </div>
         </div>
 
-        <!-- SECTION 2 TAB: STATISTICS -->
+        <!-- SECTION 2 TAB: AoPS -->
         <div id="content-sec2" class="hidden space-y-8">
             <div class="mb-6">
-                <h2 class="text-3xl font-bold text-stone-800 serif">Section 2: Descriptive Statistics & Algebraic Measures</h2>
-                <p class="text-stone-600 mt-2">Deep application of mean, median, variance, and Z-scores.</p>
+                <h2 class="text-3xl font-bold text-stone-800 serif">Section 2: AoPS Style Applications</h2>
+                <p class="text-stone-600 mt-2">Deep application of probability theory, Inclusion-Exclusion, and real-world data interpretation. Answer in short form, then check the markscheme.</p>
             </div>
 
-            <!-- Interactive Statistics Chart -->
+            <!-- Interactive Life Table Data -->
             <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 mb-8">
-                <h3 class="font-bold text-xl text-stone-800 mb-2">Context: Distribution Comparison</h3>
-                <p class="text-sm text-stone-600 mb-6">Comparing two distributions: Group A (σ=12.5) vs Group B (σ=19.1).</p>
+                <h3 class="font-bold text-xl text-stone-800 mb-2">Context: Actuarial Life Table (Sweden Data)</h3>
+                <p class="text-sm text-stone-600 mb-6">
+                    A life table tracks a hypothetical cohort of 100,000 individuals from birth, showing how many survive to specific ages based on current mortality rates. <em>Hover over the chart to explore the experimental data.</em>
+                </p>
                 <div class="chart-container">
-                    <canvas id="statsChart"></canvas>
+                    <canvas id="lifeTableChart"></canvas>
                 </div>
             </div>
 
-            <!-- Q6 -->
+            <!-- Q4: Data Application -->
             <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="font-bold text-lg text-stone-800">Question 4</h3>
+                    <span class="bg-stone-100 text-stone-600 text-xs px-2 py-1 rounded font-mono">Data Interpretation</span>
                 </div>
                 <div class="math-block text-stone-700 mb-4">
-                    <strong>Mean-Median Identity</strong><br><br>
-                    Data set {2, 5, 10, 15, x}. Median = Mean. Find sum of all possible integer x.
+                    Using the Life Table chart above, <strong>Calculate</strong> the experimental probability that a person who has already survived to age 40 will survive to age 80. Express your answer as a percentage to one decimal place.<br><br>
+                    <strong>Justify</strong> how this experimental probability differs conceptually from flipping a coin, referring to the Statement of Inquiry.
                 </div>
-                <button onclick="toggleMarkscheme('ms6')" class="mt-4 text-amber-700 hover:text-amber-800 font-semibold text-sm flex items-center gap-1 transition-colors">
-                    <span id="ms6-icon">▶</span> Show Markscheme
+                
+                <button onclick="toggleMarkscheme('ms4')" class="mt-4 text-amber-700 hover:text-amber-800 font-semibold text-sm flex items-center gap-1 transition-colors">
+                    <span id="ms4-icon">▶</span> Show Markscheme & Pitfalls
                 </button>
-                <div id="ms6" class="hidden mt-4 p-5 bg-stone-50 border-l-4 border-emerald-500 rounded-r-lg text-sm text-stone-700">
-                    <strong>Answer:</strong> 26 (x = 8 and x = 18)
+                
+                <div id="ms4" class="hidden mt-4 p-5 bg-stone-50 border-l-4 border-emerald-500 rounded-r-lg text-sm text-stone-700 space-y-3">
+                    <div><strong>Markscheme:</strong></div>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Identify survivors at Age 40: \( l_{40} = 98,000 \) <em>(1 mark)</em></li>
+                        <li>Identify survivors at Age 80: \( l_{80} = 65,000 \) <em>(1 mark)</em></li>
+                        <li>Calculate conditional probability: \( P(\text{Survive to 80} \mid \text{Survived to 40}) = \frac{65,000}{98,000} \approx 66.3\% \) <em>(1 mark)</em></li>
+                        <li><strong>Justification:</strong> Flipping a coin is <em>theoretical</em> probability (based on pure logic/symmetry). The life table uses <em>experimental</em> probability (based on accumulated human experience and empirical data). <em>(2 marks)</em></li>
+                    </ul>
+                    <div class="bg-amber-100 border border-amber-300 p-3 rounded mt-3">
+                        <strong class="text-amber-800">Olympiad Pitfall:</strong> Many students calculate \( \frac{65,000}{100,000} = 65\% \). They fail to recognize the <em>conditional</em> nature of the prompt ("already survived to age 40"). The sample space has shrunk!
+                    </div>
                 </div>
             </div>
 
-            <!-- Q7 -->
+            <!-- Q5: 3-Set PIE -->
             <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="font-bold text-lg text-stone-800">Question 5</h3>
+                    <span class="bg-stone-100 text-stone-600 text-xs px-2 py-1 rounded font-mono">Inclusion-Exclusion</span>
                 </div>
-                <div class="math-block text-stone-700 mb-4">
-                    <strong>Z-Score Comparison</strong><br><br>
-                    Fred: Math 75 (μ=60, σ=20), History 45 (μ=55, σ=15), Drama 90 (μ=95, σ=2). Best subject relative to class?
+                
+                <div class="flex flex-col md:flex-row gap-6 mb-6">
+                    <div class="flex-1 math-block text-stone-700">
+                        In an MYP cohort of 150 students, data is collected on three subjects: Math (\(M\)), Physics (\(P\)), and Chemistry (\(C\)).<br><br>
+                        <ul>
+                            <li>\( |M| = 80 \), \( |P| = 60 \), \( |C| = 50 \)</li>
+                            <li>\( |M \cap P| = 30 \), \( |M \cap C| = 25 \), \( |P \cap C| = 20 \)</li>
+                            <li>10 students take all three subjects.</li>
+                        </ul><br>
+                        <strong>Calculate</strong> the probability that a randomly selected student takes <strong>at least two</strong> of these subjects, <em>given</em> that they take at least one.
+                    </div>
+                    <div class="w-full md:w-1/3 flex justify-center items-center">
+                        <canvas id="vennCanvas" width="200" height="200"></canvas>
+                    </div>
                 </div>
-                <button onclick="toggleMarkscheme('ms7')" class="mt-4 text-amber-700 hover:text-amber-800 font-semibold text-sm flex items-center gap-1 transition-colors">
-                    <span id="ms7-icon">▶</span> Show Markscheme
+
+                <button onclick="toggleMarkscheme('ms5')" class="mt-4 text-amber-700 hover:text-amber-800 font-semibold text-sm flex items-center gap-1 transition-colors">
+                    <span id="ms5-icon">▶</span> Show Markscheme & Pitfalls
                 </button>
-                <div id="ms7" class="hidden mt-4 p-5 bg-stone-50 border-l-4 border-emerald-500 rounded-r-lg text-sm text-stone-700">
-                    <strong>Answer:</strong> Mathematics (Z = 0.75)
+                
+                <div id="ms5" class="hidden mt-4 p-5 bg-stone-50 border-l-4 border-emerald-500 rounded-r-lg text-sm text-stone-700 space-y-3">
+                    <div><strong>Markscheme:</strong></div>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Find denominator (At least 1): Use PIE.<br> \( |M \cup P \cup C| = 80 + 60 + 50 - 30 - 25 - 20 + 10 = 125 \). <em>(2 marks)</em></li>
+                        <li>Find numerator (At least 2): <br> Regions representing exactly 2: <br>
+                            Only M&P = 30 - 10 = 20<br>
+                            Only M&C = 25 - 10 = 15<br>
+                            Only P&C = 20 - 10 = 10<br>
+                            Sum of exactly 2 = 45. Add all 3 (10) = 55. <em>(2 marks)</em></li>
+                        <li>Probability = \( \frac{55}{125} = \frac{11}{25} \). <em>(1 mark)</em></li>
+                    </ul>
+                    <div class="bg-amber-100 border border-amber-300 p-3 rounded mt-3">
+                        <strong class="text-amber-800">Olympiad Pitfall:</strong> Double counting the center region! When adding the intersections \( (30+25+20 = 75) \), the center (10) is counted <em>three</em> times.
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- SECTION 3 TAB: PROBABILITY -->
+        <!-- SECTION 3 TAB: CRIT B -->
         <div id="content-sec3" class="hidden space-y-8">
             <div class="mb-6">
-                <h2 class="text-3xl font-bold text-stone-800 serif">Section 3: Combinatorial Probability</h2>
-                <p class="text-stone-600 mt-2">Geometric probability, dice sums, and permutations.</p>
-            </div>
-
-            <!-- Q12 -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="font-bold text-lg text-stone-800">Question 6 <span class="text-sm font-normal text-stone-500 ml-2">(9 Points)</span></h3>
-                </div>
-                <div class="math-block text-stone-700 mb-6">
-                    <strong>Geometric Probability</strong><br><br>
-                    A 100 cm string is cut randomly. P(longer piece ≥ 4 × shorter piece)?
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="q12-options">
-                    <button onclick="checkMCQ('q12', 0, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">A) 0.2</button>
-                    <button onclick="checkMCQ('q12', 1, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">B) 0.3</button>
-                    <button onclick="checkMCQ('q12', 2, true)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover-bg-amber-50 transition-colors">C) 0.4</button>
-                    <button onclick="checkMCQ('q12', 3, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">D) 0.5</button>
-                </div>
-                <div id="q12-feedback" class="hidden mt-4 p-4 rounded-lg text-sm"></div>
-            </div>
-
-            <!-- Q13 -->
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
-                <div class="flex items-center justify-between mb-4">
-                    <h3 class="font-bold text-lg text-stone-800">Question 7 <span class="text-sm font-normal text-stone-500 ml-2">(7 Points)</span></h3>
-                </div>
-                <div class="math-block text-stone-700 mb-6">
-                    <strong>Dice Sum Distributions</strong><br><br>
-                    Two dice rolled. P(sum is prime)?
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="q13-options">
-                    <button onclick="checkMCQ('q13', 0, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">A) 1/6</button>
-                    <button onclick="checkMCQ('q13', 1, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">B) 1/4</button>
-                    <button onclick="checkMCQ('q13', 2, true)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">C) 5/12</button>
-                    <button onclick="checkMCQ('q13', 3, false)" class="text-left px-4 py-3 rounded-lg border border-stone-200 hover:border-amber-500 hover:bg-amber-50 transition-colors">D) 1/3</button>
-                </div>
-                <div id="q13-feedback" class="hidden mt-4 p-4 rounded-lg text-sm"></div>
-            </div>
-        </div>
-
-        <!-- SECTION 4 TAB: INVESTIGATION -->
-        <div id="content-sec4" class="hidden space-y-8">
-            <div class="mb-6">
-                <h2 class="text-3xl font-bold text-stone-800 serif">Section 4: Criterion B Investigation</h2>
-                <p class="text-stone-600 mt-2">Higher-order pattern synthesis and geometric series.</p>
+                <h2 class="text-3xl font-bold text-stone-800 serif">Section 3: Criterion B Investigation</h2>
+                <p class="text-stone-600 mt-2">Investigating Patterns: Generalizing Venn Diagram Regions.</p>
             </div>
 
             <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
                 <div class="mb-6 border-b border-stone-100 pb-4">
                     <h3 class="font-bold text-xl text-stone-800 mb-2">The Setup</h3>
                     <p class="text-stone-700">
-                        Advanced pattern investigation requiring synthesis of sequences, geometry, and probability.
+                        A standard Venn diagram with 2 overlapping sets (circles) divides the universal rectangular plane into a maximum of 4 distinct regions. A diagram with 3 overlapping sets divides the plane into a maximum of 8 distinct regions.
                     </p>
                 </div>
 
-                <!-- Q25 -->
-                <div>
-                    <h4 class="font-semibold text-stone-800">Question 25: Geometric Series in Probability</h4>
-                    <p class="text-stone-700 mt-1">Alice, Bob, Carol toss a die in order. Find P(Carol is first to toss a six).</p>
-                    
-                    <button onclick="toggleMarkscheme('ms25')" class="mt-2 text-amber-700 hover:text-amber-800 font-semibold text-sm flex items-center gap-1 transition-colors">
-                        <span id="ms25-icon">▶</span> Show Markscheme
-                    </button>
-                    <div id="ms25" class="hidden mt-2 p-3 bg-stone-50 border-l-4 border-emerald-500 rounded-r-lg text-sm text-stone-700 math-block">
-                        P(Carol wins) = a/(1-r) where a = 25/216 and r = (5/6)³ = 125/216. Answer = 25/91
+                <div class="space-y-6">
+                    <!-- Part A -->
+                    <div>
+                        <h4 class="font-semibold text-stone-800">Part A (Identify)</h4>
+                        <p class="text-stone-700 mt-1">If you were to construct a Venn diagram using 4 overlapping shapes, what is the maximum number of distinct regions the universal set would be divided into?</p>
+                        
+                        <button onclick="toggleMarkscheme('ms6a')" class="mt-2 text-amber-700 hover:text-amber-800 font-semibold text-sm flex items-center gap-1 transition-colors">
+                            <span id="ms6a-icon">▶</span> Reveal Answer
+                        </button>
+                        <div id="ms6a" class="hidden mt-2 p-3 bg-stone-50 border-l-4 border-emerald-500 rounded-r-lg text-sm text-stone-700">
+                            16 distinct regions. <em>(Note: It is impossible to draw 4 mutually overlapping circles to create 16 regions; ellipses or other shapes are required, a classic topological trap!)</em>
+                        </div>
+                    </div>
+
+                    <!-- Part B -->
+                    <div>
+                        <h4 class="font-semibold text-stone-800">Part B (Generalize)</h4>
+                        <p class="text-stone-700 mt-1">Write a generalized formula for \( R_n \), the maximum number of distinct regions formed by \( n \) intersecting sets in a Venn diagram.</p>
+                        
+                        <button onclick="toggleMarkscheme('ms6b')" class="mt-2 text-amber-700 hover:text-amber-800 font-semibold text-sm flex items-center gap-1 transition-colors">
+                            <span id="ms6b-icon">▶</span> Reveal Answer
+                        </button>
+                        <div id="ms6b" class="hidden mt-2 p-3 bg-stone-50 border-l-4 border-emerald-500 rounded-r-lg text-sm text-stone-700 math-block">
+                            \( R_n = 2^n \)
+                        </div>
+                    </div>
+
+                    <!-- Part C -->
+                    <div>
+                        <h4 class="font-semibold text-stone-800">Part C (Justify - AoPS Level)</h4>
+                        <p class="text-stone-700 mt-1">Using logical principles of sets (In/Out states) or combinatorics, <strong>Justify</strong> why your generalized formula works.</p>
+                        
+                        <button onclick="toggleMarkscheme('ms6c')" class="mt-2 text-amber-700 hover:text-amber-800 font-semibold text-sm flex items-center gap-1 transition-colors">
+                            <span id="ms6c-icon">▶</span> Reveal Markscheme
+                        </button>
+                        <div id="ms6c" class="hidden mt-2 p-4 bg-stone-50 border-l-4 border-emerald-500 rounded-r-lg text-sm text-stone-700 space-y-2">
+                            <p><strong>Markscheme (Combinatorial Justification):</strong></p>
+                            <p>For any element \( x \) in the Universal set \( U \), and for any specific set \( S_i \) (where \( i \) goes from 1 to \( n \)), the element \( x \) has exactly two possible states:</p>
+                            <ol class="list-decimal pl-5 space-y-1 my-2">
+                                <li>It is <strong>Inside</strong> the set (\( x \in S_i \))</li>
+                                <li>It is <strong>Outside</strong> the set (\( x \notin S_i \))</li>
+                            </ol>
+                            <p>Since there are \( n \) distinct sets, and each set offers 2 independent choices for any point's location, the Fundamental Counting Principle states there are \( 2 \times 2 \times 2 \dots \times 2 \) (\( n \) times) possible combinations of states.</p>
+                            <p>Therefore, there are \( 2^n \) mathematically distinct regions. <em>(Level 7/8 Justification)</em></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -300,18 +329,16 @@
 
     <!-- Footer -->
     <footer class="bg-stone-900 text-stone-400 py-6 text-center text-sm border-t border-stone-800 mt-auto">
-        <p>MYP4 Elite Assessment | Statistics & Probability Unit</p>
+        <p>Designed for MYP4 Mathematics | Sets, Venn Diagrams & Probability Unit</p>
     </footer>
 
     <!-- JavaScript Logic -->
     <script>
         let currentTab = 'intro';
         const mcqAnswers = {
-            q1: { correct: 1, explanation: "Using PIE: |A∪B∪C| = 550+450+400−250−200−150+100 = 900. None = 1000−900 = 100." },
-            q2: { correct: 2, explanation: "!4 = 4!×(1/2−1/6+1/24) = 9. P = 9/24 = 3/8." },
-            q3: { correct: 2, explanation: "Using PIE with LCM: |S| = 125+83+33−41−16−8+8 = 184." },
-            q12: { correct: 2, explanation: "x ≤ 20 or x ≥ 80. Total = 40. P = 40/100 = 0.4" },
-            q13: { correct: 2, explanation: "Prime sums: 2,3,5,7,11. Total = 15 ways. P = 15/36 = 5/12." }
+            q1: { correct: 1, explanation: "U = {-3, -2, -1, 0, 1, 2, 3, 4, 5}. A = {1, 2, 3, 4, 5}. B (multiples of 2 in U) = {-2, 0, 2, 4}. A ∪ B = {-2, 0, 1, 2, 3, 4, 5}. The complement (A ∪ B)' = {-3, -1}. Cardinality is 2." },
+            q2: { correct: 2, explanation: "Total = 50. Neither = 5. So, Football ∪ Basketball = 45. F + B - (F ∩ B) = 45. 35 + 20 - x = 45, so x = 10 (both). Football only = 25. Basketball only = 10. Exactly one = 25 + 10 = 35. Probability = 35/50 = 7/10." },
+            q3: { correct: 1, explanation: "Sample space = 36. Prime sums: 2, 3, 5, 7, 11. Outcomes with a '2' AND prime sum: (2,1)[sum 3], (1,2)[sum 3], (2,3)[sum 5], (3,2)[sum 5], (2,5)[sum 7], (5,2)[sum 7]. There are 6 such outcomes. Note: (2,2) sums to 4 (not prime). 6/36 = 1/9." }
         };
 
         function switchTab(tabId) {
@@ -330,9 +357,9 @@
                 MathJax.typesetPromise();
             }
 
-            if(tabId === 'sec2' && !window.statsChartDrawn) {
-                drawStatsChart();
-                window.statsChartDrawn = true;
+            if(tabId === 'sec2' && !window.vennDrawn) {
+                drawVennDiagram();
+                window.vennDrawn = true;
             }
         }
 
@@ -383,50 +410,100 @@
             }
         }
 
-        function drawStatsChart() {
-            const ctx = document.getElementById('statsChart').getContext('2d');
-            const grades = [30, 40, 50, 60, 70, 80, 90, 100];
-            const groupA = [2, 5, 15, 35, 50, 30, 8, 2];
-            const groupB = [5, 12, 25, 30, 25, 10, 3, 0];
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('lifeTableChart').getContext('2d');
+            
+            const ages = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+            const survivors = [100000, 99500, 99100, 98600, 98000, 96000, 91000, 81000, 65000, 25000, 1500];
 
             new Chart(ctx, {
-                type: 'bar',
+                type: 'line',
                 data: {
-                    labels: grades,
-                    datasets: [
-                        {
-                            label: 'Group A (σ=12.5)',
-                            data: groupA,
-                            backgroundColor: 'rgba(56, 189, 248, 0.7)',
-                            borderColor: '#38bdf8',
-                            borderWidth: 2
-                        },
-                        {
-                            label: 'Group B (σ=19.1)',
-                            data: groupB,
-                            backgroundColor: 'rgba(251, 191, 36, 0.7)',
-                            borderColor: '#fbbf24',
-                            borderWidth: 2
-                        }
-                    ]
+                    labels: ages,
+                    datasets: [{
+                        label: 'Number of Survivors (l_x)',
+                        data: survivors,
+                        borderColor: '#b45309',
+                        backgroundColor: 'rgba(180, 83, 9, 0.1)',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#1c1917',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#1c1917',
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                        fill: true,
+                        tension: 0.3
+                    }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: { display: true }
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: 'rgba(28, 25, 23, 0.9)',
+                            callbacks: {
+                                label: function(context) {
+                                    return `Survivors: ${context.parsed.y.toLocaleString()}`;
+                                },
+                                title: function(context) {
+                                    return `Age: ${context[0].label}`;
+                                }
+                            }
+                        }
                     },
                     scales: {
                         y: {
                             beginAtZero: true,
-                            title: { display: true, text: 'Number of Students' }
+                            max: 105000,
+                            title: { display: true, text: 'Survivors (out of 100k)' }
                         },
                         x: {
-                            title: { display: true, text: 'Test Score' }
+                            title: { display: true, text: 'Age (Years)' }
                         }
                     }
                 }
             });
+        });
+
+        function drawVennDiagram() {
+            const canvas = document.getElementById('vennCanvas');
+            if(!canvas || !canvas.getContext) return;
+            const ctx = canvas.getContext('2d');
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.globalCompositeOperation = 'multiply';
+
+            const drawCircle = (x, y, color, label, labelX, labelY) => {
+                ctx.beginPath();
+                ctx.arc(x, y, 50, 0, Math.PI * 2, false);
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = 'rgba(0,0,0,0.1)';
+                ctx.stroke();
+                
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.fillStyle = '#1c1917';
+                ctx.font = 'bold 16px Inter';
+                ctx.textAlign = 'center';
+                ctx.fillText(label, labelX, labelY);
+                ctx.globalCompositeOperation = 'multiply';
+            };
+
+            drawCircle(80, 80, 'rgba(56, 189, 248, 0.5)', 'M', 50, 50);
+            drawCircle(120, 80, 'rgba(251, 191, 36, 0.5)', 'P', 150, 50);
+            drawCircle(100, 115, 'rgba(52, 211, 153, 0.5)', 'C', 100, 160);
+            
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.strokeStyle = '#a8a29e';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(5, 5, 190, 190);
+            
+            ctx.fillStyle = '#a8a29e';
+            ctx.font = 'italic 12px serif';
+            ctx.fillText('U', 15, 20);
         }
     </script>
 </body>
