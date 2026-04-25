@@ -1,4 +1,4 @@
-# KaniMath - IB MYP Assessment Platform
+# IB MYP Assessment Platform
 
 <p align="center">
   <img src="https://img.shields.io/badge/IB-MYP4-6366f1?style=for-the-badge" alt="IB MYP4">
