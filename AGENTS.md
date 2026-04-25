@@ -6,18 +6,31 @@ An interactive assessment platform for IB MYP4 (International Baccalaureate Midd
 **Live Site**: https://kaniib.vercel.app
 
 ## Tech Stack
-- HTML5, CSS3, JavaScript (vanilla)
+- React 18 + Vite (frontend)
+- HTML5, CSS3 (for assessment files)
 - Vercel (deployment)
 - GitHub (version control)
 
 ## Project Structure
 ```
 mathapp/
-├── index.html           # Main landing page
-├── vercel.json          # Vercel configuration
-├── assessments/
-│   ├── myp4-*.html      # Assessment files
-│   └── content/         # Source materials
+├── index.html              # SPA entry point (served by Vercel)
+├── package.json
+├── vite.config.js
+├── vercel.json             # Updated for React build
+├── src/
+│   ├── assets/             # Images, icons
+│   ├── components/         # Reusable UI components
+│   ├── hooks/              # Custom React hooks
+│   ├── pages/              # Page components
+│   ├── styles/             # CSS variables, globals
+│   ├── utils/              # Helper functions
+│   └── App.jsx             # Main app component with routing
+├── assessments/            # UNCHANGED - all existing .html files
+│   ├── myp4-*.html
+│   └── content/
+└── public/                 # Static assets
+    └── vite.svg
 ```
 
 ## Assessment Types
@@ -45,7 +58,10 @@ mathapp/
 
 ## Adding New Assessments
 
-### 1. Create Assessment File
+### Approach 1: HTML Assessments (Maintains Backward Compatibility)
+Existing assessment files (.html) continue to work as-is. To add new HTML assessments:
+
+1. **Create Assessment File**
 Copy the assessment structure:
 ```html
 <!-- assessments/myp4-[topic].html -->
@@ -67,18 +83,26 @@ Copy the assessment structure:
 </html>
 ```
 
-### 2. Update index.html
-Add assessment card:
+2. **Update index.html** (React App)
+Add assessment card to the React application:
 ```html
 <a href="assessments/myp4-[topic].html" class="assessment-card" data-category="myp4" data-topics="[topic]">
     <!-- Card content -->
 </a>
 ```
 
-Update stats:
+Update stats in the React app:
 - Assessments count
 - Questions count
 - Minutes count
+
+### Approach 2: React Assessments (Future Migration Path)
+For new development, assessments can be created as React components:
+1. Create a new component in `src/pages/assessments/`
+2. Add route in `src/App.jsx`
+3. Link from the assessments page
+
+Note: Existing HTML assessments will continue to work unchanged regardless of approach chosen.
 
 ### 3. Commit & Deploy
 ```bash
@@ -150,11 +174,13 @@ Located in `assessments/content/`:
 ## Vercel Configuration
 ```json
 {
-  "buildCommand": null,
-  "outputDirectory": ".",
-  "installCommand": null,
-  "framework": null,
-  "rewrites": []
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/assessments/(.*)", "destination": "/assessments/$1" } // Ensure assessment files are served correctly
+  ]
 }
 ```
 
