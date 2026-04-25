@@ -1,7 +1,13 @@
+---
+name: ib-myp-assessment
+description: IB MYP Assessment Development - Create interactive assessments for the KaniMath platform including study materials and quizzes
+argument-hint: 'assessment topic (e.g., supply-demand, money-history)'
+user-invocable: true
+---
+
 # Skill: IB MYP Assessment Development
 
-## Overview
-This skill provides guidance for developing IB MYP4 assessment content for the KaniMath platform. It covers creating interactive assessments, study materials, and maintaining IB curriculum standards.
+This skill provides guidance for developing IB MYP4 assessment content for the KaniMath platform. It covers creating interactive assessments (both HTML and React-based), study materials, and maintaining IB curriculum standards. The platform now uses React for the main application while maintaining backward compatibility with existing HTML assessment files.
 
 ## Project Path
 ```
@@ -13,8 +19,10 @@ https://kaniib.vercel.app
 
 ## Prerequisites
 - Basic HTML/CSS/JavaScript knowledge
+- Basic React knowledge (for main application development)
 - Understanding of IB MYP assessment criteria
 - Access to source materials (docx, txt files in `assessments/content/`)
+- Node.js and npm installed (for development)
 
 ## Assessment Types
 
@@ -56,35 +64,85 @@ https://kaniib.vercel.app
 
 ## Creating New Assessment
 
-### Step 1: Analyze Source Material
+### Approach 1: HTML Assessments (Backward Compatible)
+For maintaining compatibility with existing assessments:
+
+#### Step 1: Analyze Source Material
 1. Read docx/txt files in `assessments/content/`
 2. Identify key concepts and topics
 3. Extract Swedish examples
 4. Map to IB MYP criteria
 
-### Step 2: Create Assessment HTML
+#### Step 2: Create Assessment HTML
 Use existing pattern from `myp4-ins-supply-demand-assessment.html`:
 - Sidebar with timer, progress, navigation
 - Question types: MCQ, short, essay
 - PDF download functionality
 
-### Step 3: Create Study Material
+#### Step 3: Create Study Material
 Use pattern from `myp4-ins-money-history-study.html`:
 - Header with IB badge
 - Topic sections with concepts
 - Interactive quiz
 - Link to assessment
 
-### Step 4: Update index.html
-Add assessment card in the grid:
-```html
-<a href="assessments/myp4-topic.html" class="assessment-card" ...>
+#### Step 4: Update React Application
+Add assessment card to the React app in `src/pages/Assessments.jsx`:
+```jsx
+// Add to assessment data array
+{
+  id: 'unique-id',
+  title: 'Assessment Title',
+  description: 'Brief description',
+  topics: ['topic1', 'topic2'],
+  questionCount: 10,
+  timeMinutes: 30,
+  marks: 50,
+  difficulty: [true, true, true, false, false], // 3 active dots
+  href: 'assessments/myp4-topic.html',
+  category: 'myp4',
+  badge: 'badge-myp4'
+}
 ```
 
-Update stats counters:
-```html
-<div class="stat-value" data-count="N">0</div>
+#### Step 5: Update Stats (if needed)
+Edit the stats data in `src/pages/Home.jsx` or wherever stats are maintained.
+
+### Approach 2: React Assessments (Future Development)
+For new development using React components:
+
+#### Step 1: Create Assessment Component
+Create a new component in `src/pages/assessments/`:
+```jsx
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const MyAssessment = () => {
+  const navigate = useNavigate();
+  
+  // Assessment logic here (timer, questions, scoring, etc.)
+  
+  return (
+    <div>
+      {/* Assessment UI */}
+    </div>
+  );
+};
+
+export default MyAssessment;
 ```
+
+#### Step 2: Add Route
+Add route in `src/App.jsx`:
+```jsx
+<Route path="/assessments/my-topic" element={<MyAssessment />} />
+```
+
+#### Step 3: Create Study Material (Optional)
+Create study material as either HTML file or React component following similar patterns.
+
+#### Step 4: Link from Assessments Page
+Add entry to assessment data in `src/pages/Assessments.jsx` with `href` pointing to the React route.
 
 ### Step 5: Commit & Deploy
 ```bash
@@ -114,18 +172,30 @@ git push origin main
 
 ## Key Commands
 
-### Check git status
+### Development
 ```bash
+# Install dependencies
+cd /home/ubuntu/kani/mathapp && npm install
+
+# Start development server
+cd /home/ubuntu/kani/mathapp && npm run dev
+
+# Build for production
+cd /home/ubuntu/kani/mathapp && npm run build
+
+# Preview production build
+cd /home/ubuntu/kani/mathapp && npm run preview
+```
+
+### Git Operations
+```bash
+# Check git status
 cd /home/ubuntu/kani/mathapp && git status
-```
 
-### View recent commits
-```bash
+# View recent commits
 cd /home/ubuntu/kani/mathapp && git log --oneline -5
-```
 
-### Force push (if needed)
-```bash
+# Force push (if needed)
 cd /home/ubuntu/kani/mathapp && git push origin main --force
 ```
 
