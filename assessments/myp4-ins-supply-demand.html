@@ -405,6 +405,29 @@
                 </ul>
             </div>
 
+            <div class="graph-container">
+                <svg viewBox="0 0 400 300" width="100%" height="auto">
+                    <rect fill="#0f172a" width="400" height="300"/>
+                    <defs>
+                        <linearGradient id="demandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#6366f1"/>
+                            <stop offset="100%" style="stop-color:#a855f7"/>
+                        </linearGradient>
+                    </defs>
+                    <line x1="50" y1="250" x2="350" y2="250" stroke="#475569" stroke-width="2"/>
+                    <line x1="50" y1="250" x2="50" y2="30" stroke="#475569" stroke-width="2"/>
+                    <text x="355" y="255" fill="#94a3b8" font-family="Inter" font-size="12">Q</text>
+                    <text x="40" y="35" fill="#94a3b8" font-family="Inter" font-size="12">P</text>
+                    <polygon points="50,250 340,50 340,250" fill="url(#demandGrad)" opacity="0.3"/>
+                    <line x1="50" y1="250" x2="340" y2="50" stroke="#6366f1" stroke-width="3"/>
+                    <text x="180" y="145" fill="#6366f1" font-family="Inter" font-size="14" font-weight="600">D</text>
+                    <text x="310" y="65" fill="#94a3b8" font-family="Fira Code" font-size="11">High P → Low Q</text>
+                    <text x="80" y="275" fill="#94a3b8" font-family="Inter" font-size="10">0</text>
+                    <text x="50" y="245" fill="#94a3b8" font-family="Fira Code" font-size="10">O</text>
+                </svg>
+                <p style="color: #94a3b8; font-size: 13px; margin-top: 12px;">The demand curve slopes downward: as price increases, quantity demanded decreases</p>
+            </div>
+
             <div class="concept">
                 <h3>Factors Influencing Demand</h3>
                 <table>
@@ -482,6 +505,24 @@
                 <div class="formula positive">D₀ → D₁: Quantity Demanded Increases, Price stays the same</div>
             </div>
 
+            <div class="graph-container">
+                <svg viewBox="0 0 400 280" width="100%" height="auto">
+                    <rect fill="#0f172a" width="400" height="280"/>
+                    <line x1="50" y1="240" x2="360" y2="240" stroke="#475569" stroke-width="2"/>
+                    <line x1="50" y1="240" x2="50" y2="20" stroke="#475569" stroke-width="2"/>
+                    <text x="365" y="255" fill="#94a3b8" font-family="Inter" font-size="11">Q</text>
+                    <text x="40" y="25" fill="#94a3b8" font-family="Inter" font-size="11">P</text>
+                    <line x1="50" y1="240" x2="320" y2="60" stroke="#6366f1" stroke-width="2" opacity="0.5"/>
+                    <line x1="50" y1="240" x2="320" y2="60" stroke="#6366f1" stroke-width="2" stroke-dasharray="8,4" transform="translate(0, -25)"/>
+                    <text x="280" y="55" fill="#6366f1" font-family="Inter" font-size="12">D₁</text>
+                    <text x="270" y="85" fill="#6366f1" font-family="Inter" font-size="12" opacity="0.7">D₀</text>
+                    <text x="330" y="235" fill="#10b981" font-family="Inter" font-size="11">→ Increase</text>
+                    <circle cx="100" cy="200" r="4" fill="#10b981"/>
+                    <circle cx="130" cy="170" r="4" fill="#10b981"/>
+                </svg>
+                <p style="color: #94a3b8; font-size: 13px; margin-top: 12px;">An increase in demand shifts the entire curve to the RIGHT</p>
+            </div>
+
             <div class="concept">
                 <h3>Shift Left (Decrease in Demand)</h3>
                 <ul class="factor-list">
@@ -491,6 +532,22 @@
                     <li>↑ Interest Rates</li>
                 </ul>
                 <div class="formula negative">D₀ → D₂: Quantity Demanded Decreases, Price stays the same</div>
+            </div>
+
+            <div class="graph-container">
+                <svg viewBox="0 0 400 280" width="100%" height="auto">
+                    <rect fill="#0f172a" width="400" height="280"/>
+                    <line x1="50" y1="240" x2="360" y2="240" stroke="#475569" stroke-width="2"/>
+                    <line x1="50" y1="240" x2="50" y2="20" stroke="#475569" stroke-width="2"/>
+                    <text x="365" y="255" fill="#94a3b8" font-family="Inter" font-size="11">Q</text>
+                    <text x="40" y="25" fill="#94a3b8" font-family="Inter" font-size="11">P</text>
+                    <line x1="50" y1="240" x2="320" y2="60" stroke="#6366f1" stroke-width="2"/>
+                    <line x1="50" y1="240" x2="320" y2="60" stroke="#6366f1" stroke-width="2" stroke-dasharray="8,4" transform="translate(0, 25)"/>
+                    <text x="280" y="85" fill="#6366f1" font-family="Inter" font-size="12">D₀</text>
+                    <text x="270" y="110" fill="#6366f1" font-family="Inter" font-size="12" opacity="0.7">D₂</text>
+                    <text x="330" y="235" fill="#ef4444" font-family="Inter" font-size="11">← Decrease</text>
+                </svg>
+                <p style="color: #94a3b8; font-size: 13px; margin-top: 12px;">A decrease in demand shifts the entire curve to the LEFT</p>
             </div>
 
             <div class="swedish-example">
@@ -511,6 +568,28 @@
             <div class="concept">
                 <h3>Why Does Supply Slope Upward?</h3>
                 <p>Higher prices give producers more profit incentive to produce more. At higher prices, producers can cover higher production costs and still make a profit.</p>
+            </div>
+
+            <div class="graph-container">
+                <svg viewBox="0 0 400 300" width="100%" height="auto">
+                    <rect fill="#0f172a" width="400" height="300"/>
+                    <defs>
+                        <linearGradient id="supplyGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#10b981"/>
+                            <stop offset="100%" style="stop-color:#06b6d4"/>
+                        </linearGradient>
+                    </defs>
+                    <line x1="50" y1="250" x2="350" y2="250" stroke="#475569" stroke-width="2"/>
+                    <line x1="50" y1="250" x2="50" y2="30" stroke="#475569" stroke-width="2"/>
+                    <text x="355" y="255" fill="#94a3b8" font-family="Inter" font-size="12">Q</text>
+                    <text x="40" y="35" fill="#94a3b8" font-family="Inter" font-size="12">P</text>
+                    <polygon points="50,250 100,250 330,40 330,250" fill="url(#supplyGrad)" opacity="0.3"/>
+                    <line x1="50" y1="250" x2="340" y2="50" stroke="#10b981" stroke-width="3"/>
+                    <text x="180" y="145" fill="#10b981" font-family="Inter" font-size="14" font-weight="600">S</text>
+                    <text x="280" y="105" fill="#94a3b8" font-family="Fira Code" font-size="11">High P → High Q</text>
+                    <text x="80" y="275" fill="#94a3b8" font-family="Inter" font-size="10">0</text>
+                </svg>
+                <p style="color: #94a3b8; font-size: 13px; margin-top: 12px;">The supply curve slopes upward: as price increases, quantity supplied increases</p>
             </div>
 
             <div class="concept">
@@ -578,6 +657,22 @@
                 </ul>
             </div>
 
+            <div class="graph-container">
+                <svg viewBox="0 0 400 280" width="100%" height="auto">
+                    <rect fill="#0f172a" width="400" height="280"/>
+                    <line x1="50" y1="240" x2="360" y2="240" stroke="#475569" stroke-width="2"/>
+                    <line x1="50" y1="240" x2="50" y2="20" stroke="#475569" stroke-width="2"/>
+                    <text x="365" y="255" fill="#94a3b8" font-family="Inter" font-size="11">Q</text>
+                    <text x="40" y="25" fill="#94a3b8" font-family="Inter" font-size="11">P</text>
+                    <line x1="50" y1="240" x2="320" y2="60" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+                    <line x1="50" y1="215" x2="350" y2="35" stroke="#10b981" stroke-width="2"/>
+                    <text x="280" y="55" fill="#10b981" font-family="Inter" font-size="12">S₀</text>
+                    <text x="300" y="85" fill="#10b981" font-family="Inter" font-size="12">S₁ →</text>
+                    <text x="330" y="235" fill="#10b981" font-family="Inter" font-size="11">→ Increase</text>
+                </svg>
+                <p style="color: #94a3b8; font-size: 13px; margin-top: 12px;">An increase in supply shifts the curve to the RIGHT</p>
+            </div>
+
             <div class="concept">
                 <h3>Shift Left (Decrease in Supply)</h3>
                 <ul class="factor-list">
@@ -588,6 +683,22 @@
                     <li>↓ Subsidies</li>
                     <li>Negative expectations</li>
                 </ul>
+            </div>
+
+            <div class="graph-container">
+                <svg viewBox="0 0 400 280" width="100%" height="auto">
+                    <rect fill="#0f172a" width="400" height="280"/>
+                    <line x1="50" y1="240" x2="360" y2="240" stroke="#475569" stroke-width="2"/>
+                    <line x1="50" y1="240" x2="50" y2="20" stroke="#475569" stroke-width="2"/>
+                    <text x="365" y="255" fill="#94a3b8" font-family="Inter" font-size="11">Q</text>
+                    <text x="40" y="25" fill="#94a3b8" font-family="Inter" font-size="11">P</text>
+                    <line x1="50" y1="240" x2="320" y2="60" stroke="#10b981" stroke-width="2"/>
+                    <line x1="50" y1="265" x2="290" y2="85" stroke="#10b981" stroke-width="2"/>
+                    <text x="280" y="85" fill="#10b981" font-family="Inter" font-size="12">S₀</text>
+                    <text x="250" y="55" fill="#10b981" font-family="Inter" font-size="12">← S₁</text>
+                    <text x="330" y="235" fill="#ef4444" font-family="Inter" font-size="11">← Decrease</text>
+                </svg>
+                <p style="color: #94a3b8; font-size: 13px; margin-top: 12px;">A decrease in supply shifts the curve to the LEFT</p>
             </div>
 
             <div class="swedish-example">
@@ -612,6 +723,28 @@
                     <li>Producers know how much will sell and at what price</li>
                     <li>Graphically: Where supply and demand curves intersect</li>
                 </ul>
+            </div>
+
+            <div class="graph-container">
+                <svg viewBox="0 0 400 320" width="100%" height="auto">
+                    <rect fill="#0f172a" width="400" height="320"/>
+                    <line x1="50" y1="280" x2="370" y2="280" stroke="#475569" stroke-width="2"/>
+                    <line x1="50" y1="280" x2="50" y2="30" stroke="#475569" stroke-width="2"/>
+                    <text x="375" y="295" fill="#94a3b8" font-family="Inter" font-size="12">Q</text>
+                    <text x="40" y="35" fill="#94a3b8" font-family="Inter" font-size="12">P</text>
+                    <line x1="50" y1="280" x2="330" y2="60" stroke="#6366f1" stroke-width="2.5"/>
+                    <line x1="50" y1="280" x2="330" y2="280" stroke="#10b981" stroke-width="2.5"/>
+                    <line x1="50" y1="280" x2="330" y2="60" stroke="#10b981" stroke-width="2.5"/>
+                    <circle cx="190" cy="170" r="6" fill="#f59e0b"/>
+                    <line x1="50" y1="170" x2="190" y2="170" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,4"/>
+                    <line x1="190" y1="170" x2="190" y2="280" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,4"/>
+                    <text x="200" y="160" fill="#6366f1" font-family="Inter" font-size="13">D</text>
+                    <text x="200" y="155" fill="#10b981" font-family="Inter" font-size="13">S</text>
+                    <text x="195" y="185" fill="#f59e0b" font-family="Fira Code" font-size="11" font-weight="600">E</text>
+                    <text x="195" y="300" fill="#f59e0b" font-family="Fira Code" font-size="10">Qe</text>
+                    <text x="25" y="175" fill="#f59e0b" font-family="Fira Code" font-size="10">Pe</text>
+                </svg>
+                <p style="color: #94a3b8; font-size: 13px; margin-top: 12px;">Equilibrium (E): Where supply meets demand — Q<sub>d</sub> = Q<sub>s</sub></p>
             </div>
 
             <div class="concept">
@@ -744,10 +877,33 @@
                     <li>Price set BELOW equilibrium</li>
                     <li>↑ Demand + ↓ Supply = SHORTAGE</li>
                 </ul>
-                <div class="swedish-example">
-                    <h4>🇸🇪 Example: Stockholm Rent Control</h4>
-                    <p>Rent control keeps prices below equilibrium, resulting in long queues (shortages) for apartments in Stockholm.</p>
-                </div>
+            </div>
+
+            <div class="graph-container">
+                <svg viewBox="0 0 400 300" width="100%" height="auto">
+                    <rect fill="#0f172a" width="400" height="300"/>
+                    <line x1="50" y1="260" x2="370" y2="260" stroke="#475569" stroke-width="2"/>
+                    <line x1="50" y1="260" x2="50" y2="30" stroke="#475569" stroke-width="2"/>
+                    <text x="375" y="275" fill="#94a3b8" font-family="Inter" font-size="11">Q</text>
+                    <text x="40" y="35" fill="#94a3b8" font-family="Inter" font-size="11">P</text>
+                    <line x1="50" y1="260" x2="330" y2="80" stroke="#6366f1" stroke-width="2.5"/>
+                    <line x1="50" y1="260" x2="330" y2="60" stroke="#10b981" stroke-width="2.5"/>
+                    <circle cx="200" cy="140" r="5" fill="#f59e0b"/>
+                    <text x="205" y="135" fill="#f59e0b" font-family="Fira Code" font-size="10">E</text>
+                    <line x1="50" y1="180" x2="370" y2="180" stroke="#ef4444" stroke-width="3"/>
+                    <text x="360" y="185" fill="#ef4444" font-family="Inter" font-size="10" font-weight="600">PC</text>
+                    <line x1="50" y1="180" x2="370" y2="180" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+                    <line x1="250" y1="140" x2="250" y2="180" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <line x1="250" y1="180" x2="250" y2="260" stroke="#ef4444" stroke-width="1.5"/>
+                    <text x="260" y="220" fill="#ef4444" font-family="Inter" font-size="10">Shortage</text>
+                    <text x="260" y="232" fill="#ef4444" font-family="Inter" font-size="10">(Qd > Qs)</text>
+                </svg>
+                <p style="color: #94a3b8; font-size: 13px; margin-top: 12px;">Price ceiling creates a shortage — quantity demanded exceeds quantity supplied</p>
+            </div>
+
+            <div class="swedish-example">
+                <h4>🇸🇪 Example: Stockholm Rent Control</h4>
+                <p>Rent control keeps prices below equilibrium, resulting in long queues (shortages) for apartments in Stockholm.</p>
             </div>
 
             <div class="concept">
@@ -757,10 +913,33 @@
                     <li>Price set ABOVE equilibrium</li>
                     <li>↓ Demand + ↑ Supply = SURPLUS</li>
                 </ul>
-                <div class="swedish-example">
-                    <h4>🇸🇪 Example: Swedish Agricultural Subsidies</h4>
-                    <p>Minimum corn price leads to excess supply that government must buy.</p>
-                </div>
+            </div>
+
+            <div class="graph-container">
+                <svg viewBox="0 0 400 300" width="100%" height="auto">
+                    <rect fill="#0f172a" width="400" height="300"/>
+                    <line x1="50" y1="260" x2="370" y2="260" stroke="#475569" stroke-width="2"/>
+                    <line x1="50" y1="260" x2="50" y2="30" stroke="#475569" stroke-width="2"/>
+                    <text x="375" y="275" fill="#94a3b8" font-family="Inter" font-size="11">Q</text>
+                    <text x="40" y="35" fill="#94a3b8" font-family="Inter" font-size="11">P</text>
+                    <line x1="50" y1="260" x2="330" y2="80" stroke="#6366f1" stroke-width="2.5"/>
+                    <line x1="50" y1="260" x2="330" y2="60" stroke="#10b981" stroke-width="2.5"/>
+                    <circle cx="200" cy="140" r="5" fill="#f59e0b"/>
+                    <text x="205" y="135" fill="#f59e0b" font-family="Fira Code" font-size="10">E</text>
+                    <line x1="50" y1="100" x2="370" y2="100" stroke="#10b981" stroke-width="3"/>
+                    <text x="360" y="105" fill="#10b981" font-family="Inter" font-size="10" font-weight="600">PF</text>
+                    <line x1="50" y1="100" x2="370" y2="100" stroke="#10b981" stroke-width="1" stroke-dasharray="4,4" opacity="0.5"/>
+                    <line x1="280" y1="100" x2="280" y2="140" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3,3"/>
+                    <line x1="280" y1="140" x2="280" y2="260" stroke="#10b981" stroke-width="1.5"/>
+                    <text x="290" y="180" fill="#10b981" font-family="Inter" font-size="10">Surplus</text>
+                    <text x="290" y="192" fill="#10b981" font-family="Inter" font-size="10">(Qs > Qd)</text>
+                </svg>
+                <p style="color: #94a3b8; font-size: 13px; margin-top: 12px;">Price floor creates a surplus — quantity supplied exceeds quantity demanded</p>
+            </div>
+
+            <div class="swedish-example">
+                <h4>🇸🇪 Example: Swedish Agricultural Subsidies</h4>
+                <p>Minimum corn price leads to excess supply that government must buy.</p>
             </div>
         </section>
 
@@ -815,6 +994,31 @@
                         <td>↓↓ Decreases</td>
                     </tr>
                 </table>
+            </div>
+
+            <div class="graph-container">
+                <svg viewBox="0 0 400 320" width="100%" height="auto">
+                    <rect fill="#0f172a" width="400" height="320"/>
+                    <line x1="50" y1="280" x2="370" y2="280" stroke="#475569" stroke-width="2"/>
+                    <line x1="50" y1="280" x2="50" y2="30" stroke="#475569" stroke-width="2"/>
+                    <text x="375" y="295" fill="#94a3b8" font-family="Inter" font-size="11">Q</text>
+                    <text x="40" y="35" fill="#94a3b8" font-family="Inter" font-size="11">P</text>
+                    <line x1="50" y1="280" x2="330" y2="80" stroke="#6366f1" stroke-width="2" opacity="0.4"/>
+                    <line x1="50" y1="280" x2="330" y2="80" stroke="#6366f1" stroke-width="2" stroke-dasharray="6,3"/>
+                    <line x1="50" y1="280" x2="330" y2="60" stroke="#10b981" stroke-width="2"/>
+                    <line x1="50" y1="280" x2="330" y2="60" stroke="#10b981" stroke-width="2" opacity="0.4" stroke-dasharray="6,3" transform="translate(0, 25)"/>
+                    <text x="300" y="75" fill="#10b981" font-family="Inter" font-size="10">S₀</text>
+                    <text x="305" y="95" fill="#10b981" font-family="Inter" font-size="10">S₁</text>
+                    <text x="280" y="100" fill="#6366f1" font-family="Inter" font-size="10">D₀</text>
+                    <text x="290" y="120" fill="#6366f1" font-family="Inter" font-size="10">D₁</text>
+                    <circle cx="190" cy="170" r="5" fill="#f59e0b"/>
+                    <text x="175" y="195" fill="#f59e0b" font-family="Fira Code" font-size="9">E₀</text>
+                    <circle cx="230" cy="140" r="5" fill="#f59e0b"/>
+                    <text x="215" y="165" fill="#f59e0b" font-family="Fira Code" font-size="9">E₁</text>
+                    <text x="50" y="150" fill="#f59e0b" font-family="Inter" font-size="9">↑P</text>
+                    <text x="50" y="180" fill="#f59e0b" font-family="Inter" font-size="9">↑Q?</text>
+                </svg>
+                <p style="color: #94a3b8; font-size: 13px; margin-top: 12px;">Example: Demand ↑ + Supply ↑ → Price increases, Quantity increases</p>
             </div>
         </section>
 
