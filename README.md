@@ -67,7 +67,13 @@ An interactive assessment platform for IB MYP4 (International Baccalaureate Midd
    npx serve .
    ```
 
-3. **Deploy to Vercel** (automatic)
+3. **Configure Supabase Auth**
+   ```bash
+   cp .env.example .env.local
+   ```
+   Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` from your Supabase project. In Supabase Auth URL settings, add `http://localhost:5173/auth/callback` and `https://kaniib.vercel.app/auth/callback` as redirect URLs.
+
+4. **Deploy to Vercel** (automatic)
    - Push to GitHub
    - Vercel auto-deploys from main branch
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/global.css';
+import { useAuth } from '../context/AuthContext';
 
 const topicsData = [
   { id: 'all', name: 'All Topics', icon: '📖', color: 'rgba(99, 102, 241, 0.15)' },
@@ -205,6 +206,7 @@ export default function Home() {
   const [activeTopic, setActiveTopic] = useState('all');
   const [activeFilter, setActiveFilter] = useState('all');
   const [statsAnimated, setStatsAnimated] = useState(false);
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     const statsSection = document.querySelector('.stats-section');
@@ -268,6 +270,10 @@ export default function Home() {
   return (
     <div>
       <a href="#main-content" className="skip-link">Skip to main content</a>
+      <header className="account-bar" aria-label="Account">
+        <span>{user?.email}</span>
+        <button type="button" onClick={signOut}>Log out</button>
+      </header>
 
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-content">
