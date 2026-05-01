@@ -7,6 +7,7 @@ const topicsData = [
   { id: 'number', name: 'Number', icon: '🔢', color: 'rgba(245, 158, 11, 0.15)' },
   { id: 'algebra', name: 'Algebra', icon: '𝑥𝑦', color: 'rgba(139, 92, 246, 0.15)' },
   { id: 'geometry', name: 'Geometry', icon: '△', color: 'rgba(236, 72, 153, 0.15)' },
+  { id: 'trigonometry', name: 'Trigonometry', icon: '📐', color: 'rgba(6, 182, 212, 0.15)' },
   { id: 'probability', name: 'Probability', icon: '🎲', color: 'rgba(16, 185, 129, 0.15)' },
   { id: 'statistics', name: 'Statistics', icon: '📊', color: 'rgba(6, 182, 212, 0.15)' },
   { id: 'ins', name: 'I & S', icon: '🏛', color: 'rgba(234, 88, 12, 0.15)' },
@@ -133,12 +134,41 @@ const assessmentsData = [
     icon: '∑',
     iconBg: 'math'
   },
+  {
+    id: 9,
+    title: 'Trigonometry - Study Material',
+    description: 'Comprehensive trigonometry study guide with interactive diagrams, real-world examples, and all Haese MYP4 topics covered with LaTeX formulas.',
+    topics: ['SOHCAHTOA', 'Sine Rule', 'Cosine Rule', 'Bearings'],
+    questionCount: 0,
+    time: 'Self-paced',
+    marks: 0,
+    difficulty: 0,
+    href: 'assessments/myp4-trigonometry-study.html',
+    category: 'myp4',
+    badge: 'MYP4',
+    icon: '📐',
+    iconBg: 'geometry'
+  },
+  {
+    id: 10,
+    title: 'Trigonometry Assessment',
+    description: '25 questions covering SOHCAHTOA, sine/cosine rules, bearings, area formula, trig graphs, and real-world problems. LaTeX formatted with interactive diagrams.',
+    topics: ['SOHCAHTOA', 'Sine Rule', 'Cosine Rule', 'Bearings', 'Real World'],
+    questionCount: 25,
+    time: '60',
+    marks: 100,
+    difficulty: 3,
+    href: 'assessments/myp4-trigonometry-assessment.html',
+    category: 'myp4',
+    badge: 'MYP4',
+    icon: '△',
+    iconBg: 'geometry'
+  },
 ];
 
-const comingSoon = [
+  const comingSoon = [
   { icon: '📐', title: 'Algebra & Equations', topics: 'Coming Soon • Linear equations, quadratics, sequences', category: 'myp4' },
   { icon: '𝑓', title: 'Functions & Graphing', topics: 'Coming Soon • Domain, range, transformations', category: 'myp5' },
-  { icon: '△', title: 'Geometry & Trigonometry', topics: 'Coming Soon • Angles, triangles, SOHCAHTOA', category: 'myp4' },
   { icon: '📊', title: 'Statistics & Probability', topics: 'Coming Soon • Mean, median, standard deviation', category: 'myp5' },
   { icon: '🎓', title: 'DP Mathematics AA', topics: 'Coming Soon • IB Diploma Programme content', category: 'dp' },
 ];
@@ -297,9 +327,9 @@ export default function Home() {
 
       <section className="stats-section" aria-label="Platform statistics">
         <div className="stats-grid">
-          <StatCard icon="📚" value="6" label="Assessments" colorClass="purple" />
-          <StatCard icon="📝" value="181" label="Questions" colorClass="green" />
-          <StatCard icon="⏱" value="195" label="Minutes" colorClass="amber" />
+          <StatCard icon="📚" value="8" label="Assessments" colorClass="purple" />
+          <StatCard icon="📝" value="206" label="Questions" colorClass="green" />
+          <StatCard icon="⏱" value="255" label="Minutes" colorClass="amber" />
           <StatCard icon="🎯" value="MYP4" label="Curriculum" colorClass="cyan" />
         </div>
       </section>
