@@ -1,7 +1,7 @@
 {
   "name": "kanimath",
   "version": "1.0.0",
-  "description": "KaniMath - IB MYP Assessment Platform (React version)",
+  "description": "IB MYP Assessment Platform (React version)",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
