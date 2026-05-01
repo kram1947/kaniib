@@ -1,6 +1,6 @@
 # KaniMath React Migration Guide
 
-This document outlines the migration of the KaniMath IB MYP assessment platform from vanilla HTML/CSS/JS to a React stack while maintaining backward compatibility with existing assessment files.
+This document outlines the migration of the IB MYP assessment platform from vanilla HTML/CSS/JS to a React stack while maintaining backward compatibility with existing assessment files.
 
 ## Overview
 
