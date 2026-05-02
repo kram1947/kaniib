@@ -5,7 +5,15 @@
   "framework": "vite",
   "rewrites": [
     { "source": "/login", "destination": "/index.html" },
+    { "source": "/signup", "destination": "/index.html" },
+    { "source": "/forgot-password", "destination": "/index.html" },
+    { "source": "/reset-password", "destination": "/index.html" },
+    { "source": "/auth/callback", "destination": "/index.html" },
     { "source": "/topics", "destination": "/index.html" },
-    { "source": "/features", "destination": "/index.html" }
+    { "source": "/features", "destination": "/index.html" },
+    {
+      "source": "/assessments/(.*)",
+      "destination": "/assessments/$1"
+    }
   ]
 }
