@@ -35,12 +35,18 @@ export default function Home() {
             <p className="section-subtitle">Everything you need to excel in your IB MYP journey</p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
             <FeatureCard
               icon="📐"
               title="Mathematics"
               description="IB MYP4-5 assessments covering Sets, Venn Diagrams, Probability, Statistics, and more."
               link="/math"
+            />
+            <FeatureCard
+              icon="📚"
+              title="Study Materials"
+              description="Visual guides with graphs, charts, formulas, and diagrams."
+              link="/study"
             />
             <FeatureCard
               icon="🧩"
