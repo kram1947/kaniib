@@ -801,7 +801,6 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 25px rgba(99,102,241,0.5);
         }
-        #login-modal { display: flex; }
         #back-home-btn { display: none; }
         #back-home-btn.show { display: flex; }
     </style>
@@ -1717,7 +1716,6 @@
         let timerInterval;
         let quizStarted = false;
 
-        const startScreen = document.getElementById('start-screen');
         const quizContainer = document.getElementById('quiz-container');
         const resultsScreen = document.getElementById('results-screen');
         const sidebar = document.getElementById('sidebar');
@@ -1729,6 +1727,7 @@
         document.getElementById('start-btn').addEventListener('click', function() {
             document.getElementById('login-modal').style.display = 'flex';
         });
+        
         document.getElementById('submit-btn').addEventListener('click', submitQuiz);
         document.getElementById('review-btn').addEventListener('click', showResults);
         document.getElementById('prev-btn').addEventListener('click', prevQuestion);
@@ -1737,34 +1736,10 @@
         document.getElementById('download-pdf-btn').addEventListener('click', downloadPDF);
         document.getElementById('retry-btn').addEventListener('click', retryQuiz);
 
-        function startWithLogin() {
-            const nameInput = document.getElementById('student-name');
-            const classInput = document.getElementById('student-class');
-            const name = nameInput.value.trim();
-            
-            if (!name) {
-                nameInput.style.borderColor = '#ef4444';
-                nameInput.focus();
-                return;
-            }
-            
-            studentData = {
-                name: name,
-                class: classInput.value.trim() || 'Not specified'
-            };
-            
-            document.getElementById('login-modal').style.display = 'none';
-            startQuiz();
-        }
 
-        function startAsGuest() {
-            studentData = { name: 'Guest', class: 'Not specified' };
-            document.getElementById('login-modal').style.display = 'none';
-            startQuiz();
-        }
 
         function startQuiz() {
-            startScreen.classList.add('hidden');
+            ');
             quizContainer.classList.remove('hidden');
             sidebar.classList.remove('hidden');
             
