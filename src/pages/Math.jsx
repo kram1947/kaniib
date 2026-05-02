@@ -68,6 +68,8 @@ function TopicCard({ topic }) {
     purple: 'from-purple-500 to-purple-600 border-purple-200',
     orange: 'from-orange-500 to-orange-600 border-orange-200',
     teal: 'from-teal-500 to-teal-600 border-teal-200',
+    amber: 'from-amber-500 to-amber-600 border-amber-200',
+    indigo: 'from-indigo-500 to-indigo-600 border-indigo-200',
   }
 
   return (
