@@ -272,6 +272,64 @@ const studyTopics = [
     }
   },
   {
+    id: 'algebra',
+    title: 'Algebra',
+    icon: '🧮',
+    color: 'red',
+    content: {
+      introduction: 'Algebra is the branch of mathematics dealing with symbols and the rules for manipulating them, forming the foundation for solving equations and modeling relationships.',
+      topics: [
+        {
+          title: '1. Linear Equations',
+          subtopics: [
+            {
+              name: 'Solving for x',
+              content: 'Isolate the variable using inverse operations.',
+              steps: [
+                'Move constants to the opposite side.',
+                'Divide or multiply to isolate the variable.',
+                'Check the solution by substitution.'
+              ]
+            },
+            {
+              name: 'Graphing Lines',
+              content: 'Plot the line using slope-intercept form y = mx + b.',
+              formula: 'y = mx + b',
+              examples: [
+                { problem: 'y = 2x + 3', solution: 'Slope 2, intercept 3' }
+              ]
+            }
+          ]
+        },
+        {
+          title: '2. Quadratic Equations',
+          subtopics: [
+            {
+              name: 'Factoring',
+              content: 'Express the quadratic as a product of two binomials.',
+              steps: [
+                'Find two numbers that multiply to ac and add to b.',
+                'Rewrite the middle term and factor by grouping.'
+              ]
+            },
+            {
+              name: 'Quadratic Formula',
+              content: 'Solve any quadratic equation ax² + bx + c = 0.',
+              formula: 'x = [-b ± √(b²-4ac)] / (2a)',
+              examples: [
+                { problem: 'x² - 5x + 6 = 0', solution: 'x = 2 or 3' }
+              ]
+            }
+          ]
+        }
+      ],
+      formulas: [
+        { name: 'Slope', formula: 'm = (y2 - y1) / (x2 - x1)' },
+        { name: 'Quadratic Formula', formula: 'x = [-b ± √(b²-4ac)] / (2a)' }
+      ]
+    }
+  },
+  {
     id: 'supply-demand',
     title: 'Supply & Demand',
     icon: '📈',
