@@ -2,17 +2,323 @@ import { useState } from 'react'
 
 const studyTopics = [
   {
+    id: 'trigonometry',
+    title: 'Trigonometry',
+    icon: '📐',
+    color: 'purple',
+    content: {
+      introduction: 'Trigonometry studies the relationships between angles and sides of triangles. It is essential for solving problems in physics, engineering, navigation, and many real-world applications.',
+      topics: [
+        {
+          title: '1. Right Triangle Trigonometry',
+          subtopics: [
+            {
+              name: 'SOH CAH TOA',
+              content: 'The fundamental memory aid for trigonometric ratios in right triangles:',
+              details: [
+                { label: 'Sine (SOH)', value: 'sin(θ) = Opposite / Hypotenuse' },
+                { label: 'Cosine (CAH)', value: 'cos(θ) = Adjacent / Hypotenuse' },
+                { label: 'Tangent (TOA)', value: 'tan(θ) = Opposite / Adjacent' }
+              ],
+              svg: (
+                <svg viewBox="0 0 300 200" className="w-full h-auto">
+                  <polygon points="250,180 250,40 50,180" fill="none" stroke="#9333ea" strokeWidth="3"/>
+                  <path d="M250,160 L230,160 L230,180" fill="none" stroke="#9333ea" strokeWidth="2"/>
+                  <path d="M80,180 A25,25 0 0,0 95,165" fill="none" stroke="#ef4444" strokeWidth="2"/>
+                  <text x="70" y="160" fill="#ef4444" fontSize="14" fontWeight="bold">θ</text>
+                  <text x="140" y="115" fill="#10b981" fontSize="12" fontWeight="bold">Hypotenuse</text>
+                  <text x="255" y="110" fill="#ef4444" fontSize="12" fontWeight="bold">Opposite</text>
+                  <text x="120" y="200" fill="#6366f1" fontSize="12" fontWeight="bold">Adjacent</text>
+                  <text x="20" y="90" fill="#9333ea" fontSize="10">sin θ = opp/hyp</text>
+                  <text x="20" y="105" fill="#9333ea" fontSize="10">cos θ = adj/hyp</text>
+                  <text x="20" y="120" fill="#9333ea" fontSize="10">tan θ = opp/adj</text>
+                </svg>
+              )
+            },
+            {
+              name: 'Pythagorean Theorem',
+              content: 'In any right triangle, the square of the hypotenuse equals the sum of squares of the other two sides.',
+              formula: 'a² + b² = c²',
+              examples: [
+                { problem: '3-4-5 Triangle', solution: '3² + 4² = 9 + 16 = 25 = 5²' },
+                { problem: '5-12-13 Triangle', solution: '5² + 12² = 25 + 144 = 169 = 13²' }
+              ]
+            },
+            {
+              name: 'Finding Missing Sides',
+              content: 'Use trigonometric ratios to find unknown sides when you know an angle and one side.',
+              steps: [
+                'Identify which side is known (opposite, adjacent, or hypotenuse)',
+                'Identify which side you need to find',
+                'Choose the appropriate ratio (sin, cos, or tan)',
+                'Solve for the unknown'
+              ],
+              swedishExample: {
+                company: 'Volvo Construction Equipment',
+                application: 'Calculating the angle of a crane arm to determine maximum reach height'
+              }
+            }
+          ]
+        },
+        {
+          title: '2. Special Angles',
+          subtopics: [
+            {
+              name: '30°, 45°, 60° Angles',
+              content: 'These angles have exact trigonometric values that should be memorized.',
+              table: [
+                { angle: '30°', sin: '1/2', cos: '√3/2', tan: '1/√3' },
+                { angle: '45°', sin: '√2/2', cos: '√2/2', tan: '1' },
+                { angle: '60°', sin: '√3/2', cos: '1/2', tan: '√3' }
+              ],
+              svg: (
+                <svg viewBox="0 0 350 120" className="w-full h-auto">
+                  <polygon points="30,100 150,100 150,30" fill="none" stroke="#9333ea" strokeWidth="2"/>
+                  <path d="M30,100 L130,100 L150,100 L150,90" fill="none" stroke="#9333ea" strokeWidth="1"/>
+                  <text x="60" y="80" fill="#9333ea" fontSize="10">1</text>
+                  <text x="135" y="70" fill="#9333ea" fontSize="10">√3</text                  <text x="100" y="90" fill="#ef4444" fontSize="10">30°</text>
+                  <polygon points="180,100 280,100 280,20" fill="none" stroke="#9333ea" strokeWidth="2"/>
+                  <text x="210" y="70" fill="#9333ea" fontSize="10">1</text>
+                  <text x="265" y="70" fill="#9333ea" fontSize="10">1</text>
+                  <text x="230" y="90" fill="#ef4444" fontSize="10">45°</text>
+                  <polygon points="310,100 380,100 380,50" fill="none" stroke="#9333ea" strokeWidth="2"/>
+                  <text x="330" y="80" fill="#9333ea" fontSize="10">√3</text>
+                  <text x="365" y="80" fill="#9333ea" fontSize="10">1</text>
+                  <text x="345" y="90" fill="#ef4444" fontSize="10">60°</text>
+                </svg>
+              )
+            },
+            {
+              name: '0° and 90° Angles',
+              content: 'At 0° and 90°, the trigonometric values approach limits.',
+              table: [
+                { angle: '0°', sin: '0', cos: '1', tan: '0' },
+                { angle: '90°', sin: '1', cos: '0', tan: 'undefined' }
+              ]
+            }
+          ]
+        },
+        {
+          title: '3. Inverse Trigonometric Functions',
+          subtopics: [
+            {
+              name: 'arcsin, arccos, arctan',
+              content: 'Inverse functions find the angle when you know the ratio.',
+              formulas: [
+                { name: 'Arcsine', formula: 'sin⁻¹(x) or arcsin(x)' },
+                { name: 'Arccosine', formula: 'cos⁻¹(x) or arccos(x)' },
+                { name: 'Arctangent', formula: 'tan⁻¹(x) or arctan(x)' }
+              ],
+              example: 'If sin(θ) = 0.5, then θ = sin⁻¹(0.5) = 30°'
+            }
+          ]
+        },
+        {
+          title: '4. Sine Rule (Law of Sines)',
+          subtopics: [
+            {
+              name: 'Formula and Application',
+              content: 'The Sine Rule relates sides and their opposite angles in any triangle.',
+              formula: 'a/sin(A) = b/sin(B) = c/sin(C)',
+              whenToUse: 'Use when you know: (a) a side and its opposite angle, OR (b) two angles and one side',
+              svg: (
+                <svg viewBox="0 0 300 150" className="w-full h-auto">
+                  <polygon points="50,120 200,120 150,30" fill="none" stroke="#9333ea" strokeWidth="2"/>
+                  <text x="40" y="100" fill="#9333ea" fontSize="12" fontWeight="bold">A</text>
+                  <text x="210" y="100" fill="#9333ea" fontSize="12" fontWeight="bold">B</text>
+                  <text x="155" y="25" fill="#9333ea" fontSize="12" fontWeight="bold">C</text>
+                  <text x="85" y="135" fill="#ef4444" fontSize="11">a (opp A)</text>
+                  <text x="150" y="85" fill="#10b981" fontSize="11">b (opp B)</text>
+                  <text x="105" y="60" fill="#6366f1" fontSize="11">c (opp C)</text>
+                </svg>
+              ),
+              swedishExample: {
+                company: 'SAS (Scandinavian Airlines)',
+                application: 'Navigation: calculating distances and angles between flight paths'
+              }
+            }
+          ]
+        },
+        {
+          title: '5. Cosine Rule (Law of Cosines)',
+          subtopics: [
+            {
+              name: 'Formula and Application',
+              content: 'The Cosine Rule generalizes the Pythagorean theorem to any triangle.',
+              formulas: [
+                { name: 'Main formula', formula: 'c² = a² + b² - 2ab·cos(C)' },
+                { name: 'Find angle', formula: 'cos(C) = (a² + b² - c²) / 2ab' }
+              ],
+              whenToUse: 'Use when you know: (a) two sides and included angle, OR (b) all three sides',
+              svg: (
+                <svg viewBox="0 0 300 150" className="w-full h-auto">
+                  <polygon points="30,120 200,120 150,30" fill="none" stroke="#9333ea" strokeWidth="2"/>
+                  <path d="M30,120 L80,120" stroke="#ef4444" strokeWidth="2"/>
+                  <text x="50" y="140" fill="#ef4444" fontSize="11">a</text>
+                  <text x="180" y="140" fill="#10b981" fontSize="11">b</text>
+                  <text x="100" y="60" fill="#6366f1" fontSize="11">c</text>
+                  <text x="95" y="95" fill="#ef4444" fontSize="10">∠C = included angle</text>
+                </svg>
+              ),
+              swedishExample: {
+                company: 'Gothenburg Harbour',
+                application: 'Calculating direct distances between ports when you know the route angles'
+              }
+            }
+          ]
+        },
+        {
+          title: '6. Area of Triangles',
+          subtopics: [
+            {
+              name: 'Using Two Sides and Included Angle',
+              content: 'Area = ½ × a × b × sin(C)',
+              formula: 'A = ½ab sin(C)',
+              example: 'Triangle with sides 5cm and 8cm, included angle 60°: A = ½ × 5 × 8 × sin(60°) = 20 × √3/2 ≈ 17.32 cm²',
+              swedishExample: {
+                company: 'Volvo Factory Floor',
+                application: 'Calculating floor space for triangular factory sections'
+              }
+            },
+            {
+              name: "Heron's Formula",
+              content: 'When you know all three sides but no height',
+              formula: 'Area = √[s(s-a)(s-b)(s-c)] where s = (a+b+c)/2',
+              steps: [
+                'Calculate semi-perimeter: s = (a + b + c) / 2',
+                'Plug into formula: A = √[s(s-a)(s-b)(s-c)]'
+              ],
+              example: 'Triangle with sides 7cm, 8cm, 9cm: s = 12, A = √[12×5×4×3] = √720 ≈ 26.83 cm²'
+            }
+          ]
+        },
+        {
+          title: '7. Angles of Elevation and Depression',
+          subtopics: [
+            {
+              name: 'Definitions',
+              content: 'Angle of elevation: the angle from the horizontal up to an object. Angle of depression: the angle from the horizontal down to an object.',
+              svg: (
+                <svg viewBox="0 0 350 200" className="w-full h-auto">
+                  <line x1="50" y1="180" x2="300" y2="180" stroke="#64748b" strokeWidth="2"/>
+                  <line x1="250" y1="180" x2="250" y2="50" stroke="#9333ea" strokeWidth="3"/>
+                  <line x1="50" y1="100" x2="250" y2="100" stroke="#ef4444" strokeWidth="2" strokeDasharray="4"/>
+                  <path d="M70,100 A20,20 0 0,0 85,90" fill="none" stroke="#ef4444" strokeWidth="2"/>
+                  <text x="60" y="85" fill="#ef4444" fontSize="11" fontWeight="bold">θ</text>
+                  <text x="255" y="45" fill="#9333ea" fontSize="10">Object</text>
+                  <text x="30" y="105" fill="#ef4444" fontSize="10">Angle of elevation</text>
+                  <text x="150" y="195" fill="#64748b" fontSize="10">Ground</text>
+                </svg>
+              ),
+              keyPoint: 'Angle of elevation = Angle of depression (alternate angles)'
+            },
+            {
+              name: 'Real-World Applications',
+              content: 'Used in surveying, architecture, navigation, and engineering.',
+              examples: [
+                { application: 'Measuring building height', method: 'Measure distance to building, then angle of elevation to top' },
+                { application: 'Bridge design', method: 'Calculate angle of depression from bridge deck to water' }
+              ],
+              swedishExample: {
+                company: 'Gothenburg Harbour Bridge',
+                application: 'Calculate clearance height for ships passing under the bridge'
+              }
+            }
+          ]
+        },
+        {
+          title: '8. Trigonometric Identities',
+          subtopics: [
+            {
+              name: 'Pythagorean Identities',
+              content: 'Fundamental relationships between trigonometric functions.',
+              formulas: [
+                { name: 'Primary', formula: 'sin²θ + cos²θ = 1' },
+                { name: 'Secondary', formula: '1 + tan²θ = sec²θ' },
+                { name: 'Tertiary', formula: '1 + cot²θ = csc²θ' }
+              ]
+            },
+            {
+              name: 'Co-function Identities',
+              content: 'Relationships between complementary angles.',
+              formulas: [
+                { name: 'Sine-Cosine', formula: 'sin(90° - θ) = cos θ' },
+                { name: 'Cosine-Sine', formula: 'cos(90° - θ) = sin θ' },
+                { name: 'Tangent', formula: 'tan(90° - θ) = cot θ' }
+              ]
+            }
+          ]
+        }
+      ],
+      formulas: [
+        { name: 'sin²θ + cos²θ', formula: '= 1' },
+        { name: '1 + tan²θ', formula: '= sec²θ' },
+        { name: '1 + cot²θ', formula: '= cosec²θ' },
+        { name: 'sin(90°-θ)', formula: '= cos θ' },
+        { name: 'cos(90°-θ)', formula: '= sin θ' },
+        { name: 'tan θ', formula: '= sin θ / cos θ' },
+        { name: 'Sine Rule', formula: 'a/sin(A) = b/sin(B)' },
+        { name: 'Cosine Rule', formula: 'c² = a² + b² - 2ab·cos(C)' },
+        { name: 'Area (2 sides)', formula: 'A = ½ab·sin(C)' },
+        { name: "Heron's Formula", formula: 'A = √[s(s-a)(s-b)(s-c)]' }
+      ],
+      specialAngles: [
+        { angle: '0°', sin: '0', cos: '1', tan: '0' },
+        { angle: '30°', sin: '1/2', cos: '√3/2', tan: '1/√3' },
+        { angle: '45°', sin: '√2/2', cos: '√2/2', tan: '1' },
+        { angle: '60°', sin: '√3/2', cos: '1/2', tan: '√3' },
+        { angle: '90°', sin: '1', cos: '0', tan: 'undefined' }
+      ]
+    }
+  },
+  {
     id: 'supply-demand',
     title: 'Supply & Demand',
     icon: '📈',
     color: 'orange',
     content: {
       introduction: 'Supply and demand is the fundamental concept in economics that determines prices in a market economy.',
-      keyConcepts: [
-        { term: 'Demand', definition: 'The quantity of a good that consumers are willing and able to buy at various prices' },
-        { term: 'Supply', definition: 'The quantity of a good that producers are willing to sell at various prices' },
-        { term: 'Equilibrium', definition: 'The point where quantity demanded equals quantity supplied' },
-        { term: 'Price Elasticity', definition: 'How responsive quantity demanded/supplied is to price changes' }
+      topics: [
+        {
+          title: '1. Basic Concepts',
+          subtopics: [
+            { name: 'Demand', definition: 'The quantity of a good that consumers are willing and able to buy at various prices' },
+            { name: 'Supply', definition: 'The quantity of a good that producers are willing to sell at various prices' },
+            { name: 'Equilibrium', definition: 'The point where quantity demanded equals quantity supplied' }
+          ]
+        },
+        {
+          title: '2. Demand and Supply Curves',
+          subtopics: [
+            { name: 'Law of Demand', definition: 'As price increases, quantity demanded decreases (inverse relationship)' },
+            { name: 'Law of Supply', definition: 'As price increases, quantity supplied increases (direct relationship)' }
+          ]
+        },
+        {
+          title: '3. Market Equilibrium',
+          subtopics: [
+            { name: 'Equilibrium Price', definition: 'The price at which supply equals demand' },
+            { name: 'Equilibrium Quantity', definition: 'The quantity traded at equilibrium price' }
+          ]
+        },
+        {
+          title: '4. Factors Affecting Demand',
+          subtopics: [
+            { name: 'Income', effect: '↑ income → ↑ demand (normal goods)' },
+            { name: 'Prices of Related Goods', effect: '↑ price of substitutes → ↑ demand' },
+            { name: 'Consumer Preferences', effect: 'Favorable preferences → ↑ demand' },
+            { name: 'Expectations', effect: 'Future price ↑ → ↑ current demand' }
+          ]
+        },
+        {
+          title: '5. Factors Affecting Supply',
+          subtopics: [
+            { name: 'Production Costs', effect: '↑ costs → ↓ supply' },
+            { name: 'Technology', effect: 'Better tech → ↑ supply' },
+            { name: 'Number of Sellers', effect: '↑ sellers → ↑ supply' },
+            { name: 'Government Taxes', effect: '↑ taxes → ↓ supply' }
+          ]
+        }
       ],
       graphs: [
         {
@@ -355,9 +661,20 @@ const studyTopics = [
 ]
 
 export default function Study() {
-  const [activeTab, setActiveTab] = useState('supply-demand')
+  const [activeTab, setActiveTab] = useState('trigonometry')
+  const [expandedTopics, setExpandedTopics] = useState({})
+  const [expandedSubtopics, setExpandedSubtopics] = useState({})
 
   const activeTopic = studyTopics.find(t => t.id === activeTab)
+
+  const toggleTopic = (topicIndex) => {
+    setExpandedTopics(prev => ({ ...prev, [topicIndex]: !prev[topicIndex] }))
+  }
+
+  const toggleSubtopic = (topicIndex, subtopicIndex) => {
+    const key = `${topicIndex}-${subtopicIndex}`
+    setExpandedSubtopics(prev => ({ ...prev, [key]: !prev[key] }))
+  }
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -406,6 +723,141 @@ export default function Study() {
                 </h2>
                 <p className="text-slate-600 text-lg">{activeTopic.content.introduction}</p>
               </div>
+
+              {/* Topics & Subtopics */}
+              {activeTopic.content.topics && (
+                <div className="space-y-4">
+                  {activeTopic.content.topics.map((topic, topicIndex) => (
+                    <div key={topicIndex} className="card">
+                      <button
+                        onClick={() => toggleTopic(topicIndex)}
+                        className="w-full flex items-center justify-between p-4 bg-slate-100 rounded-lg hover:bg-slate-200 transition"
+                      >
+                        <h3 className="text-lg font-bold text-slate-800">{topic.title}</h3>
+                        <span className={`transform transition-transform ${expandedTopics[topicIndex] ? 'rotate-180' : ''}`}>
+                          ▼
+                        </span>
+                      </button>
+                      
+                      {expandedTopics[topicIndex] && (
+                        <div className="mt-4 space-y-3">
+                          {topic.subtopics.map((subtopic, subIndex) => (
+                            <div key={subIndex} className="border border-slate-200 rounded-lg overflow-hidden">
+                              <button
+                                onClick={() => toggleSubtopic(topicIndex, subIndex)}
+                                className="w-full flex items-center justify-between p-3 bg-purple-50 hover:bg-purple-100 transition"
+                              >
+                                <span className="font-semibold text-purple-800">{subtopic.name}</span>
+                                <span className={`text-purple-600 text-sm ${expandedSubtopics[`${topicIndex}-${subIndex}`] ? 'rotate-180' : ''}`}>
+                                  ▼
+                                </span>
+                              </button>
+                              
+                              {expandedSubtopics[`${topicIndex}-${subIndex}`] && (
+                                <div className="p-4 bg-white">
+                                  <p className="text-slate-600 mb-4">{subtopic.content}</p>
+                                  
+                                  {/* Details array */}
+                                  {subtopic.details && (
+                                    <div className="space-y-2 mb-4">
+                                      {subtopic.details.map((d, i) => (
+                                        <div key={i} className="flex gap-4 bg-slate-50 p-2 rounded">
+                                          <span className="font-medium text-purple-700 w-24">{d.label}:</span>
+                                          <span className="text-slate-600 font-mono">{d.value}</span>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  )}
+                                  
+                                  {/* Formula */}
+                                  {subtopic.formula && (
+                                    <div className="bg-purple-100 p-3 rounded-lg mb-4">
+                                      <span className="font-mono text-purple-800 font-bold">{subtopic.formula}</span>
+                                    </div>
+                                  )}
+                                  
+                                  {/* SVG */}
+                                  {subtopic.svg && (
+                                    <div className="bg-slate-50 p-4 rounded-lg mb-4">
+                                      {subtopic.svg}
+                                    </div>
+                                  )}
+                                  
+                                  {/* Table (special angles) */}
+                                  {subtopic.table && (
+                                    <div className="overflow-x-auto mb-4">
+                                      <table className="w-full text-sm">
+                                        <thead className="bg-slate-100">
+                                          <tr>
+                                            <th className="p-2">Angle</th>
+                                            <th className="p-2">sin</th>
+                                            <th className="p-2">cos</th>
+                                            <th className="p-2">tan</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          {subtopic.table.map((row, i) => (
+                                            <tr key={i} className="border-t">
+                                              <td className="p-2 font-medium">{row.angle}</td>
+                                              <td className="p-2 font-mono">{row.sin}</td>
+                                              <td className="p-2 font-mono">{row.cos}</td>
+                                              <td className="p-2 font-mono">{row.tan}</td>
+                                            </tr>
+                                          ))}
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  )}
+                                  
+                                  {/* Examples */}
+                                  {subtopic.examples && (
+                                    <div className="space-y-2 mb-4">
+                                      {subtopic.examples.map((ex, i) => (
+                                        <div key={i} className="bg-slate-50 p-2 rounded">
+                                          <span className="font-medium">{ex.problem}:</span>
+                                          <span className="text-slate-600"> {ex.solution}</span>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  )}
+                                  
+                                  {/* Steps */}
+                                  {subtopic.steps && (
+                                    <ol className="list-decimal list-inside space-y-1 mb-4">
+                                      {subtopic.steps.map((step, i) => (
+                                        <li key={i} className="text-slate-600">{step}</li>
+                                      ))}
+                                    </ol>
+                                  )}
+                                  
+                                  {/* When to use */}
+                                  {subtopic.whenToUse && (
+                                    <div className="bg-amber-50 border border-amber-200 p-3 rounded-lg mb-4">
+                                      <span className="font-semibold text-amber-800">When to use:</span>
+                                      <span className="text-amber-700"> {subtopic.whenToUse}</span>
+                                    </div>
+                                  )}
+                                  
+                                  {/* Swedish Example */}
+                                  {subtopic.swedishExample && (
+                                    <div className="bg-cyan-50 border border-cyan-200 p-3 rounded-lg">
+                                      <div className="flex items-center gap-2 mb-1">
+                                        <span>🇸🇪</span>
+                                        <span className="font-semibold text-cyan-800">{subtopic.swedishExample.company}</span>
+                                      </div>
+                                      <p className="text-cyan-700 text-sm">Application: {subtopic.swedishExample.application}</p>
+                                    </div>
+                                  )}
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {/* Key Concepts */}
               <div className="card">
