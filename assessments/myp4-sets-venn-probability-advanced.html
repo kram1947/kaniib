@@ -1724,7 +1724,10 @@
 
         let studentData = { name: 'Guest', class: '' };
 
+        document.getElementById('start-btn').addEventListener('click', function() {
+            document.getElementById('login-modal').style.display = 'flex';
         });
+        
         document.getElementById('submit-btn').addEventListener('click', submitQuiz);
         document.getElementById('review-btn').addEventListener('click', showResults);
         document.getElementById('prev-btn').addEventListener('click', prevQuestion);
