@@ -1,33 +1,39 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import Home from './pages/Home';
-import Assessments from './pages/Assessments';
-import Topics from './pages/Topics';
-import Features from './pages/Features';
-import Login from './pages/auth/Login';
-import ProtectedRoute from './components/ProtectedRoute';
-import { AuthProvider } from './context/AuthContext';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import Math from './pages/Math'
+import Sudoku from './pages/Sudoku'
+import BioTech from './pages/BioTech'
+import Quiz from './pages/Quiz'
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <div className="app">
+    <BrowserRouter>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-1">
           <Routes>
-            <Route path="/login" element={<Login />} />
-
-            <Route element={<ProtectedRoute />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/assessments" element={<Assessments />} />
-              <Route path="/topics" element={<Topics />} />
-              <Route path="/features" element={<Features />} />
-            </Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/math" element={<Math />} />
+            <Route path="/math/:topicId" element={<Quiz />} />
+            <Route path="/sudoku" element={<Sudoku />} />
+            <Route path="/biotech" element={<BioTech />} />
           </Routes>
-        </div>
-      </Router>
-    </AuthProvider>
-  );
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+function Footer() {
+  return (
+    <footer className="bg-darker text-slate-400 py-8">
+      <div className="max-w-6xl mx-auto px-4 text-center">
+        <p>&copy; 2024 KaniMath. Built for IB MYP Students.</p>
+      </div>
+    </footer>
+  )
+}
+
+export default App
