@@ -200,32 +200,12 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 25px rgba(0,106,167,0.5);
         }
-        #login-modal { display: flex; }
         #back-home-btn { display: none; }
         #back-home-btn.show { display: flex; }
     </style>
 </head>
 <body class="text-slate-900 min-h-screen flex flex-col">
 
-    <!-- Login Modal -->
-    <div id="login-modal" class="modal-overlay">
-        <div class="modal-content">
-            <h2>Welcome!</h2>
-            <p>Enter your name to start the assessment</p>
-            <div class="form-group">
-                <label for="student-name">Your Name *</label>
-                <input type="text" id="student-name" placeholder="Enter your name" required>
-            </div>
-            <div class="form-group">
-                <label for="student-class">Class (optional)</label>
-                <input type="text" id="student-class" placeholder="e.g., MYP4-A">
-            </div>
-            <button class="modal-btn" onclick="startWithLogin()">Start Quiz</button>
-            <div class="guest-link"><a onclick="startAsGuest()">Continue as Guest</a></div>
-        </div>
-    </div>
-
-    <!-- History Toggle Button -->
     <button class="history-toggle" onclick="toggleHistory()" title="View History">📋</button>
 
     <!-- History Panel -->
@@ -419,8 +399,6 @@
 
         // Initialize event listeners
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('start-btn').addEventListener('click', function() {
-                document.getElementById('login-modal').style.display = 'flex';
             });
             document.getElementById('prev-btn').addEventListener('click', prevQuestion);
             document.getElementById('next-btn').addEventListener('click', handleNext);
@@ -429,31 +407,7 @@
             document.getElementById('retake-btn').addEventListener('click', function() { location.reload(); });
         });
 
-        function startWithLogin() {
-            const nameInput = document.getElementById('student-name');
-            const classInput = document.getElementById('student-class');
-            const name = nameInput.value.trim();
-            
-            if (!name) {
-                nameInput.style.borderColor = '#ef4444';
-                nameInput.focus();
-                return;
-            }
-            
-            studentData = {
-                name: name,
-                class: classInput.value.trim() || 'Not specified'
-            };
-            
-            document.getElementById('login-modal').style.display = 'none';
-            startQuiz();
-        }
 
-        function startAsGuest() {
-            studentData = { name: 'Guest', class: 'Not specified' };
-            document.getElementById('login-modal').style.display = 'none';
-            startQuiz();
-        }
 
         function startQuiz() {
             document.getElementById('start-screen').classList.add('hidden');
