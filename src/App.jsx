@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Math from './pages/Math'
 import Sudoku from './pages/Sudoku'
 import BioTech from './pages/BioTech'
+import Study from './pages/Study'
 import Quiz from './pages/Quiz'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/math/:topicId" element={<Quiz />} />
             <Route path="/sudoku" element={<Sudoku />} />
             <Route path="/biotech" element={<BioTech />} />
+            <Route path="/study" element={<Study />} />
           </Routes>
         </main>
         <Footer />

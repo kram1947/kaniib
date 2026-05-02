@@ -6,6 +6,7 @@ export default function Navbar() {
   const navs = [
     { path: '/', label: 'Home' },
     { path: '/math', label: 'Mathematics' },
+    { path: '/study', label: 'Study' },
     { path: '/sudoku', label: 'Sudoku' },
     { path: '/biotech', label: 'BioTech News' },
   ]
