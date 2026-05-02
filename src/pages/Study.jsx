@@ -76,7 +76,7 @@ const studyTopics = [
                   <polygon points="30,100 150,100 150,30" fill="none" stroke="#9333ea" strokeWidth="2"/>
                   <path d="M30,100 L130,100 L150,100 L150,90" fill="none" stroke="#9333ea" strokeWidth="1"/>
                   <text x="60" y="80" fill="#9333ea" fontSize="10">1</text>
-                  <text x="135" y="70" fill="#9333ea" fontSize="10">√3</text                  <text x="100" y="90" fill="#ef4444" fontSize="10">30°</text>
+                  <text x="135" y="70" fill="#9333ea" fontSize="10">√3</text><text x="100" y="90" fill="#ef4444" fontSize="10">30°</text>
                   <polygon points="180,100 280,100 280,20" fill="none" stroke="#9333ea" strokeWidth="2"/>
                   <text x="210" y="70" fill="#9333ea" fontSize="10">1</text>
                   <text x="265" y="70" fill="#9333ea" fontSize="10">1</text>
