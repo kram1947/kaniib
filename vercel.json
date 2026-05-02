@@ -2,18 +2,8 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
-  "framework": "vite",
-  "routes": [
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/assessments/(.*)",
-      "dest": "/assessments/$1"
-    },
-    {
-      "src": "/((?!api/).*)",
-      "dest": "/index.html"
-    }
+  "framework": null,
+  "rewrites": [
+    { "source": "/((?!assessments/).*)", "destination": "/index.html" }
   ]
 }
