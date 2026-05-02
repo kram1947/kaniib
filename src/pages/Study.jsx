@@ -775,6 +775,7 @@ export default function Study() {
               )}
 
               {/* Key Concepts */}
+              {activeTopic.content.keyConcepts && (
               <div className="card">
                 <h3 className="text-xl font-bold text-slate-800 mb-4">Key Concepts</h3>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -786,6 +787,7 @@ export default function Study() {
                   ))}
                 </div>
               </div>
+              )}
 
               {/* Graphs & Charts */}
               {activeTopic.content.graphs && (
