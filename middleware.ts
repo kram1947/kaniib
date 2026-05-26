@@ -31,6 +31,13 @@ function isPublicAsset(pathname: string) {
   );
 }
 
+function matchesPublicRoute(pathname: string) {
+  for (const p of PUBLIC_PATHS) {
+    if (pathname === p || pathname.startsWith(p + '/')) return true;
+  }
+  return false;
+}
+
 function redirectToLogin(request: Request) {
   const url = new URL(request.url);
   const loginUrl = new URL('/login', url.origin);
@@ -47,35 +54,32 @@ function isExpired(token: string) {
   }
 }
 
-async function isValidSupabaseToken(token: string) {
-  const supabaseUrl = process.env.VITE_SUPABASE_URL;
-  const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY;
-
-  if (!supabaseUrl || !supabaseAnonKey || isExpired(token)) {
-    return false;
-  }
-
-  const response = await fetch(`${supabaseUrl}/auth/v1/user`, {
-    headers: {
-      apikey: supabaseAnonKey,
-      Authorization: `Bearer ${token}`
-    }
-  });
-
-  return response.ok;
-}
-
 export default async function middleware(request: Request) {
   const url = new URL(request.url);
   const { pathname } = url;
 
-  if (PUBLIC_PATHS.has(pathname) || isPublicAsset(pathname)) {
+  if (isPublicAsset(pathname) || matchesPublicRoute(pathname)) {
     return;
   }
 
   const token = getCookie(request, AUTH_COOKIE);
-  if (!token || !(await isValidSupabaseToken(token))) {
+  if (!token || isExpired(token)) {
     return redirectToLogin(request);
+  }
+
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
+
+  if (supabaseUrl && supabaseAnonKey) {
+    const response = await fetch(`${supabaseUrl}/auth/v1/user`, {
+      headers: {
+        apikey: supabaseAnonKey,
+        Authorization: `Bearer ${token}`
+      }
+    });
+    if (!response.ok) {
+      return redirectToLogin(request);
+    }
   }
 }
 
