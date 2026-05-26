@@ -13,7 +13,7 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const stored = localStorage.getItem(AUTH_STORAGE_KEY);
     if (stored === 'true') {
-      setSession({ user: { username: DEFAULT_USER } });
+      setSession({ user: { username: DEFAULT_USER, email: 'admin@kanimath.app' } });
     }
     setLoading(false);
   }, []);
@@ -21,7 +21,7 @@ export function AuthProvider({ children }) {
   const signIn = useCallback(async (username, password) => {
     if (username === DEFAULT_USER && password === DEFAULT_PASSWORD) {
       localStorage.setItem(AUTH_STORAGE_KEY, 'true');
-      setSession({ user: { username: DEFAULT_USER } });
+      setSession({ user: { username: DEFAULT_USER, email: 'admin@kanimath.app' } });
       return { success: true };
     }
     return { success: false, error: 'Invalid credentials' };
@@ -32,12 +32,24 @@ export function AuthProvider({ children }) {
     setSession(null);
   }, []);
 
+  const syncAuthCookie = useCallback(async (session) => {
+    if (session?.access_token) {
+      const days = 365;
+      const cookie = `kanimath-auth=${encodeURIComponent(session.access_token)}; path=/; max-age=${days * 86400}; samesite=lax; secure`;
+      document.cookie = cookie;
+    }
+  }, []);
+
+  const configured = Boolean(import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY);
+
   const value = useMemo(() => ({
     session,
     loading,
+    configured,
     signIn,
-    signOut
-  }), [session, loading, signOut]);
+    signOut,
+    syncAuthCookie
+  }), [session, loading, configured, signIn, signOut, syncAuthCookie]);
 
   return (
     <AuthContext.Provider value={value}>
