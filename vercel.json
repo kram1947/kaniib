@@ -1,8 +1,13 @@
 {
+  "name": "kaniib",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "framework": "vite",
+  "github": {
+    "silent": true,
+    "autoJobCancel": true
+  },
   "rewrites": [
     { "source": "/login", "destination": "/index.html" },
     { "source": "/signup", "destination": "/index.html" },
