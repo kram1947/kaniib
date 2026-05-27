@@ -545,7 +545,20 @@
         .back-home-btn:hover { transform: translateY(-2px); }
         #back-home-btn { display: none; }
         #back-home-btn.show { display: flex; }
-
+        .sidebar-home-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            padding: 12px 0;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            border-top: 1px solid var(--border);
+            transition: color 0.2s;
+        }
+        .sidebar-home-link:hover { color: var(--primary); }
         @media (max-width: 768px) {
             .app-container { flex-direction: column; }
             .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
@@ -616,6 +629,7 @@
                 <button class="btn btn-primary" id="submit-btn">Submit Quiz</button>
                 <button class="btn btn-secondary" id="review-btn">Review Answers</button>
             </div>
+            <a href="../index.html" class="sidebar-home-link">← StudyIB Home</a>
         </aside>
 
         <main class="main-content">

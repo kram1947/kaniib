@@ -10,7 +10,7 @@ export default function ProtectedRoute() {
     return (
       <main className="auth-shell">
         <section className="auth-card">
-          <p className="auth-kicker">KaniMath</p>
+          <p className="auth-kicker">StudyIB</p>
           <h1>Checking your session</h1>
           <p className="auth-copy">One moment while we prepare your workspace.</p>
         </section>

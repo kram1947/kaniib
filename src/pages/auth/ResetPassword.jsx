@@ -36,7 +36,7 @@ export default function ResetPassword() {
     <AuthLayout
       kicker="New password"
       title="Choose a fresh password"
-      description="Set a new password for your KaniMath account."
+      description="Set a new password for your StudyIB account."
       footer={<Link to="/login">Back to login</Link>}
     >
       <form className="auth-form" onSubmit={handleSubmit}>

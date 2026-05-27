@@ -10,7 +10,7 @@ export default function FeaturesSection() {
   return (
     <section className="features-section" aria-labelledby="features-title">
       <div className="section-header">
-        <h2 id="features-title">Why Choose KaniMath?</h2>
+        <h2 id="features-title">Why Choose StudyIB?</h2>
         <p>Designed to help you succeed</p>
       </div>
       <div className="features-grid">

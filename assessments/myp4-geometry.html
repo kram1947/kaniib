@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYP4 Mathematics - Geometry & Measurement</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true },
+            startup: { pageReady: () => MathJax.typesetPromise() }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-hover: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: #475569;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-dark); color: var(--text-primary); min-height: 100vh; }
+        .app-container { display: flex; min-height: 100vh; }
+        .sidebar { width: 280px; background: var(--bg-card); border-right: 1px solid var(--border); padding: 20px; display: flex; flex-direction: column; }
+        .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; }
+        .logo-text h1 { font-size: 14px; font-weight: 600; }
+        .logo-text span { font-size: 11px; color: var(--text-secondary); }
+        .timer-container { background: rgba(99, 102, 241, 0.1); border: 1px solid var(--primary); border-radius: 12px; padding: 16px; margin-bottom: 20px; text-align: center; }
+        .timer-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+        .timer { font-size: 32px; font-weight: 700; font-family: 'Fira Code', monospace; color: var(--primary); }
+        .timer.warning { color: var(--warning); animation: pulse 1s infinite; }
+        .timer.danger { color: var(--danger); }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .progress-section { margin-bottom: 20px; }
+        .progress-text { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; }
+        .progress-bar { height: 8px; background: var(--bg-dark); border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.3s ease; }
+        .nav-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+        .question-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 20px; }
+        .nav-btn { aspect-ratio: 1; border: 2px solid var(--border); background: var(--bg-dark); border-radius: 8px; color: var(--text-secondary); font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.2s; }
+        .nav-btn:hover { background: var(--bg-hover); border-color: var(--primary); }
+        .nav-btn.current { background: var(--primary); border-color: var(--primary); color: white; }
+        .nav-btn.answered { background: var(--secondary); border-color: var(--secondary); color: white; }
+        .controls { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
+        .btn { padding: 12px 16px; border-radius: 8px; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.2s; border: none; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-secondary { background: var(--bg-dark); color: var(--text-primary); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: var(--bg-hover); }
+        .btn-danger { background: var(--danger); color: white; }
+        .main-content { flex: 1; padding: 32px; overflow-y: auto; }
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+        .quiz-title { font-size: 28px; font-weight: 700; }
+        .quiz-meta { display: flex; gap: 20px; font-size: 14px; color: var(--text-secondary); }
+        .question-card { background: var(--bg-card); border-radius: 16px; padding: 32px; margin-bottom: 24px; }
+        .question-meta { display: flex; gap: 16px; margin-bottom: 16px; }
+        .question-badge { padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .badge-section { background: rgba(99, 102, 241, 0.2); color: var(--primary); }
+        .badge-marks { background: rgba(16, 185, 129, 0.2); color: var(--secondary); }
+        .question-text { font-size: 18px; line-height: 1.7; margin-bottom: 24px; }
+        .question-text code { font-family: 'Fira Code', monospace; background: var(--bg-dark); padding: 2px 8px; border-radius: 4px; font-size: 14px; }
+        .options { display: flex; flex-direction: column; gap: 12px; }
+        .option { display: flex; align-items: center; gap: 16px; padding: 16px 20px; background: var(--bg-dark); border: 2px solid var(--border); border-radius: 12px; cursor: pointer; transition: all 0.2s; }
+        .option:hover { border-color: var(--primary); background: rgba(99, 102, 241, 0.1); }
+        .option.selected { border-color: var(--primary); background: rgba(99, 102, 241, 0.2); }
+        .option.correct { border-color: var(--secondary); background: rgba(16, 185, 129, 0.2); }
+        .option.incorrect { border-color: var(--danger); background: rgba(239, 68, 68, 0.2); }
+        .option-letter { width: 32px; height: 32px; border-radius: 8px; background: var(--bg-card); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; }
+        .option.selected .option-letter { background: var(--primary); color: white; }
+        .option-text { flex: 1; font-size: 15px; }
+        .question-nav-buttons { display: flex; justify-content: space-between; margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border); }
+        .start-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; text-align: center; }
+        .start-screen h1 { font-size: 42px; margin-bottom: 16px; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .start-screen p { font-size: 18px; color: var(--text-secondary); margin-bottom: 32px; max-width: 600px; }
+        .start-info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+        .info-card { background: var(--bg-card); padding: 24px; border-radius: 12px; text-align: center; }
+        .info-card h3 { font-size: 28px; color: var(--primary); margin-bottom: 8px; }
+        .info-card p { font-size: 14px; margin: 0; }
+        .results-screen { display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 80vh; text-align: center; }
+        .results-score { font-size: 80px; font-weight: 700; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+        .results-label { font-size: 24px; color: var(--text-secondary); margin-bottom: 32px; }
+        .results-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; }
+        .stat-card { background: var(--bg-card); padding: 24px; border-radius: 16px; min-width: 150px; }
+        .stat-card h4 { font-size: 12px; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 8px; }
+        .stat-card .value { font-size: 36px; font-weight: 700; }
+        .stat-card.correct .value { color: var(--secondary); }
+        .stat-card.incorrect .value { color: var(--danger); }
+        .stat-card.skipped .value { color: var(--warning); }
+        .results-actions { display: flex; gap: 16px; }
+        .results-table { width: 100%; max-width: 800px; margin-bottom: 32px; border-collapse: collapse; }
+        .results-table th, .results-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        .results-table th { background: var(--bg-card); font-size: 12px; text-transform: uppercase; color: var(--text-secondary); }
+        .results-table .status { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .status.correct { background: rgba(16, 185, 129, 0.2); color: var(--secondary); }
+        .status.incorrect { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
+        .status.skipped { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
+        .hidden { display: none !important; }
+        .sidebar-home-link { display: flex; align-items: center; gap: 6px; margin-top: auto; padding: 12px; color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 500; border-top: 1px solid var(--border); transition: color 0.2s; }
+        .sidebar-home-link:hover { color: var(--primary); }
+        @media (max-width: 768px) {
+            .app-container { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+            .start-info, .results-stats { grid-template-columns: 1fr; }
+            .question-nav { grid-template-columns: repeat(5, 1fr); }
+        }
+        .back-home-btn {
+            position: fixed; bottom: 20px; left: 20px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white; border: none; border-radius: 10px;
+            font-size: 14px; font-weight: 600; cursor: pointer;
+            box-shadow: 0 4px 20px rgba(99,102,241,0.4);
+            z-index: 100; text-decoration: none;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .back-home-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(99,102,241,0.5); }
+        #back-home-btn { display: none; }
+        #back-home-btn.show { display: flex; }
+        .history-toggle {
+            position: fixed; bottom: 20px; right: 20px;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white; border: none; font-size: 24px; cursor: pointer;
+            box-shadow: 0 4px 20px rgba(99,102,241,0.4); z-index: 100;
+        }
+        .history-panel {
+            position: fixed; bottom: 90px; right: 20px;
+            width: 320px; max-height: 400px; overflow-y: auto;
+            background: var(--bg-card); border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            z-index: 100; display: none;
+        }
+        .history-panel.show { display: block; }
+        .history-header {
+            padding: 16px 20px; border-bottom: 1px solid var(--border);
+            font-weight: 700; color: var(--primary);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .history-item {
+            padding: 12px 20px; border-bottom: 1px solid var(--border);
+            cursor: pointer; transition: background 0.2s;
+        }
+        .history-item:hover { background: var(--bg-hover); }
+        .history-item:last-child { border-bottom: none; }
+        .history-item .date { font-size: 12px; color: var(--text-secondary); }
+        .history-item .score { font-size: 20px; font-weight: 700; color: var(--primary); }
+        .history-item .name { font-weight: 600; color: var(--text-primary); }
+        .history-empty { padding: 40px 20px; text-align: center; color: var(--text-secondary); }
+    </style>
+</head>
+<body>
+    <button class="history-toggle" onclick="toggleHistory()" title="View History">📋</button>
+    <div id="history-panel" class="history-panel">
+        <div class="history-header">
+            <span>📊 Your History</span>
+            <button onclick="toggleHistory()" style="background:none;border:none;cursor:pointer;font-size:18px;color:var(--text-primary);">×</button>
+        </div>
+        <div id="history-list"></div>
+    </div>
+    <a id="back-home-btn" class="back-home-btn" href="../index.html">← Back to Home</a>
+    <div class="app-container">
+        <aside class="sidebar hidden" id="sidebar">
+            <div class="logo">
+                <div class="logo-icon">G</div>
+                <div class="logo-text">
+                    <h1>MYP4 Mathematics</h1>
+                    <span>Geometry & Measurement</span>
+                </div>
+            </div>
+            <div class="timer-container">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">25:00</div>
+            </div>
+            <div class="progress-section">
+                <div class="progress-text">
+                    <span>Progress</span>
+                    <span id="progress-text">0 / 8</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="nav-label">Questions</div>
+            <div class="question-nav" id="question-nav"></div>
+            <div class="controls">
+                <button class="btn btn-primary" id="submit-btn">Submit Quiz</button>
+                <button class="btn btn-secondary" id="review-btn">Review Answers</button>
+            </div>
+            <a href="../index.html" class="sidebar-home-link">← StudyIB Home</a>
+        </aside>
+        <main class="main-content">
+            <div class="start-screen" id="start-screen">
+                <h1>MYP4 Mathematics</h1>
+                <p>Geometry & Measurement<br>25 Minutes | 8 Questions</p>
+                <div class="start-info">
+                    <div class="info-card"><h3>8</h3><p>Questions</p></div>
+                    <div class="info-card"><h3>25</h3><p>Minutes</p></div>
+                    <div class="info-card"><h3>8</h3><p>Marks</p></div>
+                </div>
+                <div class="criteria-info" style="background: var(--bg-card); padding: 20px; border-radius: 12px; margin-bottom: 32px; text-align: left; max-width: 700px;">
+                    <h3 style="margin-bottom: 16px; color: var(--primary);">Topics Covered</h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; font-size: 13px;">
+                        <div><strong style="color: var(--primary);">Pythagorean Theorem</strong> — Right-angled triangles, finding sides</div>
+                        <div><strong style="color: var(--secondary);">Area of Parallelograms</strong> — Base × height calculations</div>
+                        <div><strong style="color: var(--warning);">Surface Area</strong> — Spheres, 3D shapes</div>
+                        <div><strong style="color: #ec4899;">Interior Angles</strong> — Polygon angle sums</div>
+                        <div><strong style="color: #8b5cf6;">Volume of Cones</strong> — Cone volume formula</div>
+                        <div><strong style="color: #06b6d4;">3D Diagonal</strong> — Rectangular prism diagonal length</div>
+                        <div><strong style="color: var(--primary);">Trigonometry</strong> — Cosine ratio in right triangles</div>
+                        <div><strong style="color: var(--secondary);">Circle Area</strong> — Combined area of circles</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="start-btn" style="padding: 16px 48px; font-size: 18px;">Start Quiz</button>
+            </div>
+            <div class="hidden" id="quiz-container">
+                <div class="quiz-header">
+                    <div class="quiz-title">Question <span id="current-q">1</span></div>
+                    <div class="quiz-meta">
+                        <span id="section-badge">Geometry</span>
+                    </div>
+                </div>
+                <div class="question-card">
+                    <div class="question-meta">
+                        <span class="question-badge badge-section" id="question-section">Geometry & Measurement</span>
+                    </div>
+                    <div class="question-text" id="question-text"></div>
+                    <div class="options" id="options"></div>
+                </div>
+                <div class="question-nav-buttons">
+                    <button class="btn btn-secondary" id="prev-btn">← Previous</button>
+                    <button class="btn btn-primary" id="next-btn">Next →</button>
+                </div>
+            </div>
+            <div class="results-screen" id="results-screen">
+                <div class="results-score"><span id="final-score">0</span>%</div>
+                <div class="results-label">Quiz Complete</div>
+                <div class="results-stats">
+                    <div class="stat-card correct"><h4>Correct</h4><div class="value" id="correct-count">0</div></div>
+                    <div class="stat-card incorrect"><h4>Incorrect</h4><div class="value" id="incorrect-count">0</div></div>
+                    <div class="stat-card skipped"><h4>Skipped</h4><div class="value" id="skipped-count">0</div></div>
+                </div>
+                <table class="results-table" id="results-table">
+                    <thead><tr><th>#</th><th>Category</th><th>Your Answer</th><th>Correct</th><th>Status</th></tr></thead>
+                    <tbody id="results-body"></tbody>
+                </table>
+                <div class="results-actions">
+                    <button class="btn btn-primary" id="download-pdf-btn">📄 Download PDF</button>
+                    <button class="btn btn-secondary" id="retry-btn">Retry Quiz</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        const quizData = [
+            { cat: "GEOMETRY", q: "Q1. A right-angled triangle has hypotenuse 13 cm and one leg 5 cm. Find the other leg.", opts: ["12 cm", "8 cm", "10 cm", "7 cm"], ans: 0 },
+            { cat: "GEOMETRY", q: "Q2. Find the area of a parallelogram with base 8 cm and height 6.5 cm.", opts: ["52 cm²", "26 cm²", "65 cm²", "39 cm²"], ans: 0 },
+            { cat: "GEOMETRY", q: "Q3. A sphere has radius 6 cm. Calculate its surface area. (Use \\( \\pi \\approx 3.14 \\))", opts: ["452.16 cm²", "226.08 cm²", "904.32 cm²", "113.04 cm²"], ans: 0 },
+            { cat: "GEOMETRY", q: "Q4. What is the sum of interior angles in a hexagon?", opts: ["720°", "540°", "900°", "1080°"], ans: 0 },
+            { cat: "GEOMETRY", q: "Q5. A cone has radius 4 cm and height 9 cm. Find its volume. (Use \\( \\pi \\approx 3.14 \\))", opts: ["150.72 cm³", "113.04 cm³", "75.36 cm³", "226.08 cm³"], ans: 0 },
+            { cat: "GEOMETRY", q: "Q6. Calculate the diagonal of a rectangular prism with dimensions 3 cm, 4 cm, and 12 cm.", opts: ["13 cm", "19 cm", "√169 cm", "15 cm"], ans: 0 },
+            { cat: "GEOMETRY", q: "Q7. Find \\( \\cos \\theta \\) in a right triangle where adjacent = 7 and hypotenuse = 25.", opts: ["\\(\\frac{7}{25}\\)", "\\(\\frac{25}{7}\\)", "\\(\\frac{24}{25}\\)", "\\(\\frac{7}{24}\\)"], ans: 0 },
+            { cat: "GEOMETRY", q: "Q8. Two circles have radii 5 cm and 3 cm. Their combined area is approximately:", opts: ["201.06 cm²", "100.48 cm²", "50.24 cm²", "314 cm²"], ans: 0 }
+        ];
+
+        let currentIdx = 0, score = 0, userAnswers = new Array(quizData.length).fill(null), timeLeft = 1500, timerInterval;
+        let studentData = { name: 'Guest', class: '' };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('start-btn').addEventListener('click', startQuiz);
+            document.getElementById('submit-btn').addEventListener('click', submitQuiz);
+            document.getElementById('review-btn').addEventListener('click', showResults);
+            document.getElementById('prev-btn').addEventListener('click', prevQuestion);
+            document.getElementById('next-btn').addEventListener('click', handleNext);
+            document.getElementById('download-pdf-btn').addEventListener('click', downloadPDF);
+            document.getElementById('retry-btn').addEventListener('click', function() { location.reload(); });
+        });
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            document.getElementById('sidebar').classList.remove('hidden');
+            renderNav();
+            renderQuestion();
+            startTimer();
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                let mins = Math.floor(timeLeft / 60), secs = timeLeft % 60;
+                document.getElementById('timer').innerText = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+                const timer = document.getElementById('timer');
+                if (timeLeft <= 60) {
+                    timer.classList.remove('warning');
+                    timer.classList.add('danger');
+                } else if (timeLeft <= 300) {
+                    timer.classList.add('warning');
+                }
+                if (timeLeft <= 0) { clearInterval(timerInterval); submitQuiz(); }
+            }, 1000);
+        }
+
+        function renderNav() {
+            const nav = document.getElementById('question-nav');
+            nav.innerHTML = '';
+            for (let i = 0; i < quizData.length; i++) {
+                const btn = document.createElement('button');
+                btn.className = 'nav-btn' + (i === currentIdx ? ' current' : '') + (userAnswers[i] !== null ? ' answered' : '');
+                btn.textContent = i + 1;
+                btn.addEventListener('click', () => jumpToQuestion(i));
+                nav.appendChild(btn);
+            }
+            const answered = userAnswers.filter(a => a !== null).length;
+            document.getElementById('progress-text').innerText = `${answered} / ${quizData.length}`;
+            document.getElementById('progress-fill').style.width = `${(answered / quizData.length) * 100}%`;
+        }
+
+        function jumpToQuestion(index) {
+            if (index >= 0 && index < quizData.length) {
+                currentIdx = index;
+                renderQuestion();
+            }
+        }
+
+        function renderQuestion() {
+            const data = quizData[currentIdx];
+            document.getElementById('current-q').innerText = currentIdx + 1;
+            document.getElementById('question-section').innerText = data.cat;
+            document.getElementById('section-badge').innerText = data.cat;
+            document.getElementById('question-text').innerHTML = data.q;
+
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            const letters = ['A', 'B', 'C', 'D'];
+
+            data.opts.forEach((opt, i) => {
+                const optionEl = document.createElement('div');
+                optionEl.className = 'option' + (userAnswers[currentIdx] === i ? ' selected' : '');
+                optionEl.innerHTML = `<div class="option-letter">${letters[i]}</div><div class="option-text">${opt}</div>`;
+                optionEl.addEventListener('click', () => selectOption(i));
+                optionsContainer.appendChild(optionEl);
+            });
+
+            document.getElementById('prev-btn').disabled = currentIdx === 0;
+            document.getElementById('next-btn').innerText = (currentIdx === quizData.length - 1) ? 'Submit Quiz' : 'Next →';
+            renderNav();
+
+            if (window.MathJax) {
+                MathJax.typesetPromise().catch(err => console.log("MathJax error:", err));
+            }
+        }
+
+        function selectOption(val) {
+            userAnswers[currentIdx] = val;
+            document.querySelectorAll('.option').forEach((opt, i) => {
+                opt.classList.toggle('selected', i === val);
+            });
+            renderNav();
+        }
+
+        function prevQuestion() {
+            if (currentIdx > 0) { currentIdx--; renderQuestion(); }
+        }
+
+        function handleNext() {
+            if (currentIdx < quizData.length - 1) {
+                currentIdx++;
+                renderQuestion();
+            } else {
+                if (confirm("Submit your quiz?")) submitQuiz();
+            }
+        }
+
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            showResults();
+            const { correct, incorrect, skipped, total } = calculateResults();
+            saveResult(correct, correct, incorrect, skipped, total);
+            document.getElementById('back-home-btn').classList.add('show');
+        }
+
+        function calculateResults() {
+            let correct = 0, incorrect = 0, skipped = 0;
+            userAnswers.forEach((ans, i) => {
+                if (ans === quizData[i].ans) correct++;
+                else if (ans !== null) incorrect++;
+                else skipped++;
+            });
+            return { correct, incorrect, skipped, total: quizData.length };
+        }
+
+        function showResults() {
+            clearInterval(timerInterval);
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('results-screen').style.display = 'flex';
+            const { correct, incorrect, skipped, total } = calculateResults();
+            const percentage = Math.round((correct / total) * 100);
+            score = correct;
+
+            document.getElementById('final-score').textContent = percentage;
+            document.getElementById('correct-count').textContent = correct;
+            document.getElementById('incorrect-count').textContent = incorrect;
+            document.getElementById('skipped-count').textContent = skipped;
+
+            const tbody = document.getElementById('results-body');
+            tbody.innerHTML = '';
+            const letters = ['A', 'B', 'C', 'D'];
+            for (let i = 0; i < quizData.length; i++) {
+                const q = quizData[i];
+                const userAnsIdx = userAnswers[i];
+                const correctIdx = q.ans;
+                const isCorrect = userAnsIdx === correctIdx;
+                let status, statusClass;
+                if (userAnsIdx === null) { status = 'Skipped'; statusClass = 'skipped'; }
+                else if (isCorrect) { status = 'Correct'; statusClass = 'correct'; }
+                else { status = 'Incorrect'; statusClass = 'incorrect'; }
+                const userText = userAnsIdx !== null ? letters[userAnsIdx] + ': ' + q.opts[userAnsIdx] : '—';
+                const correctText = letters[correctIdx] + ': ' + q.opts[correctIdx];
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${i + 1}</td><td>${q.cat}</td><td style="font-size:13px">${userText}</td><td style="font-size:13px">${correctText}</td><td><span class="status ${statusClass}">${status}</span></td>`;
+                tbody.appendChild(row);
+            }
+        }
+
+        function saveResult(score, correct, wrong, skipped, total) {
+            const result = {
+                id: Date.now(), studentName: studentData.name, studentClass: studentData.class,
+                quizName: 'Geometry & Measurement', quizFile: 'myp4-geometry.html',
+                score: score, total: total,
+                percentage: ((score / total) * 100).toFixed(1),
+                correct: correct, wrong: wrong, skipped: skipped,
+                date: new Date().toLocaleString()
+            };
+            let history = JSON.parse(localStorage.getItem('kanimath_history') || '[]');
+            history.unshift(result);
+            history = history.slice(0, 20);
+            localStorage.setItem('kanimath_history', JSON.stringify(history));
+        }
+
+        function toggleHistory() {
+            const panel = document.getElementById('history-panel');
+            panel.classList.toggle('show');
+            if (panel.classList.contains('show')) renderHistory();
+        }
+
+        function renderHistory() {
+            const history = JSON.parse(localStorage.getItem('kanimath_history') || '[]');
+            const container = document.getElementById('history-list');
+            if (history.length === 0) {
+                container.innerHTML = '<div class="history-empty">No history yet.<br>Complete a quiz to see your results!</div>';
+                return;
+            }
+            container.innerHTML = history.map(item => `
+                <div class="history-item" onclick="alert('${item.studentName}\\n${item.quizName}\\nScore: ${item.score}/${item.total} (${item.percentage}%)\\nCorrect: ${item.correct} | Wrong: ${item.wrong} | Skipped: ${item.skipped}\\nDate: ${item.date}')">
+                    <div class="name">${item.studentName}${item.studentClass !== 'Not specified' ? ' (' + item.studentClass + ')' : ''}</div>
+                    <div class="score">${item.score}/${item.total} (${item.percentage}%)</div>
+                    <div class="date">${item.quizName} • ${item.date}</div>
+                </div>
+            `).join('');
+        }
+
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const { correct, incorrect, skipped, total } = calculateResults();
+            const percentage = Math.round((correct / total) * 100);
+
+            doc.setFontSize(20);
+            doc.setTextColor(99, 102, 241);
+            doc.text('MYP4 Mathematics - Geometry & Measurement', 105, 20, { align: 'center' });
+            doc.setFontSize(12);
+            doc.setTextColor(100);
+            doc.text('Results Report', 105, 28, { align: 'center' });
+            doc.setFontSize(48);
+            doc.setTextColor(99, 102, 241);
+            doc.text(`${percentage}%`, 105, 50, { align: 'center' });
+            doc.setFontSize(12);
+            doc.setTextColor(0);
+            doc.text(`Correct: ${correct}  |  Incorrect: ${incorrect}  |  Skipped: ${skipped}`, 105, 60, { align: 'center' });
+
+            const letters = ['A', 'B', 'C', 'D'];
+            let y = 75;
+            doc.setFontSize(10);
+            doc.text('Question Results:', 10, y);
+            y += 7;
+
+            for (let i = 0; i < quizData.length; i++) {
+                const q = quizData[i];
+                const userAnsIdx = userAnswers[i];
+                const correctIdx = q.ans;
+                const isCorrect = userAnsIdx === correctIdx;
+                let statusColor;
+                if (userAnsIdx === null) statusColor = [245, 158, 11];
+                else if (isCorrect) statusColor = [16, 185, 129];
+                else statusColor = [239, 68, 68];
+                doc.setTextColor(...statusColor);
+                const status = userAnsIdx === null ? 'SKIPPED' : isCorrect ? 'CORRECT' : 'INCORRECT';
+                doc.text(`${i + 1}. ${status} (${q.cat})`, 10, y);
+                doc.setTextColor(80);
+                const userText = userAnsIdx !== null ? letters[userAnsIdx] + ': ' + q.opts[userAnsIdx] : 'Not answered';
+                const correctText = letters[correctIdx] + ': ' + q.opts[correctIdx];
+                doc.text(`Your: ${userText.substring(0, 40)} | Correct: ${correctText.substring(0, 40)}`, 40, y);
+                y += 7;
+                if (y > 270) { doc.addPage(); y = 20; }
+            }
+
+            doc.setFontSize(8);
+            doc.setTextColor(150);
+            doc.text(`Generated: ${new Date().toLocaleDateString()}`, 105, 285, { align: 'center' });
+            doc.save('MYP4_Geometry_Results.pdf');
+        }
+    </script>
+</body>
+</html>
