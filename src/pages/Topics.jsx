@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { topicsData, assessmentsData } from '../data/assessments';
 import SiteFooter from '../sections/SiteFooter';
@@ -36,7 +35,7 @@ function TopicSection({ topic }) {
       </div>
       <div className="topic-detail-assessments">
         {related.map(a => (
-          <Link key={a.id} to={a.href} className="topic-assessment-link">
+          <a key={a.id} href={a.href} className="topic-assessment-link">
             <span className="topic-assessment-icon">{a.icon}</span>
             <div className="topic-assessment-body">
               <strong>{a.title}</strong>
@@ -45,7 +44,7 @@ function TopicSection({ topic }) {
               </span>
             </div>
             <span className="start-btn-small">Start →</span>
-          </Link>
+          </a>
         ))}
       </div>
     </section>
