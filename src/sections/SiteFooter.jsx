@@ -9,7 +9,7 @@ export default function SiteFooter() {
           <a href="/topics">Topics</a>
           <a href="/assessments">Assessments</a>
         </nav>
-        <p className="footer-text">KaniMath • Built for IB Students • Open Source</p>
+        <p className="footer-text">StudyIB • Master Mathematics with Kanishka • IB Learning & Assessment</p>
       </div>
     </footer>
   );

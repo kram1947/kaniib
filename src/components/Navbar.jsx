@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar" role="navigation" aria-label="Main navigation">
-      <Link to="/" className="navbar-brand">KaniMath</Link>
+      <Link to="/" className="navbar-brand">StudyIB</Link>
 
       <button
         className="navbar-toggle"

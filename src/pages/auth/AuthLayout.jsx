@@ -5,7 +5,7 @@ export default function AuthLayout({ kicker, title, description, children, foote
   return (
     <main className="auth-shell">
       <section className="auth-card">
-        <Link className="auth-brand" to="/">KaniMath</Link>
+        <Link className="auth-brand" to="/">StudyIB</Link>
         <p className="auth-kicker">{kicker}</p>
         <h1>{title}</h1>
         {description && <p className="auth-copy">{description}</p>}

@@ -158,6 +158,20 @@
             margin-bottom: 20px;
         }
 
+        .sidebar-home-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: auto;
+            padding: 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            border-top: 1px solid var(--border);
+            transition: color 0.2s;
+        }
+        .sidebar-home-link:hover { color: var(--primary); }
         .nav-btn {
             aspect-ratio: 1;
             border: 2px solid var(--border);
@@ -888,6 +902,7 @@
                     Review Answers
                 </button>
             </div>
+            <a href="../index.html" class="sidebar-home-link">← StudyIB Home</a>
         </aside>
 
         <!-- Main Content -->

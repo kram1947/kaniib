@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MYP4 Trigonometry Assessment - 25 Questions | KaniMath</title>
+    <title>MYP4 Trigonometry Assessment - 25 Questions | StudyIB</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code&display=swap" rel="stylesheet">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -385,6 +385,20 @@
         .review-status { font-size: 12px; font-weight: 600; margin-bottom: 8px; }
         .review-status.correct { color: var(--secondary); }
         .review-status.incorrect { color: var(--danger); }
+        .sidebar-home-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            padding: 12px 0;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            border-top: 1px solid var(--border);
+            transition: color 0.2s;
+        }
+        .sidebar-home-link:hover { color: var(--primary); }
     </style>
 </head>
 <body>
@@ -393,7 +407,7 @@
             <div class="logo">
                 <div class="logo-icon">K</div>
                 <div class="logo-text">
-                    <h1>KaniMath</h1>
+                    <h1>StudyIB</h1>
                     <span>Trigonometry Quiz</span>
                 </div>
             </div>
@@ -421,6 +435,7 @@
                 <button class="btn" onclick="reviewAnswers()">Review</button>
                 <button class="btn btn-danger" onclick="exitQuiz()">Exit</button>
             </div>
+            <a href="../index.html" class="sidebar-home-link">← StudyIB Home</a>
         </aside>
 
         <main class="main-content">
