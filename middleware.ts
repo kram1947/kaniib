@@ -27,7 +27,7 @@ function isPublicAsset(pathname: string) {
     pathname === '/vite.svg' ||
     pathname === '/robots.txt' ||
     pathname === '/sitemap.xml' ||
-    /\.[a-zA-Z0-9]+$/.test(pathname) && !pathname.startsWith('/assessments/')
+    /\.[a-zA-Z0-9]+$/.test(pathname)
   );
 }
 
