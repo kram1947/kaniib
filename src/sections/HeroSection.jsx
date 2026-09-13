@@ -8,7 +8,7 @@ export default function HeroSection() {
           <span></span>
           Free IB Math Practice
         </div>
-        <h1 id="hero-title">Master <span>Mathematics</span><br/>with Kanishka</h1>
+        <h1 id="hero-title">ISSR <span>Kanishka</span></h1>
         <p className="hero-desc">Interactive assessments aligned with IB MYP4 curriculum. Track your progress, identify knowledge gaps, and achieve excellence.</p>
         <div className="hero-actions">
           <a href="/assessments" className="btn btn-primary">
