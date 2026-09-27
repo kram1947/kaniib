@@ -142,7 +142,6 @@ New material and papers follow one written standard, enforced by `npm run valida
 
 ## ❗ Known issues
 
-- **`dist/` is gitignored yet partially tracked**, so every build dirties `git status`.
 - **`myp4-trigonometry-assessment.html` uses an older question schema** and is not held to the same content gate as the newer papers.
 - Written answers are auto-marked as a **self-check estimate** against the mark scheme, not as a marker's decision.
 - The legacy `myp4-*` papers predate the current template, so they lack the mark-scheme modal, per-answer review and answer shuffling.

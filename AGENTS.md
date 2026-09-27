@@ -73,7 +73,7 @@ mathapp/
 │   ├── m10-science-ess-a-part2.html
 │   ├── myp4-*.html            # 16 legacy files
 │   └── content/               # original source notes (.docx/.txt)
-└── dist/                      # build output — gitignored, but some artifacts are still tracked
+└── dist/                      # build output — gitignored AND fully untracked since 09c810e's follow-up
 ```
 
 **There are no** `src/hooks/`, `src/utils/`, `src/lib/`, `src/context/`, `src/components/ui/`, `src/components/layout/`, `src/styles/variables.css`, or `src/pages/assessments/`. `MIGRATION_GUIDE.md` describes these; it is wrong and is kept only as a historical record.
@@ -173,9 +173,21 @@ npm run validate
 
 **Canonical site: `https://studyib.vercel.app`.** All docs and links use it. The `kaniib.vercel.app` project is being discarded — it caused repeated confusion and is no longer a valid place to verify anything.
 
+> **URGENT — live credential exposure on `kaniib.vercel.app` (verified 2026-09-27).**
+> That domain still returns 200 and serves a **pre-auth-removal** bundle
+> (`/assets/index-DiHIj6vr.js`, ~405 kB) which contains the deleted
+> `AuthContext.jsx` **hardcoded password `Kanimath@123` in plain text**, plus
+> `@supabase/supabase-js` and `syncAuthCookie`. Anyone can read it by loading
+> the site — no login needed. Removing the file from git did not retract the
+> already-built bundle. **The only fix is deleting the Vercel project /
+> unbinding the domain in the dashboard.** The agent cannot do this: the local
+> Vercel token returns 403.
+
 Two Vercel projects are attached to this repo, so a push to `main` produces **two** commit statuses, `Vercel - studyib` and `Vercel - kaniib`, and both may report *Deployment has completed*. Only the `studyib` project serves the current build.
 
-Observed 2026-09-27, commit `7b1bc67`: both statuses went green, but `kaniib.vercel.app` kept serving a **13.6-day-old** build — it 404'd every new assessment and still contained pre-fix content (`x-vercel-cache: HIT`, `age: 1171525`). The current build was live on `studyib.vercel.app` and `mathapp.vercel.app`, where the files were byte-identical to local (modulo CRLF/LF).
+Observed 2026-09-27, commit `7b1bc67`: both statuses went green, but `kaniib.vercel.app` kept serving a **13.6-day-old** build — it 404'd every new assessment and still contained pre-fix content (`x-vercel-cache: HIT`, `age: 1171525`).
+
+**`mathapp.vercel.app` is NOT this project** (correcting an earlier note in this file). It serves an unrelated 1.2 MB create-react-app build titled "React App" on `/static/js/` paths, with no reference to `kanimath_history`, Supabase, or any brand string. Do not use it to verify deploys, and do not assume a change landed there.
 
 A green status is therefore not proof of anything. Verify like this:
 
@@ -187,7 +199,6 @@ Do not click **Redeploy** on an existing deployment in the dashboard: it reuses 
 The local Vercel CLI token (`%APPDATA%\com.vercel.cli\Data\auth.json`) returns **403** for this account, so project and domain inspection from the shell is not currently possible.
 
 ### Known repo hygiene issues
-- `dist/` is in `.gitignore` but some artifacts remain tracked, so builds dirty `git status`. Fix with `git rm -r --cached dist` (not yet done — needs a decision).
 - `myp4-trigonometry-assessment.html` uses a different question schema (no `marks`/`type`) and is not held to the gate.
 
 ### Repaired (for reference — do not regress)
