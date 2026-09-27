@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
 
 export default function Navbar() {
-  const { session, signOut } = useAuth();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -29,10 +27,6 @@ export default function Navbar() {
         <NavLink to="/features" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={() => setMobileOpen(false)}>
           Features
         </NavLink>
-        <div className="navbar-user">
-          <span className="navbar-username">{session?.user?.username}</span>
-          <button className="navbar-logout" type="button" onClick={signOut}>Log out</button>
-        </div>
       </div>
     </nav>
   );

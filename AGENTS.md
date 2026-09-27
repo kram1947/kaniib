@@ -34,7 +34,7 @@ npm run validate     # blocking: syntax, schema, marks>=scheme, keywords>=marks,
 |---|---|
 | UI | React 18 + Vite 5 |
 | Routing | react-router-dom v6 (BrowserRouter) |
-| Auth | Supabase (`@supabase/supabase-js`) — **auth only**; no progress/results DB |
+| Auth | **None.** No backend, no auth, no database — every route and every assessment is public |
 | Styling | one hand-written `src/styles/global.css` (no Tailwind, no CSS modules) |
 | Assessments | self-contained static HTML + vanilla JS, served as-is |
 | PDF | jsPDF 2.5.1 via CDN, inside assessment files only |
@@ -56,15 +56,13 @@ mathapp/
 │   └── validate-assessment.mjs# content quality gate
 ├── .opencode/skills/ib-myp-assessment/SKILL.md   # authoring standard
 ├── src/
-│   ├── App.jsx                # routes (all behind ProtectedRoute except /auth/*)
+│   ├── App.jsx                # routes (all public)
 │   ├── main.jsx
 │   ├── data/assessments.js    # topicsData + assessmentsData + comingSoonData
 │   ├── data/quizData.js
-│   ├── lib/supabase.js
-│   ├── context/AuthContext.jsx
-│   ├── components/            # Navbar, ProtectedRoute
+│   ├── components/            # Navbar
 │   ├── sections/              # Hero, Stats, TopicsBrowser, AssessmentGrid, Features, SiteFooter
-│   ├── pages/                 # Home, Assessments, Topics, Features, Math, Quiz, Study, Sudoku, BioTech, auth/
+│   ├── pages/                 # Home, Assessments, Topics, Features, Math, Quiz, Study, Sudoku, BioTech
 │   └── styles/global.css
 ├── assessments/               # 19 static files
 │   ├── m10-science-ess-a-study.html
@@ -75,11 +73,13 @@ mathapp/
 └── dist/                      # build output — gitignored, but some artifacts are still tracked
 ```
 
-**There are no** `src/hooks/`, `src/utils/`, `src/components/ui/`, `src/components/layout/`, `src/styles/variables.css`, or `src/pages/assessments/`. `MIGRATION_GUIDE.md` describes these; it is wrong and is kept only as a historical record.
+**There are no** `src/hooks/`, `src/utils/`, `src/lib/`, `src/context/`, `src/components/ui/`, `src/components/layout/`, `src/styles/variables.css`, or `src/pages/assessments/`. `MIGRATION_GUIDE.md` describes these; it is wrong and is kept only as a historical record.
 
 ### Routes
 
-`/login`, `/signup`, `/forgot-password`, `/reset-password`, `/auth/callback` are public. `/`, `/assessments`, `/topics`, `/features` require auth. Note `Math`, `Quiz`, `Study`, `Sudoku`, `BioTech` pages exist but are **not routed**.
+`/`, `/assessments`, `/topics`, `/features` are **all public** — there is no auth. Note `Math`, `Quiz`, `Study`, `Sudoku`, `BioTech` pages exist but are **not routed**.
+
+The old auth paths (`/login`, `/signup`, `/forgot-password`, `/reset-password`, `/auth/callback`) no longer exist as routes; `vercel.json` 302-redirects them to `/` so old bookmarks and any shared links still land somewhere useful.
 
 ---
 
@@ -164,6 +164,8 @@ The local Vercel CLI token (`%APPDATA%\com.vercel.cli\Data\auth.json`) returns *
 - `myp4-trigonometry-assessment.html` uses a different question schema (no `marks`/`type`) and is not held to the gate.
 
 ### Repaired (for reference — do not regress)
+- **Auth removed entirely** (2026-09-27). The Supabase project was gone, so the gate was dead weight: `middleware.ts` redirected every page to `/login`, and no login could ever satisfy it, because `syncAuthCookie` needed `session.access_token` that the local session never had. Deleted `middleware.ts`, `AuthContext.jsx`, `ProtectedRoute.jsx`, `lib/supabase.js`, `src/pages/auth/*`, `api/auth/*`, the `auth-*` and `navbar-user/logout` CSS, and the `@supabase/supabase-js` + `jose` deps. Bundle fell 405.7 kB → 184.0 kB.
+- **`AuthContext.jsx` had a hardcoded password in public Git** (`admin` / `Kanimath@123`) present since `050077c`. It is gone with the file, but treat that string as compromised anywhere else it was reused.
 - **5 assessments had a JavaScript syntax error and no quiz engine at all:** `myp4-statistics`, `myp4-comprehensive`, `myp4-sets-venn-probability`, `myp4-sets-venn-probability-advanced`, `myp4-statistics-elite`. Each had (a) a stray `});` with no opener, and (b) an orphaned `');` fragment inside `startQuiz()` where `document.getElementById('start-screen').classList.add('hidden');` belongs — evidence of an earlier bad edit. All now parse, have balanced braces, and execute `startQuiz()`.
 - **Registry `id: 7` ("Supply & Demand") pointed at the study page** `myp4-ins-supply-demand.html` (no quiz) while advertising 20 questions. Now points at `myp4-ins-supply-demand-assessment.html`.
 - **Wrong answer key** in `myp4-sets-venn-probability.html` (3-set Venn "exactly one instrument"): key was `170`, but the item's own working gives `250`. Corrected to `250`.

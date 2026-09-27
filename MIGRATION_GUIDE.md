@@ -13,7 +13,8 @@ Commit **`4f2b36d` — "Refactor: Full React rewrite with Tailwind CSS"** replac
 application, while deliberately leaving every assessment file as standalone static HTML.
 
 The design intent was and still is a **hybrid**: React renders the site (home, assessments index, topics,
-features, auth); each assessment remains a self-contained `.html` file served straight from `/assessments/`.
+features); each assessment remains a self-contained `.html` file served straight from `/assessments/`.
+The site used to sit behind a Supabase login; that gate has since been removed — see the table below.
 
 ## What the migration actually produced
 
@@ -33,7 +34,8 @@ the mistake is not repeated:
 
 | Previously claimed | Reality |
 |---|---|
-| `src/components/layout/`, `src/components/ui/`, `src/components/shared/` | Never existed. `src/components/` holds only `Navbar.jsx` and `ProtectedRoute.jsx`. |
+| `src/components/layout/`, `src/components/ui/`, `src/components/shared/` | Never existed. `src/components/` holds only `Navbar.jsx`. |
+| `src/lib/`, `src/context/`, `src/components/ProtectedRoute.jsx`, `src/pages/auth/`, `middleware.ts` | Existed during the Supabase era. **Removed 2026-09-27** once the Supabase project was deleted — the gate was unsatisfiable, since `syncAuthCookie` required a `session.access_token` that the local session never carried, so every page 302'd to a login that could not succeed. The site is now fully public. |
 | `src/hooks/` (`useStatsAnimation`, `useFilters`) | Never existed. State is plain `useState`/`useMemo` in the components that need it. |
 | `src/utils/` | Never existed. |
 | `src/styles/variables.css` | Never existed. Design tokens live as CSS custom properties in `src/styles/global.css`. |
