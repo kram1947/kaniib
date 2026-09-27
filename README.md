@@ -65,7 +65,7 @@ Study material: [History & Future of Money](https://kaniib.vercel.app/assessment
 - **🔀 Fair answer keys** — options are deterministically shuffled per question, so one letter is never the answer
 - **📥 PDF reports** — downloadable results via jsPDF
 - **💾 Local history** — results saved in the browser, no account data required
-- **🔐 Supabase auth** — sign-in gates the app; assessment content itself is public static HTML
+- **🔓 No login required** — the whole site is public; nothing to configure
 
 ---
 
@@ -75,7 +75,7 @@ Study material: [History & Future of Money](https://kaniib.vercel.app/assessment
 |---|---|
 | UI | React 18 + Vite 5 |
 | Routing | react-router-dom v6 |
-| Auth | Supabase (auth only) |
+| Auth | **None** — no backend, no database, no environment variables |
 | Styling | Hand-written `src/styles/global.css` |
 | Assessments | Self-contained static HTML + vanilla JS |
 | PDF | jsPDF (CDN, assessment pages only) |
@@ -94,14 +94,7 @@ npm install
 npm run dev          # http://localhost:5173
 ```
 
-**Auth (optional locally).** The app is behind `ProtectedRoute`. To run it properly, create `.env.local`:
-
-```bash
-VITE_SUPABASE_URL=...
-VITE_SUPABASE_ANON_KEY=...
-```
-
-Add `http://localhost:5173/auth/callback` and `https://kaniib.vercel.app/auth/callback` as redirect URLs in your Supabase project. Without them the app falls back to demo mode so you can still browse content.
+There is nothing to configure — no `.env`, no API keys, no database. Results are kept in the browser's `localStorage` and never leave the device.
 
 **Quality gate.** Content is validated, not just eyeballed:
 
