@@ -1,5 +1,14 @@
-import React, { useState } from 'react';
-import { assessmentsData, comingSoonData } from '../data/assessments';
+import React from 'react';
+import { assessmentsData, comingSoonData, topicGroupsData } from '../data/assessments';
+
+const groupById = Object.fromEntries(topicGroupsData.map(g => [g.id, g]));
+
+// A group selection matches any of its topics; a leaf selection matches itself.
+function resolveTopicFilter(activeTopic) {
+  if (!activeTopic || activeTopic === 'all') return null;
+  const group = groupById[activeTopic];
+  return new Set(group ? group.topicIds : [activeTopic]);
+}
 
 function AssessmentCard({ assessment }) {
   const difficultyDots = [];
@@ -48,22 +57,25 @@ function ComingSoonCard({ item }) {
 }
 
 export default function AssessmentGrid({ activeTopic, activeFilter }) {
+  const topicFilter = resolveTopicFilter(activeTopic);
+
   const filtered = assessmentsData.filter(a => {
-    if (activeTopic && activeTopic !== 'all' && !a.topicIds?.includes(activeTopic)) return false;
+    if (topicFilter && !a.topicIds?.some(t => topicFilter.has(t))) return false;
     if (activeFilter && activeFilter !== 'all' && a.category !== activeFilter) return false;
     return true;
   });
 
   return (
-    <main id="main-content" className="container">
-      <div id="assessments" className="assessments-grid">
-        {filtered.map(assessment => (
-          <AssessmentCard key={assessment.id} assessment={assessment} />
-        ))}
-        {comingSoonData.map((item, i) => (
-          <ComingSoonCard key={i} item={item} />
-        ))}
-      </div>
-    </main>
+    <div id="assessments" className="assessments-grid">
+      {filtered.map(assessment => (
+        <AssessmentCard key={assessment.id} assessment={assessment} />
+      ))}
+      {comingSoonData.map((item, i) => (
+        <ComingSoonCard key={i} item={item} />
+      ))}
+      {filtered.length === 0 && (
+        <p className="assessments-empty">No assessments match this topic yet.</p>
+      )}
+    </div>
   );
 }

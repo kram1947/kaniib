@@ -15,6 +15,30 @@ export const topicsData = [
   { id: 'mutations', name: 'Mutations & Humans', icon: '🧬', color: 'rgba(236, 72, 153, 0.15)' },
 ];
 
+// Hierarchy for the "Explore by Topic" sidebar: subject domain > topic.
+// Group ids are prefixed `grp-` so they can never collide with a topic id
+// (note the `ins` topic id, which would otherwise clash with a group id).
+export const topicGroupsData = [
+  {
+    id: 'grp-math',
+    name: 'Mathematics',
+    icon: '📐',
+    topicIds: ['number', 'algebra', 'geometry', 'trigonometry', 'probability', 'statistics']
+  },
+  {
+    id: 'grp-science',
+    name: 'Science',
+    icon: '🔬',
+    topicIds: ['biodiversity', 'origin-of-life', 'populations', 'evolution', 'data-analysis', 'mutations']
+  },
+  {
+    id: 'grp-society',
+    name: 'Individuals & Society',
+    icon: '🏦',
+    topicIds: ['ins']
+  }
+];
+
 export const assessmentsData = [
   {
     id: 1,
