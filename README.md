@@ -1,4 +1,4 @@
-# Kani_ISSR — IB MYP Assessment Platform
+# Kanishka_ISSR — IB MYP Assessment Platform
 
 <p align="center">
   <img src="https://img.shields.io/badge/IB-MYP4--M10-6366f1?style=for-the-badge" alt="IB MYP4\u2013M10">
@@ -143,7 +143,6 @@ New material and papers follow one written standard, enforced by `npm run valida
 ## ❗ Known issues
 
 - **`dist/` is gitignored yet partially tracked**, so every build dirties `git status`.
-- **`index.html` still uses the old `KaniMath` title** after the Kani_ISSR rebrand.
 - **`myp4-trigonometry-assessment.html` uses an older question schema** and is not held to the same content gate as the newer papers.
 - Written answers are auto-marked as a **self-check estimate** against the mark scheme, not as a marker's decision.
 - The legacy `myp4-*` papers predate the current template, so they lack the mark-scheme modal, per-answer review and answer shuffling.

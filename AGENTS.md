@@ -1,12 +1,15 @@
-# AGENTS.md — Developer Guide (Kani_ISSR)
+# AGENTS.md — Developer Guide (Kanishka_ISSR)
 
 Working reference for this repository. **Keep it accurate** — a stale line here costs the next agent an hour.
 
-- **Brand:** Kani_ISSR (rebranded from KaniMath / StudyIB in commit `399fd5b`)
+- **Brand:** Kanishka_ISSR (was Kani_ISSR; originally KaniMath / StudyIB — rebranded in `399fd5b`)
 - **Repo:** `kram1947/kaniib` · **Live:** https://studyib.vercel.app
 - **Path:** `C:\Users\kram\Documents\kr_projects\mathapp` (Windows / PowerShell)
 
-> `index.html` still carries the old `KaniMath` title. Change it when convenient; new copy should say Kani_ISSR.
+> Brand is now `Kanishka_ISSR` in all user-facing copy, including `index.html`'s title.
+> Do **not** rename the lowercase `kanimath_*` localStorage keys — doing so orphans every
+> student's saved attempt history. The literal credential `Kanimath@123` in the security
+> notes below is a historical record, not brand copy.
 
 ---
 
@@ -47,7 +50,7 @@ npm run validate     # blocking: syntax, schema, marks>=scheme, keywords>=marks,
 
 ```
 mathapp/
-├── index.html                 # Vite entry (title still says "KaniMath")
+├── index.html                 # Vite entry (title: "Kanishka_ISSR")
 ├── package.json               # build + validate scripts
 ├── vite.config.js
 ├── vercel.json                # vite, output dist, exact-match SPA rewrites
@@ -58,10 +61,10 @@ mathapp/
 ├── src/
 │   ├── App.jsx                # routes (all public)
 │   ├── main.jsx
-│   ├── data/assessments.js    # topicsData + assessmentsData + comingSoonData
+│   ├── data/assessments.js    # topicsData + topicGroupsData + assessmentsData + comingSoonData
 │   ├── data/quizData.js
 │   ├── components/            # Navbar
-│   ├── sections/              # Hero, Stats, TopicsBrowser, AssessmentGrid, Features, SiteFooter
+│   ├── sections/              # Hero, Stats, TopicsBrowser (topic sidebar), AssessmentGrid, Features, SiteFooter
 │   ├── pages/                 # Home, Assessments, Topics, Features, Math, Quiz, Study, Sudoku, BioTech
 │   └── styles/global.css
 ├── assessments/               # 19 static files
@@ -124,12 +127,26 @@ Follow `.opencode/skills/ib-myp-assessment/SKILL.md`. Minimum steps:
 
 1. Copy the newest current-template assessment and replace content.
 2. `npm run validate` — must exit 0.
-3. Append to `assessmentsData` in `src/data/assessments.js`; add any new `topicIds` to `topicsData`.
+3. Append to `assessmentsData` in `src/data/assessments.js`; add any new `topicIds` to `topicsData` **and** to the owning entry in `topicGroupsData`. A topic that is in neither shows as an orphan — the sidebar will not list it.
 4. For a new subject: add to `subjects` in `src/pages/Assessments.jsx` **and** add a `.card-icon.<name>` rule to `global.css`.
 5. `npm run build`, confirm `dist/assessments/<file>.html` exists.
 6. Update the inventory table in §4 of this file.
 
 Never hardcode assessment/question/minute totals. `StatsSection.jsx` derives them from `assessmentsData`.
+
+### Home page layout
+
+`TopicsBrowser` is a **sticky left sidebar**, not a full-width chip row. It renders
+`topicGroupsData` as a collapsible tree — subject domain (`grp-math`, `grp-science`,
+`grp-society`) over its topics — with "All Topics" at the top. Group ids carry a `grp-`
+prefix specifically so they cannot collide with a topic id (the `ins` topic would
+otherwise clash). Selecting a **group** filters on any of its topics;
+`AssessmentGrid.resolveTopicFilter` owns that logic.
+
+`AssessmentGrid` renders only the grid. `<main id="main-content">` lives in `Home.jsx`
+so the skip link and the sidebar/grid grid can share one container
+(`.catalog-layout`, 264px sidebar + `minmax(0, 1fr)` content). The grid collapses to a
+single column at 768px, where the sidebar also un-sticks.
 
 ### Current assessment template features
 
@@ -171,7 +188,6 @@ The local Vercel CLI token (`%APPDATA%\com.vercel.cli\Data\auth.json`) returns *
 
 ### Known repo hygiene issues
 - `dist/` is in `.gitignore` but some artifacts remain tracked, so builds dirty `git status`. Fix with `git rm -r --cached dist` (not yet done — needs a decision).
-- `index.html` still carries the old `KaniMath` title after the Kani_ISSR rebrand.
 - `myp4-trigonometry-assessment.html` uses a different question schema (no `marks`/`type`) and is not held to the gate.
 
 ### Repaired (for reference — do not regress)

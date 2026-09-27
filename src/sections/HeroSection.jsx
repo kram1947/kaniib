@@ -8,8 +8,8 @@ export default function HeroSection() {
           <span></span>
           Free IB MYP &amp; M10 Practice
         </div>
-        <h1 id="hero-title">ISSR <span>Kanishka</span></h1>
-        <p className="hero-desc">Interactive assessments aligned with IB MYP4 and M10 curriculum. Track your progress, identify knowledge gaps, and achieve excellence.</p>
+        <h1 id="hero-title"><span>Kanishka_ISSR</span></h1>
+        <p className="hero-desc">Practice assessments for IB MYP4 and M10.</p>
         <div className="hero-actions">
           <a href="/assessments" className="btn btn-primary">
             Start Learning

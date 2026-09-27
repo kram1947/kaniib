@@ -25,45 +25,49 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <StatsSection />
-      <TopicsBrowser onTopicChange={handleTopicChange} />
 
-      <div className="container">
-        <div className="assessments-header">
-          <h2>Available Assessments</h2>
-          <div className="filter-tabs" role="tablist" aria-label="Level filters">
-            <button
-              className={`filter-tab ${activeFilter === 'all' ? 'active' : ''}`}
-              data-filter="all"
-              role="tab"
-              aria-selected={activeFilter === 'all'}
-              onClick={() => handleFilterChange('all')}
-            >All</button>
-            <button
-              className={`filter-tab ${activeFilter === 'myp4' ? 'active' : ''}`}
-              data-filter="myp4"
-              role="tab"
-              aria-selected={activeFilter === 'myp4'}
-              onClick={() => handleFilterChange('myp4')}
-            >MYP4</button>
-            <button
-              className={`filter-tab ${activeFilter === 'm10' ? 'active' : ''}`}
-              data-filter="m10"
-              role="tab"
-              aria-selected={activeFilter === 'm10'}
-              onClick={() => handleFilterChange('m10')}
-            >M10</button>
-            <button
-              className={`filter-tab ${activeFilter === 'dp' ? 'active' : ''}`}
-              data-filter="dp"
-              role="tab"
-              aria-selected={activeFilter === 'dp'}
-              onClick={() => handleFilterChange('dp')}
-            >DP</button>
+      <div className="container catalog-layout">
+        <TopicsBrowser onTopicChange={handleTopicChange} />
+
+        <main id="main-content" className="catalog-content">
+          <div className="assessments-header">
+            <h2>Available Assessments</h2>
+            <div className="filter-tabs" role="tablist" aria-label="Level filters">
+              <button
+                className={`filter-tab ${activeFilter === 'all' ? 'active' : ''}`}
+                data-filter="all"
+                role="tab"
+                aria-selected={activeFilter === 'all'}
+                onClick={() => handleFilterChange('all')}
+              >All</button>
+              <button
+                className={`filter-tab ${activeFilter === 'myp4' ? 'active' : ''}`}
+                data-filter="myp4"
+                role="tab"
+                aria-selected={activeFilter === 'myp4'}
+                onClick={() => handleFilterChange('myp4')}
+              >MYP4</button>
+              <button
+                className={`filter-tab ${activeFilter === 'm10' ? 'active' : ''}`}
+                data-filter="m10"
+                role="tab"
+                aria-selected={activeFilter === 'm10'}
+                onClick={() => handleFilterChange('m10')}
+              >M10</button>
+              <button
+                className={`filter-tab ${activeFilter === 'dp' ? 'active' : ''}`}
+                data-filter="dp"
+                role="tab"
+                aria-selected={activeFilter === 'dp'}
+                onClick={() => handleFilterChange('dp')}
+              >DP</button>
+            </div>
           </div>
-        </div>
+
+          <AssessmentGrid activeTopic={activeTopic} activeFilter={activeFilter} />
+        </main>
       </div>
 
-      <AssessmentGrid activeTopic={activeTopic} activeFilter={activeFilter} />
       <FeaturesSection />
       <SiteFooter />
     </div>
