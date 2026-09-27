@@ -248,7 +248,7 @@ export const assessmentsData = [
     marks: 0,
     difficulty: 0,
     href: 'assessments/m10-science-ess-a-study.html',
-    category: 'myp5',
+    category: 'm10',
     badge: 'M10 Science',
     icon: '🧬',
     iconBg: 'science',
@@ -265,7 +265,7 @@ export const assessmentsData = [
     marks: 138,
     difficulty: 4,
     href: 'assessments/m10-science-ess-a-part1.html',
-    category: 'myp5',
+    category: 'm10',
     badge: 'M10 Science',
     icon: '🌋',
     iconBg: 'science',
@@ -282,7 +282,7 @@ export const assessmentsData = [
     marks: 154,
     difficulty: 5,
     href: 'assessments/m10-science-ess-a-part2.html',
-    category: 'myp5',
+    category: 'm10',
     badge: 'M10 Science',
     icon: '🦎',
     iconBg: 'science',
@@ -291,7 +291,7 @@ export const assessmentsData = [
 ];
 
 export const comingSoonData = [
-  { icon: '𝑓', title: 'Functions & Graphing', topics: 'Coming Soon • Domain, range, transformations', category: 'myp5' },
-  { icon: '📊', title: 'Statistics & Probability', topics: 'Coming Soon • Mean, median, standard deviation', category: 'myp5' },
+  { icon: '𝑓', title: 'Functions & Graphing', topics: 'Coming Soon • Domain, range, transformations', category: 'm10' },
+  { icon: '📊', title: 'Statistics & Probability', topics: 'Coming Soon • Mean, median, standard deviation', category: 'm10' },
   { icon: '🎓', title: 'DP Mathematics AA', topics: 'Coming Soon • IB Diploma Programme content', category: 'dp' },
 ];

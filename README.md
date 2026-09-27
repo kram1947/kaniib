@@ -1,7 +1,7 @@
 # Kani_ISSR — IB MYP Assessment Platform
 
 <p align="center">
-  <img src="https://img.shields.io/badge/IB-MYP4--5-6366f1?style=for-the-badge" alt="IB MYP4–MYP5">
+  <img src="https://img.shields.io/badge/IB-MYP4--M10-6366f1?style=for-the-badge" alt="IB MYP4\u2013M10">
   <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel" alt="Vercel">
   <img src="https://img.shields.io/badge/React-18-61dafb?style=for-the-badge&logo=react" alt="React 18">
   <img src="https://img.shields.io/badge/License-Open%20Source-green?style=for-the-badge" alt="License">
@@ -10,7 +10,7 @@
 Timed IB MYP practice assessments with mark schemes, per-answer review and PDF reports.
 **16 papers & study pages · 330 questions · 1480 marks** across Mathematics, Individuals & Societies and Science.
 
-**🌐 Live site:** [https://kaniib.vercel.app](https://kaniib.vercel.app)
+**🌐 Live site:** [https://studyib.vercel.app](https://studyib.vercel.app)
 
 ---
 
@@ -20,36 +20,36 @@ Timed IB MYP practice assessments with mark schemes, per-answer review and PDF r
 
 | # | Assessment | Topics | Qs | Time | Marks | Level |
 |---|------------|--------|----|------|-------|-------|
-| 1 | [Sets, Venn & Probability](https://kaniib.vercel.app/assessments/myp4-sets-venn-probability.html) | Set theory, 3-set Venn, probability | 16 | 45 min | 70 | ●●●○○ |
-| 2 | [Sets, Venn & Probability — Advanced](https://kaniib.vercel.app/assessments/myp4-sets-venn-probability-advanced.html) | 4-set Venn, Bayes' theorem, combinatorics | 50 | 90 min | 400 | ●●●●● |
-| 3 | [Set & Probability — Advanced (Part 3)](https://kaniib.vercel.app/assessments/myp4-sets-venn-probability-part3.html) | PIE, derangements, z-scores | 25 | 90 min | 175 | ●●●●● |
-| 4 | [Statistics & Data Analysis](https://kaniib.vercel.app/assessments/myp4-statistics.html) | Mean/median, box plots, IQR | 25 | 60 min | 150 | ●●●○○ |
-| 5 | [Statistics & Data Analysis — Part 4](https://kaniib.vercel.app/assessments/myp4-statistics-part4.html) | Advanced statistics, z-scores | 25 | 60 min | 100 | ●●●●○ |
-| 6 | [Comprehensive Math Review](https://kaniib.vercel.app/assessments/myp4-comprehensive.html) | Full MYP4 coverage | 45 | 60 min | 45 | ●●●○○ |
-| 7 | [Trigonometry — Study Material](https://kaniib.vercel.app/assessments/myp4-trigonometry-study.html) | SOHCAHTOA, sine/cosine rules, bearings | — | self-paced | — | — |
-| 8 | [Trigonometry Assessment](https://kaniib.vercel.app/assessments/myp4-trigonometry-assessment.html) | SOHCAHTOA, rules, graphs, real-world | 25 | 60 min | 100 | ●●●○○ |
-| 9 | [Number Operations](https://kaniib.vercel.app/assessments/myp4-number.html) | Exponents, standard form, percentages | 5 | 15 min | 5 | ●●○○○ |
-| 10 | [Algebra & Expressions](https://kaniib.vercel.app/assessments/myp4-algebra.html) | Equations, factorisation, inequalities | 7 | 20 min | 7 | ●●●○○ |
-| 11 | [Geometry & Measurement](https://kaniib.vercel.app/assessments/myp4-geometry.html) | Pythagoras, area/volume, angles | 8 | 25 min | 8 | ●●●○○ |
+| 1 | [Sets, Venn & Probability](https://studyib.vercel.app/assessments/myp4-sets-venn-probability.html) | Set theory, 3-set Venn, probability | 16 | 45 min | 70 | ●●●○○ |
+| 2 | [Sets, Venn & Probability — Advanced](https://studyib.vercel.app/assessments/myp4-sets-venn-probability-advanced.html) | 4-set Venn, Bayes' theorem, combinatorics | 50 | 90 min | 400 | ●●●●● |
+| 3 | [Set & Probability — Advanced (Part 3)](https://studyib.vercel.app/assessments/myp4-sets-venn-probability-part3.html) | PIE, derangements, z-scores | 25 | 90 min | 175 | ●●●●● |
+| 4 | [Statistics & Data Analysis](https://studyib.vercel.app/assessments/myp4-statistics.html) | Mean/median, box plots, IQR | 25 | 60 min | 150 | ●●●○○ |
+| 5 | [Statistics & Data Analysis — Part 4](https://studyib.vercel.app/assessments/myp4-statistics-part4.html) | Advanced statistics, z-scores | 25 | 60 min | 100 | ●●●●○ |
+| 6 | [Comprehensive Math Review](https://studyib.vercel.app/assessments/myp4-comprehensive.html) | Full MYP4 coverage | 45 | 60 min | 45 | ●●●○○ |
+| 7 | [Trigonometry — Study Material](https://studyib.vercel.app/assessments/myp4-trigonometry-study.html) | SOHCAHTOA, sine/cosine rules, bearings | — | self-paced | — | — |
+| 8 | [Trigonometry Assessment](https://studyib.vercel.app/assessments/myp4-trigonometry-assessment.html) | SOHCAHTOA, rules, graphs, real-world | 25 | 60 min | 100 | ●●●○○ |
+| 9 | [Number Operations](https://studyib.vercel.app/assessments/myp4-number.html) | Exponents, standard form, percentages | 5 | 15 min | 5 | ●●○○○ |
+| 10 | [Algebra & Expressions](https://studyib.vercel.app/assessments/myp4-algebra.html) | Equations, factorisation, inequalities | 7 | 20 min | 7 | ●●●○○ |
+| 11 | [Geometry & Measurement](https://studyib.vercel.app/assessments/myp4-geometry.html) | Pythagoras, area/volume, angles | 8 | 25 min | 8 | ●●●○○ |
 
 ### 🏛 Individuals & Societies (MYP4)
 
 | # | Assessment | Topics | Qs | Time | Marks | Level |
 |---|------------|--------|----|------|-------|-------|
-| 12 | [History & Future of Money](https://kaniib.vercel.app/assessments/myp4-ins-money-history.html) | Barter → Bitcoin, OPVL, crypto | 20 | 90 min | 44 | ●●●○○ |
-| 13 | [Supply & Demand](https://kaniib.vercel.app/assessments/myp4-ins-supply-demand.html) | Market economics, equilibrium, intervention | 20 | 90 min | 84 | ●●●○○ |
+| 12 | [History & Future of Money](https://studyib.vercel.app/assessments/myp4-ins-money-history.html) | Barter → Bitcoin, OPVL, crypto | 20 | 90 min | 44 | ●●●○○ |
+| 13 | [Supply & Demand](https://studyib.vercel.app/assessments/myp4-ins-supply-demand.html) | Market economics, equilibrium, intervention | 20 | 90 min | 84 | ●●●○○ |
 
-Study material: [History & Future of Money](https://kaniib.vercel.app/assessments/myp4-ins-money-history-study.html) · [Supply & Demand](https://kaniib.vercel.app/assessments/myp4-ins-supply-demand.html)
+Study material: [History & Future of Money](https://studyib.vercel.app/assessments/myp4-ins-money-history-study.html) · [Supply & Demand](https://studyib.vercel.app/assessments/myp4-ins-supply-demand.html)
 
-### 🧬 Science (MYP5 — M10 track)
+### 🧬 Science (M10 track)
 
 **ESS Unit A: Evolution & the Origin of Life**
 
 | # | Assessment | Topics | Qs | Time | Marks | Level |
 |---|------------|--------|----|------|-------|-------|
-| — | [Unit A Study Material](https://kaniib.vercel.app/assessments/m10-science-ess-a-study.html) | 6 topic groups + examinable glossary | — | self-paced | — | — |
-| 14 | [Evolution & Origin of Life — Part 1](https://kaniib.vercel.app/assessments/m10-science-ess-a-part1.html) | Biodiversity, IUCN Red List, LUCA, mass extinctions, quadrats | 30 | 90 min | 138 | ●●●●○ |
-| 15 | [Evolution & Origin of Life — Part 2](https://kaniib.vercel.app/assessments/m10-science-ess-a-part2.html) | VIDA model, phylogenetics, Galápagos data, human mutations | 29 | 90 min | 154 | ●●●●● |
+| — | [Unit A Study Material](https://studyib.vercel.app/assessments/m10-science-ess-a-study.html) | 6 topic groups + examinable glossary | — | self-paced | — | — |
+| 14 | [Evolution & Origin of Life — Part 1](https://studyib.vercel.app/assessments/m10-science-ess-a-part1.html) | Biodiversity, IUCN Red List, LUCA, mass extinctions, quadrats | 30 | 90 min | 138 | ●●●●○ |
+| 15 | [Evolution & Origin of Life — Part 2](https://studyib.vercel.app/assessments/m10-science-ess-a-part2.html) | VIDA model, phylogenetics, Galápagos data, human mutations | 29 | 90 min | 154 | ●●●●● |
 
 > ⚠️ Five legacy MYP4 papers have a JavaScript error and their quiz engine does not currently run. See [Known issues](#-known-issues).
 
