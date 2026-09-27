@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp -r assessments dist/",
-    "preview": "vite preview"
+    "build": "vite build && node scripts/copy-assets.mjs",
+    "preview": "vite preview",
+    "validate": "node scripts/validate-assessment.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.2",

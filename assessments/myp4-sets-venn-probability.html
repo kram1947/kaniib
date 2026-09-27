@@ -1772,8 +1772,8 @@
                 marks: 8,
                 question: "<strong>Advanced Inclusion-Exclusion:</strong><br>In a school of 500 students: 200 play piano (P), 220 play violin (V), 250 play guitar (G), 80 play P and V, 90 play P and G, 100 play V and G, 40 play all three. Additionally, 50 students play neither piano nor violin but play guitar. How many play exactly one instrument?<br><br><em>Relevant to: Complex inclusion-exclusion, 3-set Venn regions</em>",
                 placeholder: "Enter the number of students",
-                correct: "170",
-                explanation: "P only = 200 - 80 - 90 + 40 = 70. V only = 220 - 80 - 100 + 40 = 80. G only = 250 - 90 - 100 + 40 = 100. Exactly one = 70 + 80 + 100 = 250... Wait, given "50 play neither P nor V but play G" means G only = 50. So recalc with constraints. Answer ≈ 170."
+                correct: "250",
+                explanation: "P only = 200 - 80 - 90 + 40 = 70. V only = 220 - 80 - 100 + 40 = 80. G only = 250 - 90 - 100 + 40 = 100. The 50 students who play neither piano nor violin are already counted within 'G only', so they do not change the total. Exactly one instrument = 70 + 80 + 100 = 250."
             },
             {
                 id: 53,
@@ -2221,7 +2221,6 @@
         let studentData = { name: 'Guest', class: '' };
 
         // Initialize
-        });
         document.getElementById('submit-btn').addEventListener('click', submitQuiz);
         document.getElementById('review-btn').addEventListener('click', showResults);
         document.getElementById('prev-btn').addEventListener('click', prevQuestion);
@@ -2233,7 +2232,7 @@
 
 
         function startQuiz() {
-            ');
+            document.getElementById('start-screen').classList.add('hidden');
             quizContainer.classList.remove('hidden');
             sidebar.classList.remove('hidden');
             

@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { assessmentsData } from '../data/assessments';
 
 const stats = [
-  { icon: '📚', value: 10, label: 'Assessments', colorClass: 'purple' },
-  { icon: '📝', value: 251, label: 'Questions', colorClass: 'green' },
-  { icon: '⏱', value: 625, label: 'Minutes', colorClass: 'amber' },
-  { icon: '🎯', value: 'MYP4', label: 'Curriculum', colorClass: 'cyan' },
+  { icon: '📚', value: assessmentsData.length, label: 'Assessments', colorClass: 'purple' },
+  { icon: '📝', value: assessmentsData.reduce((s, a) => s + (a.questionCount || 0), 0), label: 'Questions', colorClass: 'green' },
+  { icon: '⏱', value: assessmentsData.reduce((s, a) => s + (parseInt(a.time, 10) || 0), 0), label: 'Minutes', colorClass: 'amber' },
+  { icon: '🎯', value: 'MYP4–M10', label: 'Curriculum', colorClass: 'cyan' },
 ];
 
 function StatCard({ icon, value, label, colorClass }) {

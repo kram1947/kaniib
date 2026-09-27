@@ -7,6 +7,7 @@ const subjects = [
   { id: 'all', label: 'All Subjects' },
   { id: 'math', label: 'Mathematics' },
   { id: 'ins', label: 'I & S' },
+  { id: 'science', label: 'Science' },
 ];
 
 const sortOptions = [

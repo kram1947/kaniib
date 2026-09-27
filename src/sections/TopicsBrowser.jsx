@@ -14,7 +14,7 @@ export default function TopicsBrowser({ onTopicChange }) {
     <section className="topics-section" id="topics" aria-labelledby="topics-title">
       <div className="section-header">
         <h2 id="topics-title">Explore by Topic</h2>
-        <p>Filter assessments by mathematical domain</p>
+        <p>Filter assessments by subject domain</p>
       </div>
       <div className="topics-grid" role="tablist" aria-label="Topic filters">
         {topicsData.map(topic => (

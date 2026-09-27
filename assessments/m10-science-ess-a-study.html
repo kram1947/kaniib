@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IB MYP Science - ESS Unit A: Evolution &amp; the Origin of Life (M10) - Study Material</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --secondary: #06b6d4;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #475569;
+            --accent-violet: #8b5cf6;
+            --accent-pink: #ec4899;
+            --accent-amber: #f59e0b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .container { max-width: 1060px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        /* ---------- Header ---------- */
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding: 44px 32px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.16), rgba(6, 182, 212, 0.1));
+            border-radius: 20px;
+            border: 1px solid var(--primary);
+        }
+
+        .header .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            line-height: 1.25;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle { font-size: 17px; color: var(--text-secondary); margin-bottom: 24px; }
+
+        .header-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .header-meta span {
+            padding: 8px 16px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .header-meta span strong { color: var(--primary); }
+
+        /* ---------- Sticky section nav ---------- */
+        .section-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            margin: 0 -24px 32px;
+            padding: 12px 24px;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+        }
+
+        .section-nav a {
+            flex-shrink: 0;
+            padding: 8px 14px;
+            border-radius: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .section-nav a:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* ---------- Topic sections ---------- */
+        .topic-section {
+            margin-bottom: 28px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            scroll-margin-top: 70px;
+        }
+
+        .topic-header {
+            padding: 24px 28px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(6, 182, 212, 0.06));
+            border-bottom: 1px solid var(--border);
+        }
+
+        .topic-num {
+            display: inline-block;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: var(--secondary);
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .topic-header h2 { font-size: 24px; font-weight: 700; }
+
+        .topic-content { padding: 28px; }
+
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 26px 0 12px;
+            padding-left: 12px;
+            border-left: 3px solid var(--primary);
+        }
+
+        h3:first-child { margin-top: 0; }
+
+        h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 18px 0 8px; }
+
+        p { margin-bottom: 12px; color: var(--text-secondary); }
+        p strong, li strong { color: var(--text-primary); }
+
+        ul, ol { margin: 0 0 14px 22px; color: var(--text-secondary); }
+        li { margin-bottom: 7px; }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            background: var(--bg-dark);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--secondary);
+        }
+
+        /* ---------- Tables ---------- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0 20px;
+            font-size: 14px;
+        }
+
+        th {
+            background: var(--bg-dark);
+            color: var(--primary);
+            text-align: left;
+            padding: 12px 14px;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 11px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+
+        tr:hover td { background: rgba(16, 185, 129, 0.05); }
+
+        /* ---------- Callouts ---------- */
+        .callout {
+            border-left: 3px solid var(--secondary);
+            background: rgba(6, 182, 212, 0.08);
+            padding: 16px 18px;
+            border-radius: 0 10px 10px 0;
+            margin: 16px 0;
+        }
+
+        .callout.key { border-left-color: var(--primary); background: rgba(16, 185, 129, 0.09); }
+        .callout.exam { border-left-color: var(--accent-amber); background: rgba(245, 158, 11, 0.08); }
+        .callout.warn { border-left-color: var(--danger); background: rgba(239, 68, 68, 0.08); }
+
+        .callout h4 {
+            margin: 0 0 8px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .callout.key h4 { color: var(--primary); }
+        .callout.exam h4 { color: var(--accent-amber); }
+        .callout.warn h4 { color: var(--danger); }
+        .callout h4:not(.key):not(.exam):not(.warn) { color: var(--secondary); }
+
+        .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+
+        /* ---------- Term grid ---------- */
+        .term-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+            margin: 14px 0 20px;
+        }
+
+        .term {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            transition: border-color 0.2s;
+        }
+
+        .term:hover { border-color: var(--primary); }
+
+        .term b {
+            display: block;
+            color: var(--primary);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .term span { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+        /* ---------- Timeline ---------- */
+        .timeline { list-style: none; margin: 16px 0 20px 0; }
+
+        .timeline li {
+            position: relative;
+            padding: 0 0 22px 30px;
+            border-left: 2px solid var(--border);
+            margin-left: 8px;
+        }
+
+        .timeline li:last-child { border-left-color: transparent; padding-bottom: 0; }
+
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 2px solid var(--bg-card);
+        }
+
+        .timeline .era {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .timeline .what { color: var(--text-secondary); font-size: 14px; }
+        .timeline .what strong { color: var(--text-primary); display: block; }
+
+        /* ---------- Compare cards ---------- */
+        .compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        .compare .col {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .compare .col h4 { margin: 0 0 10px; font-size: 15px; }
+        .compare .col.a h4 { color: var(--secondary); }
+        .compare .col.b h4 { color: var(--accent-pink); }
+        .compare .col p { font-size: 14px; margin-bottom: 0; }
+
+        /* ---------- VIDA ---------- */
+        .vida {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 16px 0 20px;
+        }
+
+        .vida .step {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--primary);
+            border-radius: 10px;
+            padding: 16px 14px;
+            text-align: center;
+        }
+
+        .vida .step .letter {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Fira Code', monospace;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .vida .step b { display: block; font-size: 13px; margin-bottom: 5px; }
+        .vida .step span { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary { background: var(--primary); color: #04211a; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .btn-secondary { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+        .cta {
+            margin: 40px 0;
+            padding: 36px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(6, 182, 212, 0.08));
+            border: 1px solid var(--primary);
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .cta h2 { font-size: 24px; margin-bottom: 8px; }
+        .cta p { margin-bottom: 24px; }
+        .cta .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .back-link:hover { color: var(--primary); }
+
+        .footer {
+            text-align: center;
+            padding: 32px 24px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .footer a { color: var(--primary); text-decoration: none; }
+
+        /* ---------- Print / mobile ---------- */
+        @media (max-width: 768px) {
+            .container { padding: 24px 16px 60px; }
+            .header { padding: 28px 20px; }
+            .header h1 { font-size: 27px; }
+            .topic-content { padding: 20px; }
+            .vida, .compare { grid-template-columns: 1fr; }
+            table { font-size: 13px; }
+            th, td { padding: 9px 10px; }
+        }
+
+        @media print {
+            body { background: #fff; color: #000; }
+            .section-nav, .btn, .cta { display: none; }
+            .topic-section { break-inside: avoid; border-color: #ccc; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <a href="../index.html" class="back-link">← Back to KaniMath Home</a>
+
+    <header class="header">
+        <div class="badge">IB MYP Science &middot; M10 Session</div>
+        <h1>ESS Unit A: Evolution and the Origin of Life</h1>
+        <p class="subtitle">From the first cells to the sixth mass extinction &mdash; how life diversified, and why it is disappearing now</p>
+        <div class="header-meta">
+            <span><strong>6</strong> topic groups</span>
+            <span><strong>Criterion A</strong> Knowing &amp; understanding</span>
+            <span><strong>Criterion B</strong> Inquiring</span>
+            <span><strong>Criterion C</strong> Processing &amp; evaluating</span>
+            <span><strong>Criterion D</strong> Creating</span>
+        </div>
+    </header>
+
+    <nav class="section-nav">
+        <a href="#s1">1. Biodiversity</a>
+        <a href="#s2">2. Origin of Life</a>
+        <a href="#s3">3. Measuring Populations</a>
+        <a href="#s4">4. Evolution</a>
+        <a href="#s5">5. Galapagos Data</a>
+        <a href="#s6">6. Mutations &amp; Humans</a>
+        <a href="#glossary">Glossary</a>
+    </nav>
+
+    <!-- ================= SECTION 1 ================= -->
+    <section class="topic-section" id="s1">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 01 &middot; CLASSES 1 &amp; 12</div>
+            <h2>Biodiversity</h2>
+        </div>
+        <div class="topic-content">
+
+            <h3>How many organisms share the planet?</h3>
+            <p>Estimates vary enormously &mdash; from about <strong>8 million</strong> to <strong>20 million</strong> eukaryotic species. The truth is almost certainly higher, because most species are still undescribed.</p>
+
+            <table>
+                <thead>
+                    <tr><th>Estimate</th><th>Method</th><th>Why it may be wrong</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>~8.7 million</td><td>Statistical extrapolation from samples of soil/canopy</td><td>Ignores deep ocean, fungi, parasites</td></tr>
+                    <tr><td>~20 million</td><td>Ratio of undescribed to described species in well-studied taxa</td><td>Assumes all taxa behave like beetles</td></tr>
+                    <tr><td>~100 million</td><td>Includes prokaryotes, viruses, unknown bacteria</td><td>Species concept becomes problematic</td></tr>
+                    <tr><td>8.7 million &ndash; 20 million</td><td><strong>Current consensus (Mora et al. 2011)</strong></td><td>Still an estimate, not a count</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout">
+                <h4>Why estimates vary so widely &mdash; 5 reasons to learn</h4>
+                <ul>
+                    <li><strong>Undersampling</strong> &mdash; most habitats (deep sea, tropical soil, canopy) have barely been surveyed.</li>
+                    <li><strong>The species problem</strong> &mdash; different species definitions give different counts, especially for bacteria and fungi.</li>
+                    <li><strong>Cryptic species</strong> &mdash; morphologically identical organisms that are genetically distinct.</li>
+                    <li><strong>Which groups are counted</strong> &mdash; including bacteria and viruses massively increases the total.</li>
+                    <li><strong>Taxonomic effort is unequal</strong> &mdash; vertebrates are studied; nematodes are not.</li>
+                </ul>
+            </div>
+
+            <h3>Species and the binomial naming system</h3>
+            <p>A <strong>species</strong> is a group of organisms that can interbreed to produce fertile offspring. Under the <strong>Biological Species Concept</strong>, members of the same species share a gene pool and are reproductively isolated from other species.</p>
+
+            <div class="callout warn">
+                <h4>Limitations of the biological species concept</h4>
+                <ul>
+                    <li>Fossils and asexual organisms (bacteria, many fungi) cannot be tested.</li>
+                    <li>Some species can interbreed (horse &times; donkey) but are still separate species.</li>
+                    <li>Geographically isolated populations may never meet to test interbreeding.</li>
+                </ul>
+            </div>
+
+            <p>Every species is given a unique <strong>binomial name</strong> of two parts: <em>Genus</em> (capitalised) + <em>specific epithet</em> (lowercase), both in italics.</p>
+
+            <table>
+                <thead><tr><th>Binomial</th><th>Meaning</th><th>Named by</th></tr></thead>
+                <tbody>
+                    <tr><td><code>Homo sapiens</code></td><td>"wise man" &mdash; us</td><td>Linnaeus, 1758</td></tr>
+                    <tr><td><code>Panthera leo</code></td><td>lion</td><td>Linnaeus, 1758</td></tr>
+                    <tr><td><code>Geospiza fortis</code></td><td>medium ground finch, Gal&aacute;pagos</td><td>Darwin, 1837</td></tr>
+                    <tr><td><code>Pongo pygmaeus</code></td><td>Bornean orangutan</td><td>Linnaeus, 1766</td></tr>
+                </tbody>
+            </table>
+
+            <h3>What is biodiversity?</h3>
+            <p><strong>Biodiversity</strong> = the variety of all living organisms on Earth. It has three measurable levels:</p>
+            <ul>
+                <li><strong>Genetic diversity</strong> &mdash; variation within a species (the raw material for evolution).</li>
+                <li><strong>Species diversity</strong> &mdash; the variety of species in a habitat; measured as <strong>species richness</strong> (number of species) and <strong>evenness</strong> (how equally individuals are distributed among them).</li>
+                <li><strong>Ecosystem diversity</strong> &mdash; the variety of habitats and ecological roles.</li>
+            </ul>
+
+            <h3>Regional patterns of biodiversity</h3>
+            <ul>
+                <li><strong>Latitudinal gradient</strong> &mdash; richness increases from the poles toward the equator. Equatorial rainforests hold a disproportionate share of species.</li>
+                <li>Two main hypotheses: <strong>energy/light availability</strong> (more solar energy &rarr; more photosynthesis &rarr; more niches) and <strong>glacial stability</strong> (equatorial regions were never buried under ice, so lineages had more time to diversify).</li>
+                <li><strong>Hotspots</strong> &mdash; small areas with exceptional endemism: the Tropical Andes, Madagascar, the Mediterranean Basin, Southeast Asia, the Caribbean.</li>
+                <li><strong>Coral reefs</strong> &mdash; under 1% of the ocean floor but about 25% of marine species.</li>
+                <li><strong>Biodiversity is not evenly distributed</strong>, and neither is the <em>threat</em> to it &mdash; hotspots overlap heavily with high human pressure.</li>
+            </ul>
+
+            <h3>Threats to biodiversity</h3>
+            <table>
+                <thead><tr><th>Threat</th><th>Mechanism</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Habitat loss &amp; fragmentation</strong></td><td>Destroys and isolates populations; edge effects</td><td>Amazon deforestation, Swedish boreal forest logging</td></tr>
+                    <tr><td><strong>Over-exploitation</strong></td><td>Removes individuals faster than reproduction replaces them</td><td>Overfishing, elephant ivory poaching</td></tr>
+                    <tr><td><strong>Introduced / invasive species</strong></td><td>Outcompete natives, often with no natural predator</td><td>Rats on Gal&aacute;pagos, signal crayfish in Swedish lakes</td></tr>
+                    <tr><td><strong>Pollution</strong></td><td>Degrades habitat, causes eutrophication and biomagnification</td><td>Nutrient runoff, DDT, microplastics</td></tr>
+                    <tr><td><strong>Climate change</strong></td><td>Habitat shifts outpace adaptation; coral bleaching</td><td>Great Barrier Reef bleaching, boreal species moving north</td></tr>
+                    <tr><td><strong>Inbreeding</strong></td><td>Small isolated populations lose genetic diversity</td><td>Northern elephant seal &rarr; reduced immune variation</td></tr>
+                </tbody>
+            </table>
+
+            <h3>The IUCN Red List</h3>
+            <p>The Red List is the <strong>world's most comprehensive inventory</strong> of conservation status, maintained by the International Union for Conservation of Nature. It is a <em>red list</em> (a list of species at risk), not a list of endangered species only.</p>
+
+            <table>
+                <thead><tr><th>Category</th><th>Abbrev.</th><th>Definition</th></tr></thead>
+                <tbody>
+                    <tr><td>Extinct</td><td>EX</td><td>No reasonable doubt the last individual has died</td></tr>
+                    <tr><td>Extinct in the Wild</td><td>EW</td><td>Survives only in captivity, cultivation or naturalised populations</td></tr>
+                    <tr><td>Critically Endangered</td><td>CR</td><td>Extremely high risk of extinction in the wild</td></tr>
+                    <tr><td>Endangered</td><td>EN</td><td>Very high risk of extinction in the wild</td></tr>
+                    <tr><td>Vulnerable</td><td>VU</td><td>High risk of extinction in the wild</td></tr>
+                    <tr><td>Near Threatened</td><td>NT</td><td>Close to qualifying as Critically Endangered</td></tr>
+                    <tr><td>Least Concern</td><td>LC</td><td>Widespread and abundant; unlikely to become threatened</td></tr>
+                    <tr><td>Data Deficient</td><td>DD</td><td>Inadequate information to make a direct or indirect assessment</td></tr>
+                    <tr><td>Not Evaluated</td><td>NE</td><td>Not yet assessed against the criteria</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout key">
+                <h4>Purpose and structure &mdash; exam-worthy</h4>
+                <ul>
+                    <li><strong>Purpose:</strong> to identify which species need urgent conservation action, and to inform and prioritise policy, funding and protected-area planning.</li>
+                    <li><strong>Structure:</strong> every species is assessed against <strong>nine quantitative criteria</strong> (population size, decline rate, geographic range, habitat quality, exploitation, and so on) plus sub-criteria.</li>
+                    <li>Categories are assigned on a <strong>risk of extinction</strong> scale, from EX down to LC. "Threatened" collectively means CR + EN + VU.</li>
+                    <li>Assessments are <strong>reviewed and updated regularly</strong>, so a category can improve (species recover) or worsen.</li>
+                </ul>
+            </div>
+
+            <h3>Conservation measures and why conserve?</h3>
+            <div class="term-grid">
+                <div class="term"><b>In situ</b><span>Protecting species in their natural habitat &mdash; national parks, wildlife reserves, marine protected areas. Highest effectiveness.</span></div>
+                <div class="term"><b>Ex situ</b><span>Removing organisms to protect them &mdash; zoos, seed banks, botanical gardens, cryopreservation.</span></div>
+                <div class="term"><b>Captive breeding</b><span>Breeding endangered species in controlled conditions, e.g. the Arabian oryx and the California condor.</span></div>
+                <div class="term"><b>Habitat restoration</b><span>Replanting degraded ecosystems, e.g. restoring kelp forests or Swedish wetland mosaics.</span></div>
+                <div class="term"><b>Anti-poaching &amp; trade controls</b><span>CITES agreements restrict international trade in endangered species and their parts.</span></div>
+                <div class="term"><b>Protected areas</b><span>Currently about 17% of land and 8% of ocean is protected &mdash; many target the wrong places.</span></div>
+            </div>
+
+            <p><strong>Why conserve species?</strong> Ecosystem services (clean air, water purification, pollination, soil formation, food and medicine), scientific value (each species is a library of genetic information and a line of evidence), economic value (fisheries, tourism, jobs), aesthetic and ethical value, and the <strong>intrinsic value</strong> of life itself.</p>
+
+            <h3>Different perspectives</h3>
+            <div class="compare">
+                <div class="col a">
+                    <h4>Conservationist view</h4>
+                    <p>Every species has intrinsic value and an right to exist. Extinction is irreversible and morally unacceptable. We should accept costs now to prevent permanent loss.</p>
+                </div>
+                <div class="col b">
+                    <h4>Development / utilitarian view</h4>
+                    <p>Resources should be used to benefit present human populations. Some species can be sacrificed if the economic gain is large enough &mdash; though extinction risks a "use value" loss too.</p>
+                </div>
+            </div>
+            <p>Other positions: an <strong>ecocentric</strong> view (the ecosystem, not individual species, has value), a <strong>deep ecology</strong> view (intrinsic value of all life), and a <strong>stewardship</strong> view (we are caretakers for future generations). Evaluating these is Criterion D work.</p>
+
+        </div>
+    </section>
+
+    <!-- ================= SECTION 2 ================= -->
+    <section class="topic-section" id="s2">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 02 &middot; CLASSES 2 &amp; 3</div>
+            <h2>Origin of Life and the Development of Life on Earth</h2>
+        </div>
+        <div class="topic-content">
+
+            <h3>How is Earth history divided?</h3>
+            <p>Geological time is organised in a nested hierarchy based on the <strong>fossil record</strong> and <strong>plate tectonics</strong>.</p>
+
+            <table>
+                <thead><tr><th>Eon</th><th>Approx. age</th><th>Eras</th><th>What happened</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Hadean</strong></td><td>4.6 &ndash; 4.0 bya</td><td>&mdash;</td><td>Earth forms, molten surface, heavy bombardment, oceans condense</td></tr>
+                    <tr><td rowspan="3"><strong>Archean</strong></td><td rowspan="3">4.0 &ndash; 2.5 bya</td><td>Eoarchean</td><td>Oldest known life (~3.8 bya); LUCA lived here</td></tr>
+                    <tr><td>Paleoarchean</td><td>Cyanobacteria evolve oxygenic photosynthesis (~2.7 bya); Great Oxidation Event</td></tr>
+                    <tr><td>Neoarchean</td><td>First eukaryotes; sexual reproduction begins</td></tr>
+                    <tr><td rowspan="3"><strong>Proterozoic</strong></td><td rowspan="3">2.5 bya &ndash; 541 Ma</td><td>Paleoproterozoic</td><td>Atmospheric oxygen rises; first eukaryotes (~2.1 bya)</td></tr>
+                    <tr><td>Mesoproterozoic</td><td>Multicellular life appears; Rodinia supercontinent</td></tr>
+                    <tr><td>Neoproterozoic</td><td>Cambrian explosion; Ediacaran biota; first animals with shells</td></tr>
+                    <tr><td rowspan="9"><strong>Phanerozoic</strong></td><td rowspan="9">541 Ma &ndash; present</td><td>Paleozoic</td><td>Marine invertebrates dominate; land colonised; amphibians; Carboniferous coal forests</td></tr>
+                    <tr><td>Mesozoic</td><td>Age of reptiles &mdash; dinosaurs dominate; first birds and mammals; end-Cretaceous extinction</td></tr>
+                    <tr><td>Cenozoic</td><td>Age of mammals and birds; grasslands; hominins evolve</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout key">
+                <h4>Interpreting a geological timeline &mdash; the three questions</h4>
+                <ol>
+                    <li><strong>Which eon/era/period</strong> does this event fall in? Remember Era > Period > Epoch > Age, and Eon > Era.</li>
+                    <li><strong>Is the boundary a sudden event or gradual?</strong> Sharp boundaries usually mark mass extinctions; gradual boundaries mark climate or tectonic change.</li>
+                    <li><strong>What is the absolute age?</strong> Eon, era and period are <em>relative</em> units; radioisotope dating (uranium-lead, potassium-argon, carbon-14) gives <em>absolute</em> ages. Note the <strong>nearly logarithmic</strong> scale: recent time is hugely compressed.</li>
+                </ol>
+            </div>
+
+            <h3>Conditions on the early Earth</h3>
+            <ul>
+                <li><strong>No free oxygen.</strong> The early atmosphere was rich in <code>CO&#8322;</code>, water vapour, methane (<code>CH&#8324;</code>) and ammonia (<code>NH&#8323;</code>) &mdash; the <strong>reducing atmosphere</strong>. Today's 21% oxygen only arrived after photosynthesis.</li>
+                <li><strong>Heavy bombardment</strong> from asteroids and comets, plus continuous volcanic activity and frequent large impacts.</li>
+                <li><strong>Conditions suitable for prebiotic chemistry</strong> &mdash; UV radiation, lightning and hydrothermal vents as possible energy sources for building organic molecules.</li>
+                <li><strong>No ozone layer</strong>, so UV radiation reached the surface directly.</li>
+                <li>Once the Earth cooled, <strong>water vapour condensed into oceans</strong> ~3.8 billion years ago. Water was essential: it was the solvent in which organic chemistry happened.</li>
+            </ul>
+
+            <h3>The origin of life</h3>
+            <p>Life required a self-replicating molecule capable of variation. The <strong>RNA world hypothesis</strong> is the leading proposal: RNA can both <em>store information</em> (like DNA) and <em>catalyse reactions</em> (like enzymes), so a single molecule could in principle do both jobs.</p>
+
+            <ul class="timeline">
+                <li><span class="era">1. Simple organic molecules form</span><span class="what"><strong>Miller-Urey experiment (1953)</strong> &mdash; sparks passed through a mixture of methane, ammonia, hydrogen and water produced amino acids. Confirms <em>abiotic</em> synthesis of organic compounds is possible.</span></li>
+                <li><span class="era">2. Complex molecules / protocells</span><span class="what"><strong>Macromolecules assemble</strong> &mdash; amino acids into proteins, sugars, nucleotides. Lipids self-assemble into <strong>liposomes</strong> that can divide, offering a simple boundary for a protocell.</span></li>
+                <li><span class="era">3. Self-replication and variation</span><span class="what"><strong>RNA world</strong> &mdash; a self-replicating RNA molecule with occasional copying errors. Natural selection begins the moment imperfect replication appears.</span></li>
+                <li><span class="era">4. First true cells</span><span class="what"><strong>Prokaryotic cells</strong> ~3.5&ndash;3.8 bya, with a cell membrane but <em>no nucleus</em>. Evidence: <strong>stromatolites</strong> and <strong>microfossils</strong> in Pilbara, Western Australia and Greenland.</span></li>
+                <li><span class="era">5. Endosymbiosis</span><span class="what"><strong>Mitochondria then chloroplasts</strong> &mdash; aerobic prokaryotes engulfed by others and became permanent organelles, giving eukaryotic cells.</span></li>
+                <li><span class="era">6. Complexity</span><span class="what"><strong>Multicellularity, then sex, then the Cambrian explosion</strong> &mdash; the rapid diversification of animal body plans ~541 Ma.</span></li>
+            </ul>
+
+            <div class="callout">
+                <h4>Alternative energy sources for the first life</h4>
+                <ul>
+                    <li><strong>Photosynthesis</strong> &mdash; used by cyanobacteria from ~2.7 bya; needs light, so limited to the photic zone.</li>
+                    <li><strong>Chemosynthesis</strong> &mdash; organisms obtain energy from the oxidation of inorganic chemicals (<code>H&#8322;S</code>, <code>NH&#8323;</code>, Fe&#178;&#8314;, H&#8322;) instead of light. Supports entire ecosystems with no sunlight: hydrothermal vent communities, deep-sea vents, and <strong>Sweden's excavated lake beds</strong> (e.g. hydrothermal mining areas such as Garpenberg) where <em>chemosynthesis</em> by microbes is the base of the food web.</li>
+                </ul>
+            </div>
+
+            <h3>LUCA &mdash; the Last Universal Common Ancestor</h3>
+            <p>Before there were separate species there was a single ancestral population. <strong>LUCA</strong> is the hypothetical <em>population</em> of the last common ancestor of all living organisms, thought to have lived roughly <strong>3.8&ndash;4.0 billion years ago</strong>.</p>
+
+            <h4>What scientists think LUCA was like</h4>
+            <ul>
+                <li>A <strong>single-celled, prokaryote-like</strong> organism &mdash; no nucleus, no membrane-bound organelles.</li>
+                <li><strong>Heterotrophic</strong> (obtained energy from organic molecules) or a simple <strong>chemoautotroph</strong>.</li>
+                <li>Possibly living at a <strong>hydrothermal vent</strong>, where a natural proton gradient could power early ATP production &mdash; the <em>natural chemiosmotic hypothesis</em>.</li>
+                <li>Had a <strong>cell membrane, DNA, RNA, ribosomes</strong> and a working metabolic pathway.</li>
+            </ul>
+
+            <h4>How do we know anything about LUCA and the origin of life?</h4>
+            <table>
+                <thead><tr><th>Evidence</th><th>What it tells us</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Phylogenetic analysis of genes</strong></td><td>All organisms share homologous genes (rRNA, cytochrome c) &rarr; descent from a common ancestor</td></tr>
+                    <tr><td><strong>Universal genetic code</strong></td><td>Near-identical codon assignments across all life</td></tr>
+                    <tr><td><strong>Earliest fossils &amp; stromatolites</strong></td><td>Life existed by ~3.5&ndash;3.8 bya &mdash; surprisingly fast after Earth formed at 4.6 bya</td></tr>
+                    <tr><td><strong>Isotopic signatures</strong></td><td>Carbon isotope ratios in ancient rocks indicate biological carbon fixation</td></tr>
+                    <tr><td><strong>Miller-Urey &amp; modern chemistry</strong></td><td>Amino acids and other organics can form abiotically</td></tr>
+                    <tr><td><strong>Genes in "primitive" organisms</strong></td><td>Thermophiles and archaea retain ancient metabolism</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout exam">
+                <h4>Exam tip</h4>
+                <p>LUCA is a <strong>hypothesis inferred from present life</strong>, not a fossil. Any answer claiming we have found LUCA's fossils is incorrect. The honest answer is that we infer it by comparing the genomes of living organisms and tracing them back to their deepest shared ancestor.</p>
+            </div>
+
+            <h3>Evidence that all life on Earth is related</h3>
+            <ul>
+                <li><strong>Common DNA and a universal genetic code</strong> &mdash; the strongest evidence. All organisms use the same 4 bases and largely the same codon meanings.</li>
+                <li><strong>Homologous structures</strong> &mdash; the same bone plan in a human arm, a bat wing and a whale flipper.</li>
+                <li><strong>Shared biochemistry</strong> &mdash; every cell uses the same ATP, the same 20 amino acids, the same ribosomes, cell membrane structure.</li>
+                <li><strong>Nested <strong>fossil sequence</strong> &mdash; new groups appear in the rock record in the correct order and are never found in older layers.</li>
+                <li><strong>Phylogenetic trees</strong> &mdash; organisms group together by genetic similarity exactly as morphology predicts.</li>
+                <li><strong>Biogeography</strong> &mdash; island species resemble those of the nearest mainland, but have diverged from them.</li>
+            </ul>
+
+            <h3>Mass extinction events</h3>
+            <p>A <strong>mass extinction</strong> is a short geologically-speaking event in which a large proportion (<em>often &gt;75%</em>) of species disappear, and which shows up as a sharp <em>unconformity</em> in the rock record.</p>
+
+            <table>
+                <thead><tr><th>Event</th><th>When</th><th>Species lost</th><th>Main cause</th></tr></thead>
+                <tbody>
+                    <tr><td>Great Oxidation</td><td>~2.4 bya</td><td>Many anaerobic prokaryotes</td><td>Accumulation of toxic oxygen</td></tr>
+                    <tr><td>End-Ordovician</td><td>~444 Ma</td><td>~60% marine species</td><td>Glaciation, then anoxia; related to Gondwana glaciation</td></tr>
+                    <tr><td>Late Devonian</td><td>~372 Ma</td><td>~75% species</td><td>Ocean anoxia; widespread plant death and nutrient runoff</td></tr>
+                    <tr><td>End-Permian</td><td>252 Ma</td><td>~96% &mdash; the largest</td><td>Siberian Trapp volcanism &rarr; CO&#8322; spike, ocean warming, acidification, anoxia</td></tr>
+                    <tr><td><strong>End-Cretaceous</strong></td><td><strong>66 Ma</strong></td><td><strong>~75%</strong></td><td><strong>Asteroid impact (Chicxulub)</strong> + Deccan volcanism</td></tr>
+                </tbody>
+            </table>
+
+            <h4>The end-Cretaceous event in detail</h4>
+            <p>66 million years ago, ~75% of species including all non-avian dinosaurs were wiped out. Evidence used to establish the cause:</p>
+            <ul>
+                <li><strong>The Iridium anomaly</strong> &mdash; Luis and Walter Alvarez found an <em>unusually high iridium concentration</em> in a thin clay layer at Gubbio, Italy, and at the K-Pg boundary worldwide. Iridium is common in asteroids but extremely rare in Earth's crust. This was the smoking gun.</li>
+                <li><strong>The Chicxulub Crater</strong> &mdash; a 180 km impact crater under the Yucat&eacute;n Peninsula, dated to exactly 66 Ma, with a shocked-quartz layer and tektite (Cretaceous impact glass) deposits worldwide.</li>
+                <li><strong>The K-Pg boundary layer</strong> &mdash; a worldwide thin layer enriched in iridium and shocked quartz, marking the event precisely.</li>
+                <li><strong>Extinction pattern</strong> &mdash; <strong>selective</strong>: large-bodied, slow-reproducing, non-burrowing and plant-dependent species died out, while small burrowing and generalist species survived. This matches the sudden darkness and food-web collapse an impact would cause, rather than a gradual climate-driven extinction.</li>
+                <li><strong>Deccan Trapp volcanism</strong> &mdash; massive basalt volcanism in India coincides with the same interval, so volcanism probably contributed a lethal heat and CO&#8322; burden.</li>
+            </ul>
+
+            <div class="callout warn">
+                <h4>Causes of mass extinctions &mdash; general categories</h4>
+                <ul>
+                    <li><strong>Asteroid / comet impact</strong> &mdash; end-Cretaceous.</li>
+                    <li><strong>Mass volcanism</strong> &mdash; end-Permian (CO&#8322; and anoxia), end-Triassic.</li>
+                    <li><strong>Continental drift &amp; climate change</strong> &mdash; altered ocean circulation, glaciations, loss of shallow-shelf habitat.</li>
+                    <li><strong>Anoxia</strong> &mdash; warming reduces oxygen solubility; stagnant water becomes anoxic.</li>
+                    <li><strong>Sea-level change</strong> &mdash; marine regressions drain shallow seas that hosted most marine species.</li>
+                    <li><strong>Existing vulnerability</strong> &mdash; small range, low population, narrow diet, poor dispersal.</li>
+                </ul>
+            </div>
+
+            <h3>Current biodiversity loss vs the past</h3>
+            <table>
+                <thead><tr><th></th><th>Past mass extinctions</th><th>Present loss</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Rate</strong></td><td>Thousands to millions of years</td><td><strong>Decades to centuries</strong> &mdash; 100&ndash;1,000&times; faster</td></tr>
+                    <tr><td><strong>Cause</strong></td><td>Abrupt, external, single dominant event</td><td><strong>Diffuse and cumulative</strong> &mdash; many simultaneous small pressures</td></tr>
+                    <tr><td><strong>Recovery</strong></td><td>Millions of years, with new groups radiating out of the wreckage</td><td><strong>No recovery observed</strong>; extinction rate has not yet declined</td></tr>
+                    <tr><td><strong>Scale</strong></td><td>&gt;75% of species</td><td>~1 million species threatened of ~8 million (IPBES 2019)</td></tr>
+                    <tr><td><strong>Geography</strong></td><td>Global, geologically driven</td><td>Concentrated in the tropics, islands and freshwater</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Broad patterns of evolution over time</h3>
+            <ul>
+                <li><strong>Increasing complexity</strong> &mdash; but not a steady ladder; complexity can be lost (e.g. many parasites have simplified).</li>
+                <li><strong>Increasing body size</strong> in many lineages (Cope's rule) early on, followed by the frequent evolution of much smaller organisms.</li>
+                <li><strong>Mass extinctions are always followed by recovery and adaptive radiation</strong>, but the recovering groups are different from those lost (e.g. dinosaurs &rarr; mammals).</li>
+                <li><strong>Biodiversity rises overall</strong> over 3.8 billion years, interrupted by five sharp drops.</li>
+                <li><strong>Speciation is usually rapid</strong> (geologically), and most species have a short geological lifespan &mdash; the "light bulb" model of stasis punctuated by change.</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <!-- ================= SECTION 3 ================= -->
+    <section class="topic-section" id="s3">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 03 &middot; CLASSES 4 &amp; 5</div>
+            <h2>Measuring Populations and Biodiversity</h2>
+        </div>
+        <div class="topic-content">
+
+            <h3>Species richness and other measures</h3>
+            <ul>
+                <li><strong>Species richness</strong> (<em>S</em>) &mdash; the <em>number of different species</em> present in a given area. Simple, but ignores evenness.</li>
+                <li><strong>Species diversity</strong> (&e.g. <em>S</em> and <em>E</em;, or the Simpson index) &mdash; richness <em>combined</em> with how evenly individuals are spread across species.</li>
+                <li><strong>Abundance</strong> &mdash; number of <em>individuals</em> of one species in an area.</li>
+                <li><strong>Percentage cover</strong> &mdash; the proportion of ground occupied by a species, especially for plants and sessile organisms.</li>
+                <li><strong>Biomass</strong> &mdash; total mass of organisms, useful for comparing communities with different species sizes.</li>
+            </ul>
+
+            <div class="callout key">
+                <h4>Why richness alone is not enough</h4>
+                <p>A community with 4 species and 25 individuals each is more diverse than one with 4 species where one species has 97 individuals and the others have 1 each. Both have <em>S</em> = 4, but the first has far higher <strong>evenness</strong> and far greater resilience, because no single species dominates.</p>
+            </div>
+
+            <h3>Random sampling</h3>
+            <p><strong>Random sampling</strong> selects every point with <em>equal probability</em>, giving every part of the area an equal chance of being chosen. This avoids <strong>selection bias</strong>, where the researcher's convenience (sampling the path, the sunny edge) distorts the data.</p>
+
+            <ul>
+                <li><strong>Systematic sampling</strong> &mdash; a random <em>start</em> point, then a fixed interval (every 2 m along a transect). Often preferred in practice: still unbiased if the start is random, and far faster.</li>
+                <li><strong>Stratified sampling</strong> &mdash; divide the area into strata and sample each proportionally. Best where the area is clearly heterogeneous (e.g. sunlit vs shaded).</li>
+                <li><strong>Opportunity sampling</strong> &mdash; non-random, only convenient spots. <strong>Acceptable only for a preliminary survey</strong> &mdash; it can never be used to estimate population size.</li>
+                <li>Repeat for a <strong>large number of quadrats</strong> &mdash; a minimum of about <strong>20</strong>, spread across the whole area, is expected to produce a reliable mean.</li>
+            </ul>
+
+            <h3>Field studies: quadrats, transects and the calculation</h3>
+            <ol>
+                <li><strong>Mark out the study area</strong> with a frame and map it.</li>
+                <li><strong>Place a quadrat</strong> (typically 50 cm &times; 50 cm, or 1 m &times; 1 m) at a randomly chosen point.</li>
+                <li><strong>Count / identify</strong> each organism inside. Plants: count or estimate % cover. Animals: count, or use capture-mark-recapture.</li>
+                <li><strong>Repeat</strong> many times across the area.</li>
+                <li><strong>Calculate the mean</strong> per quadrat, then scale up to the whole area.</li>
+            </ol>
+
+            <div class="callout">
+                <h4>The working</h4>
+                <p>Area of one quadrat = 0.5 m &times; 0.5 m = <strong>0.25 m&sup2;</strong>. Mean dandelions per quadrat = <strong>8</strong>. Total study area = <strong>200 m&sup2;</strong>.</p>
+                <p>Number of quadrats in 200 m&sup2; = 200 &divide; 0.25 = <strong>800</strong>.<br>
+                Estimated dandelions = 8 &times; 800 = <strong>6,400 plants</strong>.</p>
+            </div>
+
+            <h3>Capture-mark-recapture (for mobile animals)</h3>
+            <ul>
+                <li>Catch and <strong>mark</strong> (harmless mark, or a non-invasive tag) and release a sample of <em>M</em>.</li>
+                <li>Allow time to mix.</li>
+                <li>Catch a second sample of <em>C</em>; count the marked individuals <em>R</em> already tagged.</li>
+                <li><strong>Estimated population N = (M &times; C) &divide; R</strong></li>
+            </ul>
+            <p><em>Worked example:</em> 40 frogs marked and released; later 30 caught, of which 10 were marked. <code>N = (40 &times; 30) &divide; 10 = 120 frogs</code>.</p>
+
+            <div class="callout warn">
+                <h4>Assumptions and limitations of fieldwork</h4>
+                <ul>
+                    <li>Marking must be <strong>non-harmful</strong> and must not change behaviour or survival.</li>
+                    <li>The sample must be <strong>random</strong> and the population <strong>closed</strong> (no births, deaths, immigration or emigration between samples).</li>
+                    <li>Animals must <strong>mix completely</strong> and evenly, and marks must persist and not be lost.</li>
+                    <li><strong>Random error</strong> is reduced by increasing the number of quadrats &mdash; but the mean converges only as roughly the square root of the sample size, so accuracy improves slowly.</li>
+                    <li><strong>Systematic error</strong> (choosing a poor quadrat size, placing quadrats in a path) is <em>not</em> fixed by repeating more.</li>
+                    <li>Small, mobile or hidden organisms (birds, burrowing animals, deep-water species) are poorly sampled by quadrats.</li>
+                </ul>
+            </div>
+
+            <h3>Analysing fieldwork data</h3>
+            <ul>
+                <li>Organise raw counts in a <strong>table</strong>: quadrat number, species A, species B, total, then <strong>mean</strong> and <strong>standard deviation</strong> per species.</li>
+                <li>Compare a <strong>range</strong> to decide if the mean is representative. A large range means high variability &mdash; the population is <em>patchy</em>, or the sampling is inadequate.</li>
+                <li><strong>Check for outliers.</strong> One anomalous quadrat (someone stood on a plant) distorts the mean; consider excluding it and stating why.</li>
+                <li>Present with the <strong>error bars / &plusmn;1 SD</strong> and <strong>sample size</strong> &mdash; a mean without n is incomplete evidence.</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <!-- ================= SECTION 4 ================= -->
+    <section class="topic-section" id="s4">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 04 &middot; CLASSES 6, 7 &amp; 8</div>
+            <h2>Evolution</h2>
+        </div>
+        <div class="topic-content">
+
+            <h3>The VIDA model of evolution by natural selection</h3>
+            <p>Evolution is not a goal-driven process. <strong>VIDA</strong> summarises the four requirements, and all four must hold together for evolution to occur by natural selection.</p>
+
+            <div class="vida">
+                <div class="step"><div class="letter">V</div><b>Variation</b><span>Individuals in a population differ in their characteristics.</span></div>
+                <div class="step"><div class="letter">I</div><b>Inheritance</b><span>Those differences are passed on as heritable traits by genes.</span></div>
+                <div class="step"><div class="letter">D</div><b>Differential survival</b><span>Individuals with certain traits survive and reproduce more successfully.</span></div>
+                <div class="step"><div class="letter">A</div><b>Adaptation</b><span>Over generations the favourable traits become common in the population.</span></div>
+            </div>
+
+            <h3>The three conditions of natural selection</h3>
+            <ul>
+                <li><strong>Overproduction of offspring</strong> &mdash; more offspring are produced than can survive, so there is <em>competition</em> for limited resources.</li>
+                <li><strong>Inherited variation</strong> &mdash; offspring differ because of random mutation and recombination, and the differences are heritable.</li>
+                <li><strong>Differential survival and reproduction</strong> &mdash; some variants survive to reproduce more. The population's <em>allele frequency</em> shifts toward the advantageous traits.</li>
+            </ul>
+
+            <div class="callout exam">
+                <h4>Three classic exam traps</h4>
+                <ol>
+                    <li>Evolution is <strong>not</strong> "purposeful" &mdash; no organism evolves <em>because</em> it needs to; advantageous variation arises by <strong>random mutation</strong>, and selection filters it.</li>
+                    <li>Natural selection acts on the <strong>whole phenotype</strong>, but only the <strong>heritable</strong> part of the difference is passed on. Acquired traits (a tan, a muscle) are not inherited.</li>
+                    <li>Selection <strong>cannot invent a new variation</strong> &mdash; it can only sort existing variation. This is why <strong>mutation is the ultimate source of all genetic variation</strong>, and why populations with no variation cannot adapt.</li>
+                </ol>
+            </div>
+
+            <h3>How new species arise</h3>
+            <ul>
+                <li>Different populations become <strong>geographically isolated</strong> (a new river, mountain, glacier, or ocean channel forms).</li>
+                <li><strong>Gene flow stops</strong> &mdash; no exchange of alleles.</li>
+                <li>Different <strong>selective pressures</strong> in each area, plus <strong>genetic drift</strong> and <strong>mutation</strong>, drive the populations apart.</li>
+                <li>Over long periods they become so different that they can no longer interbreed &mdash; <strong>reproductively isolated</strong> &mdash; so they are now <strong>separate species</strong>.</li>
+            </ul>
+            <p>Isolating mechanisms that complete speciation: <strong>behavioural</strong> (different mating calls), <strong>mechanical</strong> (incompatible genitalia), <strong>gametic</strong> (sperm and egg won't fuse), <strong>temporal</strong> (different breeding seasons).</p>
+
+            <h3>Divergent vs convergent evolution</h3>
+            <div class="compare">
+                <div class="col a">
+                    <h4>Divergent &mdash; homologous</h4>
+                    <p><strong>Definition:</strong> related species evolve apart from a shared ancestor, and structures become modified for different functions but keep the <strong>same underlying bone plan</strong>.</p>
+                    <p><strong>Evidence type:</strong> homologous structures &mdash; same origin, different function.</p>
+                    <p><strong>Example:</strong> the pentadactyl limb &mdash; human hand, cat paw, whale flipper, bat wing, all built from the same humerus / radius / ulna / carpals / metacarpals / phalanges, with different proportions and functions.</p>
+                </div>
+                <div class="col b">
+                    <h4>Convergent &mdash; analogous</h4>
+                    <p><strong>Definition:</strong> distantly related species independently evolve similar features because they face the <strong>same environmental pressure</strong>. The structures are <strong>not</strong> inherited from a common ancestor with that feature.</p>
+                    <p><strong>Evidence type:</strong> analogous structures &mdash; same function, different origin.</p>
+                    <p><strong>Example:</strong> wings in birds, insects and bats; the streamlined shape of a shark, a dolphin (mammal) and an ichthyosaur; the camera eye of humans and octopuses.</p>
+                </div>
+            </div>
+
+            <div class="callout key">
+                <h4>How to tell them apart in an exam</h4>
+                <p>Ask: <strong>"Does the structure come from a shared ancestor?"</strong> Same bone plan or same developmental pattern &rarr; <strong>homologous</strong> (divergent). Same function, different structure and origin &rarr; <strong>analogous</strong> (convergent). The classic trap is a <em>dolphin flipper vs a shark fin</em>: same function, but the dolphin's is a <strong>homologous</strong> forelimb with the same bones as a human arm.</p>
+            </div>
+
+            <h3>Phylogenetic (evolutionary) trees</h3>
+            <ul>
+                <li><strong>Nodes</strong> represent the most recent common ancestor of the branches above them.</li>
+                <li><strong>Branch length</strong> usually represents <em>time</em> or <em>amount of genetic change</em> &mdash; check which the axis says.</li>
+                <li>Organisms that <strong>join at the most recent node are the most closely related</strong>, regardless of how far apart they are drawn on the page.</li>
+                <li>A group whose branches all cluster together is a <strong>clade</strong> (monophyletic group).</li>
+                <li>Read the tree <strong>upright</strong>: lineage order runs from the root (oldest) to the tips (most recent).</li>
+            </ul>
+
+            <h3>The fossil record as evidence</h3>
+            <p>Fossils show that organisms have <strong>changed over time</strong>, that change is <strong>gradual and branching</strong>, and that the sequence matches the order predicted by the rock layers.</p>
+
+            <h4>The whale case study</h4>
+            <table>
+                <thead><tr><th>Feature</th><th>Whale today</th><th>What it shows</th></tr></thead>
+                <tbody>
+                    <tr><td>Skull and ear bones</td><td>Large skull, jaw modified, ear bones detached and very dense</td><td>Close relationship with artiodactyls; sound underwater</td></tr>
+                    <tr><td>Forelimbs</td><td>Flippers &mdash; humerus, radius, ulna, wrist, phalanges, all shortened</td><td><strong>Homologous</strong> with a land mammal forelimb; vestigial digits</td></tr>
+                    <tr><td>Hind limbs</td><td>Tiny, non-weight-bearing, internal</td><td><strong>Lost function</strong> &mdash; vestigial; inherited from a walking ancestor</td></tr>
+                    <tr><td>Pelvic bones</td><td>Reduced, detached from the vertebral column</td><td>Evidence the ancestor walked</td></tr>
+                    <tr><td>Nose</td><td>Migrated to the top of the skull (blowhole)</td><td>Adaptation to breathing at the surface</td></tr>
+                    <tr><td>Body</td><td>Streamlined, blubber, no hind limbs, tail flukes for propulsion</td><td>Selection for efficient swimming</td></tr>
+                </tbody>
+            </table>
+            <p><strong>Sequence:</strong> <em>Pakicetus</em> (legs, walked in shallow water) &rarr; <em>Ambulocetus</em> (crocodile-like, could walk and swim) &rarr; <em>Basilosaurus</em> (fully aquatic but with functional hind legs) &rarr; <em>Dorudon</em> (tiny vestigial hind limbs) &rarr; modern whales. This is <strong>transitional forms</strong> showing a gradual transition from land mammal to fully aquatic whale over ~15 million years.</p>
+
+            <h3>Limitations of the fossil record</h3>
+            <ul>
+                <li><strong>Incomplete</strong> &mdash; only a tiny fraction of organisms fossilise, and those are mostly hard-bodied, marine or large.</li>
+                <li><strong>Biased</strong> &mdash; we have far more fossils of vertebrates, dinosaurs and trilobites than of soft-bodied, small or tropical organisms.</li>
+                <li><strong>Requires specific conditions</strong> &mdash; rapid burial, no scavengers, mineralisation. Fossils are therefore rare and localised.</li>
+                <li><strong>Not an exact record</strong> &mdash; "missing" fossil gaps are real; we do not have a fossil for every species.</li>
+                <li><strong>Can be misinterpreted</strong> &mdash; without DNA or other evidence, fossils cannot give absolute dates or prove evolutionary relationships on their own.</li>
+                <li><strong>Dating is difficult and destructive</strong> &mdash; radiometric dating requires the right isotope and enough sample.</li>
+            </ul>
+
+            <h3>How the modern classification system shows relationships</h3>
+            <p>Modern taxonomy is <strong>phylogenetic</strong>. The system is built on shared derived characteristics and on molecular (DNA/RNA) evidence rather than on overall similarity.</p>
+            <ul>
+                <li>Moving from <strong>Domain</strong> &rarr; Kingdom &rarr; Phylum &rarr; Class &rarr; Order &rarr; Family &rarr; Genus &rarr; Species, you are increasingly grouping organisms with a <strong>more recent common ancestor</strong>.</li>
+                <li><strong>Analogous structures are ignored; homologous structures are treated as evidence.</strong></li>
+                <li>Asymmetrical or coiled <strong>DNA and RNA sequences</strong> are the strongest evidence for relatedness.</li>
+                <li><strong>Whales are classified as mammals</strong>, not fish, despite looking like fish &mdash; because of their skull, ear bones, jaw, forelimbs and DNA.</li>
+                <li>Kingdoms are <strong>monophyletic clades</strong>: each contains a common ancestor and all its descendants.</li>
+            </ul>
+
+            <h3>Other keywords to define precisely</h3>
+            <div class="term-grid">
+                <div class="term"><b>Characteristic</b><span>Any feature of an organism &mdash; physical or behavioural.</span></div>
+                <div class="term"><b>Variation</b><span>Differences between individuals of the same species.</span></div>
+                <div class="term"><b>Heritable trait</b><span>A characteristic encoded in genes and passed to offspring.</span></div>
+                <div class="term"><b>Population</b><span>All individuals of one species in one area, able to interbreed.</span></div>
+                <div class="term"><b>Frequency</b><span>How common an allele or phenotype is in a population.</span></div>
+                <div class="term"><b>Transitional form</b><span>A fossil with features of two groups &mdash; evidence of a link between them.</span></div>
+                <div class="term"><b>Adaptive radiation</b><span>One ancestor diversifying rapidly into many species filling different niches.</span></div>
+                <div class="term"><b>Extinction</b><span>The permanent loss of a species everywhere.</span></div>
+                <div class="term"><b>Mutagen</b><span>A physical, chemical or biological agent that causes mutations &mdash; UV light, X-rays, tobacco smoke, some viruses.</span></div>
+                <div class="term"><b>Endosymbiosis</b><span>One organism living permanently inside another, both benefiting &mdash; the origin of mitochondria and chloroplasts.</span></div>
+                <div class="term"><b>Vestigial structure</b><span>A reduced structure inherited from an ancestor that no longer uses it &mdash; the whale's hind limbs, the human coccyx, the appendix.</span></div>
+                <div class="term"><b>Common ancestor</b><span>The population from which a group of species evolved; the node on a phylogenetic tree.</span></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= SECTION 5 ================= -->
+    <section class="topic-section" id="s5">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 05 &middot; CLASSES 9, 10 &amp; 11</div>
+            <h2>Gal&aacute;pagos Finches &mdash; Data Analysis</h2>
+        </div>
+        <div class="topic-content">
+
+            <h3>The case study</h3>
+            <p>On the Gal&aacute;pagos Islands, <em>Geospiza</em> finches have diversified from a single common ancestor into several species. Darwin noticed that beaks differed between islands, and that the <strong>beak shape matched the food available</strong> on each island. Peter and Rosemary Grant then measured this over decades.</p>
+
+            <div class="term-grid">
+                <div class="term"><b>Ground finch</b><span>Large, deep, blunt beak &mdash; crushing hard seeds. Beak depth is genetically determined.</span></div>
+                <div class="term"><b>Cactus finch</b><span>Long, pointed, curved beak &mdash; probing cactus flowers and fruit.</span></div>
+                <div class="term"><b>Warbler finch</b><span>Thin, pointed beak &mdash; catching insects. Uses a twig as a tool.</span></div>
+                <div class="term"><b>Sharp-beaked ground finch</b><span>Used as a tool to prise insects from crevices &mdash; tool use, like a woodpecker finch.</span></div>
+                <div class="term"><b>Large tree finch</b><span>Very large beak for large, hard seeds &mdash; hybridisation has produced some separate species.</span></div>
+                <div class="term"><b>Vegetation</b><span>Seed size and hardness vary by island: small soft seeds on the wetter islands, large hard seeds on the dry ones.</span></div>
+            </div>
+
+            <div class="callout key">
+                <h4>The famous drought of 1976&ndash;77</h4>
+                <p>Severe drought cut the food supply. Finches with <strong>deeper beaks</strong> could crack the few remaining hard seeds and therefore <strong>survived better</strong>. Over the drought, <strong>mean beak depth increased</strong> in the population. When the rains returned, the population's mean beak depth <strong>decreased</strong> again. This is natural selection observed directly &mdash; and a reminder that evolution can also go <em>backwards</em> as pressures change.</p>
+            </div>
+
+            <h3>Choosing the right chart</h3>
+            <table>
+                <thead><tr><th>Chart</th><th>Use it for</th><th>In this case study</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Scatter plot</strong></td><td>Relationship between <strong>two continuous variables</strong></td><td>Beak length vs beak depth, per species or per island</td></tr>
+                    <tr><td><strong>Line graph</strong></td><td>Change over <strong>time</strong></td><td>Mean beak depth from 1973 to 2012</td></tr>
+                    <tr><td><strong>Bar chart</strong></td><td><strong>Comparing categories</strong></td><td>Number of individuals per species; number of seeds eaten per finch type</td></tr>
+                    <tr><td><strong>Histogram</strong></td><td><strong>Frequency distribution</strong> of one continuous variable</td><td>Distribution of beak depths within a species</td></tr>
+                    <tr><td><strong>Box and whisker</strong></td><td>Comparing <strong>spread</strong> across categories</td><td>Beak depth per species, showing range, IQR and outliers</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout warn">
+                <h4>Bar chart vs histogram &mdash; do not confuse them</h4>
+                <p>A <strong>bar chart</strong> has <em>gaps</em> between bars because the categories are separate and the order is arbitrary. A <strong>histogram</strong> has <em>touching bars</em> because it is one continuous variable split into bins; the area of each bar equals its frequency. Plotting a histogram of species (discrete) instead of beak depth (continuous) is a data-handling error.</p>
+            </div>
+
+            <h3>Mean and standard deviation</h3>
+            <p>You must be able to <strong>interpret</strong> these; you do not need to calculate standard deviation by hand.</p>
+            <ul>
+                <li><strong>Mean (x&#772;)</strong> &mdash; the average; the balance point of the data. Sensitive to outliers.</li>
+                <li><strong>Standard deviation (s)</strong> &mdash; the typical distance of values from the mean. A measure of <strong>spread</strong>, not of the size of the mean.</li>
+                <li><strong>Small SD</strong> &rarr; tightly clustered, low variation, a <em>stable</em> population (or suspiciously uniform data).</li>
+                <li><strong>Large SD</strong> &rarr; wide variation, greater potential for the population to respond to a change in conditions &mdash; and a higher chance of an <strong>outlier</strong> distorting the mean.</li>
+                <li>Always quote <strong>n</strong> (sample size) alongside the mean, and use <strong>&plusmn;1 SD</strong> error bars on a chart.</li>
+            </ul>
+
+            <div class="callout">
+                <h4>Worked interpretation</h4>
+                <p>Ground finches on Genovesa: mean beak depth 11.2 mm, SD 1.1 mm, n = 78.<br>
+                Ground finches on Daphne Major: mean beak depth 12.4 mm, SD 0.9 mm, n = 92.</p>
+                <p><strong>Conclusion:</strong> Daphne Major birds have a <em>larger</em> mean (deeper beaks, so better adapted to hard seeds) but <em>less</em> variation. So Daphne Major is a <strong>harder environment</strong> &mdash; only the best-adapted individuals survive &mdash; whereas Genovesa is easier, so more phenotypes persist. Genovesa's population is <strong>more resilient</strong> to a sudden change because it holds more genetic variety.</p>
+            </div>
+
+            <h3>Evaluating the data and the method</h3>
+            <p>Criterion D work always asks you to judge the evidence, not just quote it.</p>
+            <ul>
+                <li><strong>Limitations of using beak morphology as the only variable:</strong> it ignores behaviour, which is at least as important. Darwin himself underappreciated song and courtship behaviour in finch speciation.</li>
+                <li><strong>Worshipping morphology has caused errors</strong> &mdash; some historical finch "species" (e.g. <em>G. conirostris</em>) turned out to be hybrids or subspecies once DNA was compared.</li>
+                <li><strong>Biased samples:</strong> the small, widely scattered Gal&aacute;pagos population, birds caught in mist nets (which may be sex- or size-biased), and different sampling effort across islands.</li>
+                <li><strong>Beak depth is highly heritable, but beak <em>length</em> is much less so</em> &mdash; so not all measured traits respond to selection equally.</li>
+                <li><strong>Long-term data is rare and valuable</strong> &mdash; the Grants' 40-year record is a strength, but the drought years are an <em>exceptional</em> case, so generalising from them is risky.</li>
+                <li><strong>Correlation is not causation.</strong> Beak size correlates with seed size here, but you need evidence that the birds did not simply prefer the same foods the seed abundance made available.</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <!-- ================= SECTION 6 ================= -->
+    <section class="topic-section" id="s6">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 06 &middot; CLASS 9</div>
+            <h2>Mutations and Human Evolution</h2>
+        </div>
+        <div class="topic-content">
+
+            <h3>What is a mutation?</h3>
+            <p>A <strong>mutation</strong> is a change in the <strong>DNA sequence</strong> of a gene or chromosome. It is the <strong>ultimate source of all genetic variation</strong> &mdash; without mutation, natural selection has nothing to act on and populations would eventually run out of variation.</p>
+
+            <ul>
+                <li><strong>Mutagens</strong> are agents that increase the mutation rate: ionising radiation (X-rays, gamma rays, ultraviolet light), chemical mutagens (tobacco smoke, asbestos, mustard gas, some pesticides), and biological agents (some viruses).</li>
+                <li><strong>Spontaneous mutations</strong> occur naturally from DNA copying errors and from natural background radiation, with no mutagen needed.</li>
+                <li>Most mutations are <strong>neutral</strong>, some are <strong>harmful</strong>, and very few are <strong>beneficial</strong>.</li>
+            </ul>
+
+            <h4>Types of mutation</h4>
+            <table>
+                <thead><tr><th>Type</th><th>Scale</th><th>Example</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Point / substitution</strong></td><td>One base pair</td><td>Sickle cell: one base change turns glutamic acid into valine in haemoglobin</td></tr>
+                    <tr><td><strong>Insertion / deletion (indels)</strong></td><td>One or more base pairs</td><td>Cystic fibrosis: deletion of 3 bases in the CFTR gene</td></tr>
+                    <tr><td><strong>Chromosomal</strong></td><td>Whole chromosomes / sets</td><td>Down syndrome (trisomy 21), Turner's syndrome (XO)</td></tr>
+                    <tr><td><strong>Duplication</strong></td><td>Gene copies</td><td>Globin gene duplications &rarr; different haemoglobin chains</td></tr>
+                </tbody>
+            </table>
+
+            <h3>How mutations drive evolution</h3>
+            <p>Mutations are <strong>random with respect to need</strong>. They are not produced because an organism requires them, but because the environment is full of mutagens and DNA copying is imperfect.</p>
+            <ul>
+                <li>A mutation creates a new <strong>allele</strong> in one individual.</li>
+                <li>If it is <strong>invisible</strong> (recessive, or in a non-coding region) it may drift around harmlessly for many generations.</li>
+                <li>If the environment creates a <strong>selective pressure</strong> that the new trait happens to overcome, carriers leave <strong>more offspring</strong>.</li>
+                <li>The allele's <strong>frequency increases</strong> in the population over generations &mdash; that is evolution by natural selection.</li>
+            </ul>
+
+            <div class="callout key">
+                <h4>Key distinction for the exam</h4>
+                <p><strong>Mutation supplies the variation; natural selection sorts it.</strong> A mutation is not "useful" or "harmful" in itself &mdash; it is only described that way relative to the current environment. A trait that is disadvantageous at 20 &deg;C may be advantageous in a hotter climate, which is exactly how <em>recently evolved human variations</em> are explained.</p>
+            </div>
+
+            <h3>How selective pressures favour particular mutations</h3>
+            <p>Natural selection favours a mutation when the organism carrying it has <strong>higher reproductive success</strong> in that particular environment &mdash; it survives longer, or finds more mates, or produces more viable offspring. This is called a <strong>selective pressure</strong>: an environmental factor that alters relative survival or reproduction.</p>
+            <p>Examples of selective pressures: temperature, altitude and UV intensity, diet, disease and pathogen load, salinity, and the availability of a particular food source.</p>
+
+            <h3>Geographical patterns of recently evolved human traits</h3>
+            <p>Because different regions impose different selective pressures, and because <strong>populations are largely isolated</strong>, different mutations become common in different places. These are called <strong>local adaptations</strong>.</p>
+
+            <h4>1. Adult lactose tolerance</h4>
+            <ul>
+                <li>All mammals produce <strong>lactase</strong> as infants but normally stop producing it after weaning.</li>
+                <li>A <strong>single mutation</strong> in the <code>LCT/MCM6</code> regulatory region keeps lactase production switched on into adulthood.</li>
+                <li>It is <strong>extremely rare in most populations</strong> &mdash; yet around <strong>35&ndash;50% of adults in northern Europe</strong> are tolerant.</li>
+                <li><strong>Selective pressure:</strong> cattle pastoralism. Domestication of cattle ~7,000 years ago in northern Europe, and ~9,000 years ago in East Africa (where the mutation is also very common, independently &mdash; <em>convergent evolution</em>).</li>
+                <li><strong>Evidence:</strong> <strong>ancient DNA</strong> from Neolithic skeletons shows lactase persistence alleles rising sharply in frequency in the same populations that took up dairying &mdash; a <strong>very strong selective sweep</strong>.</li>
+            </ul>
+
+            <h4>2. Alcohol response</h4>
+            <ul>
+                <li><strong>ALDH2*2</strong> (a variant of aldehyde dehydrogenase) breaks down acetaldehyde. The common East Asian variant produces a <strong>much less effective</strong> enzyme, so acetaldehyde accumulates.</li>
+                <li>Carriers experience <strong>flushing, nausea and headaches</strong> after drinking, and consequently drink less and have <strong>lower rates of alcoholism</strong>.</li>
+                <li><strong>Selective pressure hypothesis:</strong> historically <strong>rice fermentation</strong> produced alcoholic drinks; individuals who could not metabolise them were less likely to drink and more likely to survive &mdash; while <em>H. pylori</em> infection, which raises gastric cancer risk, is also lower in ALDH2*2 carriers.</li>
+                <li>Notable <strong>regional asymmetry:</strong> the allele that causes strong flushing is very common in East Asia but <strong>absent in most European and African populations</strong>, which instead show the high-alcohol-metabolising ADH1B variant.</li>
+            </ul>
+
+            <h4>3. Sickle cell trait &mdash; the classic case</h4>
+            <ul>
+                <li>A <strong>single base substitution</strong> in the beta-globin gene (HbA &rarr; HbS) changes <strong>glutamic acid to valine</strong>.</li>
+                <li><strong>Heterozygous (HbAS)</strong> carriers have <strong>sickle cell trait</strong>: usually healthy, but under <strong>low oxygen</strong> &mdash; high altitude, exertion, dehydration &mdash; their red cells can sickle.</li>
+                <li><strong>Homozygous (HbSS)</strong> individuals have <strong>sickle cell anaemia</strong>: severe and often fatal without treatment.</li>
+                <li><strong>The selective pressure:</strong> <code>Plasmodium falciparum</code> malaria. HbAS carriers have <strong>markedly increased resistance</strong> to severe malaria, so they survive and reproduce more successfully in malarial regions.</li>
+                <li><strong>The geographical pattern</strong> matches the malaria map almost exactly: high frequencies in <strong>sub-Saharan Africa, the Mediterranean, the Middle East, and India</strong>; <strong>rare or absent</strong> in northern Europe, East Asia and the Americas.</li>
+                <li><strong>This is balanced (polymorphic) selection:</strong> the allele is harmful in homozygotes but beneficial in heterozygotes, so natural selection <em>maintains</em> it in the population rather than fixing or eliminating it.</li>
+            </ul>
+
+            <div class="callout">
+                <h4>Swedish / local example</h4>
+                <p><strong>Milk and lactose:</strong> Sweden has one of the highest adult lactose-tolerance rates in the world (often cited above 90%), together with the Netherlands, Germany and the UK &mdash; a direct cultural-historical legacy of Scandinavian dairy farming. Contrast this with East Asia, where adult lactose intolerance is the majority phenotype. The <em>same environment</em> (a dairy-rich diet) is not required; the difference is <strong>cultural and genetic</strong>.</p>
+            </div>
+
+            <h3>Distinguishing human variation</h3>
+            <ul>
+                <li><strong>Allele frequency data</strong> across many populations lets you infer which variants are <em>recent</em> (unevenly distributed) versus <em>ancient</em> (evenly distributed &mdash; meaning they predate the dispersal of modern humans from Africa, ~70,000 years ago).</li>
+                <li><strong>Not all variation is adaptive.</strong> Much of it is <strong>genetic drift</strong> &mdash; random changes in allele frequency, strongest in small, isolated populations.</li>
+                <li><strong>Race is not a valid biological category.</strong> Human genetic variation is <em>continuous and overlapping</em>; populations are clines, not discrete types, and most of the variation is <em>within</em> populations rather than between them.</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <!-- ================= GLOSSARY ================= -->
+    <section class="topic-section" id="glossary">
+        <div class="topic-header">
+            <div class="topic-num">REFERENCE</div>
+            <h2>Unit Keyword Glossary</h2>
+        </div>
+        <div class="topic-content">
+            <p>Every keyword listed in the unit, defined in one line. Learn these definitions word for word &mdash; Criterion A questions often ask you to "state" or "define" exactly these terms.</p>
+
+            <table>
+                <thead><tr><th>Keyword</th><th>Definition</th></tr></thead>
+                <tbody>
+                    <tr><td>Evolution</td><td>Change in the inherited characteristics of a population over successive generations</td></tr>
+                    <tr><td>Differential survival</td><td>Individuals with certain traits survive and reproduce more successfully than others</td></tr>
+                    <tr><td>Reproduction</td><td>The production of offspring; the means by which heritable traits are passed on</td></tr>
+                    <tr><td>Adaptation</td><td>A feature that increases an organism's survival and reproductive success in its environment</td></tr>
+                    <tr><td>Characteristic</td><td>A physical or behavioural feature of an organism</td></tr>
+                    <tr><td>Variation</td><td>Differences in characteristics between individuals of the same species</td></tr>
+                    <tr><td>Heritable trait</td><td>A characteristic determined by genes and passed on to offspring</td></tr>
+                    <tr><td>Inheritance</td><td>The transmission of genetic information from parents to offspring</td></tr>
+                    <tr><td>Selection</td><td>The non-random differential survival that changes allele frequencies over generations</td></tr>
+                    <tr><td>Overproduction of offspring</td><td>Producing more offspring than resources can support, creating competition</td></tr>
+                    <tr><td>Population</td><td>All individuals of one species living in one area, able to interbreed</td></tr>
+                    <tr><td>Frequency</td><td>How common an allele or phenotype is in a population, expressed as a proportion</td></tr>
+                    <tr><td>Analogous structure</td><td>Structures with the same function but different evolutionary origins (convergent evolution)</td></tr>
+                    <tr><td>Homologous structures</td><td>Structures with a shared evolutionary origin but different functions (divergent evolution)</td></tr>
+                    <tr><td>Convergent evolution</td><td>Unrelated groups independently evolving similar features due to similar selective pressures</td></tr>
+                    <tr><td>Divergent evolution</td><td>Related species evolving apart from a common ancestor into different forms</td></tr>
+                    <tr><td>Vestigial structure</td><td>A reduced structure inherited from an ancestor that no longer needs it</td></tr>
+                    <tr><td>Common ancestor</td><td>The population from which two or more species are known to have evolved</td></tr>
+                    <tr><td>Fossil record</td><td>The total collection of preserved remains and traces, providing evidence of past life</td></tr>
+                    <tr><td>Transitional form</td><td>A fossil with a mix of features of two groups, showing evolutionary links</td></tr>
+                    <tr><td>Adaptive radiation</td><td>The rapid diversification of one ancestor into many species occupying different niches</td></tr>
+                    <tr><td>Extinction</td><td>The permanent disappearance of a species from the Earth</td></tr>
+                    <tr><td>Eon</td><td>The largest division of geological time, e.g. Phanerozoic</td></tr>
+                    <tr><td>Era</td><td>A division of an eon based on the dominant life form, e.g. Mesozoic</td></tr>
+                    <tr><td>Period</td><td>A division of an era, defined by a specific life form or major event</td></tr>
+                    <tr><td>Mutagen</td><td>A physical, chemical or biological agent that causes mutations</td></tr>
+                    <tr><td>Chemosynthesis</td><td>Producing food by oxidising inorganic chemicals instead of using light</td></tr>
+                    <tr><td>Photosynthesis</td><td>Producing food using light energy, CO&#8322; and water, releasing oxygen</td></tr>
+                    <tr><td>Endosymbiosis</td><td>One organism living permanently inside another, both benefiting; explains mitochondria and chloroplasts</td></tr>
+                    <tr><td>Species richness</td><td>The number of different species present in an area</td></tr>
+                    <tr><td>Random sampling</td><td>Choosing sample points so each has an equal chance of selection, removing bias</td></tr>
+                    <tr><td>LUCA</td><td>The Last Universal Common Ancestor &mdash; the population from which all life descended</td></tr>
+                    <tr><td>Biodiversity</td><td>The variety of all living organisms, at genetic, species and ecosystem level</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout key">
+                <h4>VIDA checklist &mdash; the fastest way to score Criterion A marks</h4>
+                <p>For any natural selection question, explicitly name all four: <strong>V</strong>ariation &rarr; <strong>I</strong>nheritance &rarr; <strong>D</strong>ifferential survival &rarr; <strong>A</strong>daptation. Then give a named <strong>selective pressure</strong> and link it to the <strong>allele frequency</strong> outcome. That single sentence structure earns marks across the question.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <div class="cta">
+        <h2>Ready to test yourself?</h2>
+        <p>Two assessments cover the whole unit, weighted across Criteria A&ndash;D.</p>
+        <div class="btns">
+            <a href="m10-science-ess-a-part1.html" class="btn btn-primary">Part 1: Biodiversity, Origin of Life &amp; Measuring Populations →</a>
+            <a href="m10-science-ess-a-part2.html" class="btn btn-secondary">Part 2: Evolution, Gal&aacute;pagos Data &amp; Mutations →</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        KaniMath &middot; IB MYP Science &middot; M10 Session &middot; ESS Unit A: Evolution and the Origin of Life<br>
+        <a href="../index.html">← Back to KaniMath Home</a>
+    </footer>
+
+</div>
+</body>
+</html>
