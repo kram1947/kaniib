@@ -46,12 +46,12 @@ export default function Home() {
               onClick={() => handleFilterChange('myp4')}
             >MYP4</button>
             <button
-              className={`filter-tab ${activeFilter === 'myp5' ? 'active' : ''}`}
-              data-filter="myp5"
+              className={`filter-tab ${activeFilter === 'm10' ? 'active' : ''}`}
+              data-filter="m10"
               role="tab"
-              aria-selected={activeFilter === 'myp5'}
-              onClick={() => handleFilterChange('myp5')}
-            >MYP5</button>
+              aria-selected={activeFilter === 'm10'}
+              onClick={() => handleFilterChange('m10')}
+            >M10</button>
             <button
               className={`filter-tab ${activeFilter === 'dp' ? 'active' : ''}`}
               data-filter="dp"

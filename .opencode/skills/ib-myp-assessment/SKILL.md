@@ -177,7 +177,7 @@ Data lives in **`src/data/assessments.js`** (`assessmentsData`), *not* in `Asses
     marks: 138,                             // must match the file
     difficulty: 4,                          // integer 0-5
     href: 'assessments/<new-file>.html',    // relative, no leading slash
-    category: 'myp4',                       // 'myp4' | 'myp5' | 'dp'
+    category: 'myp4',                       // 'myp4' | 'm10' | 'dp'  (there is no 'myp5')
     badge: 'MYP4',                          // plain text, styled by badge-<category>
     icon: '🧬',
     iconBg: 'science',                      // must have a .card-icon.<name> rule

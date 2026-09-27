@@ -3,7 +3,7 @@
 Working reference for this repository. **Keep it accurate** — a stale line here costs the next agent an hour.
 
 - **Brand:** Kani_ISSR (rebranded from KaniMath / StudyIB in commit `399fd5b`)
-- **Repo:** `kram1947/kaniib` · **Live:** https://kaniib.vercel.app
+- **Repo:** `kram1947/kaniib` · **Live:** https://studyib.vercel.app
 - **Path:** `C:\Users\kram\Documents\kr_projects\mathapp` (Windows / PowerShell)
 
 > `index.html` still carries the old `KaniMath` title. Change it when convenient; new copy should say Kani_ISSR.
@@ -102,13 +102,19 @@ The old auth paths (`/login`, `/signup`, `/forgot-password`, `/reset-password`, 
 | 11 | math | myp4 | Number Operations | 5 | 15 | 5 | 2 |
 | 12 | math | myp4 | Algebra & Expressions | 7 | 20 | 7 | 3 |
 | 13 | math | myp4 | Geometry & Measurement | 8 | 25 | 8 | 3 |
-| 14 | science | myp5 | ESS Unit A: Evolution & Origin of Life (study) | – | Self-paced | – | 0 |
-| 15 | science | myp5 | Evolution & Origin of Life — Part 1 | 30 | 90 | 138 | 4 |
-| 16 | science | myp5 | Evolution & Origin of Life — Part 2 | 29 | 90 | 154 | 5 |
+| 14 | science | m10 | ESS Unit A: Evolution & Origin of Life (study) | – | Self-paced | – | 0 |
+| 15 | science | m10 | Evolution & Origin of Life — Part 1 | 30 | 90 | 138 | 4 |
+| 16 | science | m10 | Evolution & Origin of Life — Part 2 | 29 | 90 | 154 | 5 |
 
-**Levels.** `category` drives the Home page tabs: `myp4` / `myp5` / `dp`. `subject` drives the `/assessments` filter tabs (`all` / `math` / `ins` / `science`). M10 is delivered as a **subject track**, not a new grade model — `badge: 'M10 Science'` with `category: 'myp5'`.
+**Levels.** `category` drives the Home page tabs, which are **`myp4` / `m10` / `dp`** (plus `all`). `subject` drives the `/assessments` filter tabs (`all` / `math` / `ins` / `science`).
 
-> `data/assessments.js` is the only registry. `comingSoonData` (3 entries) still lists two MYP5 *math* topics as "coming soon" alongside the now-live MYP5 science content — intentional, not a bug.
+- `myp4` — the 13 older papers (MYP4 maths and Individuals & Society), the original library.
+- `m10` — the M10 Science ESS Unit A track: 1 study page + 2 timed papers, `badge: 'M10 Science'`.
+- `dp` — placeholder only; nothing live yet.
+
+**There is no `myp5` value any more.** MYP5 was retired as a label and replaced outright by M10; a paper that would have been MYP5 belongs under `m10` with an `M10 …` badge. If you reintroduce `myp5`, `Home.jsx` has no tab for it and `global.css` has no `.badge-myp5`, so the card will render unfiltered and unstyled.
+
+> `data/assessments.js` is the only registry. `comingSoonData` (3 entries) still lists two MYP5-era *math* topics as "coming soon"; they are filed under `m10` to keep the taxonomy closed, not because MYP5 exists.
 
 ---
 
@@ -148,13 +154,18 @@ npm run validate
 
 ### Verifying a deploy (read before concluding "the deploy failed")
 
-Two Vercel projects are connected to this repo. A push to `main` produces **two** commit statuses, `Vercel - studyib` and `Vercel - kaniib`, and both report *Deployment has completed*. That is **not** proof that `kaniib.vercel.app` was updated.
+**Canonical site: `https://studyib.vercel.app`.** All docs and links use it. The `kaniib.vercel.app` project is being discarded — it caused repeated confusion and is no longer a valid place to verify anything.
+
+Two Vercel projects are attached to this repo, so a push to `main` produces **two** commit statuses, `Vercel - studyib` and `Vercel - kaniib`, and both may report *Deployment has completed*. Only the `studyib` project serves the current build.
 
 Observed 2026-09-27, commit `7b1bc67`: both statuses went green, but `kaniib.vercel.app` kept serving a **13.6-day-old** build — it 404'd every new assessment and still contained pre-fix content (`x-vercel-cache: HIT`, `age: 1171525`). The current build was live on `studyib.vercel.app` and `mathapp.vercel.app`, where the files were byte-identical to local (modulo CRLF/LF).
 
-So: the alias on `kaniib.vercel.app` was not receiving the production build, and that needs fixing in the Vercel dashboard (project **Settings → Domains**). Until it is, **verify deploys against `studyib.vercel.app`, not `kaniib.vercel.app`** — otherwise a successful push looks like a failure.
+A green status is therefore not proof of anything. Verify like this:
 
-Cheap way to tell a stale deploy from a fresh one: `Invoke-WebRequest` the file and read the `age` header. `age: 0` is current; a large `age` is a cached older build. Confirming content by hashing the live file against the local file is the only conclusive check.
+1. `Invoke-WebRequest` the file on `studyib.vercel.app` and read the `age` header — `age: 0` is current, a large `age` is a cached older build.
+2. For certainty, hash the live file against the local file. Identical hashes (or identical after normalising CRLF→LF) is the only conclusive check.
+
+Do not click **Redeploy** on an existing deployment in the dashboard: it reuses that deployment's original source SHA, so it will happily rebuild and redeploy *old* code. This is exactly what happened once already — a "successful" 22s build that changed nothing.
 
 The local Vercel CLI token (`%APPDATA%\com.vercel.cli\Data\auth.json`) returns **403** for this account, so project and domain inspection from the shell is not currently possible.
 
