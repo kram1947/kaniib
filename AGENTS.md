@@ -146,6 +146,18 @@ npm run validate
 
 **Git:** commit and push only when explicitly asked. Never force-push `main`; it is the production branch.
 
+### Verifying a deploy (read before concluding "the deploy failed")
+
+Two Vercel projects are connected to this repo. A push to `main` produces **two** commit statuses, `Vercel - studyib` and `Vercel - kaniib`, and both report *Deployment has completed*. That is **not** proof that `kaniib.vercel.app` was updated.
+
+Observed 2026-09-27, commit `7b1bc67`: both statuses went green, but `kaniib.vercel.app` kept serving a **13.6-day-old** build — it 404'd every new assessment and still contained pre-fix content (`x-vercel-cache: HIT`, `age: 1171525`). The current build was live on `studyib.vercel.app` and `mathapp.vercel.app`, where the files were byte-identical to local (modulo CRLF/LF).
+
+So: the alias on `kaniib.vercel.app` was not receiving the production build, and that needs fixing in the Vercel dashboard (project **Settings → Domains**). Until it is, **verify deploys against `studyib.vercel.app`, not `kaniib.vercel.app`** — otherwise a successful push looks like a failure.
+
+Cheap way to tell a stale deploy from a fresh one: `Invoke-WebRequest` the file and read the `age` header. `age: 0` is current; a large `age` is a cached older build. Confirming content by hashing the live file against the local file is the only conclusive check.
+
+The local Vercel CLI token (`%APPDATA%\com.vercel.cli\Data\auth.json`) returns **403** for this account, so project and domain inspection from the shell is not currently possible.
+
 ### Known repo hygiene issues
 - `dist/` is in `.gitignore` but some artifacts remain tracked, so builds dirty `git status`. Fix with `git rm -r --cached dist` (not yet done — needs a decision).
 - `index.html` still carries the old `KaniMath` title after the Kani_ISSR rebrand.
