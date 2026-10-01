@@ -5,6 +5,9 @@ Working reference for this repository. **Keep it accurate** — a stale line her
 - **Brand:** Kanishka_ISSR (was Kani_ISSR; originally KaniMath / StudyIB — rebranded in `399fd5b`)
 - **Repo:** `kram1947/kaniib` · **Live:** https://studyib.vercel.app
 - **Path:** `C:\Users\kram\Documents\kr_projects\mathapp` (Windows / PowerShell)
+- **Registry:** `C:\Users\kram\Documents\kr_projects\mcp\github\projects\mathapp.json`
+  is the canonical record of repo, deploy target, and live URL. Keep it in sync if any
+  of those change.
 
 > Brand is now `Kanishka_ISSR` in all user-facing copy, including `index.html`'s title.
 > Do **not** rename the lowercase `kanimath_*` localStorage keys — doing so orphans every
@@ -18,7 +21,7 @@ Working reference for this repository. **Keep it accurate** — a stale line her
 Study material and assessments must meet the standard set out in
 `.opencode/skills/ib-myp-assessment/SKILL.md`. In short:
 
-1. **High IB standard** — target grade 7–8 demand. Every mark defensible from the mark scheme alone. Realise the command term (`state` ≠ `explain` ≠ `justify` ≠ `evaluate`). Ramp difficulty within a paper. No recall-only trivia.
+1. **High IB standard** — target grade 9 M10 DP1 and DP2 demand. Every mark defensible from the mark scheme alone. Realise the command term (`state` ≠ `explain` ≠ `justify` ≠ `evaluate`). Ramp difficulty within a paper. No recall-only trivia.
 2. **Competitive-exam alignment** — mirror IB MYP Sciences Paper 1 / Paper 2 structure and command terms; use IB Science Olympiad / IChO-style data-interrogation and critique problems for extension. **Never fabricate a citation, paper number, or statistic.** Give a source for any figure, or label it an estimate, or omit it.
 3. **Make the difference clear** — for every easily-confused pair, study material gets an explicit contrast table or "Do not confuse" callout explaining *why* students confuse them; assessments get **diagnostic distractors**, where each wrong option maps to a named misconception, and at least one question per paper that forces a choice between the two ideas.
 
@@ -167,7 +170,7 @@ npm run validate
 
 **Vercel** (`vercel.json`): framework `vite`, output `dist`, deploys automatically from `main`. The rewrites are **exact-path only** (`/assessments` → `/index.html`) so the SPA route works while `/assessments/<file>.html` is still served as a static file. Do not add a `/assessments/(.*)` rewrite — it would shadow every assessment.
 
-**Git:** commit and push only when explicitly asked. Never force-push `main`; it is the production branch.
+**Git:** commit and push only when explicitly asked. Never force-push `main`; it is the production branch. `git push` already authenticates through Git Credential Manager — there is no token to set, and do not add a `credential.helper store` step (it writes credentials to `~/.git-credentials` in plaintext). For PRs, issues, or releases use the `github` MCP server instead of hand-editing URLs.
 
 ### Verifying a deploy (read before concluding "the deploy failed")
 
