@@ -11,8 +11,8 @@ Authoritative guide for producing study material and timed assessments for this 
 **For architecture, file layout and deployment truth, read `AGENTS.md`. This file covers *how to author content*.**
 
 - **Project path:** `C:\Users\kram\Documents\kr_projects\mathapp` (Windows / PowerShell)
-- **Live site:** https://kaniib.vercel.app
-- **Brand:** Kani_ISSR (rebranded from KaniMath — use Kani_ISSR in new copy)
+- **Live site:** https://studyib.vercel.app (canonical — `kaniib.vercel.app` is a stale project, do not use)
+- **Brand:** Kanishka_ISSR (rebranded from Kani_ISSR, originally KaniMath)
 
 ---
 

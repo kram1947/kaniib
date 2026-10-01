@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanishka_ISSR — Curriculum Map &amp; Assessment Blueprint</title>
+<meta name="description" content="Standards-wise topic coverage, test-preparation standard, work in progress, M10 track, and the forward roadmap for the Kanishka_ISSR IB MYP assessment platform.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#6366f1;
+  --primary-light:#818cf8;
+  --primary-dark:#4f46e5;
+  --secondary:#10b981;
+  --warning:#f59e0b;
+  --danger:#ef4444;
+  --cyan:#06b6d4;
+  --pink:#ec4899;
+  --bg-dark:#0a0f1a;
+  --bg-card:#111827;
+  --bg-elev:#161f32;
+  --border:#1f2a3d;
+  --border-soft:#1a2334;
+  --text-primary:#f9fafb;
+  --text-secondary:#9ca3af;
+  --text-muted:#6b7280;
+  --mono:'Fira Code',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:1.5rem}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--bg-dark);
+  color:var(--text-primary);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- layout ---------- */
+.layout{
+  display:grid;
+  grid-template-columns:288px minmax(0,1fr);
+  gap:0;
+  max-width:1500px;
+  margin:0 auto;
+  min-height:100vh;
+}
+
+/* ---------- side panel ---------- */
+.side{
+  position:sticky;
+  top:0;
+  align-self:start;
+  height:100vh;
+  overflow-y:auto;
+  border-right:1px solid var(--border);
+  background:linear-gradient(180deg,#0d1421 0%,#0a0f1a 100%);
+  padding:1.5rem 0 3rem;
+}
+.side::-webkit-scrollbar{width:8px}
+.side::-webkit-scrollbar-track{background:transparent}
+.side::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+
+.brand{padding:0 1.25rem 1.25rem;border-bottom:1px solid var(--border-soft);margin-bottom:1rem}
+.brand-mark{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:38px;height:38px;border-radius:10px;
+  background:linear-gradient(135deg,var(--primary) 0%,var(--cyan) 100%);
+  font-weight:800;font-size:.95rem;color:#fff;margin-bottom:.65rem;
+  box-shadow:0 6px 18px rgba(99,102,241,.3);
+}
+.brand-name{font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+.brand-sub{font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.09em;margin-top:.15rem}
+
+.nav-label{
+  font-size:.66rem;text-transform:uppercase;letter-spacing:.11em;
+  color:var(--text-muted);padding:0 1.25rem;margin:.9rem 0 .4rem;font-weight:600;
+}
+.nav a{
+  display:flex;align-items:center;gap:.6rem;
+  padding:.5rem 1.25rem;
+  color:var(--text-secondary);
+  text-decoration:none;
+  font-size:.855rem;
+  border-left:2px solid transparent;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.nav a:hover{background:rgba(99,102,241,.08);color:var(--text-primary)}
+.nav a.active{background:rgba(99,102,241,.14);color:var(--primary-light);border-left-color:var(--primary);font-weight:600}
+.nav .ico{width:16px;text-align:center;font-size:.9rem;flex-shrink:0}
+.nav .count{
+  margin-left:auto;font-family:var(--mono);font-size:.66rem;
+  color:var(--text-muted);background:var(--bg-elev);
+  padding:.05rem .35rem;border-radius:4px;
+}
+.nav a.active .count{color:var(--primary-light)}
+
+.side-foot{
+  margin:1.5rem 1.25rem 0;padding-top:1rem;
+  border-top:1px solid var(--border-soft);
+  font-size:.72rem;color:var(--text-muted);line-height:1.7;
+}
+.side-foot a{color:var(--primary-light);text-decoration:none}
+.side-foot code{font-family:var(--mono);color:var(--text-secondary)}
+
+/* ---------- content ---------- */
+.content{padding:0 0 5rem;min-width:0}
+
+.topbar{
+  position:sticky;top:0;z-index:20;
+  display:none;align-items:center;gap:.75rem;
+  padding:.7rem 1rem;
+  background:rgba(10,15,26,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.menu-btn{
+  background:var(--bg-card);border:1px solid var(--border);
+  color:var(--text-primary);border-radius:8px;
+  padding:.4rem .65rem;font-size:.9rem;cursor:pointer;
+}
+
+header.hero{
+  padding:3.25rem 2.5rem 2.5rem;
+  border-bottom:1px solid var(--border);
+  background:
+    radial-gradient(900px 380px at 12% -10%,rgba(99,102,241,.16),transparent 60%),
+    radial-gradient(700px 320px at 88% 0%,rgba(6,182,212,.10),transparent 60%);
+}
+.badge{
+  display:inline-block;padding:.2rem .6rem;border-radius:999px;
+  font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  background:rgba(99,102,241,.16);color:var(--primary-light);
+  border:1px solid rgba(99,102,241,.3);margin-bottom:1rem;
+}
+h1{font-size:2.1rem;font-weight:800;letter-spacing:-.025em;line-height:1.2}
+.sub{color:var(--text-secondary);margin-top:.75rem;max-width:62ch;font-size:.95rem}
+
+.kpis{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:.85rem;margin-top:2rem;
+}
+.kpi{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:12px;padding:.9rem 1rem;
+}
+.kpi .v{font-size:1.5rem;font-weight:800;font-family:var(--mono);letter-spacing:-.03em}
+.kpi .l{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-top:.1rem}
+.kpi.math .v{color:var(--primary-light)}
+.kpi.ins .v{color:var(--warning)}
+.kpi.sci .v{color:var(--secondary)}
+
+main{padding:0 2.5rem}
+section{padding:2.75rem 0;border-bottom:1px solid var(--border-soft)}
+section:last-child{border-bottom:none}
+h2{
+  font-size:1.35rem;font-weight:700;letter-spacing:-.02em;
+  display:flex;align-items:center;gap:.6rem;margin-bottom:.35rem;
+}
+h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--primary);flex-shrink:0}
+h3{font-size:1rem;font-weight:700;margin:1.75rem 0 .6rem;letter-spacing:-.01em}
+h4{font-size:.85rem;font-weight:600;color:var(--text-primary);margin:1.1rem 0 .4rem}
+.lede{color:var(--text-secondary);font-size:.9rem;margin-bottom:1.5rem;max-width:80ch}
+p{color:var(--text-secondary);font-size:.9rem;margin-bottom:.75rem}
+strong{color:var(--text-primary);font-weight:600}
+code{
+  font-family:var(--mono);font-size:.82em;
+  background:var(--bg-elev);padding:.1rem .35rem;border-radius:4px;color:var(--primary-light);
+}
+a{color:var(--primary-light)}
+
+/* ---------- cards ---------- */
+.card{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:14px;padding:1.25rem 1.35rem;margin-bottom:1rem;
+}
+.card.tight{padding:1rem 1.1rem}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1rem}
+.card h3,.card h4{margin-top:0}
+.card-title{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem}
+.card-title .em{font-size:1.35rem}
+.tag{
+  display:inline-block;padding:.14rem .5rem;border-radius:6px;
+  font-size:.7rem;font-weight:600;font-family:var(--mono);
+  background:var(--bg-elev);color:var(--text-secondary);border:1px solid var(--border);
+}
+.tag.live{background:rgba(16,185,129,.13);color:var(--secondary);border-color:rgba(16,185,129,.28)}
+.tag.wip{background:rgba(245,158,11,.13);color:var(--warning);border-color:rgba(245,158,11,.28)}
+.tag.plan{background:rgba(99,102,241,.13);color:var(--primary-light);border-color:rgba(99,102,241,.28)}
+.tag.math{background:rgba(99,102,241,.13);color:var(--primary-light);border-color:rgba(99,102,241,.28)}
+.tag.ins{background:rgba(234,88,12,.13);color:var(--warning);border-color:rgba(234,88,12,.28)}
+.tag.sci{background:rgba(16,185,129,.13);color:var(--secondary);border-color:rgba(16,185,129,.28)}
+.tag.plain{background:transparent;color:var(--text-muted)}
+.tag-row{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem}
+
+/* ---------- tables ---------- */
+.tbl-wrap{overflow-x:auto;margin:1rem 0;border:1px solid var(--border);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:.83rem;min-width:620px}
+th{
+  background:var(--bg-elev);text-align:left;
+  padding:.7rem .8rem;font-weight:600;font-size:.7rem;
+  text-transform:uppercase;letter-spacing:.07em;color:var(--text-muted);
+  border-bottom:1px solid var(--border);white-space:nowrap;
+}
+td{padding:.65rem .8rem;border-bottom:1px solid var(--border-soft);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:rgba(99,102,241,.05)}
+td.num{font-family:var(--mono);text-align:right;white-space:nowrap}
+td .ttl{font-weight:600;color:var(--text-primary)}
+td .sub{font-size:.75rem;color:var(--text-muted);display:block}
+
+/* ---------- lists ---------- */
+ul.clean{list-style:none;display:grid;gap:.4rem;margin:.75rem 0}
+ul.clean li{
+  position:relative;padding-left:1.15rem;
+  font-size:.875rem;color:var(--text-secondary);
+}
+ul.clean li::before{
+  content:'';position:absolute;left:0;top:.55em;
+  width:5px;height:5px;border-radius:50%;background:var(--primary);
+}
+ul.clean.sci li::before{background:var(--secondary)}
+ul.clean.ins li::before{background:var(--warning)}
+ul.check li::before{content:'✓';background:none;color:var(--secondary);font-size:.8rem;top:0;width:auto;height:auto}
+ul.cross li::before{content:'○';background:none;color:var(--text-muted);top:0;width:auto;height:auto}
+li b,li strong{color:var(--text-primary);font-weight:600}
+
+.cols-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+
+/* ---------- callouts ---------- */
+.callout{
+  border-left:3px solid var(--primary);
+  background:rgba(99,102,241,.07);
+  padding:.9rem 1.1rem;border-radius:0 10px 10px 0;margin:1rem 0;
+}
+.callout.warn{border-left-color:var(--warning);background:rgba(245,158,11,.07)}
+.callout.sci{border-left-color:var(--secondary);background:rgba(16,185,129,.07)}
+.callout.ins{border-left-color:var(--warning);background:rgba(234,88,12,.07)}
+.callout p:last-child{margin-bottom:0}
+.callout .lbl{
+  font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;
+  font-weight:700;color:var(--primary-light);margin-bottom:.3rem;
+}
+.callout.warn .lbl{color:var(--warning)}
+.callout.sci .lbl{color:var(--secondary)}
+.callout.ins .lbl{color:var(--warning)}
+
+/* ---------- progress ---------- */
+.bar{height:5px;background:var(--bg-elev);border-radius:3px;overflow:hidden;margin-top:.4rem}
+.bar > span{display:block;height:100%;border-radius:3px}
+.bar.b-math > span{background:linear-gradient(90deg,var(--primary),var(--primary-light))}
+.bar.b-sci > span{background:linear-gradient(90deg,var(--secondary),#34d399)}
+.bar.b-ins > span{background:linear-gradient(90deg,var(--warning),#fbbf24)}
+.bar.b-dp > span{background:linear-gradient(90deg,#374151,#4b5563)}
+.meter-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.55rem}
+.meter-row .nm{width:120px;font-size:.83rem;font-weight:600;flex-shrink:0}
+.meter-row .bar{flex:1;margin:0}
+.meter-row .pc{width:44px;text-align:right;font-family:var(--mono);font-size:.75rem;color:var(--text-muted)}
+
+/* ---------- status timeline ---------- */
+.tl{position:relative;padding-left:1.5rem;margin-top:1rem}
+.tl::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--border)}
+.tl-item{position:relative;padding-bottom:1.35rem}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{
+  content:'';position:absolute;left:-1.5rem;top:6px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--bg-dark);border:2px solid var(--primary);
+}
+.tl-item.sci::before{border-color:var(--secondary)}
+.tl-item.done::before{background:var(--secondary);border-color:var(--secondary)}
+.tl-item.wip::before{border-color:var(--warning);box-shadow:0 0 0 4px rgba(245,158,11,.15)}
+.tl-h{font-size:.9rem;font-weight:600;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.tl-b{font-size:.83rem;color:var(--text-secondary);margin-top:.2rem}
+
+/* ---------- roadmap ---------- */
+.road{display:grid;gap:.75rem;counter-reset:road}
+.road-item{
+  display:grid;grid-template-columns:38px minmax(0,1fr);gap:.9rem;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:12px;padding:1rem 1.1rem;
+}
+.road-n{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg-elev);border:1px solid var(--border);
+  font-family:var(--mono);font-weight:600;font-size:.85rem;color:var(--primary-light);
+}
+.road-h{font-weight:600;font-size:.92rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.3rem}
+.road-b{font-size:.85rem;color:var(--text-secondary)}
+
+/* ---------- diff table ---------- */
+.diff{width:100%;border-collapse:collapse;font-size:.82rem;min-width:520px;margin:.75rem 0}
+.diff th{background:var(--bg-elev)}
+.diff td:first-child{font-weight:600;color:var(--text-primary);white-space:nowrap}
+.diff tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+
+footer{
+  padding:2rem 2.5rem;color:var(--text-muted);font-size:.78rem;
+  display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;
+}
+
+@media(max-width:1020px){
+  .layout{grid-template-columns:1fr}
+  .side{
+    position:fixed;top:0;left:0;width:288px;z-index:40;
+    transform:translateX(-100%);transition:transform .22s ease;
+    box-shadow:0 0 40px rgba(0,0,0,.6);
+  }
+  .side.open{transform:translateX(0)}
+  .topbar{display:flex}
+  main{padding:0 1.25rem}
+  header.hero{padding:2rem 1.25rem 1.75rem}
+  h1{font-size:1.65rem}
+  footer{padding:1.5rem 1.25rem}
+  .scrim{
+    position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:35;
+    opacity:0;pointer-events:none;transition:opacity .22s;
+  }
+  .scrim.show{opacity:1;pointer-events:auto}
+}
+@media(min-width:1021px){.scrim{display:none}}
+@media(max-width:560px){
+  .meter-row .nm{width:88px;font-size:.78rem}
+}
+</style>
+</head>
+<body>
+
+<div class="scrim" id="scrim"></div>
+
+<div class="layout">
+
+  <!-- ============ SIDE PANEL ============ -->
+  <aside class="side" id="side">
+    <div class="brand">
+      <div class="brand-mark">K</div>
+      <div class="brand-name">Kanishka_ISSR</div>
+      <div class="brand-sub">Curriculum Blueprint</div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-label">Overview</div>
+      <a href="#snapshot" data-t="snapshot"><span class="ico">◈</span>Snapshot</a>
+      <a href="#standards" data-t="standards"><span class="ico">⚖</span>Standards Map</a>
+
+      <div class="nav-label">Coverage</div>
+      <a href="#mathematics" data-t="mathematics"><span class="ico">📐</span>Mathematics<span class="count">11</span></a>
+      <a href="#science" data-t="science"><span class="ico">🧬</span>Science<span class="count">3</span></a>
+      <a href="#society" data-t="society"><span class="ico">🏛</span>Individuals &amp; Society<span class="count">2</span></a>
+      <a href="#m10" data-t="m10"><span class="ico">🚀</span>M10 Track<span class="count">3</span></a>
+
+      <div class="nav-label">Assessment Craft</div>
+      <a href="#preparation" data-t="preparation"><span class="ico">✎</span>How Tests Are Built</a>
+      <a href="#blueprint" data-t="blueprint"><span class="ico">▤</span>Paper Blueprint</a>
+      <a href="#differentiation" data-t="differentiation"><span class="ico">⚖</span>Confusion Pairs</a>
+      <a href="#quality-gate" data-t="quality-gate"><span class="ico">✓</span>Quality Gate</a>
+
+      <div class="nav-label">State of Play</div>
+      <a href="#inventory" data-t="inventory"><span class="ico">▦</span>Full Inventory<span class="count">16</span></a>
+      <a href="#in-progress" data-t="in-progress"><span class="ico">◐</span>In Progress<span class="count">6</span></a>
+
+      <div class="nav-label">Forward</div>
+      <a href="#roadmap" data-t="roadmap"><span class="ico">→</span>Roadmap</a>
+      <a href="#sources" data-t="sources"><span class="ico">≡</span>Sources &amp; Rules</a>
+    </nav>
+
+    <div class="side-foot">
+      Live: <a href="https://studyib.vercel.app" target="_blank" rel="noopener">studyib.vercel.app</a><br>
+      Repo: <code>kram1947/kaniib</code><br>
+      Snapshot of local repo at <code>d2fe060</code><br>
+      <span style="color:var(--text-muted)">Figures derive from <code>src/data/assessments.js</code>.</span>
+    </div>
+  </aside>
+
+  <!-- ============ CONTENT ============ -->
+  <div class="content">
+
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+      <strong style="font-size:.9rem">Kanishka_ISSR — Blueprint</strong>
+    </div>
+
+    <header class="hero">
+      <span class="badge">IB MYP · MYP4 → M10 → DP</span>
+      <h1>Curriculum Map &amp; Assessment Blueprint</h1>
+      <p class="sub">
+        What this platform teaches, the standard every paper is written to, the build state
+        right now, and what each subject picks up next. Everything below is read from the
+        live registry and the assessment files themselves.
+      </p>
+
+      <div class="kpis">
+        <div class="kpi">
+          <div class="v">16</div>
+          <div class="l">Registered items</div>
+        </div>
+        <div class="kpi">
+          <div class="v">330</div>
+          <div class="l">Questions</div>
+        </div>
+        <div class="kpi">
+          <div class="v">1480</div>
+          <div class="l">Marks</div>
+        </div>
+        <div class="kpi">
+          <div class="v">885</div>
+          <div class="l">Timed minutes</div>
+        </div>
+        <div class="kpi math">
+          <div class="v">1060</div>
+          <div class="l">Maths marks</div>
+        </div>
+        <div class="kpi sci">
+          <div class="v">292</div>
+          <div class="l">Science marks</div>
+        </div>
+        <div class="kpi ins">
+          <div class="v">128</div>
+          <div class="l">I&amp;S marks</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- SNAPSHOT -->
+      <section id="snapshot">
+        <h2><span class="dot"></span>Snapshot</h2>
+        <p class="lede">
+          The React app is the shell; every assessment is a standalone static HTML file with its own
+          quiz engine. 16 of the 19 files in <code>assessments/</code> are registered and reachable —
+          three legacy pages exist on disk but are not linked.
+        </p>
+
+        <div class="cols-2">
+          <div class="card">
+            <div class="card-title"><span class="em">📊</span><h3>Library shape</h3></div>
+            <ul class="clean">
+              <li><b>11</b> Mathematics items — <code>myp4</code></li>
+              <li><b>3</b> Science items — <code>m10</code> (ESS Unit A track)</li>
+              <li><b>2</b> Individuals &amp; Society items — <code>myp4</code></li>
+              <li><b>2</b> of the 16 are <b>study pages</b> (0 questions, self-paced): Trigonometry and ESS Unit A</li>
+              <li><b>4</b> additional study pages sit on disk (I&amp;S Money, Supply &amp; Demand, plus the two registered ones)</li>
+              <li><code>dp</code> is a <b>placeholder level only</b> — nothing live under it</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag live">Live</span>
+              <span class="tag wip">Legacy debt</span>
+              <span class="tag plan">Placeholder</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><span class="em">🎯</span><h3>Where the marks sit</h3></div>
+            <div class="meter-row"><span class="nm">Mathematics</span><span class="bar b-math"><span style="width:71.6%"></span></span><span class="pc">71.6%</span></div>
+            <div class="meter-row"><span class="nm">Science</span><span class="bar b-sci"><span style="width:19.7%"></span></span><span class="pc">19.7%</span></div>
+            <div class="meter-row"><span class="nm">I&amp;S</span><span class="bar b-ins"><span style="width:8.6%"></span></span><span class="pc">8.6%</span></div>
+            <div class="meter-row"><span class="nm">DP</span><span class="bar b-dp"><span style="width:2%"></span></span><span class="pc">0%</span></div>
+            <p style="font-size:.8rem;margin-top:.9rem">
+              Share of the 1480 registered marks. Probability and statistics alone carry 620 marks —
+              the single heaviest concentration in the library.
+            </p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="lbl">Naming rule</div>
+          <p>
+            The <code>myp5</code> level label was retired and replaced outright by <code>m10</code>.
+            A paper that would once have been MYP5 belongs under <code>m10</code> with an
+            <code>M10 …</code> badge. Reintroducing <code>myp5</code> leaves the card unfiltered
+            and unstyled — there is no tab and no CSS class for it.
+          </p>
+        </div>
+      </section>
+
+      <!-- STANDARDS -->
+      <section id="standards">
+        <h2><span class="dot"></span>Standards Map</h2>
+        <p class="lede">
+          Which standard governs which level, and the assessment criteria each paper is written against.
+        </p>
+
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr><th>Level</th><th>Applies to</th><th>Written against</th><th>Items</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="tag math">myp4</span></td>
+                <td>Mathematics, Individuals &amp; Society</td>
+                <td>Haese <em>Mathematics for the International Student 9 — MYP4</em>; IB MYP Sciences Paper&nbsp;1 / Paper&nbsp;2 format for science-style items</td>
+                <td class="num">13</td>
+                <td><span class="tag live">Live</span></td>
+              </tr>
+              <tr>
+                <td><span class="tag sci">m10</span></td>
+                <td>Science — ESS Unit A</td>
+                <td>Criteria <b>A</b> Knowing &amp; Understanding · <b>B</b> Inquiring · <b>C</b> Processing &amp; Evaluating · <b>D</b> Communicating</td>
+                <td class="num">3</td>
+                <td><span class="tag live">Live</span></td>
+              </tr>
+              <tr>
+                <td><span class="tag plain">dp</span></td>
+                <td>IB Diploma Programme Mathematics AA</td>
+                <td>DP syllabus — not yet specified paper by paper</td>
+                <td class="num">0</td>
+                <td><span class="tag plan">Placeholder</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Science criteria — MYP Sciences</h3>
+        <p>
+          Every <code>m10</code> paper is written against the four Sciences criteria. The examples below are
+          real questions taken from ESS Unit A Part 1 and Part 2, so each criterion is shown with the kind of
+          task that actually earns marks against it.
+        </p>
+
+        <div class="tbl-wrap">
+          <table class="diff">
+            <thead><tr><th>Criterion</th><th>What it rewards</th><th>Example from this library</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>A<br>Knowing &amp;<br>Understanding</td>
+                <td>Accurate scientific content, precise terminology, correct classification and definitions. No loose language.</td>
+                <td>
+                  <em>Part 1 · Biodiversity</em> — “Under the biological species concept, two organisms belong
+                  to the same species when they…”<br>
+                  <em>Part 1 · Origin of Life</em> — “LUCA, the Last Universal Common Ancestor, is best
+                  described as…”<br>
+                  <em>Part 1 · Origin of Life</em> — “The Alvarez team concluded that an asteroid impact
+                  caused the end-Cretaceous extinction. Which piece of evidence was the decisive clue?”
+                </td>
+              </tr>
+              <tr>
+                <td>B<br>Inquiring</td>
+                <td>Framing a question, choosing and justifying a method, planning fieldwork, handling variables.</td>
+                <td>
+                  <em>Part 1 · Populations</em> — quadrats, transects and capture–mark–recapture: choosing
+                  the method that suits the organism and its mobility, and justifying the choice.<br>
+                  <em>Part 1 · Populations</em> — “Scientists estimate there are between 8 and 20 million
+                  species of eukaryote on Earth… Explain THREE reasons why these estimates vary so widely.”
+                </td>
+              </tr>
+              <tr>
+                <td>C<br>Processing &amp;<br>Evaluating</td>
+                <td>Processing data, interpreting trends, evaluating method and limitations, drawing a supported conclusion.</td>
+                <td>
+                  <em>Part 2 · Galápagos</em> — students are given mean and standard deviation of ground
+                  finch beak depth, then asked: “Which chart is the most appropriate for showing the
+                  frequency distribution?” and “A population of finches has a very large standard deviation
+                  in beak depth. What does this most likely indicate?”<br>
+                  <em>Part 2 · Evolution</em> — “Evaluate the limitations of the fossil record as a source
+                  of evidence about evolution. Give at least FOUR limitations and, for each, explain how it
+                  affects our conclusions.”
+                </td>
+              </tr>
+              <tr>
+                <td>D<br>Communicating</td>
+                <td>Accurate, purposeful, well-structured communication of scientific argument, with correct vocabulary and a clear line of reasoning.</td>
+                <td>
+                  <em>Part 2 · Evolution</em> — extended response: “Explain how homologous structures
+                  provide evidence that groups of organisms share a common ancestor. Use the pentadactyl
+                  limb as your example.”<br>
+                  <em>Part 2</em> — structured essay: “Apply the ideas of divergent and convergent
+                  evolution to real organisms… a) Define both terms, stating which type of structure each
+                  one produces. (2 marks)” — marks awarded per identified element, not per paragraph.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout sci">
+          <div class="lbl">The MCQ items still test A and C</div>
+          <p>
+            Part 1 runs 15 MCQ + 14 short; Part 2 runs 12 MCQ + 15 short. An MCQ is not automatically
+            Criterion A — “Which chart is most appropriate for showing the frequency distribution?” is a
+            Criterion C judgement dressed as a multiple choice. The command term decides the criterion,
+            not the format.
+          </p>
+        </div>
+
+        <h3>Individuals &amp; Society criteria</h3>
+        <p>
+          Four criteria, weighted equally at 25% each. Both live I&amp;S papers — History &amp; Future of
+          Money and Supply &amp; Demand — are built on these.
+        </p>
+        <div class="tbl-wrap">
+          <table class="diff">
+            <thead><tr><th>Criterion</th><th>What it rewards</th><th>Example from this library</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>A<br>Knowing &amp;<br>Understanding</td>
+                <td>Accurate content and correct economic or historical terminology.</td>
+                <td>
+                  <em>Money</em> — “What was the critical innovation of Lydian coinage around 600 BCE?”<br>
+                  <em>Money</em> — “What event in 1971 marked the end of the Bretton Woods system?”<br>
+                  <em>Supply &amp; Demand</em> — “Which of the following best describes the Law of Demand?”
+                </td>
+              </tr>
+              <tr>
+                <td>B<br>Investigating</td>
+                <td>Framing an inquiry, choosing a method, gathering and organising information.</td>
+                <td>
+                  <em>Supply &amp; Demand</em> — case-study work built on live events: the Strait of Hormuz
+                  closure cutting 20% of global oil supply, or the DRC cobalt crisis reducing supply by 40%
+                  with knock-on effects for Volvo and Polestar EV batteries. Students identify which curve
+                  shifts and in which direction, then defend the choice.
+                </td>
+              </tr>
+              <tr>
+                <td>C<br>Communicating</td>
+                <td>Accurate, purposeful, structured communication — including correct citation practice.</td>
+                <td>
+                  <em>Money</em> — “In MLA format, how would you cite a YouTube video by…”, testing that a
+                  student can attribute a source properly rather than only recall its content.<br>
+                  <em>Supply &amp; Demand</em> — “Calculate the percentage change in purchasing power…
+                  Show your working and state whether Person A has gained or lost.”
+                </td>
+              </tr>
+              <tr>
+                <td>D<br>Thinking Critically</td>
+                <td>Judgement, weighing sources, evaluating a position — the heaviest criterion in both papers.</td>
+                <td>
+                  <em>Money</em> — “Evaluate whether Bitcoin can function as…” a unit of account, medium of
+                  exchange, store of value; and “A major criticism of Proof-of-Work cryptocurrency is…”
+                  Framed with <b>OPVL</b> — Origin, Purpose, Value, Limitation — and <b>PESTEL</b> —
+                  Political, Economic, Social, Technological, Environmental, Legal.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout ins">
+          <div class="lbl">Where the frameworks appear</div>
+          <p>
+            <b>OPVL</b> is the source-analysis workhorse for the Money paper — a currency, a coin or a
+            blockchain is examined for who issued it, what it was for, what it was worth, and what limits
+            its use. <b>PESTEL</b> handles the contextual question of why a monetary or market development
+            happened at all, and the Money paper tests it directly: “In the PESTEL model, …”
+          </p>
+        </div>
+
+        <h3>Command terms, and why they decide the criterion</h3>
+        <p>
+          The platform's standard forbids letting an <code>explain</code> be answered with a bare
+          <code>state</code>. The command term is what assigns a question to a criterion and sets the mark
+          count.
+        </p>
+        <div class="tbl-wrap">
+          <table class="diff">
+            <thead><tr><th>Command term</th><th>What the answer must contain</th><th>Typical marks</th></tr></thead>
+            <tbody>
+              <tr><td>State · Define · Outline</td><td>One fact, or a precise definition. No causal language required.</td><td class="num">1–2</td></tr>
+              <tr><td>Describe</td><td>Features or characteristics, with the required quantity stated in the stem.</td><td class="num">3–4</td></tr>
+              <tr><td>Explain</td><td>A cause-and-effect chain. Every link must be present, or the mark is not awarded.</td><td class="num">4–6</td></tr>
+              <tr><td>Compare · Distinguish</td><td>Both sides treated explicitly. Naming a pair without contrasting them scores nothing.</td><td class="num">4–7</td></tr>
+              <tr><td>Justify</td><td>Argument plus evidence plus reasoning. The evidence alone is not enough.</td><td class="num">6–9</td></tr>
+              <tr><td>Evaluate</td><td>Balanced judgement on both sides, with a stated conclusion. Always the last block in a paper.</td><td class="num">8–12</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <div class="lbl">Diagnostic distractors are the Criterion A test</div>
+          <p>
+            In an MCQ, the wrong options are not filler. Each one maps to a named misconception, and at least
+            one question per paper forces a choice between a confusable pair under conditions that make the
+            distinction load-bearing. “Which is the best example of <b>divergent</b> evolution?” fails a
+            student who has not separated divergent from convergent — the distractor did the teaching.
+          </p>
+        </div>
+
+        <h3>Science global contexts</h3>
+        <p>Used to frame scenarios in ESS Unit A:</p>
+        <ul class="clean sci">
+          <li>Orientation in Space and Time</li>
+          <li>Globalization and Sustainability</li>
+          <li>Scientific and Technical Innovation</li>
+          <li>Fairness and Development</li>
+          <li>Identity and Relationships</li>
+          <li>Personal and Cultural Expression</li>
+        </ul>
+        <p style="font-size:.85rem">
+          <em>Orientation in Space and Time</em> carries the geological-time work — eras, mass extinctions and
+          the end-Cretaceous event. <em>Globalization and Sustainability</em> carries the biodiversity-loss and
+          conservation material. <em>Identity and Relationships</em> carries the human-mutations strand —
+          lactose tolerance and sickle cell.
+        </p>
+      </section>
+
+      <!-- MATHEMATICS -->
+      <section id="mathematics">
+        <h2><span class="dot"></span>Mathematics <span class="tag math">myp4</span></h2>
+        <p class="lede">
+          11 registered items · 231 questions · 1060 marks. The deepest part of the library, and heavily
+          concentrated on two strands.
+        </p>
+
+        <div class="cols-2">
+          <div class="card">
+            <div class="card-title"><span class="em">🎲</span><h3>Probability &amp; Sets</h3></div>
+            <p style="font-size:.85rem">
+              The single largest block: 116 questions, 620 marks across three graded papers.
+            </p>
+            <ul class="clean">
+              <li>Set theory, three-set Venn diagrams, <b>inclusion–exclusion</b></li>
+              <li>Four-set Venn diagrams, multi-stage <b>Bayes' theorem</b>, advanced combinatorics, probability paradoxes</li>
+              <li>Principle of Inclusion–Exclusion, <b>derangements</b>, mean–median identity, Z-scores</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">difficulty 3 → 5</span><span class="tag">16 / 50 / 25 Q</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><span class="em">📊</span><h3>Statistics &amp; Data</h3></div>
+            <p style="font-size:.85rem">50 questions, 250 marks across two papers.</p>
+            <ul class="clean">
+              <li>Measures of central tendency, spread, <b>box plots</b>, histograms, correlation</li>
+              <li>Standard deviation, IQR, pattern recognition, Criterion A–D knowledge, communication, real-life application</li>
+              <li>Extension framed on AoPS elite problems and AMC / Kangaroo style with charts</li>
+            </ul>
+            <div class="tag-row"><span class="tag">difficulty 3 → 4</span><span class="tag">25 Q each</span></div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><span class="em">📐</span><h3>Trigonometry</h3></div>
+            <p style="font-size:.85rem">One study page + one 25-question paper, 100 marks.</p>
+            <ul class="clean">
+              <li>SOHCAHTOA, angle of elevation and depression, <b>bearings</b></li>
+              <li>Sine rule, cosine rule, <b>area formula</b>, maximum-area problem</li>
+              <li>Sine / cosine / tangent curves, with real-world anchors: surveying, aviation, bridge design, architecture</li>
+            </ul>
+            <div class="tag-row"><span class="tag live">Interactive diagrams</span><span class="tag">difficulty 3</span></div>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><span class="em">∑</span><h3>Number · Algebra · Geometry</h3></div>
+            <ul class="clean">
+              <li><b>Number</b> (5 Q) — exponents, standard form, percentages, fractions, substitution with integers</li>
+              <li><b>Algebra</b> (7 Q) — linear equations, quadratic factorisation, algebraic fractions, brackets, inequalities</li>
+              <li><b>Geometry</b> (8 Q) — Pythagoras, area and volume, interior angles, trig ratios, composite shapes</li>
+              <li><b>Comprehensive review</b> (45 Q) — seven strands, including 11 problem-solving items</li>
+            </ul>
+            <p style="font-size:.78rem;color:var(--text-muted);margin-top:.6rem">
+              These four are the lightest papers in the library — 25 questions, 20 marks combined.
+              They read as topic primers rather than full papers.
+            </p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="lbl">Comprehensive paper breakdown</div>
+          <p>
+            45 questions across seven categories — Number 5 · Algebra 7 · Geometry 8 · Coordinate 7 ·
+            Statistics 4 · Probability 3 · Problem Solving 11. Coordinate geometry appears <em>only</em> here.
+          </p>
+        </div>
+      </section>
+
+      <!-- SCIENCE -->
+      <section id="science">
+        <h2><span class="dot"></span>Science <span class="tag sci">m10</span></h2>
+        <p class="lede">
+          3 registered items · 59 questions · 292 marks. One complete ESS unit delivered to the current
+          standard; every other science area is untouched.
+        </p>
+
+        <div class="card">
+          <div class="card-title"><span class="em">🧬</span><h3>ESS Unit A — Evolution &amp; Origin of Life</h3></div>
+          <p style="font-size:.88rem">
+            Delivered as one study page plus two timed papers. This is the reference implementation for the
+            current template — copy it when authoring anything new.
+          </p>
+          <div class="tag-row">
+            <span class="tag sci">30 Q · 138 marks · diff 4</span>
+            <span class="tag sci">29 Q · 154 marks · diff 5</span>
+            <span class="tag live">12 MCQ + 14 short (Part 1)</span>
+            <span class="tag live">12 MCQ + 15 short (Part 2)</span>
+          </div>
+        </div>
+
+        <h3>Six topic groups — the full spine of the unit</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Topic</th><th>What is covered</th><th>Appears in</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="ttl">Biodiversity</td>
+                <td>Species and the binomial system; what biodiversity is; regional patterns; threats; the IUCN Red List categories and purpose; <b>in situ vs ex situ</b> conservation; competing perspectives on conserving</td>
+                <td>Study · Part 1</td>
+              </tr>
+              <tr>
+                <td class="ttl">Origin of Life</td>
+                <td>How Earth history is divided; early-Earth conditions; the origin of life; <b>LUCA</b>; evidence all life is related; mass extinction events; present biodiversity loss against the past; broad patterns of evolution over time</td>
+                <td>Study · Part 1</td>
+              </tr>
+              <tr>
+                <td class="ttl">Measuring Populations</td>
+                <td>Species richness and other measures; random sampling; quadrats and transects with the calculation; <b>capture–mark–recapture</b> for mobile animals; analysing fieldwork data</td>
+                <td>Study · Part 1</td>
+              </tr>
+              <tr>
+                <td class="ttl">Evolution</td>
+                <td>The <b>VIDA model</b> (Variation, Inheritance, Differential survival, Adaptation); the three conditions of natural selection; speciation; <b>divergent vs convergent</b> evolution; phylogenetic trees; the fossil record as evidence and its limitations; how the modern classification system shows relationships</td>
+                <td>Study · Part 2</td>
+              </tr>
+              <tr>
+                <td class="ttl">Galápagos Data</td>
+                <td>The finch case study; choosing the right chart; <b>mean and standard deviation</b>; evaluating the data and evaluating the method</td>
+                <td>Study · Part 2</td>
+              </tr>
+              <tr>
+                <td class="ttl">Mutations &amp; Humans</td>
+                <td>What a mutation is; how mutations drive evolution; how selective pressures favour particular mutations; geographical patterns of recently evolved human traits; distinguishing human variation</td>
+                <td>Study · Part 2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="cols-2">
+          <div class="card tight">
+            <h4>Part 1 assesses</h4>
+            <ul class="clean sci">
+              <li>Biodiversity patterns, threats, IUCN Red List</li>
+              <li>Early Earth, LUCA, fossil record</li>
+              <li>Mass extinctions including the end-Cretaceous event</li>
+              <li>Quadrats and random sampling</li>
+            </ul>
+          </div>
+          <div class="card tight">
+            <h4>Part 2 assesses</h4>
+            <ul class="clean sci">
+              <li>VIDA model, <b>homologous vs analogous</b> structures</li>
+              <li>The whale fossil record, phylogenetic trees</li>
+              <li>Galápagos finch data — mean and standard deviation</li>
+              <li>Human mutations — lactose tolerance, sickle cell</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout sci">
+          <div class="lbl">Not yet built</div>
+          <p>
+            ESS Unit B onward, Chemistry, Physics, and Biology outside evolution — none of it exists.
+            The entire M10 level currently rests on this single unit.
+          </p>
+        </div>
+      </section>
+
+      <!-- I&S -->
+      <section id="society">
+        <h2><span class="dot"></span>Individuals &amp; Society <span class="tag ins">myp4</span></h2>
+        <p class="lede">2 registered papers · 40 questions · 128 marks · 180 minutes. Both are economics-led.</p>
+
+        <div class="card">
+          <div class="card-title"><span class="em">💰</span><h3>History &amp; Future of Money</h3></div>
+          <p style="font-size:.88rem">
+            Traces 11,000 years of monetary evolution, barter through to Bitcoin. Analysed with
+            <b>OPVL</b> and <b>PESTEL</b>, and closes on the cryptocurrency debate.
+          </p>
+          <h4>Study page covers</h4>
+          <ul class="clean ins">
+            <li>Barter, commodity money, Lydian coinage (600 BCE), classical coinage — Athenian owl, Roman denarius, debasement</li>
+            <li>Paper money in China, colonial paper money, the end of Bretton Woods</li>
+            <li>Core ideas — the double coincidence of wants, unit of account, the Yap Stone as a proto-ledger</li>
+            <li>Fiat money, the Bretton Woods system, free-floating</li>
+            <li>Cryptocurrency — how blockchain works, distributed ledger, immutability, consensus, decentralisation, proof-of-work vs proof-of-stake</li>
+            <li>Arguments for and against, split by political angle</li>
+          </ul>
+          <div class="tag-row"><span class="tag ins">20 Q · 90 min · 44 marks · diff 3</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><span class="em">📉</span><h3>Supply &amp; Demand</h3></div>
+          <p style="font-size:.88rem">
+            Market economics from first principles: the laws of demand and supply, equilibrium, shifts,
+            and government intervention.
+          </p>
+          <h4>Study page covers</h4>
+          <ul class="clean ins">
+            <li>What economics is — scarcity, goods and services, the market</li>
+            <li>Demand — why the slope is downward, how to read the graph, factors influencing demand</li>
+            <li><b>Movement vs shift</b> — the distinction the paper tests</li>
+            <li>Shifts right and left in demand, and in supply</li>
+            <li>Factors of production as input costs</li>
+          </ul>
+          <h4>Swedish anchors used throughout</h4>
+          <p style="font-size:.85rem">
+            ICA coffee pricing · Oatly milk · Riksbank interest rates · Volvo car production ·
+            Swedish timber · Northvolt
+          </p>
+          <div class="tag-row"><span class="tag ins">20 Q · 90 min · 84 marks · diff 3</span></div>
+        </div>
+
+        <div class="callout ins">
+          <div class="lbl">Gap</div>
+          <p>
+            History, geography and political science are entirely absent. Both live I&amp;S papers sit
+            inside economics, which leaves three of the four subject areas uncovered.
+          </p>
+        </div>
+      </section>
+
+      <!-- M10 -->
+      <section id="m10">
+        <h2><span class="dot"></span>M10 Track</h2>
+        <p class="lede">
+          <code>m10</code> replaced the retired <code>myp5</code> label. It is the growth track, and the
+          level at which the current authoring standard actually lives.
+        </p>
+
+        <div class="cols-2">
+          <div class="card">
+            <div class="card-title"><span class="em">🧭</span><h3>What M10 means here</h3></div>
+            <ul class="clean">
+              <li>A <b>tab on the home page</b> alongside All / MYP4 / DP</li>
+              <li>Papers carry the badge <code>M10 Science</code></li>
+              <li>Written to grade 9 demand, not pass-level — the demand of a strong candidate aiming at 7–8</li>
+              <li>Held to the <b>full quality gate</b>: schema, mark scheme, keyword coverage, answer-key bias</li>
+              <li>The 15 legacy <code>myp4-*</code> papers are <em>not</em> held to this gate</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-title"><span class="em">📐</span><h3>Live on M10</h3></div>
+            <ul class="clean">
+              <li><b>ESS Unit A study page</b> — 6 topic groups, glossary, contrast tables, self-checks</li>
+              <li><b>Part 1</b> — 30 Q, 90 min, 138 marks, difficulty 4</li>
+              <li><b>Part 2</b> — 29 Q, 90 min, 154 marks, difficulty 5</li>
+            </ul>
+            <p style="font-size:.82rem;color:var(--text-muted);margin-top:.7rem">
+              Part 2 is the hardest paper in the entire library.
+            </p>
+          </div>
+        </div>
+
+        <h3>Structural picture</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Level tab</th><th>Items</th><th>Question mix</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><span class="tag math">MYP4</span></td><td class="num">13</td><td>Mixed — legacy schema on most</td><td><span class="tag live">Live</span></td></tr>
+              <tr><td><span class="tag sci">M10</span></td><td class="num">3</td><td>27 MCQ + 29 short</td><td><span class="tag live">Live, current template</span></td></tr>
+              <tr><td><span class="tag plain">DP</span></td><td class="num">0</td><td>—</td><td><span class="tag plan">Empty</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warn">
+          <div class="lbl">Watch for</div>
+          <p>
+            <code>comingSoonData</code> still lists two <em>MYP5-era maths</em> items — Functions &amp;
+            Graphing, and Statistics &amp; Probability. They are filed under <code>m10</code> purely to keep
+            the taxonomy closed. <code>myp5</code> does not exist as a level anywhere in the app.
+          </p>
+        </div>
+      </section>
+
+      <!-- PREPARATION -->
+      <section id="preparation">
+        <h2><span class="dot"></span>How Tests Are Built</h2>
+        <p class="lede">
+          The authoring standard every new paper is measured against. It is written down, and it is
+          executable — not aspirational.
+        </p>
+
+        <h3>1 · The standard</h3>
+        <div class="cols-2">
+          <div class="card tight">
+            <h4>High IB standard</h4>
+            <ul class="clean check">
+              <li>Answer the question that is <b>asked</b> — no padding, no restating the stem</li>
+              <li>Exact IB terminology; loose student language is addressed in the scheme</li>
+              <li><b>Every mark defensible</b> from the mark scheme alone</li>
+              <li>Command terms realised properly — <code>state</code> ≠ <code>explain</code> ≠ <code>justify</code> ≠ <code>evaluate</code></li>
+              <li>No recall-only trivia in a timed paper</li>
+              <li>Difficulty <b>ramps</b> within a paper: recall → application → analysis → evaluation</li>
+            </ul>
+          </div>
+          <div class="card tight">
+            <h4>Competitive-exam alignment</h4>
+            <ul class="clean check">
+              <li>Format anchored to <b>IB MYP Sciences Paper 1</b> (short structured) and <b>Paper 2</b> (extended, data-based)</li>
+              <li>Enriched toward IB Science Olympiad / IChO-style data interrogation</li>
+              <li>Also draws on UKMT, BBO, USABO problem styles</li>
+              <li>Data must be <b>interrogated</b> — trend, magnitude, method, limitation — not read off</li>
+              <li><b>Citation honesty is non-negotiable.</b> Never invent a paper number, year or statistic. A fabricated citation is worse than none.</li>
+              <li>Estimates are labelled as estimates, with source and uncertainty</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>2 · Planning before writing</h3>
+        <div class="card tight">
+          <p style="font-size:.88rem">The topic breakdown and the differentiation list are written <em>before</em> any question:</p>
+          <ul class="clean">
+            <li>Which confusable pairs the paper will test</li>
+            <li>Which command terms, and in what ramp order</li>
+            <li>Which data set students will interrogate, and its stated limitation</li>
+            <li>Marks and time allocation — MCQ 1 mark, short 2–7, extended 8–12; roughly <b>1.5–2 minutes per mark</b></li>
+          </ul>
+        </div>
+
+        <h3>3 · The question schema</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Type</th><th>Required fields</th><th>Marks</th></tr></thead>
+            <tbody>
+              <tr><td class="ttl">mcq</td><td><code>id</code> · <code>text</code> · <code>type</code> · <code>marks</code> · <code>options[]</code> · <code>correct</code> (index) · <code>explanation</code> · <code>topic</code></td><td class="num">1</td></tr>
+              <tr><td class="ttl">short</td><td>as above plus <code>hint</code> · <code>keywords[]</code> · <code>scheme[]</code></td><td class="num">2–7</td></tr>
+              <tr><td class="ttl">extended</td><td>as above</td><td class="num">8–12</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <div class="lbl">Field discipline</div>
+          <p>
+            <code>options</code> and <code>correct</code> are the raw source of truth. The template derives
+            <code>_opts</code> / <code>_correct</code> through a deterministic seeded shuffle
+            (seed <code>id × 97 + 41</code>). Display order is never hand-edited.
+          </p>
+        </div>
+
+        <h3>4 · Marking written answers</h3>
+        <div class="cols-2">
+          <div class="card tight">
+            <h4>How it scores</h4>
+            <p style="font-size:.86rem">
+              One <em>distinct</em> keyword hit = one mark, capped at the marks available. This is presented
+              in the UI as a <b>self-check estimate</b>, never as a marker's decision.
+            </p>
+            <p style="font-size:.86rem">
+              Proportional scoring is forbidden — with realistic pools of 30–90 keywords it makes full marks
+              unreachable and reports a meaningless score.
+            </p>
+          </div>
+          <div class="card tight">
+            <h4>What every paper ships with</h4>
+            <ul class="clean check">
+              <li>Countdown timer with warnings</li>
+              <li>Question navigator and progress bar</li>
+              <li>Mark scheme modal</li>
+              <li>Per-answer review</li>
+              <li>Per-topic score breakdown</li>
+              <li>Deterministic option shuffle — no letter is ever reliably the answer</li>
+              <li>jsPDF export</li>
+              <li>localStorage history</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>5 · Study page standard</h3>
+        <div class="card tight">
+          <ul class="clean check">
+            <li>Leads with the <b>exam task</b>, not the textbook — what the student must be able to do</li>
+            <li>Worked examples with <b>reasoning shown</b>, not just answers</li>
+            <li>Carries the actual data the papers use; simplified figures are labelled</li>
+            <li>Ends sections with <b>self-check questions</b> that discriminate the confusable pairs</li>
+            <li>Glossary of examinable terms — doubles as the keyword source for the papers</li>
+            <li>Swedish context used where it genuinely helps, never forced</li>
+          </ul>
+        </div>
+
+        <div class="callout">
+          <div class="lbl">Local context, where honest</div>
+          <p>
+            Volvo · H&amp;M · Northvolt · Oatly · Spotify · Riksbank · Nord Pool · ICA ·
+            Baltic Sea <em>Gadus morhua</em> stock collapse · <em>Ecodiscus roeseli</em> ·
+            Öland's alvar grasslands · <em>Betula pendula</em> postglacial recolonisation ·
+            MRSA in Swedish hospitals. A fabricated local statistic is a defect.
+          </p>
+        </div>
+      </section>
+
+      <!-- BLUEPRINT -->
+      <section id="blueprint">
+        <h2><span class="dot"></span>Paper Blueprint</h2>
+        <p class="lede">How a single paper is laid out, from the current-template reference shape.</p>
+
+        <div class="cols-2">
+          <div class="card tight">
+            <h4>Question ramp</h4>
+            <ul class="clean">
+              <li><b>Block 1 — recall &amp; define.</b> Short answers, single-idea. Establishes the terminology boundary.</li>
+              <li><b>Block 2 — apply.</b> Straightforward use of a formula or model in an unfamiliar setting.</li>
+              <li><b>Block 3 — analyse.</b> Multi-step; the data has to be interrogated rather than read.</li>
+              <li><b>Block 4 — evaluate.</b> Balanced judgement on both sides, with a conclusion. Always last.</li>
+            </ul>
+            <p style="font-size:.82rem;color:var(--text-muted);margin-top:.6rem">
+              A flat paper wastes the grade range. Every mark must be defensible on its own.
+            </p>
+          </div>
+          <div class="card tight">
+            <h4>Time &amp; mark budget</h4>
+            <ul class="clean">
+              <li><b>MCQ</b> — 1 mark, ~1.5 min</li>
+              <li><b>Short</b> — 2–7 marks, ~1.5–2 min per mark</li>
+              <li><b>Extended</b> — 8–12 marks, ~2 min per mark</li>
+            </ul>
+            <h4 style="margin-top:1.1rem">MCQ construction</h4>
+            <ul class="clean">
+              <li>Options never duplicated</li>
+              <li><code>correct</code> must be an integer inside the option range</li>
+              <li>No two defensible options</li>
+              <li>No option correct "for a different reason" than intended</li>
+              <li>Fewer than 6 options is preferred</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Worked reference — ESS Unit A Part 2</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Property</th><th>Value</th><th>Why it matters</th></tr></thead>
+            <tbody>
+              <tr><td class="ttl">Questions</td><td class="num">29</td><td>12 MCQ + 15 short — the widest spread in the library</td></tr>
+              <tr><td class="ttl">Marks</td><td class="num">154</td><td>Highest total of any paper</td></tr>
+              <tr><td class="ttl">Time</td><td class="num">90 min</td><td>≈1.7 min per mark — inside the 1.5–2 band</td></tr>
+              <tr><td class="ttl">Difficulty</td><td class="num">5 / 5</td><td>Rated the hardest paper on the platform</td></tr>
+              <tr><td class="ttl">Topics tagged</td><td>Evolution · Galápagos Data · Mutations &amp; Humans</td><td>Drives the per-topic breakdown in the results report</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- DIFFERENTIATION -->
+      <section id="differentiation">
+        <h2><span class="dot"></span>Confusion Pairs</h2>
+        <p class="lede">
+          Students lose marks on <em>pairs</em> of easily confused ideas, not on isolated facts.
+          Differentiation is a first-class requirement, not a stylistic extra.
+        </p>
+
+        <h3>In study material</h3>
+        <div class="cols-2">
+          <div class="card tight">
+            <ul class="clean">
+              <li>Every section containing a confusable pair gets an explicit <b>contrast table</b> or a <b>"Do not confuse"</b> callout</li>
+              <li>State <em>why</em> students confuse them — the misconception is the teaching point</li>
+              <li>End each section with a self-check that forces the distinction</li>
+            </ul>
+          </div>
+          <div class="card tight">
+            <ul class="clean">
+              <li>Distractors must be <b>diagnostic, not decorative</b> — each wrong option maps to a named misconception</li>
+              <li>A student who picks it should be able to say <em>what they got wrong</em></li>
+              <li>At least one question per paper forces a choice between the two ideas under a scenario that makes the distinction load-bearing</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Minimum pairs — where they arise</h3>
+        <div class="tbl-wrap">
+          <table class="diff">
+            <thead><tr><th>Pair</th><th>Subject strand</th></tr></thead>
+            <tbody>
+              <tr><td>in situ vs ex situ</td><td>Science — Biodiversity</td></tr>
+              <tr><td>homozygous vs heterozygous</td><td>Science — Mutations &amp; Humans</td></tr>
+              <tr><td>genotype vs phenotype</td><td>Science — Mutations &amp; Humans</td></tr>
+              <tr><td>variation within a species vs between species</td><td>Science — Biodiversity</td></tr>
+              <tr><td>natural selection vs sexual selection</td><td>Science — Evolution</td></tr>
+              <tr><td>divergent vs convergent evolution</td><td>Science — Evolution</td></tr>
+              <tr><td>homologous vs analogous structures</td><td>Science — Evolution</td></tr>
+              <tr><td>extinction vs endangerment (IUCN)</td><td>Science — Biodiversity</td></tr>
+              <tr><td>relative vs absolute population change</td><td>Science — Measuring Populations</td></tr>
+              <tr><td>mean vs median vs mode</td><td>Mathematics — Statistics</td></tr>
+              <tr><td>standard deviation vs range</td><td>Mathematics — Statistics</td></tr>
+              <tr><td>movement vs shift on a demand graph</td><td>I&amp;S — Supply &amp; Demand</td></tr>
+              <tr><td>commodity money vs fiat money</td><td>I&amp;S — Money</td></tr>
+              <tr><td>proof-of-work vs proof-of-stake</td><td>I&amp;S — Money</td></tr>
+              <tr><td>quadrat vs transect vs capture–mark–recapture</td><td>Science — Measuring Populations</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- QUALITY GATE -->
+      <section id="quality-gate">
+        <h2><span class="dot"></span>Quality Gate</h2>
+        <p class="lede">
+          Content is validated, not eyeballed. <code>npm run validate</code> must exit 0 before anything
+          is reported as done.
+        </p>
+
+        <h3>Blocking errors</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Check</th><th>Rule</th></tr></thead>
+            <tbody>
+              <tr><td>Inline script syntax</td><td>Must parse (<code>vm.Script</code>)</td></tr>
+              <tr><td>Question schema</td><td>Every question has <code>id</code>, <code>text</code>, <code>type</code>, <code>marks</code>; ids unique</td></tr>
+              <tr><td>MCQ range</td><td><code>correct</code> is an integer within <code>options</code></td></tr>
+              <tr><td>MCQ options</td><td>No duplicates</td></tr>
+              <tr><td><b>Mark scheme vs marks</b></td><td><code>marks &gt;= scheme.length</code> — never list more scheme points than marks available</td></tr>
+              <tr><td><b>Keyword coverage</b></td><td><code>keywords.length &gt;= marks</code> — otherwise full marks is unreachable</td></tr>
+              <tr><td><b>Answer-key bias</b></td><td>No single letter may win more than 50% of the MCQ</td></tr>
+              <tr><td>HTML balance</td><td>Opening vs closing block tags must match</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Warnings only</h3>
+        <p style="font-size:.86rem">
+          Missing <code>topic</code> label · absent <code>seededShuffle()</code> · lopsided key ·
+          more than 5 MCQ options · MCQ carrying a mark scheme.
+        </p>
+
+        <h3>Then verify the build</h3>
+        <div class="card tight">
+          <ul class="clean">
+            <li><code>npm run validate</code> — all files in <code>assessments/</code></li>
+            <li><code>node scripts/validate-assessment.mjs assessments/&lt;file&gt;.html</code> — one file</li>
+            <li><code>npm run build</code> — must produce <code>dist/assessments/&lt;file&gt;.html</code></li>
+          </ul>
+          <p style="font-size:.82rem;color:var(--text-muted);margin-top:.5rem">
+            Only current-template files — those with both <code>showMarkScheme</code> and
+            <code>seededShuffle</code> — are gated. The 15 legacy <code>myp4-*</code> files are
+            reported, not gated.
+          </p>
+        </div>
+      </section>
+
+      <!-- INVENTORY -->
+      <section id="inventory">
+        <h2><span class="dot"></span>Full Inventory</h2>
+        <p class="lede">All 16 registered items, straight from <code>src/data/assessments.js</code>.</p>
+
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr><th>#</th><th>Subject</th><th>Level</th><th>Title</th><th>Qs</th><th>Time</th><th>Marks</th><th>Diff</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="num">1</td><td><span class="tag math">math</span></td><td>MYP4</td><td class="ttl">Sets, Venn &amp; Probability<span class="sub">Set theory, 3-set Venn, inclusion–exclusion</span></td><td class="num">16</td><td class="num">45</td><td class="num">70</td><td class="num">3</td></tr>
+              <tr><td class="num">2</td><td><span class="tag math">math</span></td><td>MYP4</td><td class="ttl">Sets, Venn &amp; Probability — Advanced<span class="sub">4-set Venn, Bayes' theorem, combinatorics</span></td><td class="num">50</td><td class="num">90</td><td class="num">400</td><td class="num">5</td></tr>
+              <tr><td class="num">3</td><td><span class="tag math">math</span></td><td>MYP4</td><td class="ttl">Statistics &amp; Data Analysis<span class="sub">Central tendency, spread, box plots, IQR</span></td><td class="num">25</td><td class="num">60</td><td class="num">150</td><td class="num">3</td></tr>
+              <tr><td class="num">4</td><td><span class="tag math">math</span></td><td>MYP4</td><td class="ttl">Set &amp; Probability — Advanced (Part 3)<span class="sub">PIE, derangements, mean–median identity, Z-scores</span></td><td class="num">25</td><td class="num">90</td><td class="num">175</td><td class="num">5</td></tr>
+              <tr><td class="num">5</td><td><span class="tag math">math</span></td><td>MYP4</td><td class="ttl">Statistics &amp; Data Analysis — Part 4<span class="sub">Criterion A–D, patterns, communication, application</span></td><td class="num">25</td><td class="num">60</td><td class="num">100</td><td class="num">4</td></tr>
+              <tr><td class="num">6</td><td><span class="tag ins">ins</span></td><td>MYP4</td><td class="ttl">History &amp; Future of Money<span class="sub">Barter to Bitcoin, OPVL, PESTEL</span></td><td class="num">20</td><td class="num">90</td><td class="num">44</td><td class="num">3</td></tr>
+              <tr><td class="num">7</td><td><span class="tag ins">ins</span></td><td>MYP4</td><td class="ttl">Supply &amp; Demand<span class="sub">Laws, equilibrium, shifts, intervention</span></td><td class="num">20</td><td class="num">90</td><td class="num">84</td><td class="num">3</td></tr>
+              <tr><td class="num">8</td><td><span class="tag math">math</span></td><td>MYP4</td><td class="ttl">Comprehensive Math Review<span class="sub">Number, Algebra, Geometry, Coordinate, Stats, Probability, Problem Solving</span></td><td class="num">45</td><td class="num">60</td><td class="num">45</td><td class="num">3</td></tr>
+              <tr><td class="num">9</td><td><span class="tag math">math</span></td><td>MYP4</td><td class="ttl">Trigonometry — Study Material<span class="sub">SOHCAHTOA, sine &amp; cosine rules, bearings — self-paced</span></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">0</td></tr>
+              <tr><td class="num">10</td><td><span class="tag math">math</span></td><td>MYP4</td><td class="ttl">Trigonometry Assessment<span class="sub">Ratios, rules, bearings, graphs, real-world</span></td><td class="num">25</td><td class="num">60</td><td class="num">100</td><td class="num">3</td></tr>
+              <tr><td class="num">11</td><td><span class="tag math">math</span></td><td>MYP4</td><td class="ttl">Number Operations<span class="sub">Exponents, standard form, percentages</span></td><td class="num">5</td><td class="num">15</td><td class="num">5</td><td class="num">2</td></tr>
+              <tr><td class="num">12</td><td><span class="tag math">math</span></td><td>MYP4</td><td class="ttl">Algebra &amp; Expressions<span class="sub">Equations, factorisation, inequalities</span></td><td class="num">7</td><td class="num">20</td><td class="num">7</td><td class="num">3</td></tr>
+              <tr><td class="num">13</td><td><span class="tag math">math</span></td><td>MYP4</td><td class="ttl">Geometry &amp; Measurement<span class="sub">Pythagoras, area/volume, angles</span></td><td class="num">8</td><td class="num">25</td><td class="num">8</td><td class="num">3</td></tr>
+              <tr><td class="num">14</td><td><span class="tag sci">science</span></td><td><b>M10</b></td><td class="ttl">ESS Unit A: Evolution &amp; Origin of Life — study<span class="sub">6 topic groups + examinable glossary — self-paced</span></td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">0</td></tr>
+              <tr><td class="num">15</td><td><span class="tag sci">science</span></td><td><b>M10</b></td><td class="ttl">Evolution &amp; Origin of Life — Part 1<span class="sub">Biodiversity, IUCN Red List, LUCA, mass extinctions, quadrats</span></td><td class="num">30</td><td class="num">90</td><td class="num">138</td><td class="num">4</td></tr>
+              <tr><td class="num">16</td><td><span class="tag sci">science</span></td><td><b>M10</b></td><td class="ttl">Evolution &amp; Origin of Life — Part 2<span class="sub">VIDA model, phylogenetics, Galápagos data, human mutations</span></td><td class="num">29</td><td class="num">90</td><td class="num">154</td><td class="num">5</td></tr>
+              <tr style="background:rgba(99,102,241,.06)"><td colspan="4" class="ttl">Total — 16 items</td><td class="num"><b>330</b></td><td class="num"><b>885</b></td><td class="num"><b>1480</b></td><td class="num">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- IN PROGRESS -->
+      <section id="in-progress">
+        <h2><span class="dot"></span>In Progress</h2>
+        <p class="lede">
+          What is unfinished, unregistered, or knowingly out of standard. Nothing here is hidden from the
+          gate — it is simply not gated.
+        </p>
+
+        <div class="tl">
+          <div class="tl-item done sci">
+            <div class="tl-h">M10 Science ESS Unit A — complete <span class="tag live">Done</span></div>
+            <div class="tl-b">Study page + 2 timed papers, 59 questions, 292 marks. The reference implementation of the current template.</div>
+          </div>
+
+          <div class="tl-item wip">
+            <div class="tl-h">Legacy MYP4 papers below the current standard <span class="tag wip">Technical debt</span></div>
+            <div class="tl-b">
+              15 <code>myp4-*</code> files predate the current template — no mark scheme modal, no per-answer
+              review, no seeded shuffle. They are reported by <code>npm run validate</code> but not gated.
+              A legacy page that stops running is invisible to the gate, so parse must be verified manually
+              whenever one is edited.
+            </div>
+          </div>
+
+          <div class="tl-item wip">
+            <div class="tl-h">Trigonometry Assessment uses a different question schema <span class="tag wip">Known issue</span></div>
+            <div class="tl-b">
+              <code>myp4-trigonometry-assessment.html</code> parses, but has no <code>marks</code> or
+              <code>type</code> fields, so it reports ~50 findings and is exempt from the gate.
+            </div>
+          </div>
+
+          <div class="tl-item wip">
+            <div class="tl-h">Three files on disk are not registered <span class="tag wip">Orphans</span></div>
+            <div class="tl-b">
+              <code>myp4-ins-money-history-study.html</code> · <code>myp4-ins-supply-demand.html</code> ·
+              <code>myp4-statistics-elite.html</code> — present in <code>assessments/</code> and shipped by
+              the build, but absent from <code>assessmentsData</code>, so nothing links to them.
+            </div>
+          </div>
+
+          <div class="tl-item wip">
+            <div class="tl-h">Comprehensive Math Review — bank naming mismatch <span class="tag wip">Naming</span></div>
+            <div class="tl-b">
+              It names its question bank <code>quizData</code> rather than <code>questions</code>, so the
+              validator cannot locate it. A naming mismatch, not a broken page — but it means the file
+              escapes the gate.
+            </div>
+          </div>
+
+          <div class="tl-item wip">
+            <div class="tl-h">Functions &amp; Graphing · Statistics &amp; Probability <span class="tag plan">Coming soon</span></div>
+            <div class="tl-b">
+              Two maths items sitting in <code>comingSoonData</code>, filed under <code>m10</code> only to
+              keep the taxonomy closed. Domain, range, transformations; mean, median, standard deviation.
+            </div>
+          </div>
+        </div>
+
+        <div class="callout warn">
+          <div class="lbl">Deliberately not actioned</div>
+          <p>
+            The items above are pre-existing and outside the standard for new work. They should not be
+            silently rewritten during an unrelated task, and they do not block a new deliverable — but
+            they should be reported whenever an adjacent area is touched.
+          </p>
+        </div>
+      </section>
+
+      <!-- ROADMAP -->
+      <section id="roadmap">
+        <h2><span class="dot"></span>Roadmap</h2>
+        <p class="lede">
+          Future topics per subject, ordered by what unblocks the most. Each item follows the same
+          shape: plan against the standard → copy the current template → validate → register → build.
+        </p>
+
+        <h3>Mathematics <span class="tag math">myp4 → m10</span></h3>
+        <div class="road">
+          <div class="road-item">
+            <div class="road-n">1</div>
+            <div>
+              <div class="road-h">Functions &amp; Graphing <span class="tag plan">Queued</span> <span class="tag plain">already in comingSoonData</span></div>
+              <div class="road-b">Domain, range, transformations, quadratic and exponential graphs, inverse functions. This is the largest structural hole in the MYP4 maths coverage.</div>
+            </div>
+          </div>
+          <div class="road-item">
+            <div class="road-n">2</div>
+            <div>
+              <div class="road-h">Coordinate Geometry <span class="tag plan">Partial</span></div>
+              <div class="road-b">Currently 7 questions buried inside the Comprehensive paper and nowhere else. Warrants a standalone study page and paper — gradients, midpoints, distance, intersection, simultaneous equations graphically.</div>
+            </div>
+          </div>
+          <div class="road-item">
+            <div class="road-n">3</div>
+            <div>
+              <div class="road-h">Statistics &amp; Probability at M10 <span class="tag plan">Queued</span> <span class="tag plain">already in comingSoonData</span></div>
+              <div class="road-b">Mean, median, standard deviation, plus the two-way-table and normal-distribution material that MYP4 only gestures at. Natural companion to the MYP4 statistics block.</div>
+            </div>
+          </div>
+          <div class="road-item">
+            <div class="road-n">4</div>
+            <div>
+              <div class="road-h">Algebra extension — sequences, series, quadratics in depth <span class="tag plan">Planned</span></div>
+              <div class="road-b">Arithmetic and geometric sequences, sum notation, the quadratic formula with the discriminant, completing the square, graphs of roots. None of it is currently examinable on the platform.</div>
+            </div>
+          </div>
+          <div class="road-item">
+            <div class="road-n">5</div>
+            <div>
+              <div class="road-h">Number extension — indices, surds, ratio &amp; proportion, percentages in context <span class="tag plan">Planned</span></div>
+              <div class="road-b">The existing Number paper is 5 questions for 15 minutes. It is a primer, not a paper. Rational and irrational numbers, exact surd forms, compound percentage change.</div>
+            </div>
+          </div>
+          <div class="road-item">
+            <div class="road-n">6</div>
+            <div>
+              <div class="road-h">Competition-style problem sets <span class="tag plain">exists, unrouted</span></div>
+              <div class="road-b"><code>quizData.js</code> already holds Kangaroo Junior (20 Q, 60 min) and AoPS Problem Solving (15 Q, 50 min) banks. They are complete but not routed in <code>App.jsx</code> — a wiring job, not authoring.</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Science <span class="tag sci">m10</span></h3>
+        <div class="road">
+          <div class="road-item">
+            <div class="road-n">1</div>
+            <div>
+              <div class="road-h">ESS Unit B <span class="tag plan">Next unit</span></div>
+              <div class="road-b">Direct continuation of the finished Unit A track. Same shape: one study page + two graded papers, difficulty 4 and 5.</div>
+            </div>
+          </div>
+          <div class="road-item">
+            <div class="road-n">2</div>
+            <div>
+              <div class="road-h">Chemistry <span class="tag plan">Planned</span></div>
+              <div class="road-b">Atomic structure, bonding, acids and bases, pH and titration, rates, and the reactivity series. Nothing exists today.</div>
+            </div>
+          </div>
+          <div class="road-item">
+            <div class="road-n">3</div>
+            <div>
+              <div class="road-h">Physics <span class="tag plan">Planned</span></div>
+              <div class="road-b">Forces and motion, energy, waves, electricity, and momentum. Data-interrogation problems give the most transferable overlap with ESS Unit A.</div>
+            </div>
+          </div>
+          <div class="road-item">
+            <div class="road-n">4</div>
+            <div>
+              <div class="road-h">Biology beyond evolution <span class="tag plan">Planned</span></div>
+              <div class="road-b">Cell structure and function, transport across membranes, enzymes, photosynthesis and respiration, genetics and disease. The unit scaffold for the Swedish-context anchors already identified.</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Individuals &amp; Society <span class="tag ins">myp4</span></h3>
+        <div class="road">
+          <div class="road-item">
+            <div class="road-n">1</div>
+            <div>
+              <div class="road-h">History <span class="tag plan">Planned</span></div>
+              <div class="road-b">Causes and consequences, continuity and change, and source analysis using OPVL. Extends the Money paper's historical spine into a full subject area.</div>
+            </div>
+          </div>
+          <div class="road-item">
+            <div class="road-n">2</div>
+            <div>
+              <div class="road-h">Geography <span class="tag plan">Planned</span></div>
+              <div class="road-b">Biomes and ecosystems, population geography, climate and human impact, and Swedish case studies — Stockholm housing, Swedish agriculture.</div>
+            </div>
+          </div>
+          <div class="road-item">
+            <div class="road-n">3</div>
+            <div>
+              <div class="road-h">Political Science <span class="tag plan">Planned</span></div>
+              <div class="road-b">Political structures and institutions, rights and citizenship, participation and media. Completes the fourth subject area.</div>
+            </div>
+          </div>
+          <div class="road-item">
+            <div class="road-n">4</div>
+            <div>
+              <div class="road-h">Economics extension — macro, development, sustainability <span class="tag plan">Planned</span></div>
+              <div class="road-b">GDP and inflation, unemployment, Riksbank monetary policy, trade, and sustainable development — builds directly on the two existing economics papers.</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Cross-cutting <span class="tag plain">platform</span></h3>
+        <div class="road">
+          <div class="road-item">
+            <div class="road-n">1</div>
+            <div>
+              <div class="road-h">DP Mathematics AA <span class="tag plan">Empty level</span></div>
+              <div class="road-b">The <code>dp</code> tab exists with nothing under it. Filling it is the clearest signal that the platform has outgrown MYP4.</div>
+            </div>
+          </div>
+          <div class="road-item">
+            <div class="road-n">2</div>
+            <div>
+              <div class="road-h">Close the legacy gap <span class="tag wip">Enabling</span></div>
+              <div class="road-b">Migrate the 15 legacy <code>myp4-*</code> papers onto the current template so they gain mark schemes, review and fair keys — and become visible to the gate.</div>
+            </div>
+          </div>
+          <div class="road-item">
+            <div class="road-n">3</div>
+            <div>
+              <div class="road-h">Register or remove the 3 orphan files <span class="tag wip">Tidy</span></div>
+              <div class="road-b">A study page that is built but unlinked is invisible work. Register or delete — do not leave it shipped-but-orphaned.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOURCES -->
+      <section id="sources">
+        <h2><span class="dot"></span>Sources &amp; Rules</h2>
+
+        <div class="cols-2">
+          <div class="card tight">
+            <h4>Primary sources read</h4>
+            <ul class="clean">
+              <li><code>src/data/assessments.js</code> — the registry; authoritative for every count</li>
+              <li><code>.opencode/skills/ib-myp-assessment/SKILL.md</code> — the authoring standard</li>
+              <li><code>AGENTS.md</code> — architecture, inventory, deployment truth</li>
+              <li><code>scripts/validate-assessment.mjs</code> — the quality gate</li>
+              <li>The 19 files in <code>assessments/</code> — question tags and section headings</li>
+              <li><code>src/data/quizData.js</code> — the unrouted competition banks</li>
+            </ul>
+          </div>
+          <div class="card tight">
+            <h4>Standards reference</h4>
+            <ul class="clean">
+              <li>Haese, <em>Mathematics for the International Student 9 — MYP4</em> — the MYP4 maths syllabus</li>
+              <li>IB MYP Sciences Paper 1 and Paper 2 — format anchor for all science papers</li>
+              <li>IB Science Olympiad / IChO — enrichment anchor for data-interrogation style</li>
+              <li>UKMT · BBO · USABO — competitive problem styles</li>
+              <li>AoPS · AMC · Kangaroo — used in the Part 3 and Part 4 extension material</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="lbl">Honesty rule that applies here too</div>
+          <p>
+            Everything on this page is derived from the repository. Where a number could not be verified
+            against the registry or the assessment file, it is not stated. No citation, paper number or
+            statistic has been invented — the same rule the platform's own content standard imposes.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <span>Kanishka_ISSR — Curriculum Map &amp; Assessment Blueprint</span>
+      <span>Derived from <code>kram1947/kaniib</code> at <code>d2fe060</code></span>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  var side   = document.getElementById('side');
+  var scrim  = document.getElementById('scrim');
+  var menuBtn= document.getElementById('menuBtn');
+
+  function closeNav(){
+    side.classList.remove('open');
+    scrim.classList.remove('show');
+  }
+  menuBtn.addEventListener('click', function(){
+    side.classList.toggle('open');
+    scrim.classList.toggle('show');
+  });
+  scrim.addEventListener('click', closeNav);
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+  links.forEach(function(a){
+    a.addEventListener('click', function(){
+      if(window.matchMedia('(max-width:1020px)').matches) closeNav();
+    });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeNav();
+  });
+
+  // scroll spy
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('data-t')] = a; });
+
+  var sections = Array.prototype.slice.call(
+    document.querySelectorAll('main section[id]')
+  );
+
+  function spy(){
+    var y = window.scrollY + 120;
+    var current = sections[0] ? sections[0].id : null;
+    for(var i=0;i<sections.length;i++){
+      if(sections[i].offsetTop <= y) current = sections[i].id;
+    }
+    // bottom of page -> last section
+    if(window.innerHeight + window.scrollY >= document.body.scrollHeight - 8){
+      current = sections[sections.length-1].id;
+    }
+    links.forEach(function(a){ a.classList.remove('active'); });
+    if(map[current]) map[current].classList.add('active');
+  }
+
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      window.requestAnimationFrame(function(){ spy(); ticking = false; });
+      ticking = true;
+    }
+  }, {passive:true});
+  window.addEventListener('resize', spy);
+  spy();
+})();
+</script>
+
+</body>
+</html>
