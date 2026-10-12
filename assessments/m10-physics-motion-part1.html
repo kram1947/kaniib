@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IB MYP Physics - Motion, Models &amp; Mechanics Part 1 (M10)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --secondary: #06b6d4;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-hover: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #475569;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .app-container { display: flex; min-height: 100vh; }
+
+        /* ---------- Sidebar ---------- */
+        .sidebar {
+            width: 290px;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0; left: 0; bottom: 0;
+            width: 290px;
+            overflow-y: auto;
+        }
+
+        .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+        .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: #04211a; flex-shrink: 0; }
+        .logo-text h1 { font-size: 14px; font-weight: 600; }
+        .logo-text span { font-size: 11px; color: var(--text-secondary); }
+
+        .timer-container { background: rgba(16, 185, 129, 0.1); border: 1px solid var(--primary); border-radius: 12px; padding: 16px; margin-bottom: 18px; text-align: center; }
+        .timer-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 4px; }
+        .timer { font-size: 30px; font-weight: 700; font-family: 'Fira Code', monospace; color: var(--primary); }
+        .timer.warning { color: var(--warning); animation: pulse 1s infinite; }
+        .timer.danger { color: var(--danger); }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        .progress-section { margin-bottom: 18px; }
+        .progress-text { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; color: var(--text-secondary); }
+        .progress-bar { height: 8px; background: var(--bg-dark); border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.3s ease; }
+
+        .nav-label { font-size: 11px; color: var(--text-secondary); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .question-nav { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 18px; }
+        .nav-q { aspect-ratio: 1; border: 2px solid var(--border); background: var(--bg-dark); border-radius: 6px; color: var(--text-secondary); font-weight: 600; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .nav-q:hover { border-color: var(--primary); }
+        .nav-q.current { background: var(--primary); border-color: var(--primary); color: #04211a; }
+        .nav-q.answered { border-color: var(--secondary); color: var(--secondary); }
+        .nav-q.current.answered { background: var(--primary); color: #04211a; }
+
+        .sidebar-footer { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
+        .home-link { display: block; text-align: center; color: var(--text-secondary); text-decoration: none; font-size: 12px; padding: 10px 0; border-top: 1px solid var(--border); }
+        .home-link:hover { color: var(--primary); }
+
+        /* ---------- Main ---------- */
+        .main { margin-left: 290px; padding: 32px; flex: 1; min-width: 0; }
+
+        .question-container { max-width: 900px; margin: 0 auto; }
+
+        .unit-banner {
+            background: linear-gradient(135deg, rgba(16,185,129,0.14), rgba(6,182,212,0.07));
+            border: 1px solid var(--primary);
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin-bottom: 22px;
+        }
+        .unit-banner .tag { display: inline-block; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--secondary); font-weight: 700; margin-bottom: 6px; }
+        .unit-banner h1 { font-size: 21px; margin-bottom: 6px; }
+        .unit-banner p { font-size: 13px; color: var(--text-secondary); }
+
+        .question-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+        .question-num { font-size: 15px; font-weight: 600; color: var(--text-secondary); }
+        .marks { padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; background: rgba(6,182,212,0.18); color: var(--secondary); white-space: nowrap; }
+        .topic-pill { display: inline-block; font-size: 11px; padding: 4px 12px; border-radius: 20px; background: rgba(139,92,246,0.18); color: #a78bfa; font-weight: 600; margin-bottom: 14px; }
+
+        .question-card { background: var(--bg-card); border-radius: 16px; padding: 30px; border: 1px solid var(--border); }
+        .question-text { font-size: 16px; line-height: 1.75; color: var(--text-primary); margin-bottom: 22px; }
+        .question-text h2 { font-size: 16px; font-weight: 500; }
+        .question-text sub, .question-text sup { font-size: 12px; }
+
+        .options { display: flex; flex-direction: column; gap: 12px; }
+        .option { background: var(--bg-dark); border: 2px solid var(--border); border-radius: 12px; padding: 18px 22px; cursor: pointer; transition: all 0.2s; display: flex; align-items: flex-start; gap: 16px; }
+        .option:hover { border-color: var(--text-secondary); background: var(--bg-hover); }
+        .option.selected { border-color: var(--primary); background: rgba(16,185,129,0.1); }
+        .option-marker { width: 30px; height: 30px; background: var(--bg-card); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px; flex-shrink: 0; }
+        .option.selected .option-marker { background: var(--primary); color: #04211a; }
+        .option-text { font-size: 14.5px; line-height: 1.6; color: var(--text-secondary); }
+        .option.selected .option-text { color: var(--text-primary); }
+
+        .input-answer { background: var(--bg-card); border-radius: 12px; padding: 22px; border: 1px solid var(--border); }
+        .input-answer label { display: block; font-size: 13px; color: var(--text-secondary); margin-bottom: 10px; font-weight: 500; }
+        .input-answer textarea { width: 100%; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 8px; padding: 16px; color: var(--text-primary); font-size: 14.5px; font-family: 'Inter', sans-serif; line-height: 1.7; min-height: 170px; resize: vertical; }
+        .input-answer textarea:focus { outline: none; border-color: var(--primary); }
+        .input-answer textarea.essay { min-height: 340px; }
+        .word-count { font-size: 11px; color: var(--text-muted); text-align: right; margin-top: 8px; }
+
+        .reference-box { background: rgba(245,158,11,0.08); border-left: 3px solid var(--warning); padding: 14px 16px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+        .reference-box h4 { font-size: 11px; color: var(--warning); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .reference-box p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; }
+
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 22px; }
+
+        .btn { padding: 13px 26px; border-radius: 10px; font-weight: 600; font-size: 14px; cursor: pointer; border: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; }
+        .btn-primary { background: var(--primary); color: #04211a; }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-secondary { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        /* ---------- Modal ---------- */
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.3s; padding: 20px; }
+        .modal-overlay.show { opacity: 1; visibility: visible; }
+        .modal { background: var(--bg-card); border-radius: 20px; padding: 40px; max-width: 520px; width: 100%; text-align: center; border: 1px solid var(--border); }
+        .modal h2 { font-size: 26px; margin-bottom: 12px; }
+        .modal-score { font-size: 64px; font-weight: 700; color: var(--primary); margin: 18px 0; font-family: 'Fira Code', monospace; }
+        .modal-score-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 22px; }
+        .modal p { color: var(--text-secondary); margin-bottom: 28px; }
+        .modal-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        .breakdown { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 26px; }
+        .breakdown .b { background: var(--bg-dark); border-radius: 10px; padding: 14px 8px; }
+        .breakdown .b .n { font-size: 22px; font-weight: 700; }
+        .breakdown .b .l { font-size: 11px; color: var(--text-secondary); }
+        .breakdown .b.a .n { color: var(--primary); }
+        .breakdown .b.i .n { color: var(--danger); }
+        .breakdown .b.s .n { color: var(--warning); }
+
+        .review-link { display: inline-block; margin-top: 18px; color: var(--text-muted); font-size: 13px; text-decoration: none; border-bottom: 1px dashed var(--border); }
+        .review-link:hover { color: var(--secondary); }
+
+        @media (max-width: 900px) {
+            .app-container { flex-direction: column; }
+            .sidebar { position: relative; width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+            .main { margin-left: 0; padding: 20px; }
+            .question-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">PHY</div>
+                <div class="logo-text">
+                    <h1>IB_Expert_ISSR</h1>
+                    <span>IB MYP Physics &middot; M10</span>
+                </div>
+            </div>
+
+            <div class="timer-container">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer" id="timer">90:00</div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-text">
+                    <span>Progress</span>
+                    <span id="progress-text">0 / 30</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="nav-label">Question Navigator</div>
+            <div class="question-nav" id="question-nav"></div>
+
+            <div class="sidebar-footer">
+                <button class="btn btn-primary" onclick="submitQuiz()">Submit &amp; Finish</button>
+                <a href="m10-physics-motion-study.html" class="btn btn-secondary">Study Material</a>
+                <a href="m10-physics-motion-part2.html" class="btn btn-secondary">→ Part 2</a>
+                <a href="/" class="home-link">&larr; IB_Expert_ISSR Home</a>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="question-container" id="question-container"></div>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <h2>Assessment Complete</h2>
+            <div class="modal-score" id="modal-score">0%</div>
+            <div class="modal-score-sub" id="modal-marks">0 / 0 marks</div>
+            <div class="breakdown">
+                <div class="b a"><div class="n" id="mcq-count">0</div><div class="l">MCQ correct</div></div>
+                <div class="b i"><div class="n" id="wrong-count">0</div><div class="l">Incorrect</div></div>
+                <div class="b s"><div class="n" id="skip-count">0</div><div class="l">Skipped</div></div>
+            </div>
+            <p id="modal-msg">Keep practicing!</p>
+            <div class="modal-btns">
+                <button class="btn btn-primary" onclick="downloadPDF()">Download Results</button>
+                <button class="btn btn-secondary" onclick="showMarkScheme()">Mark Scheme</button>
+                <button class="btn btn-secondary" onclick="window.location.href='m10-physics-motion-study.html'">Study More</button>
+            </div>
+            <a href="#" class="review-link" onclick="showReview(); return false;">Review every answer</a>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="scheme-modal">
+        <div class="modal" style="max-width: 760px; text-align: left;">
+            <h2 style="text-align:center;">Mark Scheme</h2>
+            <div id="scheme-body" style="max-height: 60vh; overflow-y: auto; font-size: 14px; color: var(--text-secondary);"></div>
+            <div class="modal-btns" style="margin-top: 24px;">
+                <button class="btn btn-secondary" onclick="document.getElementById('scheme-modal').classList.remove('show')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+    /* ================= GRAPHS & GRADIENTS ================= */
+    {
+        id: 1, type: "mcq", topic: "Graphs & Gradients", marks: 1,
+        text: "On a position&ndash;time graph, the gradient (slope) of the line of best fit has the unit:",
+        options: ["m", "s", "m/s", "m/s&sup2;"],
+        correct: 2,
+        explanation: "Gradient = rise/run = change in position (m) divided by time (s) = m/s, a velocity. m/s&sup2; would be the gradient of a velocity&ndash;time graph."
+    },
+    {
+        id: 2, type: "mcq", topic: "Graphs & Gradients", marks: 1,
+        text: "A position&ndash;time graph shows a horizontal line at x = 15 m. The object is:",
+        options: ["At rest at 15 m from the origin", "Moving at 15 m/s", "Accelerating at 15 m/s&sup2;", "Returning to the origin"],
+        correct: 0,
+        explanation: "Zero gradient means zero velocity: the position never changes. Students who choose 'moving at 15 m/s' read the height of the line as a speed instead of taking the gradient."
+    },
+    {
+        id: 3, type: "mcq", topic: "Graphs & Gradients", marks: 1,
+        text: "Two straight position&ndash;time graphs rise to the left of the origin direction; graph A is steeper than graph B. This means:",
+        options: ["Object A is moving faster than object B", "Object A started earlier", "Object B is accelerating", "Both objects are at rest"],
+        correct: 0,
+        explanation: "On a position&ndash;time graph the gradient is the velocity, so the steeper line has the greater speed. Steepness never indicates start time."
+    },
+    /* ================= MOTION GRAPHS ================= */
+    {
+        id: 4, type: "mcq", topic: "Motion Graphs", marks: 1,
+        text: "The gradient of a velocity&ndash;time graph represents the object's:",
+        options: ["Displacement", "Speed", "Position", "Acceleration"],
+        correct: 3,
+        explanation: "Gradient = change in velocity per time = (m/s)/s = m/s&sup2; = acceleration. Displacement is the AREA under a velocity&ndash;time graph, not its gradient."
+    },
+    {
+        id: 5, type: "mcq", topic: "Motion Graphs", marks: 1,
+        text: "The area between a velocity&ndash;time line and the time axis is equal to the object's:",
+        options: ["Acceleration", "Displacement", "Average speed", "Distance from the start only if it never reverses"],
+        correct: 1,
+        explanation: "(m/s) &times; s = m, a displacement. If the line dips below the axis the areas subtract, giving the net displacement; total distance would require adding the magnitudes."
+    },
+    {
+        id: 6, type: "mcq", topic: "Motion Graphs", marks: 1,
+        text: "On a position&ndash;time graph, a curve that starts steep and becomes flatter describes an object that is:",
+        options: ["Speeding up in the positive direction", "Slowing down", "Moving at constant velocity", "Changing direction"],
+        correct: 1,
+        explanation: "The gradient is the velocity; a decreasing gradient magnitude means the speed is falling towards zero. Changing direction would require the curve to cross the time axis with a sign change of slope."
+    },
+    {
+        id: 7, type: "mcq", topic: "Motion Graphs", marks: 1,
+        text: "A velocity&ndash;time line lies entirely below the time axis and is horizontal. The object:",
+        options: ["Is at rest", "Moves at constant velocity in the negative direction", "Is accelerating in the negative direction", "Moves at constant velocity in the positive direction"],
+        correct: 1,
+        explanation: "Below the axis = negative velocity; horizontal = zero gradient = zero acceleration, so the negative velocity never changes. 'At rest' would be a line lying ON the axis."
+    },
+    /* ================= KINEMATICS ================= */
+    {
+        id: 8, type: "mcq", topic: "Kinematics", marks: 1,
+        text: "An object moves from position x = &minus;20 m to x = +10 m. Its displacement is:",
+        options: ["&minus;10 m", "+10 m", "+30 m", "+20 m"],
+        correct: 2,
+        explanation: "&Delta;x = final &minus; initial = 10 &minus; (&minus;20) = +30 m. Subtracting a negative is what students most often miss."
+    },
+    {
+        id: 9, type: "mcq", topic: "Kinematics", marks: 1,
+        text: "An object speeds up when its velocity and acceleration:",
+        options: ["Have the same sign", "Have opposite signs", "Are both zero", "Are equal in magnitude but the object is at rest"],
+        correct: 0,
+        explanation: "Same direction &rarr; the velocity grows away from zero. Opposite signs produce slowing down, no matter which sign is positive."
+    },
+    {
+        id: 10, type: "mcq", topic: "Kinematics", marks: 1,
+        text: "A car travels east (taken as positive) and slows down. Its acceleration is:",
+        options: ["Positive", "Negative", "Zero", "Equal to its velocity"],
+        correct: 1,
+        explanation: "Slowing down while v is positive requires a to be negative (opposite sign). 'Positive acceleration' does not mean 'slowing' or 'speeding' by itself &mdash; compare the signs."
+    },
+    {
+        id: 11, type: "mcq", topic: "Kinematics", marks: 1,
+        text: "36 km/h is equal to:",
+        options: ["3.6 m/s", "10 m/s", "36 m/s", "100 m/s"],
+        correct: 1,
+        explanation: "Divide by 3.6: 36/3.6 = 10 m/s. Multiplying by 3.6 is the reverse conversion (m/s &rarr; km/h)."
+    },
+    {
+        id: 12, type: "mcq", topic: "Kinematics", marks: 1,
+        text: "On the MYP data sheet, g = 10 m/s&sup2;. A motorway speed of 110 km/h is closest to:",
+        options: ["11 m/s", "31 m/s", "396 m/s", "3.1 m/s"],
+        correct: 1,
+        explanation: "110/3.6 &asymp; 30.6 &asymp; 31 m/s. Note the data-sheet value of g is irrelevant here &mdash; it is a pure unit conversion."
+    },
+    {
+        id: 13, type: "mcq", topic: "Kinematics", marks: 1,
+        text: "Which SUVAT equation should be used when u, a and s are known and v is required (t unknown)?",
+        options: ["v&sup2; = u&sup2; + 2as", "v = u + at", "s = ut + &frac12;at&sup2;", "s = &frac12;(u + v)t"],
+        correct: 0,
+        explanation: "Eliminate every equation containing the unknown t; only v&sup2; = u&sup2; + 2as links u, v, a and s directly."
+    },
+    {
+        id: 14, type: "mcq", topic: "SUVAT", marks: 1,
+        text: "A ball is dropped from rest. Ignoring air resistance and taking g = 10 m/s&sup2;, its speed after 3.0 s is:",
+        options: ["3.3 m/s", "10 m/s", "30 m/s", "45 m/s"],
+        correct: 2,
+        explanation: "v = u + at = 0 + 10 &times; 3 = 30 m/s. Option D is s = &frac12;at&sup2; = 45 m, the distance fallen &mdash; a quantity with different units."
+    },
+    {
+        id: 15, type: "mcq", topic: "SUVAT", marks: 1,
+        text: "A cart starts from rest and accelerates uniformly at 4 m/s&sup2; for 2.0 s. The distance it travels is:",
+        options: ["2.0 m", "4.0 m", "8.0 m", "16 m"],
+        correct: 2,
+        explanation: "s = ut + &frac12;at&sup2; = 0 + &frac12; &times; 4 &times; 4 = 8 m. Choosing 16 m means the &frac12; was forgotten."
+    },
+    {
+        id: 16, type: "mcq", topic: "SUVAT", marks: 1,
+        text: "Which of the following is a vector quantity?",
+        options: ["Speed", "Distance", "Velocity", "Mass"],
+        correct: 2,
+        explanation: "Velocity includes direction. Speed, distance and mass have magnitude only."
+    },
+    /* ================= SHORT: GRAPHS & GRADIENTS ================= */
+    {
+        id: 17, type: "short", topic: "Graphs & Gradients", marks: 5,
+        text: "A trolley's position&ndash;time graph has a straight line of best fit passing through the points (2 s, 10 m) and (12 s, 70 m).<br><br>a) Calculate the gradient of the line. <strong>[2]</strong><br>b) State the unit of the gradient. <strong>[1]</strong><br>c) State what the gradient represents for this motion. <strong>[2]</strong>",
+        placeholder: "a) Show the two-point formula, substitution and answer...\nb) Unit = ...\nc) The gradient represents ...",
+        keywords: ["6", "m/s", "70", "12", "gradient", "velocity", "constant", "y2", "y1", "x2", "x1", "5.9", "6.0"],
+        scheme: [
+            "Selects the two-point formula m = (y&#8322; &minus; y&#8321;)/(x&#8322; &minus; x&#8321;) and identifies the coordinate pairs",
+            "Substitutes correctly: (70 &minus; 10)/(12 &minus; 2) = 60/10",
+            "Gradient = 6.0 (accept 6)",
+            "Unit is m/s (metres per second, from y-units/x-units)",
+            "The gradient represents a constant velocity of 6.0 m/s (constant speed in a straight line)"
+        ]
+    },
+    {
+        id: 18, type: "short", topic: "Motion Graphs", marks: 6,
+        text: "Six graphs are described below. For each, state in words the type of motion shown. <strong>[1 mark each]</strong><br><br>a) Position&ndash;time: horizontal line.<br>b) Position&ndash;time: straight diagonal line rising to the right.<br>c) Position&ndash;time: curve rising and getting steeper.<br>d) Velocity&ndash;time: straight diagonal rising to the right from the origin.<br>e) Velocity&ndash;time: horizontal line above the axis.<br>f) Velocity&ndash;time: straight line crossing the axis from positive to negative.",
+        placeholder: "a) ...\nb) ...\nc) ...\nd) ...\ne) ...\nf) ...",
+        keywords: ["rest", "constant velocity", "accelerat", "speeding", "positive", "direction", "negative", "crosses", "turn", "zero", "straight", "increasing"],
+        scheme: [
+            "a) At rest (stationary, zero velocity)",
+            "b) Constant velocity in the positive direction",
+            "c) Speeding up in the positive direction (increasing velocity, positive acceleration)",
+            "d) Constant positive acceleration from rest",
+            "e) Constant velocity in the positive direction (zero acceleration)",
+            "f) Constant deceleration to rest, then constant acceleration in the negative direction &mdash; the object changes direction"
+        ]
+    },
+    {
+        id: 19, type: "short", topic: "Graphs & Gradients", marks: 7,
+        text: "A field experiment measures the distance travelled by a trolley at different times. Four points lie close to a straight line through the origin; one point, (4 s, 40 m), lies far above the pattern of the others.<br><br>a) The line of best fit passes through (0 s, 0 m) and (5 s, 25 m). Calculate its gradient. <strong>[2]</strong><br>b) State what the gradient represents. <strong>[1]</strong><br>c) Comment on whether the line of best fit is appropriate, justifying your answer. <strong>[2]</strong><br>d) Explain what should be done with the outlier at (4 s, 40 m). <strong>[2]</strong>",
+        placeholder: "a) m = ...\nb) It represents ...\nc) ...justification...\nd) ...what to do with the outlier...",
+        keywords: ["5", "25", "outlier", "best fit", "trend", "constant", "speed", "investigate", "repeat", "evenly", "above", "do not force", "line"],
+        scheme: [
+            "Gradient = (25 &minus; 0)/(5 &minus; 0) = 5.0",
+            "Correct substitution shown with the two chosen points",
+            "Unit m/s and meaning: constant speed of 5.0 m/s",
+            "Line is appropriate: it follows the overall trend with points spread evenly either side",
+            "The outlier must not be forced through &mdash; it is flagged, and the measurement repeated or the cause investigated"
+        ]
+    },
+    /* ================= SHORT: MOTION GRAPHS ================= */
+    {
+        id: 20, type: "short", topic: "Motion Graphs", marks: 7,
+        text: "A velocity&ndash;time graph shows: velocity rising uniformly from 0 to 12 m/s over 0&ndash;4 s; constant 12 m/s from 4&ndash;10 s; then falling uniformly to 0 at 16 s.<br><br>a) Calculate the acceleration during 0&ndash;4 s. <strong>[2]</strong><br>b) Calculate the displacement during 4&ndash;10 s. <strong>[2]</strong><br>c) Calculate the total displacement over the 16 s. <strong>[3]</strong>",
+        placeholder: "a) a = ...\nb) s = ...\nc) total = triangle + rectangle + triangle = ...",
+        keywords: ["3", "72", "24", "36", "132", "m/s", "area", "acceleration", "trapezium", "displacement", "rectangle", "triangle"],
+        scheme: [
+            "a = &Delta;v/t = (12 &minus; 0)/4 = 3.0 m/s&sup2; (positive direction)",
+            "Units m/s&sup2; and statement that the object is speeding up",
+            "Displacement 4&ndash;10 s = area = 12 &times; 6 = 72 m",
+            "First triangle area = &frac12; &times; 4 &times; 12 = 24 m",
+            "Final triangle area = &frac12; &times; 6 &times; 12 = 36 m",
+            "Total = 24 + 72 + 36 = 132 m (or trapezium &frac12;(6 + 16) &times; 12)"
+        ]
+    },
+    {
+        id: 21, type: "short", topic: "Motion Graphs", marks: 6,
+        text: "Object A and object B both move with constant velocity. Their position&ndash;time graphs are straight lines that rise to the right; A's line is steeper than B's, and B starts at x = 10 m while A starts at the origin.<br><br>a) State which object has the greater speed, and why. <strong>[2]</strong><br>b) State the relationship between their velocities if the two lines are parallel. <strong>[1]</strong><br>c) After a long time, what happens to the separation between A and B? Justify using the gradients. <strong>[3]</strong>",
+        placeholder: "a) ...because...\nb) If parallel...\nc) The separation ...",
+        keywords: ["steeper", "faster", "greater", "same velocity", "parallel", "separation", "decreases", "closes", "gradient", "displacement", "A catches", "constant"],
+        scheme: [
+            "A has the greater speed because its line is steeper &mdash; larger gradient means larger velocity",
+            "Gradient sign shows both move in the same (positive) direction",
+            "If the lines are parallel the gradients (velocities) are equal",
+            "Because A's gradient exceeds B's, A gains ground each second",
+            "The separation decreases &mdash; A is catching B from behind (starting 10 m back)"
+        ]
+    },
+    /* ================= SHORT: KINEMATICS & SUVAT ================= */
+    {
+        id: 22, type: "short", topic: "Kinematics", marks: 5,
+        text: "Express the following in SI base units, showing the power-of-ten shift:<br><br>a) 750 cm/s in m/s <strong>[1]</strong><br>b) 4500 mm in m <strong>[1]</strong><br>c) 2.5 km in m <strong>[1]</strong><br>d) 0.000 045 in standard form <strong>[1]</strong><br>e) State the SI prefix meaning a factor of 10&sup2; <strong>[1]</strong>",
+        placeholder: "a) ...\nb) ...\nc) ...\nd) ...\ne) ...",
+        keywords: ["7.5", "4.5", "2500", "standard form", "centi", "10-", "10&minus;", "4.5", "2.5", "kilo", "milli", "45"],
+        scheme: [
+            "a) 7.5 m/s (divide by 100)",
+            "b) 4.5 m (divide by 1000)",
+            "c) 2500 m (multiply by 1000)",
+            "d) 4.5 &times; 10<sup>&minus;5</sup>",
+            "e) hecto (h) &mdash; accept any correct statement of 100 = 10&sup2;"
+        ]
+    },
+    {
+        id: 23, type: "short", topic: "Kinematics", marks: 6,
+        text: "A roller-coaster rider's velocity changes from 8.0 m/s to 19 m/s in 3.1 s along a straight section of track.<br><br>a) Calculate the acceleration. <strong>[3]</strong><br>b) State whether the rider is speeding up or slowing down, and how you can tell from the signs. <strong>[2]</strong><br>c) State one value that would need to be specified for this to qualify as a SUVAT calculation. <strong>[1]</strong>",
+        placeholder: "a) a = &Delta;v / t = ... with units\nb) ...because...\nc) ...",
+        keywords: ["3.5", "3.6", "&Delta;v", "19", "8", "3.1", "speeding", "same sign", "positive", "acceleration", "m/s", "constant"],
+        scheme: [
+            "a = &Delta;v/&Delta;t = (19 &minus; 8)/3.1",
+            "a &asymp; 3.5 m/s&sup2; (accept 3.55&ndash;3.6)",
+            "Unit m/s&sup2; stated",
+            "Speeding up: both &Delta;v and a are positive, same sign as the velocity",
+            "The acceleration must be uniform (constant) for SUVAT to apply"
+        ]
+    },
+    {
+        id: 24, type: "short", topic: "SUVAT", marks: 6,
+        text: "A train accelerates uniformly from rest to 14 m/s east in 20.0 s, then brakes uniformly to rest in 28.0 s.<br><br>a) Calculate the acceleration during the first phase. <strong>[2]</strong><br>b) Calculate the acceleration during the braking phase, including a sign. <strong>[2]</strong><br>c) Explain why part (b)'s answer is negative even though the train never reverses direction. <strong>[2]</strong>",
+        placeholder: "a) a = ...\nb) a = ...\nc) The answer is negative because...",
+        keywords: ["0.7", "0.70", "0.5", "0.50", "positive", "negative", "same sign", "opposite", "speeding", "slowing", "velocity", "east"],
+        scheme: [
+            "a&#8321; = (14 &minus; 0)/20 = +0.70 m/s&sup2;",
+            "Unit and direction (east / positive) stated",
+            "a&#8322; = (0 &minus; 14)/28 = &minus;0.50 m/s&sup2;",
+            "Sign included with the magnitude",
+            "The velocity decreases (becomes less positive), so &Delta;v and a are negative",
+            "Velocity stays positive throughout, so the train keeps moving east &mdash; negative acceleration only means slowing down here"
+        ]
+    },
+    {
+        id: 25, type: "short", topic: "SUVAT", marks: 7,
+        text: "A car travels along a straight motorway at a constant 110 km/h &asymp; 31 m/s. The driver sees a hazard and brakes with a uniform deceleration of 8.0 m/s&sup2; until the car stops. Ignore reaction time.<br><br>a) Calculate the braking distance using v&sup2; = u&sup2; + 2as. <strong>[3]</strong><br>b) Calculate the braking time. <strong>[2]</strong><br>c) Comment on why the real stopping distance would be greater than your answer to (a). <strong>[2]</strong>",
+        placeholder: "a) v\u00b2 = u\u00b2 + 2as \u2192 0 = ... \u2192 s = ...\nb) t = ...\nc) Because...",
+        keywords: ["60", "60.1", "31", "30.6", "3.9", "reaction", "22", "m/s", "8", "v&sup2;", "2as", "braking", "distance"],
+        scheme: [
+            "Converts 110 km/h to &asymp; 31 m/s (110/3.6 = 30.6)",
+            "Substitutes 0 = 31&sup2; + 2(&minus;8)s and rearranges correctly",
+            "s &asymp; 60 m (accept 59&ndash;61 with consistent rounding)",
+            "t = (v &minus; u)/a = (0 &minus; 31)/(&minus;8) &asymp; 3.9 s",
+            "Real distance adds reaction-time travel (e.g. 0.7 s &times; 31 m/s &asymp; 22 m at constant speed)",
+            "Also cites factors like road surface or tyre condition reducing the achievable deceleration"
+        ]
+    },
+    {
+        id: 26, type: "short", topic: "Kinematics", marks: 5,
+        text: "A runner starts at x = &minus;20 m and finishes at x = +10 m after running a total path length of 45 m in 15.0 s.<br><br>a) Calculate the runner's displacement. <strong>[1]</strong><br>b) Calculate the average speed. <strong>[2]</strong><br>c) Calculate the average velocity. <strong>[2]</strong>",
+        placeholder: "a) displacement = ...\nb) average speed = ...\nc) average velocity = ...",
+        keywords: ["30", "45", "3 m/s", "3.0", "2 m/s", "2.0", "displacement", "distance", "15", "final", "initial"],
+        scheme: [
+            "Displacement = 10 &minus; (&minus;20) = +30 m",
+            "Average speed = total distance/time = 45/15 = 3.0 m/s",
+            "Total distance identified as 45 m (not 30 m)",
+            "Average velocity = displacement/time = 30/15 = 2.0 m/s",
+            "Direction east/positive stated, or clear note that velocity is a vector smaller than the speed here"
+        ]
+    },
+    {
+        id: 27, type: "short", topic: "SUVAT", marks: 5,
+        text: "A stone is dropped from rest off a 20.0 m bridge and falls freely to the water. Take g = 10 m/s&sup2; and ignore air resistance.<br><br>a) Calculate the time to reach the water. <strong>[3]</strong><br>b) Calculate the speed on entry to the water. <strong>[2]</strong>",
+        placeholder: "Knowns: u = 0, s = 20, a = 10\na) s = ut + \u00bdat\u00b2 \u2192 t = ...\nb) v = u + at = ...",
+        keywords: ["2 s", "2.0", "20", "10", "5t", "free fall", "30", "m/s", "u = 0", "½", "0.5", "t&sup2;"],
+        scheme: [
+            "Lists knowns: u = 0 m/s, s = 20 m, a = +10 m/s&sup2;",
+            "Chooses s = ut + &frac12;at&sup2; and substitutes: 20 = 5t&sup2;",
+            "t = 2.0 s",
+            "v = u + at = 0 + 10 &times; 2.0",
+            "v = 30 m/s (accept 29.4 with g = 9.8 if working is consistent)"
+        ]
+    },
+    {
+        id: 28, type: "short", topic: "SUVAT", marks: 4,
+        text: "An object has initial velocity u = +5.0 m/s and moves with constant acceleration a = &minus;2.0 m/s&sup2;.<br><br>a) Calculate its velocity after 4.0 s, and state what the sign means physically. <strong>[3]</strong><br>b) Calculate its displacement during those 4.0 s. <strong>[1]</strong>",
+        placeholder: "a) v = u + at = ... The sign means...\nb) s = ut + \u00bdat\u00b2 = ...",
+        keywords: ["-3", "\u22123", "3 m/s", "4 m", "v = u", "s = ut", "turned", "negative", "opposite", "5", "2", "displacement"],
+        scheme: [
+            "v = 5.0 + (&minus;2.0)(4.0) = &minus;3.0 m/s",
+            "Sign means the object is now moving in the negative direction (it turned around)",
+            "Notes that it slowed, stopped and reversed during the 4 s",
+            "s = ut + &frac12;at&sup2; = 5.0 &times; 4 + &frac12;(&minus;2.0)(4)&sup2; = 20 &minus; 16 = +4 m"
+        ]
+    },
+    /* ================= EXTENDED ================= */
+    {
+        id: 29, type: "extended", topic: "Motion Graphs", marks: 12,
+        text: "A Stockholm metro train performs a three-stage journey along a straight track, taking east as positive:<br><strong>Stage 1:</strong> accelerates uniformly from rest to 16.0 m/s in 20.0 s.<br><strong>Stage 2:</strong> continues at a constant 16.0 m/s for 60.0 s.<br><strong>Stage 3:</strong> brakes uniformly to rest in 16.0 s.<br><br>a) Calculate the acceleration in stages 1 and 3. <strong>[3]</strong><br>b) Calculate the displacement in each of the three stages. <strong>[3]</strong><br>c) Hence calculate the total displacement and the total time of the journey. <strong>[2]</strong><br>d) Calculate the average velocity for the whole journey. <strong>[1]</strong><br>e) Describe the shape of the corresponding velocity&ndash;time graph for each stage. <strong>[2]</strong><br>f) State one physical feature of real train motion that this constant-acceleration model ignores. <strong>[1]</strong>",
+        placeholder: "a) Stage 1: a = ... Stage 3: a = ...\nb) s\u2081 = ... s\u2082 = ... s\u2083 = ...\nc) total s = ... total t = ...\nd) v\u0304 = ...\ne) Stage 1: ... Stage 2: ... Stage 3: ...\nf) ...",
+        keywords: ["0.8", "1.0", "160", "960", "128", "1248", "96", "13", "constant", "acceleration", "braking", "velocity", "displacement", "jerk", "fuel", "drag", "gradient"],
+        scheme: [
+            "Stage 1: a = (16 &minus; 0)/20 = +0.80 m/s&sup2;",
+            "Stage 3: a = (0 &minus; 16)/16 = &minus;1.00 m/s&sup2;",
+            "Signs interpreted: stage 1 speeding up east, stage 3 braking",
+            "s&#8321; = &frac12;(0 + 16)(20) = 160 m",
+            "s&#8322; = 16 &times; 60 = 960 m",
+            "s&#8323; = &frac12;(16 + 0)(16) = 128 m",
+            "Total displacement = 160 + 960 + 128 = 1248 m",
+            "Total time = 20 + 60 + 16 = 96 s",
+            "Average velocity = 1248/96 = 13.0 m/s east",
+            "Stage 1: v&ndash;t line rises linearly from the origin",
+            "Stage 2: horizontal line at 16 m/s; stage 3: linear fall back to the axis",
+            "Any one real feature: non-constant (jerk-limited) acceleration, track gradient, drag increasing with speed, power limits, or passenger-comfort limits"
+        ]
+    },
+    {
+        id: 30, type: "extended", topic: "SUVAT", marks: 13,
+        text: "Two stones fall from the same 40.0 m bridge, one after the other. Take g = 10 m/s&sup2; and ignore air resistance unless stated.<br><strong>Stone A</strong> is dropped from rest.<br><strong>Stone B</strong> is thrown straight down at 10.0 m/s.<br><br>a) Calculate the time for stone A to reach the water. <strong>[2]</strong><br>b) Calculate stone A's speed on entry. <strong>[2]</strong><br>c) Calculate the time for stone B to reach the water, showing the equation you solve. <strong>[3]</strong><br>d) Calculate by how much stone B beats stone A, and explain the physical reason for the difference. <strong>[3]</strong><br>e) Evaluate whether ignoring air resistance is a reasonable assumption for these stones. <strong>[2]</strong><br>f) State one measurement that would improve the realism of the model. <strong>[1]</strong>",
+        placeholder: "a) s = \u00bdat\u00b2 \u2192 t = ...\nb) v = at = ...\nc) s = ut + \u00bdat\u00b2 \u2192 40 = 10t + 5t\u00b2 \u2192 solve...\nd) Difference = ... Reason: ...\ne) ...\nf) ...",
+        keywords: ["2.8", "28", "2.0", "0.8", "quadratic", "t&sup2;", "free fall", "40", "initial velocity", "drag", "air resistance", "earlier", "mass", "height", "5t", "10"],
+        scheme: [
+            "a) 40 = &frac12;(10)t&sup2; &rarr; t&sup2; = 8 &rarr; t &asymp; 2.8 s (2.83)",
+            "b) v = u + at = 10 &times; 2.83 &asymp; 28 m/s",
+            "c) Sets up 40 = 10t + 5t&sup2; i.e. 5t&sup2; + 10t &minus; 40 = 0",
+            "c) Solves the quadratic: t = (&minus;10 + &radic;(100 + 800))/10 = 2.0 s (rejects the negative root, with a reason)",
+            "d) Difference &asymp; 2.8 &minus; 2.0 = 0.8 s",
+            "d) Stone B already has downward velocity at release, so it covers ground from the first instant",
+            "d) Both share the same acceleration g &mdash; the difference is the initial velocity, not the acceleration",
+            "e) Reasonable for short falls of dense stones: drag is small compared with weight at these speeds",
+            "e) Limitation acknowledged: lighter or larger-surface stones would show measurable drag; entry speeds would be slightly lower than calculated",
+            "f) Any one: measure actual fall time with a light gate; use motion sensors; record video and analyse frame by frame; use denser/smaller stones"
+        ]
+    }];
+
+        let answers = {};
+        let currentQuestion = 0;
+        let timeRemaining = 90 * 60;
+        let timerInterval = null;
+        let submitted = false;
+
+        // Deterministically shuffle the options so the correct answer is not
+        // always in the same position (seeded by question id: stable on reload).
+        function seededShuffle(arr, seed) {
+            const a = arr.slice();
+            let s = seed;
+            for (let i = a.length - 1; i > 0; i--) {
+                s = (s * 9301 + 49297) % 233280;
+                const j = Math.floor((s / 233280) * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        function init() {
+            questions.forEach(q => {
+                if (q.type !== 'mcq') return;
+                q._opts = seededShuffle(q.options, q.id * 97 + 41);
+                q._correct = q._opts.indexOf(q.options[q.correct]);
+            });
+            document.getElementById('modal-marks').textContent = `0 / ${questions.reduce((s, q) => s + q.marks, 0)} marks`;
+            document.getElementById('progress-text').textContent = `0 / ${questions.length}`;
+            renderQuestionNav();
+            updateProgress();
+            showQuestion(0);
+            startTimer();
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                const mins = Math.floor(timeRemaining / 60);
+                const secs = timeRemaining % 60;
+                const timerEl = document.getElementById('timer');
+                timerEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                if (timeRemaining <= 300) { timerEl.classList.remove('warning'); timerEl.classList.add('danger'); }
+                else if (timeRemaining <= 600) timerEl.classList.add('warning');
+                if (timeRemaining <= 0) { clearInterval(timerInterval); submitQuiz(); }
+            }, 1000);
+        }
+
+        function renderQuestionNav() {
+            const nav = document.getElementById('question-nav');
+            nav.innerHTML = questions.map((q, i) => {
+                const answered = answers[q.id] !== undefined && answers[q.id] !== null;
+                return `<div class="nav-q ${answered ? 'answered' : ''}" onclick="showQuestion(${i})">${i + 1}</div>`;
+            }).join('');
+            document.querySelectorAll('.nav-q').forEach((el, i) => el.classList.toggle('current', i === currentQuestion));
+        }
+
+        function updateProgress() {
+            const answered = questions.filter(q => answers[q.id] !== undefined && answers[q.id] !== null).length;
+            document.getElementById('progress-text').textContent = `${answered} / ${questions.length}`;
+            document.getElementById('progress-fill').style.width = `${(answered / questions.length) * 100}%`;
+        }
+
+        function showQuestion(index) {
+            currentQuestion = index;
+            const q = questions[index];
+            const container = document.getElementById('question-container');
+
+            const head = `
+                <div class="unit-banner">
+                    <div class="tag">Motion, Models &amp; Mechanics &middot; Part 1</div>
+                    <h1>${q.topic}</h1>
+                    <p>Graphs &amp; gradients &middot; Motion graphs &middot; Speed, velocity &amp; acceleration &middot; SUVAT</p>
+                </div>
+                <div class="question-card">
+                    <span class="topic-pill">${q.topic}</span>
+                    <div class="question-header">
+                        <div class="question-num">Question <strong>${q.id}</strong> of ${questions.length}</div>
+                        <div class="marks">${q.marks} marks</div>
+                    </div>
+                    <div class="question-text"><h2>${q.text.replace(/\n/g, '<br>')}</h2></div>
+            `;
+
+            let body = '';
+
+            if (q.type === 'mcq') {
+                body = `<div class="options">` + q._opts.map((opt, i) => `
+                    <div class="option ${answers[q.id] === i ? 'selected' : ''}" onclick="selectOption(${q.id}, ${i})">
+                        <div class="option-marker">${String.fromCharCode(65 + i)}</div>
+                        <div class="option-text">${opt}</div>
+                    </div>`).join('') + `</div>`;
+            } else if (q.type === 'short') {
+                body = `
+                    <div class="reference-box">
+                        <h4>How to earn full marks</h4>
+                        <p>Answer every part separately, use scientific terminology, and support each point with a specific example or piece of data. This question is marked against a ${q.marks}-mark scheme with ${q.scheme.length} required points.</p>
+                    </div>
+                    <div class="input-answer">
+                        <label>Your answer</label>
+                        <textarea id="answer-${q.id}" placeholder="${q.placeholder}" oninput="saveAnswer(${q.id}, this.value)">${answers[q.id] || ''}</textarea>
+                        <div class="word-count" id="wc-${q.id}">${(answers[q.id] || '').length} characters</div>
+                    </div>`;
+            } else if (q.type === 'essay') {
+                body = `
+                    <div class="reference-box">
+                        <h4>Structure</h4>
+                        <p>Write a paragraph for each lettered part (a-e). Use a comparison structure for parts (b) and (c): state the position for past events, then the position for the present, then an explicit point of comparison. Your conclusion should evaluate, not merely describe.</p>
+                    </div>
+                    <div class="input-answer">
+                        <label>Your response (400-500 words recommended)</label>
+                        <textarea id="answer-${q.id}" class="essay" placeholder="${q.placeholder}" oninput="saveAnswer(${q.id}, this.value)">${answers[q.id] || ''}</textarea>
+                        <div class="word-count" id="wc-${q.id}">${(answers[q.id] || '').length} characters</div>
+                    </div>`;
+            }
+
+            const nav = `
+                </div>
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>&larr; Previous</button>
+                    <button class="btn btn-primary" onclick="nextQuestion()">${index === questions.length - 1 ? 'Submit & Finish' : 'Next &rarr;'}</button>
+                </div>`;
+
+            container.innerHTML = head + body + nav;
+            renderQuestionNav();
+        }
+
+        function selectOption(qId, optIndex) {
+            answers[qId] = optIndex;
+            updateProgress();
+            showQuestion(currentQuestion);
+        }
+
+        function saveAnswer(qId, value) {
+            answers[qId] = value;
+            const wc = document.getElementById('wc-' + qId);
+            if (wc) wc.textContent = `${value.length} characters`;
+            updateProgress();
+            renderQuestionNav();
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) { currentQuestion--; showQuestion(currentQuestion); }
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                const unanswered = questions.filter(q => answers[q.id] === undefined || answers[q.id] === null).length;
+                const msg = unanswered > 0
+                    ? `You have ${unanswered} unanswered question(s). Submit anyway?`
+                    : 'You have answered every question. Submit now?';
+                if (confirm(msg)) submitQuiz();
+            }
+        }
+
+        function scoreQuestion(q) {
+            const a = answers[q.id];
+            if (a === undefined || a === null) return 0;
+            if (q.type === 'mcq') return a === q._correct ? q.marks : 0;
+            if (typeof a !== 'string' || a.trim().length < 20) return 0;
+            // Self-check estimate: one distinct key concept earns one mark, so a
+            // full answer needs at least `q.marks` different key terms present.
+            const text = a.toLowerCase();
+            let hits = 0;
+            q.keywords.forEach(kw => { if (text.includes(kw.toLowerCase())) hits++; });
+            return Math.min(q.marks, hits);
+        }
+
+        function buildResults() {
+            let score = 0, max = 0, mcqTotal = 0, mcqCorrect = 0, wrong = 0, skipped = 0;
+            const byTopic = {};
+            questions.forEach(q => {
+                const s = scoreQuestion(q);
+                score += s; max += q.marks;
+                if (q.type === 'mcq') {
+                    mcqTotal++; if (answers[q.id] === q._correct) mcqCorrect++;
+                }
+                if (answers[q.id] === undefined || answers[q.id] === null) skipped++; else if (s < q.marks) wrong++;
+                if (!byTopic[q.topic]) byTopic[q.topic] = { score: 0, max: 0 };
+                byTopic[q.topic].score += s; byTopic[q.topic].max += q.marks;
+            });
+            return { score, max, mcqTotal, mcqCorrect, wrong, skipped, byTopic };
+        }
+
+        function submitQuiz() {
+            if (submitted) return;
+            submitted = true;
+            clearInterval(timerInterval);
+            const r = buildResults();
+            const pct = Math.round((r.score / r.max) * 100);
+
+            document.getElementById('modal-score').textContent = `${pct}%`;
+            document.getElementById('modal-marks').textContent = `${r.score} / ${r.max} marks`;
+            document.getElementById('mcq-count').textContent = `${r.mcqCorrect}/${r.mcqTotal}`;
+            document.getElementById('wrong-count').textContent = r.wrong;
+            document.getElementById('skip-count').textContent = r.skipped;
+
+            let msg = 'Keep practicing - revisit the study material and try again.';
+            if (pct >= 85) msg = 'Outstanding! You have a strong grasp of M10 Physics mechanics.';
+            else if (pct >= 70) msg = 'Strong work. Check the mark scheme for the parts you lost.';
+            else if (pct >= 55) msg = 'Good start. Focus on the sections with the lowest scores below.';
+            else msg = 'Revisit the study material, then retake this part.';
+            document.getElementById('modal-msg').textContent = msg;
+
+            document.getElementById('modal').classList.add('show');
+            localStorage.setItem('kanimath_m10_phys_part1', JSON.stringify({
+                score: r.score, max: r.max, percentage: pct,
+                date: new Date().toISOString(), answers
+            }));
+        }
+
+        function showMarkScheme() {
+            const html = questions.filter(q => q.scheme && q.scheme.length).map(q => `
+                <div style="margin-bottom: 22px; padding-bottom: 16px; border-bottom: 1px solid var(--border);">
+                    <div style="font-weight: 700; color: var(--primary); margin-bottom: 6px;">Q${q.id} &middot; ${q.topic} &middot; ${q.marks} marks</div>
+                    <div style="margin-bottom: 8px; font-size: 13px;">${q.text.substring(0, 150)}${q.text.length > 150 ? '...' : ''}</div>
+                    <ol style="margin-left: 18px;">
+                        ${q.scheme.map(s => `<li style="margin-bottom: 5px; font-size: 13px; line-height: 1.6;">${s}</li>`).join('')}
+                    </ol>
+                </div>`).join('');
+            document.getElementById('scheme-body').innerHTML = html;
+            document.getElementById('scheme-modal').classList.add('show');
+        }
+
+        function showReview() {
+            const rows = questions.map(q => {
+                const a = answers[q.id];
+                const s = scoreQuestion(q);
+                let yourAnswer, correct;
+                if (q.type === 'mcq') {
+                    yourAnswer = a === undefined || a === null ? '<i>Not answered</i>' : `${String.fromCharCode(65 + a)}: ${q._opts[a]}`;
+                    correct = `${String.fromCharCode(65 + q._correct)}: ${q._opts[q._correct]}`;
+                } else {
+                    yourAnswer = a ? a.replace(/</g, '&lt;').substring(0, 300) : '<i>Not answered</i>';
+                    correct = `<b>Scheme:</b> ${q.scheme.join(' ')}`;
+                }
+                const col = s === q.marks ? 'var(--primary)' : s > 0 ? 'var(--warning)' : 'var(--danger)';
+                return `<div style="padding: 14px 0; border-bottom: 1px solid var(--border);">
+                    <div style="display:flex; justify-content:space-between; margin-bottom: 6px;">
+                        <b style="color: var(--text-primary);">Q${q.id} &middot; ${q.topic}</b>
+                        <span style="color:${col}; font-weight:700;">${s} / ${q.marks}</span>
+                    </div>
+                    <div style="font-size: 13px; margin-bottom: 4px;"><b>Your answer:</b> ${yourAnswer}</div>
+                    <div style="font-size: 13px;">${correct}</div>
+                    ${q.explanation ? `<div style="font-size: 13px; color: var(--secondary); margin-top: 4px;">${q.explanation}</div>` : ''}
+                </div>`;
+            }).join('');
+
+            const r = buildResults();
+            const topicRows = Object.entries(r.byTopic).map(([t, v]) => `
+                <div style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px;">
+                    <span>${t}</span><span style="font-family: 'Fira Code', monospace;">${v.score} / ${v.max}</span>
+                </div>`).join('');
+
+            document.getElementById('scheme-body').innerHTML = `
+                <h3 style="color: var(--primary); margin-bottom: 12px; font-size: 15px;">Score by topic</h3>
+                ${topicRows}
+                <h3 style="color: var(--primary); margin: 24px 0 8px; font-size: 15px;">Every answer</h3>
+                ${rows}`;
+            document.getElementById('scheme-modal').classList.add('show');
+        }
+
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const r = buildResults();
+            const pct = Math.round((r.score / r.max) * 100);
+
+            doc.setFontSize(18);
+            doc.setTextColor(16, 185, 129);
+            doc.text('IB_Expert_ISSR - IB MYP Physics (M10)', 20, 20);
+            doc.setFontSize(14);
+            doc.setTextColor(60);
+            doc.text('Motion, Models & Mechanics - Part 1: Graphs & Kinematics', 20, 29);
+            doc.setFontSize(10);
+            doc.setTextColor(120);
+            doc.text(`${new Date().toLocaleDateString()}  |  Motion Graphs, Speed & Acceleration, SUVAT`, 20, 36);
+
+            doc.setFontSize(34);
+            doc.setTextColor(16, 185, 129);
+            doc.text(`${pct}%`, 20, 56);
+            doc.setFontSize(11);
+            doc.setTextColor(60);
+            doc.text(`Total: ${r.score} / ${r.max} marks`, 62, 48);
+            doc.text(`MCQ correct: ${r.mcqCorrect}/${r.mcqTotal}   Partially correct: ${r.wrong}   Skipped: ${r.skipped}`, 62, 56);
+
+            let y = 72;
+            doc.setFontSize(12);
+            doc.setTextColor(16, 185, 129);
+            doc.text('Score by topic', 20, y);
+            y += 7;
+            doc.setFontSize(9);
+            Object.entries(r.byTopic).forEach(([t, v]) => {
+                doc.setTextColor(80);
+                doc.text(`${t}: ${v.score} / ${v.max} marks`, 20, y);
+                y += 6;
+            });
+
+            y += 6;
+            doc.setFontSize(12);
+            doc.setTextColor(16, 185, 129);
+            doc.text('Question results', 20, y);
+            y += 7;
+
+            questions.forEach((q) => {
+                if (y > 265) { doc.addPage(); y = 20; }
+                const s = scoreQuestion(q);
+                doc.setFontSize(9);
+                doc.setTextColor(s === q.marks ? 16 : s > 0 ? 200 : 220, s === q.marks ? 185 : s > 0 ? 150 : 68, s === q.marks ? 129 : s > 0 ? 20 : 68);
+                doc.text(`Q${q.id} [${q.topic}] ${s}/${q.marks} marks`, 20, y);
+                doc.setTextColor(110);
+                const a = answers[q.id];
+                const summary = q.type === 'mcq'
+                    ? (a === undefined || a === null ? 'not answered' : `chose ${String.fromCharCode(65 + a)}`)
+                    : (a ? `${a.replace(/\s+/g, ' ').substring(0, 70)}...` : 'not answered');
+                doc.text(`Your answer: ${summary}`, 105, y);
+                y += 6;
+                if (y > 265) { doc.addPage(); y = 20; }
+                doc.setTextColor(90);
+                if (q.type === 'mcq') {
+                    doc.text(`Correct: ${q.explanation.substring(0, 100)}`, 105, y);
+                } else {
+                    doc.text(`Scheme: ${q.scheme[0].replace(/<[^>]*>/g, '').substring(0, 100)}`, 105, y);
+                }
+                y += 8;
+            });
+
+            doc.setFontSize(8);
+            doc.setTextColor(150);
+            doc.text('Generated by IB_Expert_ISSR', 105, 285, { align: 'center' });
+            doc.save('M10_Physics_Motion_Part1.pdf');
+        }
+
+        init();
+    </script>
+</body>
+</html>

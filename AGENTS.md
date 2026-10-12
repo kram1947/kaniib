@@ -1,15 +1,15 @@
-# AGENTS.md — Developer Guide (Kanishka_ISSR)
+# AGENTS.md — Developer Guide (IB_Expert_ISSR)
 
 Working reference for this repository. **Keep it accurate** — a stale line here costs the next agent an hour.
 
-- **Brand:** Kanishka_ISSR (was Kani_ISSR; originally KaniMath / StudyIB — rebranded in `399fd5b`)
+- **Brand:** IB_Expert_ISSR (was Kani_ISSR; originally KaniMath / StudyIB — rebranded in `399fd5b`)
 - **Repo:** `kram1947/kaniib` · **Live:** https://studyib.vercel.app
 - **Path:** `C:\Users\kram\Documents\kr_projects\mathapp` (Windows / PowerShell)
 - **Registry:** `C:\Users\kram\Documents\kr_projects\mcp\github\projects\mathapp.json`
   is the canonical record of repo, deploy target, and live URL. Keep it in sync if any
   of those change.
 
-> Brand is now `Kanishka_ISSR` in all user-facing copy, including `index.html`'s title.
+> Brand is now `IB_Expert_ISSR` in all user-facing copy, including `index.html`'s title.
 > Do **not** rename the lowercase `kanimath_*` localStorage keys — doing so orphans every
 > student's saved attempt history. The literal credential `Kanimath@123` in the security
 > notes below is a historical record, not brand copy.
@@ -53,7 +53,7 @@ npm run validate     # blocking: syntax, schema, marks>=scheme, keywords>=marks,
 
 ```
 mathapp/
-├── index.html                 # Vite entry (title: "Kanishka_ISSR")
+├── index.html                 # Vite entry (title: "IB_Expert_ISSR")
 ├── package.json               # build + validate scripts
 ├── vite.config.js
 ├── vercel.json                # vite, output dist, exact-match SPA rewrites

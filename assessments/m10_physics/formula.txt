@@ -1,0 +1,39 @@
+10th grade Physics Formula and Data Sheet
+General
+  gradient = riserun=yx=y2-y1x2-x1
+
+SI prefixes
+n = nano = 0.000 000 001 = 10-9
+μ = micro = 0.000 001 = 10-6
+m = milli = 0.001 = 10-3
+c = centi = 0.01 = 102
+k = kilo = 1000 = 103
+M = mega = 1 000 000  = 106
+G = giga = 1 000 000 000  = 109
+Constants
+ Acceleration due to gravity, g= 10m/s2
+Planck’s constant, h=6.63610-34Js
+speed of light in a vacuum, c=3.0108m/s
+wavelength of visible light 400nm700nm
+
+Motion and mechanics
+speed=distancetime
+velocity =change in positionchange in time, v=xt
+acceleration =change in velocitychange in time, a=vt
+ Fnet=ma, net force = mass x acceleration
+Fg=mg, gravitational force = mass x acceleration due to gravity
+ v=u+at
+s=12(u+v)t 
+s=ut+12at2
+v2=u2+2as
+Energy
+Ek=12mv2  kinetic energy
+EP=mgh  gravitational potential energy
+P=Et  power
+Q =mcΔT  thermal energy
+Waves and photons
+f=1T		frequency = 1/period
+c=f 	wave equation, speed = frequency x wavelength
+E=hf photon energy
+E=hc photon energy
+sin isin r =n2n1	Snell’s law of refraction

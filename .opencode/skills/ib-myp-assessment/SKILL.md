@@ -12,7 +12,7 @@ Authoritative guide for producing study material and timed assessments for this 
 
 - **Project path:** `C:\Users\kram\Documents\kr_projects\mathapp` (Windows / PowerShell)
 - **Live site:** https://studyib.vercel.app (canonical — `kaniib.vercel.app` is a stale project, do not use)
-- **Brand:** Kanishka_ISSR (rebranded from Kani_ISSR, originally KaniMath)
+- **Brand:** IB_Expert_ISSR (rebranded from Kani_ISSR, originally KaniMath)
 
 ---
 
