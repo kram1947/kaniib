@@ -1,4 +1,4 @@
-# Kanishka_ISSR — IB MYP Assessment Platform
+# IB_Expert_ISSR — IB MYP Assessment Platform
 
 <p align="center">
   <img src="https://img.shields.io/badge/IB-MYP4--M10-6366f1?style=for-the-badge" alt="IB MYP4\u2013M10">

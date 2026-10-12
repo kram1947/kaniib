@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IB MYP Physics - Motion, Models &amp; Mechanics (M10) - Study Material</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --secondary: #06b6d4;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #475569;
+            --accent-violet: #8b5cf6;
+            --accent-pink: #ec4899;
+            --accent-amber: #f59e0b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .container { max-width: 1060px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        /* ---------- Header ---------- */
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding: 44px 32px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.16), rgba(6, 182, 212, 0.1));
+            border-radius: 20px;
+            border: 1px solid var(--primary);
+        }
+
+        .header .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            line-height: 1.25;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle { font-size: 17px; color: var(--text-secondary); margin-bottom: 24px; }
+
+        .header-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .header-meta span {
+            padding: 8px 16px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .header-meta span strong { color: var(--primary); }
+
+        /* ---------- Sticky section nav ---------- */
+        .section-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            margin: 0 -24px 32px;
+            padding: 12px 24px;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+        }
+
+        .section-nav a {
+            flex-shrink: 0;
+            padding: 8px 14px;
+            border-radius: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .section-nav a:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* ---------- Topic sections ---------- */
+        .topic-section {
+            margin-bottom: 28px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            scroll-margin-top: 70px;
+        }
+
+        .topic-header {
+            padding: 24px 28px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(6, 182, 212, 0.06));
+            border-bottom: 1px solid var(--border);
+        }
+
+        .topic-num {
+            display: inline-block;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: var(--secondary);
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .topic-header h2 { font-size: 24px; font-weight: 700; }
+
+        .topic-content { padding: 28px; }
+
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 26px 0 12px;
+            padding-left: 12px;
+            border-left: 3px solid var(--primary);
+        }
+
+        h3:first-child { margin-top: 0; }
+
+        h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 18px 0 8px; }
+
+        p { margin-bottom: 12px; color: var(--text-secondary); }
+        p strong, li strong { color: var(--text-primary); }
+
+        ul, ol { margin: 0 0 14px 22px; color: var(--text-secondary); }
+        li { margin-bottom: 7px; }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            background: var(--bg-dark);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--secondary);
+        }
+
+        /* ---------- Tables ---------- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0 20px;
+            font-size: 14px;
+        }
+
+        th {
+            background: var(--bg-dark);
+            color: var(--primary);
+            text-align: left;
+            padding: 12px 14px;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 11px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+
+        tr:hover td { background: rgba(16, 185, 129, 0.05); }
+
+        /* ---------- Callouts ---------- */
+        .callout {
+            border-left: 3px solid var(--secondary);
+            background: rgba(6, 182, 212, 0.08);
+            padding: 16px 18px;
+            border-radius: 0 10px 10px 0;
+            margin: 16px 0;
+        }
+
+        .callout.key { border-left-color: var(--primary); background: rgba(16, 185, 129, 0.09); }
+        .callout.exam { border-left-color: var(--accent-amber); background: rgba(245, 158, 11, 0.08); }
+        .callout.warn { border-left-color: var(--danger); background: rgba(239, 68, 68, 0.08); }
+
+        .callout h4 {
+            margin: 0 0 8px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .callout.key h4 { color: var(--primary); }
+        .callout.exam h4 { color: var(--accent-amber); }
+        .callout.warn h4 { color: var(--danger); }
+        .callout h4:not(.key):not(.exam):not(.warn) { color: var(--secondary); }
+
+        .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+
+        /* ---------- Term grid ---------- */
+        .term-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+            margin: 14px 0 20px;
+        }
+
+        .term {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            transition: border-color 0.2s;
+        }
+
+        .term:hover { border-color: var(--primary); }
+
+        .term b {
+            display: block;
+            color: var(--primary);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .term span { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+        /* ---------- Timeline ---------- */
+        .timeline { list-style: none; margin: 16px 0 20px 0; }
+
+        .timeline li {
+            position: relative;
+            padding: 0 0 22px 30px;
+            border-left: 2px solid var(--border);
+            margin-left: 8px;
+        }
+
+        .timeline li:last-child { border-left-color: transparent; padding-bottom: 0; }
+
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 2px solid var(--bg-card);
+        }
+
+        .timeline .era {
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .timeline .what { color: var(--text-secondary); font-size: 14px; }
+        .timeline .what strong { color: var(--text-primary); display: block; }
+
+        /* ---------- Compare cards ---------- */
+        .compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        .compare .col {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .compare .col h4 { margin: 0 0 10px; font-size: 15px; }
+        .compare .col.a h4 { color: var(--secondary); }
+        .compare .col.b h4 { color: var(--accent-pink); }
+        .compare .col p { font-size: 14px; margin-bottom: 0; }
+
+        /* ---------- VIDA ---------- */
+        .vida {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 16px 0 20px;
+        }
+
+        .vida .step {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--primary);
+            border-radius: 10px;
+            padding: 16px 14px;
+            text-align: center;
+        }
+
+        .vida .step .letter {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Fira Code', monospace;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .vida .step b { display: block; font-size: 13px; margin-bottom: 5px; }
+        .vida .step span { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+
+        /* ---------- Figures (inline SVG) ---------- */
+        .fig {
+            margin: 20px 0 22px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 18px 14px;
+        }
+
+        .fig-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .fig svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+        .fig-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            line-height: 1.55;
+        }
+
+        .fig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; }
+
+        /* shared SVG primitives - classes resolve against the page stylesheet */
+        svg .ax   { stroke: var(--border); stroke-width: 1; }
+        svg .gl   { stroke: var(--border); stroke-width: 1; stroke-dasharray: 3 3; opacity: .75; }
+        svg .tick { fill: var(--text-muted); font-size: 10px; font-family: 'Fira Code', monospace; }
+        svg .lbl  { fill: var(--text-secondary); font-size: 11px; font-family: 'Inter', sans-serif; }
+        svg .lbl-b{ fill: var(--text-primary); font-size: 11px; font-weight: 600; font-family: 'Inter', sans-serif; }
+        svg .ttl  { fill: var(--text-primary); font-size: 12px; font-weight: 700; font-family: 'Inter', sans-serif; }
+        svg .val  { fill: var(--secondary); font-size: 11px; font-weight: 600; font-family: 'Fira Code', monospace; }
+        svg .ln   { stroke: var(--primary); stroke-width: 2; fill: none; }
+        svg .ln-2 { stroke: var(--secondary); stroke-width: 2; fill: none; }
+        svg .fill-p { fill: rgba(16, 185, 129, .16); stroke: var(--primary); stroke-width: 1.5; }
+        svg .fill-c { fill: rgba(6, 182, 212, .14);  stroke: var(--secondary); stroke-width: 1.5; }
+        svg .fill-v { fill: rgba(139, 92, 246, .14);  stroke: var(--accent-violet); stroke-width: 1.5; }
+        svg .fill-a { fill: rgba(245, 158, 11, .14);  stroke: var(--accent-amber); stroke-width: 1.5; }
+        svg .fill-d { fill: rgba(239, 68, 68, .14);   stroke: var(--danger); stroke-width: 1.5; }
+        svg .arrow { stroke: var(--text-secondary); stroke-width: 1.6; fill: none; marker-end: url(#ah); }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary { background: var(--primary); color: #04211a; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .btn-secondary { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+        .cta {
+            margin: 40px 0;
+            padding: 36px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(6, 182, 212, 0.08));
+            border: 1px solid var(--primary);
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .cta h2 { font-size: 24px; margin-bottom: 8px; }
+        .cta p { margin-bottom: 24px; }
+        .cta .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .back-link:hover { color: var(--primary); }
+
+        .footer {
+            text-align: center;
+            padding: 32px 24px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .footer a { color: var(--primary); text-decoration: none; }
+
+        /* ---------- Print / mobile ---------- */
+        @media (max-width: 768px) {
+            .container { padding: 24px 16px 60px; }
+            .header { padding: 28px 20px; }
+            .header h1 { font-size: 27px; }
+            .topic-content { padding: 20px; }
+            .vida, .compare { grid-template-columns: 1fr; }
+            table { font-size: 13px; }
+            th, td { padding: 9px 10px; }
+            .fig { padding: 12px; }
+            .fig-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { background: #fff; color: #000; }
+            .section-nav, .btn, .cta { display: none; }
+            .topic-section { break-inside: avoid; border-color: #ccc; }
+            .fig { break-inside: avoid; background: #fff; border-color: #999; }
+            .fig svg { filter: none; }
+            svg .lbl, svg .tick, svg .lbl-b, svg .val { fill: #222; }
+            svg .ttl { fill: #000; }
+        }
+
+        /* ---------- Interactive self-check ---------- */
+        .selfcheck {
+            background: var(--bg-dark);
+            border: 1px solid var(--accent-violet);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin: 18px 0;
+        }
+        .selfcheck .sc-tag {
+            font-size: 11px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--accent-violet);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .selfcheck p.sc-q { color: var(--text-primary); font-weight: 500; margin-bottom: 12px; }
+        .sc-opt {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.15s;
+        }
+        .sc-opt:hover { border-color: var(--accent-violet); }
+        .sc-opt.correct { border-color: var(--primary); background: rgba(16,185,129,0.12); color: var(--text-primary); }
+        .sc-opt.wrong { border-color: var(--danger); background: rgba(239,68,68,0.10); color: var(--text-primary); }
+        .sc-opt.reveal { border-color: var(--primary); }
+        .sc-feedback { font-size: 13px; margin-top: 10px; padding: 10px 12px; border-radius: 8px; display: none; color: var(--text-secondary); line-height: 1.6; }
+        .sc-feedback.ok { display: block; background: rgba(16,185,129,0.10); border-left: 3px solid var(--primary); }
+        .sc-feedback.no { display: block; background: rgba(239,68,68,0.08); border-left: 3px solid var(--danger); }
+
+        /* ---------- Worked-example reveals ---------- */
+        .worked { margin: 16px 0; }
+        .worked summary {
+            cursor: pointer;
+            background: rgba(245,158,11,0.08);
+            border-left: 3px solid var(--accent-amber);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--accent-amber);
+            list-style: none;
+        }
+        .worked summary::-webkit-details-marker { display: none; }
+        .worked summary::before { content: '\25B8  '; }
+        .worked[open] summary::before { content: '\25BE  '; }
+        .worked .worked-body {
+            padding: 14px 18px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .worked .worked-body p { margin-bottom: 8px; }
+        .worked .worked-body p:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+
+<!-- Shared SVG defs: arrow markers used by every figure on this page -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+        <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"></path>
+        </marker>
+        <marker id="ah-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"></path>
+        </marker>
+    </defs>
+</svg>
+
+<div class="container">
+
+    <a href="/" class="back-link">&larr; Back to IB_Expert_ISSR Home</a>
+
+    <header class="header">
+        <div class="badge">IB MYP Physics &middot; M10 Session</div>
+        <h1>Motion, Models &amp; Mechanics</h1>
+        <p class="subtitle">From reading a gradient to solving a free-body diagram &mdash; the mechanics core of M10 Physics</p>
+        <div class="header-meta">
+            <span><strong>5</strong> topic groups</span>
+            <span><strong>Criterion A</strong> Knowing &amp; understanding</span>
+            <span><strong>Criterion B</strong> Inquiring</span>
+            <span><strong>Criterion C</strong> Processing &amp; evaluating</span>
+            <span><strong>Criterion D</strong> Communicating</span>
+        </div>
+    </header>
+
+    <nav class="section-nav">
+        <a href="#s1">1. Graphs &amp; Gradients</a>
+        <a href="#s2">2. Motion Variables</a>
+        <a href="#s3">3. Motion Graphs</a>
+        <a href="#s4">4. Motion Formulae</a>
+        <a href="#s5">5. Forces &amp; Newton</a>
+        <a href="#glossary">Glossary</a>
+    </nav>
+
+    <!-- ================= SECTION 1 ================= -->
+    <section class="topic-section" id="s1">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 01 &middot; GRAPHS &amp; GRADIENTS</div>
+            <h2>Graphs and Gradients</h2>
+        </div>
+        <div class="topic-content">
+
+            <div class="callout key">
+                <h4>Exam task</h4>
+                <p>Given a scatter graph with a line of best fit, you must be able to <strong>judge whether the line is appropriate</strong>, <strong>calculate its gradient</strong> from two points, <strong>state the gradient's units</strong>, and <strong>describe the gradient's shape</strong> (positive/negative/zero; constant/increasing/decreasing). Nearly every motion question in this unit builds on this skill.</p>
+            </div>
+
+            <h3>Scatter graphs and the line of best fit</h3>
+            <p>Physics measurements are never perfect &mdash; every point carries experimental uncertainty. A <strong>line of best fit</strong> is a single straight line or smooth curve drawn through the pattern of points so that roughly equal numbers of points lie above and below it, and it follows the overall trend rather than any single outlier.</p>
+            <ul>
+                <li>The line of best fit may be a <strong>straight line</strong> or a <strong>curve</strong> &mdash; the shape must match the pattern of the data, not your preference.</li>
+                <li>A point that lies far away from the pattern of all other points is an <strong>outlier</strong>. Do not force the line through it; flag it instead.</li>
+                <li>When calculating a gradient, always pick <strong>two points that lie on the line</strong> (ideally far apart), never two measured data points.</li>
+            </ul>
+
+            <div class="callout exam">
+                <h4>Command terms</h4>
+                <p><strong>Annotate</strong> = add brief notes to a diagram or graph. <strong>Sketch</strong> = draw the general shape with relevant features labelled. <strong>Plot</strong> = mark the exact positions of points. Examiners award marks for labelled axes, units on both axes, and a stated gradient value with units.</p>
+            </div>
+
+            <h3>What a gradient actually is</h3>
+            <p>The gradient of a straight line tells you <strong>how much the y-value changes for every 1-unit increase in the x-value</strong>. It is a ratio &mdash; "rise over run":</p>
+
+            <div class="fig">
+                <div class="fig-title">Gradient = rise &divide; run, taken between two points on the line</div>
+                <svg viewBox="0 0 460 260" role="img" aria-label="Straight line on axes with two chosen points and rise and run marked">
+                    <line class="ax" x1="50" y1="220" x2="430" y2="220"></line>
+                    <line class="ax" x1="50" y1="220" x2="50" y2="20"></line>
+                    <text class="lbl" x="240" y="248">x (s)</text>
+                    <text class="lbl" x="14" y="120" transform="rotate(-90 14 120)">y (m)</text>
+                    <line class="ln" x1="70" y1="200" x2="400" y2="50"></line>
+                    <circle cx="120" cy="177" r="5" fill="#06b6d4"></circle>
+                    <circle cx="330" cy="83" r="5" fill="#06b6d4"></circle>
+                    <text class="val" x="100" y="198">(x&#8321;, y&#8321;)</text>
+                    <text class="val" x="340" y="80">(x&#8322;, y&#8322;)</text>
+                    <line class="gl" x1="120" y1="177" x2="330" y2="177"></line>
+                    <line class="gl" x1="330" y1="177" x2="330" y2="83"></line>
+                    <text class="val" x="200" y="194">run = x&#8322; &minus; x&#8321;</text>
+                    <text class="val" x="338" y="135">rise = y&#8322; &minus; y&#8321;</text>
+                    <text class="ttl" x="250" y="40">m = (y&#8322; &minus; y&#8321;) / (x&#8322; &minus; x&#8321;)</text>
+                </svg>
+                <p class="fig-note">Choose two points that sit exactly on the line of best fit. Mark their coordinates, subtract, divide. A larger separation between the points gives a more reliable gradient because reading errors matter less.</p>
+            </div>
+
+            <table>
+                <thead><tr><th>Property of the gradient</th><th>What it looks like on the graph</th><th>What it means (when y = position)</th></tr></thead>
+                <tbody>
+                    <tr><td>Positive</td><td>Line rises left &rarr; right</td><td>Object moves in the positive direction</td></tr>
+                    <tr><td>Negative</td><td>Line falls left &rarr; right</td><td>Object moves in the negative direction (back towards the start)</td></tr>
+                    <tr><td>Zero</td><td>Horizontal line</td><td>Position never changes &mdash; the object is at rest</td></tr>
+                    <tr><td>Constant</td><td>Straight line</td><td>Rate of change is steady (constant velocity)</td></tr>
+                    <tr><td>Increasing</td><td>Curve getting steeper</td><td>Velocity is increasing (acceleration)</td></tr>
+                    <tr><td>Decreasing</td><td>Curve getting flatter</td><td>Velocity is decreasing (slowing down)</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Units of the gradient</h3>
+            <p>The gradient's units are always <strong>"y units divided by x units"</strong> &mdash; they are not optional and they are not the same as the axis units separately.</p>
+            <ul>
+                <li>Position&ndash;time graph &rarr; gradient units = m/s &rarr; the gradient is a <strong>velocity</strong>.</li>
+                <li>Velocity&ndash;time graph &rarr; gradient units = (m/s)/s = m/s&sup2; &rarr; the gradient is an <strong>acceleration</strong>.</li>
+                <li>A distance&ndash;mass graph would give units of m/kg &mdash; often a physically meaningless quantity, which is itself an evaluation point: <em>not every gradient has physical meaning</em>.</li>
+            </ul>
+
+            <details class="worked">
+                <summary>Worked example &mdash; gradient of a distance&ndash;time graph</summary>
+                <div class="worked-body">
+                    <p><strong>Task:</strong> A cyclist travels 240 m between t = 10 s and t = 40 s on a straight road. The line of best fit on the distance&ndash;time graph is straight. Calculate the gradient and state what it represents.</p>
+                    <p><strong>Step 1 &mdash; identify the two points on the line:</strong> (10 s, 60 m) and (40 s, 300 m). (The 240 m travelled equals 300 &minus; 60 &mdash; gradient uses the <em>change</em>, not the reading.)</p>
+                    <p><strong>Step 2 &mdash; divide:</strong> m = (300 &minus; 60) / (40 &minus; 10) = 240 / 30 = <strong>8.0 m/s</strong>.</p>
+                    <p><strong>Step 3 &mdash; units and meaning:</strong> the y-axis is metres and the x-axis is seconds, so the gradient units are m/s. A straight line means the gradient is constant, so the cyclist travels at a <strong>constant speed of 8.0 m/s</strong>.</p>
+                </div>
+            </details>
+
+            <div class="selfcheck" data-answer="2">
+                <div class="sc-tag">Interactive set &middot; Self-check 1</div>
+                <p class="sc-q">A position&ndash;time graph for an object is a horizontal line at x = 15 m. What does the gradient tell you?</p>
+                <div class="sc-opt">A. The object is moving at 15 m/s</div>
+                <div class="sc-opt">B. The object has travelled 15 m in total</div>
+                <div class="sc-opt">C. The object is stationary &mdash; its position is not changing</div>
+                <div class="sc-opt">D. The object is accelerating at 15 m/s&sup2;</div>
+                <div class="sc-feedback"><span class="sc-expl">A horizontal line has zero gradient: zero change in position per second means the object stays at x = 15 m. Students who pick A read the axis value (15) as a speed &mdash; the gradient, not the height, carries the velocity.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="1">
+                <div class="sc-tag">Interactive set &middot; Self-check 2</div>
+                <p class="sc-q">The line on a position&ndash;time graph curves and gets steeper as time increases. The object's velocity is:</p>
+                <div class="sc-opt">A. Constant and positive</div>
+                <div class="sc-opt">B. Increasing (positive acceleration)</div>
+                <div class="sc-opt">C. Decreasing (slowing down)</div>
+                <div class="sc-opt">D. Zero, because the graph is curved</div>
+                <div class="sc-feedback"><span class="sc-expl">Steeper gradient &rarr; larger velocity. A steadily steepening curve means the velocity grows each second: positive acceleration. Curved does NOT mean random &mdash; the shape of the curve tells you exactly how the velocity changes.</span></div>
+            </div>
+
+            <div class="callout warn">
+                <h4>Do not confuse</h4>
+                <p><strong>Gradient vs value.</strong> On any graph, the <em>height</em> of a point is the y-value itself (e.g. the position); the <em>steepness</em> is the gradient (e.g. the velocity). A question that asks "what is the object's velocity at t = 5 s?" wants the gradient of the position&ndash;time graph <em>at that point</em> &mdash; never the position reading.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 2 ================= -->
+    <section class="topic-section" id="s2">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 02 &middot; DESCRIBING MOTION IN 1D</div>
+            <h2>Motion Variables: Position, Velocity, Acceleration</h2>
+        </div>
+        <div class="topic-content">
+
+            <h3>Start with a number line</h3>
+            <p>Every 1-D motion problem begins by building a <strong>number line</strong> for reference: choose a point to be zero (the origin), then choose a positive direction. Without these two decisions, "+4 m/s" and "&minus;4 m/s" are meaningless.</p>
+
+            <div class="fig">
+                <div class="fig-title">A number line fixes the origin and the positive direction</div>
+                <svg viewBox="0 0 460 130" role="img" aria-label="Number line from minus 30 to plus 40 metres with origin marked">
+                    <line class="ax" x1="40" y1="70" x2="430" y2="70"></line>
+                    <g>
+                        <line class="ax" x1="80" y1="64" x2="80" y2="76"></line>
+                        <text class="tick" x="68" y="92">&minus;30</text>
+                        <line class="ax" x1="140" y1="64" x2="140" y2="76"></line>
+                        <text class="tick" x="130" y="92">&minus;20</text>
+                        <line class="ax" x1="200" y1="64" x2="200" y2="76"></line>
+                        <text class="tick" x="190" y="92">&minus;10</text>
+                        <line class="ax" x1="260" y1="60" x2="260" y2="80"></line>
+                        <text class="tick" x="253" y="96">0</text>
+                        <line class="ax" x1="320" y1="64" x2="320" y2="76"></line>
+                        <text class="tick" x="314" y="92">10</text>
+                        <line class="ax" x1="380" y1="64" x2="380" y2="76"></line>
+                        <text class="tick" x="374" y="92">20</text>
+                    </g>
+                    <circle cx="260" cy="70" r="5" fill="#10b981"></circle>
+                    <text class="val" x="238" y="46">origin (0 m)</text>
+                    <line class="arrow" x1="330" y1="40" x2="400" y2="40" marker-end="url(#ah-p)"></line>
+                    <text class="lbl-b" x="330" y="30">positive direction</text>
+                    <circle cx="140" cy="70" r="5" fill="#06b6d4"></circle>
+                    <text class="val" x="96" y="116">object at &minus;20 m</text>
+                </svg>
+                <p class="fig-note">The object above sits 20 m on the negative side of the origin. If it later moves to +10 m, its <em>displacement</em> is +30 m &mdash; final minus initial, regardless of the path taken.</p>
+            </div>
+
+            <h3>The three variables</h3>
+            <div class="term-grid">
+                <div class="term"><b>Position (x)</b><span>Where the object is on the number line at a given time. Units: metres (m). May be positive, negative or zero.</span></div>
+                <div class="term"><b>Velocity (v)</b><span>The rate of change of position &mdash; speed <em>and</em> direction. Units: m/s. Sign gives direction: + is along the positive axis, &minus; the opposite way.</span></div>
+                <div class="term"><b>Acceleration (a)</b><span>The rate of change of velocity. Units: m/s&sup2;. Positive acceleration means the velocity <em>number</em> increases (note: this may still mean slowing down! &mdash; see the rule below).</span></div>
+            </div>
+
+            <table>
+                <thead><tr><th></th><th>Scalar</th><th>Vector</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Definition</strong></td><td>Size only</td><td>Size <em>and</em> direction</td></tr>
+                    <tr><td><strong>Motion examples</strong></td><td>Distance, speed, mass, time, energy</td><td>Displacement, velocity, acceleration, force</td></tr>
+                    <tr><td><strong>Sign meaning</strong></td><td>A negative sign is (almost) meaningless</td><td>The sign <em>is</em> the direction along your number line</td></tr>
+                </tbody>
+            </table>
+
+            <h3>"Change in" means final &minus; initial</h3>
+            <p>The symbol &Delta; (delta) always means <strong>final value &minus; initial value</strong>. So &Delta;x = x<sub>final</sub> &minus; x<sub>initial</sub> is displacement, and &Delta;v = v<sub>final</sub> &minus; v<sub>initial</sub> is the change in velocity. An object that speeds up from +2 m/s to +8 m/s has &Delta;v = +6 m/s; one that slows from &minus;8 m/s to &minus;2 m/s has &Delta;v = +6 m/s as well (it became <em>more positive</em>).</p>
+
+            <div class="callout key">
+                <h4>The speeding-up / slowing-down rule &mdash; learn this one cold</h4>
+                <p>An object <strong>speeds up</strong> when velocity and acceleration have the <strong>same sign</strong> (same direction &rarr; the velocity grows away from zero). It <strong>slows down</strong> when they have <strong>opposite signs</strong> (the velocity is being pushed back towards zero). "Positive acceleration" does NOT automatically mean "getting faster".</p>
+            </div>
+
+            <table>
+                <thead><tr><th>Case</th><th>Velocity sign</th><th>Acceleration sign</th><th>Result</th></tr></thead>
+                <tbody>
+                    <tr><td>A</td><td>+</td><td>+</td><td>Speeding up, moving in + direction</td></tr>
+                    <tr><td>B</td><td>&minus;</td><td>&minus;</td><td>Speeding up, moving in &minus; direction</td></tr>
+                    <tr><td>C</td><td>+</td><td>&minus;</td><td>Slowing down while still moving + (about to turn around)</td></tr>
+                    <tr><td>D</td><td>&minus;</td><td>+</td><td>Slowing down while moving &minus; (about to turn around)</td></tr>
+                </tbody>
+            </table>
+
+            <details class="worked">
+                <summary>Worked example &mdash; deciding speeding up or slowing down</summary>
+                <div class="worked-body">
+                    <p><strong>Task:</strong> A Stockholm T-bana train leaves a station heading east (taken as positive). Its velocity changes from 0 to +14 m/s in 20 s. Later it brakes from +14 m/s to 0 in 28 s. Describe the acceleration in each phase.</p>
+                    <p><strong>Phase 1 (leaving the station):</strong> a = &Delta;v / &Delta;t = (14 &minus; 0) / 20 = <strong>+0.70 m/s&sup2;</strong>. Velocity + and acceleration + &rarr; same sign &rarr; <strong>speeding up</strong>.</p>
+                    <p><strong>Phase 2 (braking):</strong> a = (0 &minus; 14) / 28 = <strong>&minus;0.50 m/s&sup2;</strong>. Velocity still + but acceleration &minus; &rarr; opposite signs &rarr; <strong>slowing down</strong>. The acceleration is negative even though the train never reverses &mdash; it simply arrives at the next station and stops.</p>
+                </div>
+            </details>
+
+            <div class="selfcheck" data-answer="3">
+                <div class="sc-tag">Interactive set &middot; Self-check 3</div>
+                <p class="sc-q">A car moves along a number line with velocity &minus;10 m/s and acceleration &minus;2 m/s&sup2;. It is:</p>
+                <div class="sc-opt">A. Slowing down in the negative direction</div>
+                <div class="sc-opt">B. Slowing down in the positive direction</div>
+                <div class="sc-opt">C. Speeding up in the negative direction</div>
+                <div class="sc-opt">D. At rest, because both values are negative</div>
+                <div class="sc-feedback"><span class="sc-expl">Same sign (both &minus;) &rarr; the velocity grows away from zero: &minus;10, &minus;12, &minus;14&hellip; The car speeds up heading in the negative direction. Negatives never mean "stopped" &mdash; they mean "opposite to the positive direction you chose".</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="0">
+                <div class="sc-tag">Interactive set &middot; Self-check 4</div>
+                <p class="sc-q">A skateboarder rolls west at 6 m/s and gradually comes to a stop. Taking east as positive, the acceleration is:</p>
+                <div class="sc-opt">A. Positive, because the velocity magnitude decreases towards zero</div>
+                <div class="sc-opt">B. Negative, because the skateboarder is moving west</div>
+                <div class="sc-opt">C. Zero, because the skateboarder never turns around</div>
+                <div class="sc-opt">D. Impossible to determine without the mass</div>
+                <div class="sc-feedback"><span class="sc-expl">West = negative velocity (&minus;6 m/s). Slowing down means a is opposite to v, so a is positive. Mass is irrelevant to acceleration signs &mdash; that is a forces question (Newton's 2nd law), not a kinematics one.</span></div>
+            </div>
+
+            <div class="callout warn">
+                <h4>Do not confuse</h4>
+                <p><strong>Distance vs displacement.</strong> Distance is a scalar path length (always &ge; 0, counts every metre walked). Displacement is a vector: final position minus initial position (may be zero even after a long walk, e.g. returning to the start). A lap of a 400 m running track gives distance = 400 m but displacement = 0.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 3 ================= -->
+    <section class="topic-section" id="s3">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 03 &middot; MOTION GRAPHS</div>
+            <h2>Position&ndash;Time and Velocity&ndash;Time Graphs</h2>
+        </div>
+        <div class="topic-content">
+
+            <p>Two graphs carry almost all of M10 kinematics. The single most valuable sentence in this unit is: <strong>"As the slope goes, so goes the velocity" on a position&ndash;time graph; on a velocity&ndash;time graph, the slope is the acceleration and the area is the displacement."</strong></p>
+
+            <h3>Position&ndash;time graphs: the slope is the velocity</h3>
+            <div class="fig-grid">
+                <div class="fig">
+                    <div class="fig-title">Position&ndash;time shapes</div>
+                    <svg viewBox="0 0 300 210" role="img" aria-label="Three position-time graphs: at rest, constant velocity, accelerating">
+                        <line class="ax" x1="30" y1="70" x2="140" y2="70"></line>
+                        <line class="ax" x1="30" y1="70" x2="30" y2="20"></line>
+                        <line class="ln" x1="35" y1="55" x2="135" y2="55"></line>
+                        <text class="ttl" x="35" y="18">at rest</text>
+                        <line class="ax" x1="170" y1="70" x2="280" y2="70"></line>
+                        <line class="ax" x1="170" y1="70" x2="170" y2="20"></line>
+                        <line class="ln-2" x1="175" y1="62" x2="275" y2="28"></line>
+                        <text class="ttl" x="175" y="18">constant v</text>
+                        <line class="ax" x1="30" y1="190" x2="140" y2="190"></line>
+                        <line class="ax" x1="30" y1="190" x2="30" y2="140"></line>
+                        <path class="ln" d="M 35 185 Q 85 180 135 145"></path>
+                        <text class="ttl" x="35" y="138">speeding up</text>
+                        <line class="ax" x1="170" y1="190" x2="280" y2="190"></line>
+                        <line class="ax" x1="170" y1="190" x2="170" y2="140"></line>
+                        <path class="ln" d="M 175 145 Q 225 165 275 188"></path>
+                        <text class="ttl" x="175" y="138">slowing down</text>
+                    </svg>
+                    <p class="fig-note">Horizontal = at rest. Straight diagonal = constant velocity. Curve flattening = slowing down; curve steepening = speeding up.</p>
+                </div>
+                <div class="fig">
+                    <div class="fig-title">Reading a velocity from the slope</div>
+                    <svg viewBox="0 0 300 210" role="img" aria-label="Position-time graph with slope triangle labelled">
+                        <line class="ax" x1="40" y1="170" x2="280" y2="170"></line>
+                        <line class="ax" x1="40" y1="170" x2="40" y2="20"></line>
+                        <text class="lbl" x="150" y="195">t (s)</text>
+                        <text class="lbl" x="8" y="100" transform="rotate(-90 8 100)">x (m)</text>
+                        <line class="ln" x1="55" y1="150" x2="260" y2="45"></line>
+                        <line class="gl" x1="110" y1="122" x2="210" y2="122"></line>
+                        <line class="gl" x1="210" y1="122" x2="210" y2="70"></line>
+                        <text class="val" x="130" y="140">run = 10 s</text>
+                        <text class="val" x="218" y="100">rise = 50 m</text>
+                        <text class="val" x="90" y="60">v = 50/10 = 5 m/s</text>
+                    </svg>
+                    <p class="fig-note">Rise 50 m over a run of 10 s &rarr; v = 5 m/s. The same triangle drawn anywhere on a straight line gives the same answer: constant velocity.</p>
+                </div>
+            </div>
+
+            <h3>Velocity&ndash;time graphs: slope is acceleration, area is displacement</h3>
+            <div class="fig">
+                <div class="fig-title">Velocity&ndash;time graph &mdash; two readings from one line</div>
+                <svg viewBox="0 0 460 240" role="img" aria-label="Velocity-time graph of a two-stage trip with the area under the line shaded">
+                    <line class="ax" x1="50" y1="190" x2="430" y2="190"></line>
+                    <line class="ax" x1="50" y1="190" x2="50" y2="20"></line>
+                    <text class="lbl" x="230" y="218">t (s)</text>
+                    <text class="lbl" x="10" y="110" transform="rotate(-90 10 110)">v (m/s)</text>
+                    <g>
+                        <line class="ax" x1="50" y1="150" x2="55" y2="150"></line>
+                        <text class="tick" x="28" y="154">5</text>
+                        <line class="ax" x1="50" y1="110" x2="55" y2="110"></line>
+                        <text class="tick" x="22" y="114">10</text>
+                        <line class="ax" x1="50" y1="70" x2="55" y2="70"></line>
+                        <text class="tick" x="22" y="74">15</text>
+                        <line class="ax" x1="130" y1="185" x2="130" y2="195"></line>
+                        <text class="tick" x="124" y="210">4</text>
+                        <line class="ax" x1="210" y1="185" x2="210" y2="195"></line>
+                        <text class="tick" x="204" y="210">8</text>
+                        <line class="ax" x1="330" y1="185" x2="330" y2="195"></line>
+                        <text class="tick" x="324" y="210">14</text>
+                    </g>
+                    <polygon class="fill-c" points="50,190 130,70 210,70 330,190"></polygon>
+                    <line class="ln-2" x1="50" y1="190" x2="130" y2="70"></line>
+                    <line class="ln-2" x1="130" y1="70" x2="210" y2="70"></line>
+                    <line class="ln-2" x1="210" y1="70" x2="330" y2="190"></line>
+                    <text class="val" x="150" y="60">15 m/s held</text>
+                    <text class="lbl-b" x="180" y="140">area = displacement</text>
+                </svg>
+                <p class="fig-note">Ramp up 0&ndash;4 s (accelerating), constant 15 m/s from 4&ndash;8 s, ramp down 8&ndash;14 s (decelerating back to rest). Slope of the first segment: a = (15 &minus; 0)/(4 &minus; 0) = +3.75 m/s&sup2;. Displacement = total area under the line (split into trapezium, rectangle, triangle).</p>
+            </div>
+
+            <table>
+                <thead><tr><th>Feature of the v&ndash;t graph</th><th>What it tells you</th></tr></thead>
+                <tbody>
+                    <tr><td>Gradient (slope)</td><td>Acceleration &mdash; steeper = larger acceleration</td></tr>
+                    <tr><td>Area between the line and the t-axis</td><td>Displacement over that time interval</td></tr>
+                    <tr><td>Horizontal line above the axis</td><td>Constant velocity in the positive direction</td></tr>
+                    <tr><td>Horizontal line on the axis</td><td>At rest (v = 0)</td></tr>
+                    <tr><td>Line below the axis</td><td>Moving in the negative direction</td></tr>
+                    <tr><td>Crossing the axis</td><td>Changing direction &mdash; momentary stop at the crossing</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout key">
+                <h4>The single biggest confusion in this unit</h4>
+                <p>On a <strong>position&ndash;time</strong> graph only the <em>gradient</em> is meaningful for motion (velocity); the area under a p&ndash;t graph has no physical use. On a <strong>velocity&ndash;time</strong> graph <em>both</em> are meaningful: gradient = acceleration, area = displacement. Students lose marks every year by computing the area under a p&ndash;t graph &mdash; check the axis labels before you calculate anything.</p>
+            </div>
+
+            <details class="worked">
+                <summary>Worked example &mdash; two-stage rocket, read both features</summary>
+                <div class="worked-body">
+                    <p><strong>Task:</strong> A model rocket's velocity&ndash;time graph rises linearly from 0 to 50 m/s in 5 s, stays constant at 50 m/s until t = 12 s, then falls linearly back to 0 at t = 20 s. Describe the motion and find the total displacement.</p>
+                    <p><strong>Stage 1 (0&ndash;5 s):</strong> positive constant gradient &rarr; a = 50/5 = +10 m/s&sup2;, speeding up upwards. Displacement = &frac12; &times; 5 &times; 50 = 125 m.</p>
+                    <p><strong>Stage 2 (5&ndash;12 s):</strong> zero gradient &rarr; a = 0, constant velocity 50 m/s. Displacement = 7 &times; 50 = 350 m.</p>
+                    <p><strong>Stage 3 (12&ndash;20 s):</strong> negative gradient &rarr; a = (0 &minus; 50)/8 = &minus;6.25 m/s&sup2;, still moving up but slowing. Displacement = &frac12; &times; 8 &times; 50 = 200 m.</p>
+                    <p><strong>Total displacement:</strong> 125 + 350 + 200 = <strong>675 m above the launch pad</strong>. Note the rocket never goes down in this window &mdash; velocity stays positive throughout, so it keeps climbing even while slowing.</p>
+                </div>
+            </details>
+
+            <div class="selfcheck" data-answer="2">
+                <div class="sc-tag">Interactive set &middot; Self-check 5</div>
+                <p class="sc-q">On a velocity&ndash;time graph, which feature gives the object's acceleration?</p>
+                <div class="sc-opt">A. The height of the line above the time axis</div>
+                <div class="sc-opt">B. The area between the line and the time axis</div>
+                <div class="sc-opt">C. The gradient (steepness) of the line</div>
+                <div class="sc-opt">D. The point where the line crosses the vertical axis</div>
+                <div class="sc-feedback"><span class="sc-expl">Gradient = acceleration on a v&ndash;t graph (units: (m/s)/s = m/s&sup2;). Height gives the velocity value itself; area gives displacement. Mixing these two up is the classic v&ndash;t error.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="1">
+                <div class="sc-tag">Interactive set &middot; Self-check 6</div>
+                <p class="sc-q">A velocity&ndash;time graph shows a line that starts at 0, rises to +8 m/s at 4 s, then falls back to 0 at 10 s (always above the axis). The object:</p>
+                <div class="sc-opt">A. Returns to its starting point at 10 s</div>
+                <div class="sc-opt">B. Keeps moving in the same direction the whole time, ending far from the start</div>
+                <div class="sc-opt">C. Changes direction at 4 s</div>
+                <div class="sc-opt">D. Is at rest between 4 s and 10 s</div>
+                <div class="sc-feedback"><span class="sc-expl">The velocity never becomes negative &mdash; the object always moves forward, first faster then slower. Area keeps accumulating, so displacement only grows. A change of direction requires the line to cross the t-axis.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="3">
+                <div class="sc-tag">Interactive set &middot; Self-check 7</div>
+                <p class="sc-q">The slope of a position&ndash;time graph is negative and becoming less steep (flatter). The object is:</p>
+                <div class="sc-opt">A. Speeding up in the positive direction</div>
+                <div class="sc-opt">B. Slowing down in the positive direction</div>
+                <div class="sc-opt">C. Speeding up in the negative direction</div>
+                <div class="sc-opt">D. Slowing down in the negative direction</div>
+                <div class="sc-feedback"><span class="sc-expl">Negative slope &rarr; velocity is negative. Flatter &rarr; the slope's magnitude shrinks &rarr; the speed decreases towards zero. So the object moves in the negative direction and slows down: v is negative while a is positive (opposite signs).</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 4 ================= -->
+    <section class="topic-section" id="s4">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 04 &middot; MOTION FORMULAE</div>
+            <h2>Speed, Velocity, Acceleration and the SUVAT Equations</h2>
+        </div>
+        <div class="topic-content">
+
+            <h3>The three defining equations</h3>
+            <table>
+                <thead><tr><th>Quantity</th><th>Definition</th><th>Equation</th><th>Units</th></tr></thead>
+                <tbody>
+                    <tr><td>Speed</td><td>Distance travelled per unit time (scalar)</td><td>speed = distance / time</td><td>m/s</td></tr>
+                    <tr><td>Velocity</td><td>Rate of change of position (vector)</td><td>v = &Delta;x / &Delta;t = (x<sub>f</sub> &minus; x<sub>i</sub>) / t</td><td>m/s</td></tr>
+                    <tr><td>Acceleration</td><td>Rate of change of velocity (vector)</td><td>a = &Delta;v / &Delta;t = (v &minus; u) / t</td><td>m/s&sup2;</td></tr>
+                </tbody>
+            </table>
+            <p>Here <strong>u</strong> = initial velocity, <strong>v</strong> = final velocity, <strong>a</strong> = acceleration, <strong>t</strong> = time, <strong>s</strong> = displacement. These five symbols are the inputs and outputs of every SUVAT equation.</p>
+
+            <h3>The four SUVAT equations</h3>
+            <p>These apply <strong>only</strong> when acceleration is constant (uniform) and motion is in a straight line &mdash; exactly the situation in every M10 mechanics question:</p>
+            <div class="term-grid">
+                <div class="term"><b>v = u + at</b><span>No s &mdash; use when displacement is unknown or unwanted.</span></div>
+                <div class="term"><b>s = &frac12;(u + v)t</b><span>No a &mdash; use when acceleration is unknown; average velocity &times; time.</span></div>
+                <div class="term"><b>s = ut + &frac12;at&sup2;</b><span>No v &mdash; use when final velocity is unknown.</span></div>
+                <div class="term"><b>v&sup2; = u&sup2; + 2as</b><span>No t &mdash; use when time is unknown.</span></div>
+            </div>
+
+            <div class="callout exam">
+                <h4>Problem-solving strategy (use it every time)</h4>
+                <p><strong>1.</strong> Draw a number line; mark + direction. <strong>2.</strong> List every symbol you know with its sign and unit (convert to m, m/s, m/s&sup2; first!). <strong>3.</strong> Write down what you must find. <strong>4.</strong> Choose the equation that contains your unknown and only knowns. <strong>5.</strong> Substitute with units; calculate; <strong>6.</strong> sanity-check the sign and size.</p>
+            </div>
+
+            <h3>Unit conversions you must be fluent in</h3>
+            <ul>
+                <li><strong>km/h &rarr; m/s:</strong> divide by 3.6. (110 km/h on the E4 &rarr; 110/3.6 &asymp; 31 m/s.)</li>
+                <li><strong>m/s &rarr; km/h:</strong> multiply by 3.6.</li>
+                <li><strong>cm/s&sup2; &rarr; m/s&sup2;:</strong> divide by 100 (96 cm/s&sup2; = 0.96 m/s&sup2;).</li>
+                <li><strong>SI prefixes:</strong> nano = 10<sup>&minus;9</sup>, micro = 10<sup>&minus;6</sup>, milli = 10<sup>&minus;3</sup>, centi = 10<sup>&minus;2</sup>, kilo = 10&sup3;, mega = 10&sup6;, giga = 10&sup9;.</li>
+                <li><strong>g on Earth:</strong> the MYP data sheet gives <strong>g = 10 m/s&sup2;</strong> (rounded). Some handouts use the more precise 9.81 N/kg &mdash; whichever value a question states is the one you must use, and state your choice in your working.</li>
+            </ul>
+
+            <details class="worked">
+                <summary>Worked example 1 &mdash; acceleration from a roller-coaster drop</summary>
+                <div class="worked-body">
+                    <p><strong>Task:</strong> Sophia (m = 52 kg) experiences a net force of 1800 N at the bottom of a loop. First find her acceleration (forces) &mdash; then, as a kinematics check, if her velocity there changes from 8 m/s to 19 m/s in 3.1 s, what acceleration does the kinematics give?</p>
+                    <p><strong>Kinematics route:</strong> a = &Delta;v/t = (19 &minus; 8)/3.1 = 11/3.1 = <strong>3.5 m/s&sup2;</strong> (to 2 s.f.).</p>
+                    <p><strong>Forces route (preview of Section 5):</strong> a = F<sub>net</sub>/m = 1800/52 = 34.6 &asymp; <strong>35 m/s&sup2;</strong> &mdash; a much larger instant because the loop's bottom is a brief, violent phase; over the longer 3.1 s window the average is smaller. Both routes are valid; the question tells you which numbers describe which moment.</p>
+                </div>
+            </details>
+
+            <details class="worked">
+                <summary>Worked example 2 &mdash; free fall with g = 10 m/s&sup2;</summary>
+                <div class="worked-body">
+                    <p><strong>Task:</strong> A ball is dropped from rest from a bridge 45 m above water. Ignoring air resistance, how long does it take to hit the water, and at what speed?</p>
+                    <p><strong>Knowns:</strong> u = 0 m/s, s = 45 m, a = +10 m/s&sup2; (down taken as positive), t = ? and v = ?</p>
+                    <p><strong>Find t:</strong> use s = ut + &frac12;at&sup2; &rarr; 45 = 0 + &frac12; &times; 10 &times; t&sup2; &rarr; t&sup2; = 9 &rarr; t = <strong>3.0 s</strong>.</p>
+                    <p><strong>Find v:</strong> use v = u + at = 0 + 10 &times; 3.0 = <strong>30 m/s</strong> (or v&sup2; = u&sup2; + 2as = 0 + 2&times;10&times;45 = 900 &rarr; v = 30 m/s &mdash; same answer, good check).</p>
+                </div>
+            </details>
+
+            <div class="selfcheck" data-answer="1">
+                <div class="sc-tag">Interactive set &middot; Self-check 8</div>
+                <p class="sc-q">A car accelerates uniformly from rest at 3 m/s&sup2; for 6 s. Its final velocity is:</p>
+                <div class="sc-opt">A. 0.5 m/s</div>
+                <div class="sc-opt">B. 18 m/s</div>
+                <div class="sc-opt">C. 54 m/s</div>
+                <div class="sc-opt">D. 108 m/s</div>
+                <div class="sc-feedback"><span class="sc-expl">v = u + at = 0 + 3 &times; 6 = 18 m/s. Option C (54) is s = ut + &frac12;at&sup2; = 54 m &mdash; the displacement, not the velocity. Option A inverts the equation. Always check units: m/s&sup2; &times; s = m/s.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="0">
+                <div class="sc-tag">Interactive set &middot; Self-check 9</div>
+                <p class="sc-q">Which SUVAT equation should you use when you know u, a and s, and must find v (time unknown)?</p>
+                <div class="sc-opt">A. v&sup2; = u&sup2; + 2as</div>
+                <div class="sc-opt">B. v = u + at</div>
+                <div class="sc-opt">C. s = ut + &frac12;at&sup2;</div>
+                <div class="sc-opt">D. s = &frac12;(u + v)t</div>
+                <div class="sc-feedback"><span class="sc-expl">Eliminate any equation containing the unknown t. B, C and D all contain t; only A links u, v, a and s directly. This elimination method is faster than memorising "when to use which" tables.</span></div>
+            </div>
+
+            <div class="callout warn">
+                <h4>Do not confuse</h4>
+                <p><strong>Speed vs velocity.</strong> Speed is how fast (scalar). Velocity is how fast <em>and which way</em> (vector). A car that completes a 1 km lap at 20 m/s average speed has average <em>velocity of zero</em> &mdash; it ended where it started. Also: "average speed" = total distance / total time, while "average velocity" = total displacement / total time. They only coincide when the motion never reverses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 5 ================= -->
+    <section class="topic-section" id="s5">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 05 &middot; FORCES</div>
+            <h2>Balanced and Unbalanced Forces &mdash; Newton's Laws</h2>
+        </div>
+        <div class="topic-content">
+
+            <h3>What a force is</h3>
+            <p>A force is a <strong>push or pull resulting from an interaction between two objects</strong>. Forces are measured in <strong>newtons (N)</strong> and are vectors. Forces never exist in isolation: every force named in a problem has an agent (what exerts it) and a receiver (what feels it).</p>
+
+            <h3>Newton's three laws in one table</h3>
+            <table>
+                <thead><tr><th>Law</th><th>Statement</th><th>How questions test it</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>1st</strong></td><td>An object keeps its velocity (including rest, v = 0) unless a <strong>net</strong> (unbalanced) force acts on it.</td><td>Given constant velocity &rarr; forces are balanced. Given changing velocity &rarr; unbalanced.</td></tr>
+                    <tr><td><strong>2nd</strong></td><td>F<sub>net</sub> = ma &mdash; acceleration is in the <em>same direction</em> as the net force and inversely proportional to mass.</td><td>Calculate any one of F, m, a from the other two; handle proportionality ("double F, same m &rarr; double a").</td></tr>
+                    <tr><td><strong>3rd</strong></td><td>Every force has an equal and opposite partner <strong>acting on the other object</strong>.</td><td>Identify N3 pairs (book on table &harr; table on book). Traps: pairs never act on the same object, so they never cancel each other.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Weight &mdash; the gravitational force</h3>
+            <p><strong>F<sub>g</sub> = mg</strong> gives the gravitational force (weight) on an object of mass m in a field of strength g. On Earth's surface g &asymp; 9.81 N/kg (the MYP data sheet rounds this to 10 m/s&sup2; for calculation). "Weight" is simply another name for this force &mdash; <strong>it is not the same quantity as mass</strong>.</p>
+
+            <table>
+                <thead><tr><th></th><th>Mass</th><th>Weight</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>What it is</strong></td><td>Amount of matter in an object</td><td>Gravitational force pulling on that matter</td></tr>
+                    <tr><td><strong>Type</strong></td><td>Scalar</td><td>Vector (always towards the planet's centre)</td></tr>
+                    <tr><td><strong>Unit</strong></td><td>kg</td><td>N</td></tr>
+                    <tr><td><strong>Changes with location?</strong></td><td>No &mdash; same on Earth, Moon, in space</td><td>Yes &mdash; scales with local g (Moon g &asymp; 1.6 N/kg)</td></tr>
+                    <tr><td><strong>Measured by</strong></td><td>Balance (beam or electronic)</td><td>Spring scale / newton meter</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Free-body diagrams (FBDs)</h3>
+            <p>A free-body diagram shows <strong>one object only</strong>, with arrows for every force acting <em>on</em> it. Arrow length must be proportional to magnitude. At M10 we only consider forces that are purely vertical or purely horizontal &mdash; diagonal components come next year.</p>
+
+            <div class="fig-grid">
+                <div class="fig">
+                    <div class="fig-title">Book at rest on a table &mdash; balanced</div>
+                    <svg viewBox="0 0 260 200" role="img" aria-label="Free body diagram of a book on a table with equal up and down arrows">
+                        <rect x="90" y="80" width="80" height="40" fill="rgba(16,185,129,.16)" stroke="#10b981" stroke-width="1.5" rx="4"></rect>
+                        <text class="lbl-b" x="118" y="105">book</text>
+                        <line class="arrow" x1="130" y1="80" x2="130" y2="30" marker-end="url(#ah-p)"></line>
+                        <text class="val" x="138" y="55">F&#8337; (table on book)</text>
+                        <line class="arrow" x1="130" y1="120" x2="130" y2="170" marker-end="url(#ah)"></line>
+                        <text class="val" x="138" y="155">F&#109;g = mg</text>
+                        <text class="lbl" x="60" y="192">arrows equal &rarr; balanced &rarr; a = 0</text>
+                    </svg>
+                    <p class="fig-note">The upward force is the table's support (normal force). Equal length arrows: net force zero, so the book stays at rest (Newton's 1st law).</p>
+                </div>
+                <div class="fig">
+                    <div class="fig-title">Wagon pulled forward &mdash; unbalanced</div>
+                    <svg viewBox="0 0 260 200" role="img" aria-label="Free body diagram of a wagon with forward pull larger than friction">
+                        <rect x="80" y="75" width="100" height="50" fill="rgba(6,182,212,.14)" stroke="#06b6d4" stroke-width="1.5" rx="6"></rect>
+                        <circle cx="100" cy="132" r="9" fill="none" stroke="#94a3b8" stroke-width="1.5"></circle>
+                        <circle cx="160" cy="132" r="9" fill="none" stroke="#94a3b8" stroke-width="1.5"></circle>
+                        <text class="lbl-b" x="104" y="105">wagon</text>
+                        <line class="arrow" x1="180" y1="95" x2="240" y2="95" marker-end="url(#ah-p)"></line>
+                        <text class="val" x="184" y="84">F&#8339; = 52 N</text>
+                        <line class="arrow" x1="80" y1="115" x2="48" y2="115" marker-end="url(#ah)"></line>
+                        <text class="val" x="8" y="134">F&#102;ric = 24 N</text>
+                        <text class="lbl" x="52" y="185">net = 52 &minus; 24 = 28 N forward</text>
+                    </svg>
+                    <p class="fig-note">Horizontal arrows differ in length &rarr; net force 28 N forward &rarr; acceleration forward. (Vertical weight and support forces cancel and are often omitted once you have confirmed they balance.)</p>
+                </div>
+            </div>
+
+            <div class="callout key">
+                <h4>Finding the net force from an FBD</h4>
+                <p>Add all forces in the positive direction, subtract all in the negative direction. If the result is zero &rarr; balanced. If not &rarr; the net force points in the sign of the result, and then <strong>a = F<sub>net</sub>/m</strong> gives both the size and direction of the acceleration.</p>
+            </div>
+
+            <details class="worked">
+                <summary>Worked example 1 &mdash; weight of an African elephant</summary>
+                <div class="worked-body">
+                    <p><strong>Task:</strong> An African elephant has mass 6000 kg. Find its weight on Earth in newtons, using g = 10 m/s&sup2; (data-sheet value).</p>
+                    <p>F<sub>g</sub> = mg = 6000 &times; 10 = <strong>60 000 N</strong> (6.0 &times; 10&sup4; N to 2 s.f.). With g = 9.81 it would be 58 860 N &asymp; 5.9 &times; 10&sup4; N. The mass is unchanged on the Moon; the weight there would be only about 6000 &times; 1.6 &asymp; 9600 N.</p>
+                </div>
+            </details>
+
+            <details class="worked">
+                <summary>Worked example 2 &mdash; full FBD chain (suitcase problem)</summary>
+                <div class="worked-body">
+                    <p><strong>Task:</strong> Vanessa pulls a stuck suitcase. Vertical forces: F<sub>grav</sub> = F<sub>norm</sub> = 207 N (balanced). Horizontal: tension F<sub>tens</sub> = 182 N forwards, kinetic friction F<sub>frict</sub> = 166 N backwards. Find the net force, the mass and the acceleration.</p>
+                    <p><strong>Step 1 &mdash; net force:</strong> F<sub>net</sub> = 182 &minus; 166 = <strong>16 N, forwards</strong>.</p>
+                    <p><strong>Step 2 &mdash; mass:</strong> weight = mg &rarr; m = 207/10 = <strong>20.7 kg</strong> (using data-sheet g = 10; with 9.81: 21.1 kg).</p>
+                    <p><strong>Step 3 &mdash; acceleration:</strong> a = F<sub>net</sub>/m = 16/20.7 = <strong>0.77 m/s&sup2;, forwards</strong> (0.76 with g = 9.81). Same direction as the net force &mdash; always.</p>
+                </div>
+            </details>
+
+            <details class="worked">
+                <summary>Worked example 3 &mdash; Newton's 3rd law pair hunt</summary>
+                <div class="worked-body">
+                    <p><strong>Task:</strong> Identify every Newton's 3rd law pair in the elephant-on-floor situation, and explain why the elephant's weight and the floor's support force are <em>not</em> a pair.</p>
+                    <p><strong>Pairs (act on different objects, same interaction):</strong> (1) Earth pulls elephant down &harr; elephant pulls Earth up. (2) Elephant pushes floor down &harr; floor pushes elephant up (the normal/support force).</p>
+                    <p><strong>Not a pair:</strong> F<sub>g</sub> (Earth&harr;elephant) and the support force (floor&harr;elephant) both act <em>on the elephant</em>, so they cannot be a 3rd-law pair. They happen to be equal in size because the elephant is not accelerating vertically &mdash; that is Newton's 1st/2nd law balance, not the 3rd law. Students who confuse these two ideas claim the forces "cancel as a pair"; they cancel because the net force is zero, not because they are partners.</p>
+                </div>
+            </details>
+
+            <div class="selfcheck" data-answer="2">
+                <div class="sc-tag">Interactive set &middot; Self-check 10</div>
+                <p class="sc-q">A box sits on a rough floor and a horizontal push of 30 N exactly equals the friction force. The box:</p>
+                <div class="sc-opt">A. Must accelerate in the direction of the push</div>
+                <div class="sc-opt">B. Is in equilibrium only if it is already moving</div>
+                <div class="sc-opt">C. Has zero net force, so it stays at rest or continues at constant velocity</div>
+                <div class="sc-opt">D. Experiences forces that violate Newton's 3rd law</div>
+                <div class="sc-feedback"><span class="sc-expl">Equal horizontal forces &rarr; F&#8339;et = 0 &rarr; balanced. Newton's 1st law: velocity does not change &mdash; whether that is rest or constant motion depends on what happened before, not on the forces now.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="1">
+                <div class="sc-tag">Interactive set &middot; Self-check 11</div>
+                <p class="sc-q">A 4 kg cart accelerates at 3 m/s&sup2;. The net force on it is:</p>
+                <div class="sc-opt">A. 0.75 N</div>
+                <div class="sc-opt">B. 12 N</div>
+                <div class="sc-opt">C. 7 N</div>
+                <div class="sc-opt">D. 40 N</div>
+                <div class="sc-feedback"><span class="sc-expl">F&#8339;et = ma = 4 &times; 3 = 12 N. Option C (7) adds the numbers instead of multiplying &mdash; forces multiply mass and acceleration, they never add them. Option D wrongly uses g = 10 as the acceleration.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="3">
+                <div class="sc-tag">Interactive set &middot; Self-check 12</div>
+                <p class="sc-q">A skydiver of mass 82.5 kg experiences 118 N of air resistance while falling. Taking down as positive and g = 10 m/s&sup2;, the acceleration is:</p>
+                <div class="sc-opt">A. 1.43 m/s&sup2; down</div>
+                <div class="sc-opt">B. 10 m/s&sup2; down</div>
+                <div class="sc-opt">C. 8.57 m/s&sup2; up</div>
+                <div class="sc-opt">D. 8.6 m/s&sup2; down</div>
+                <div class="sc-feedback"><span class="sc-expl">Weight = 82.5 &times; 10 = 825 N down; air resistance 118 N up; F&#8339;et = 825 &minus; 118 = 707 N down. a = 707/82.5 &asymp; 8.6 m/s&sup2; down. Always draw the FBD before dividing &mdash; the air resistance reduces the acceleration below g, it does not reverse it.</span></div>
+            </div>
+
+            <div class="callout warn">
+                <h4>Do not confuse</h4>
+                <p><strong>3rd-law pairs vs balanced forces.</strong> A 3rd-law pair always involves <em>two different objects</em> (A on B, B on A) &mdash; such a pair can never be "cancelled", because they act on different bodies. Balanced forces act on the <em>same</em> object and sum to zero. A question that asks "the weight of the book and the support of the table are an action-reaction pair &mdash; discuss" is fishing for exactly this distinction.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= GLOSSARY ================= -->
+    <section class="topic-section" id="glossary">
+        <div class="topic-header">
+            <div class="topic-num">REFERENCE</div>
+            <h2>Unit Keyword Glossary</h2>
+        </div>
+        <div class="topic-content">
+            <p>Every examinable keyword in the unit, defined in one line. Learn these definitions precisely &mdash; Criterion A "define" questions award marks only for the operational content (what it does / how it is measured), not for a vague paraphrase.</p>
+
+            <table>
+                <thead><tr><th>Keyword</th><th>Definition</th></tr></thead>
+                <tbody>
+                    <tr><td>Scalar</td><td>A quantity with magnitude only (e.g. distance, speed, mass)</td></tr>
+                    <tr><td>Vector</td><td>A quantity with both magnitude and direction (e.g. displacement, velocity, acceleration, force)</td></tr>
+                    <tr><td>Distance</td><td>The total length of path travelled &mdash; a scalar</td></tr>
+                    <tr><td>Displacement</td><td>The change in position: final position minus initial position &mdash; a vector</td></tr>
+                    <tr><td>Position</td><td>Where an object lies on a chosen number line at a given time</td></tr>
+                    <tr><td>Speed</td><td>Distance travelled per unit time (scalar)</td></tr>
+                    <tr><td>Velocity</td><td>Rate of change of position; speed in a stated direction (vector)</td></tr>
+                    <tr><td>Acceleration</td><td>Rate of change of velocity; a = &Delta;v/&Delta;t (vector)</td></tr>
+                    <tr><td>Delta (&Delta;)</td><td>Symbol meaning "change in" = final value minus initial value</td></tr>
+                    <tr><td>Constant velocity</td><td>Unchanging speed in a straight line; zero acceleration</td></tr>
+                    <tr><td>Uniform acceleration</td><td>Constant acceleration &mdash; velocity changes by equal amounts in equal times</td></tr>
+                    <tr><td>Free fall</td><td>Motion under gravity alone, with air resistance ignored; a = g</td></tr>
+                    <tr><td>Gradient</td><td>Rise divided by run on a graph; the slope of the line of best fit</td></tr>
+                    <tr><td>Line of best fit</td><td>A straight line or smooth curve drawn through scatter points to show the overall trend</td></tr>
+                    <tr><td>Outlier</td><td>A data point that deviates markedly from the pattern of the others</td></tr>
+                    <tr><td>Position&ndash;time graph</td><td>Graph of position against time; its gradient gives the velocity</td></tr>
+                    <tr><td>Velocity&ndash;time graph</td><td>Graph of velocity against time; gradient gives acceleration, area gives displacement</td></tr>
+                    <tr><td>Displacement&ndash;time (area)</td><td>The area between a v&ndash;t line and the time axis, equal to the displacement</td></tr>
+                    <tr><td>Force</td><td>A push or pull arising from an interaction between two objects; measured in newtons</td></tr>
+                    <tr><td>Net force (F<sub>net</sub>)</td><td>The vector sum of all forces acting on an object; causes acceleration when non-zero</td></tr>
+                    <tr><td>Balanced forces</td><td>Forces on one object that sum to zero, producing zero acceleration</td></tr>
+                    <tr><td>Unbalanced forces</td><td>Forces on one object with a non-zero sum, producing acceleration in the net direction</td></tr>
+                    <tr><td>Mass</td><td>The amount of matter in an object; scalar, measured in kg, constant everywhere</td></tr>
+                    <tr><td>Weight</td><td>The gravitational force on an object: F<sub>g</sub> = mg; vector, measured in N, varies with g</td></tr>
+                    <tr><td>Gravitational field strength (g)</td><td>Gravitational force per unit mass; &asymp; 9.81 N/kg on Earth (data sheet: 10 m/s&sup2;)</td></tr>
+                    <tr><td>Newton's 1st law</td><td>An object preserves its velocity unless acted on by a net force</td></tr>
+                    <tr><td>Newton's 2nd law</td><td>F<sub>net</sub> = ma; acceleration is proportional to net force and inversely proportional to mass</td></tr>
+                    <tr><td>Newton's 3rd law</td><td>Forces occur in equal-and-opposite pairs acting on two different objects</td></tr>
+                    <tr><td>Free-body diagram</td><td>A diagram of one object showing only the forces acting on that object</td></tr>
+                    <tr><td>Normal force</td><td>The support force perpendicular to a surface an object rests on</td></tr>
+                    <tr><td>Friction</td><td>A force opposing relative motion (or attempted motion) between surfaces in contact</td></tr>
+                    <tr><td>Air resistance (drag)</td><td>A fluid-force opposing an object's motion through air</td></tr>
+                    <tr><td>Newton (N)</td><td>The SI unit of force: the force that gives a 1 kg mass an acceleration of 1 m/s&sup2;</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout key">
+                <h4>Mechanics checklist &mdash; the fastest way to score</h4>
+                <p>For any graph question: <strong>check the axis labels first</strong>, then decide gradient or area. For any force question: <strong>draw the FBD first</strong>, then sum forces, then F = ma. For any SUVAT question: <strong>list u, v, a, s, t with signs and units</strong> before choosing an equation. Marks are awarded for the method as well as the number.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <div class="cta">
+        <h2>Ready to test yourself?</h2>
+        <p>Two timed assessments cover the whole unit, weighted across Criteria A&ndash;D. Both include instant marking, a full mark scheme and PDF export.</p>
+        <div class="btns">
+            <a href="m10-physics-motion-part1.html" class="btn btn-primary">Part 1: Graphs, Motion Graphs &amp; Kinematics &rarr;</a>
+            <a href="m10-physics-motion-part2.html" class="btn btn-secondary">Part 2: Forces &amp; Newton's Laws &rarr;</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        IB_Expert_ISSR &middot; IB MYP Physics &middot; M10 Session &middot; Motion, Models &amp; Mechanics<br>
+        <a href="/">&larr; Back to IB_Expert_ISSR Home</a>
+    </footer>
+
+
+<script>
+    // Interactive self-check sets: click an option for instant feedback.
+    (function () {
+        document.querySelectorAll('.selfcheck').forEach(function (box) {
+            var answer = parseInt(box.getAttribute('data-answer'), 10);
+            var opts = Array.prototype.slice.call(box.querySelectorAll('.sc-opt'));
+            var fb = box.querySelector('.sc-feedback');
+            var explEl = box.querySelector('.sc-expl');
+            if (!opts.length || !fb || !explEl) return;
+            var expl = explEl.innerHTML;
+            opts.forEach(function (opt, i) {
+                opt.addEventListener('click', function () {
+                    if (box.getAttribute('data-done') === '1') return;
+                    box.setAttribute('data-done', '1');
+                    if (i === answer) {
+                        opt.classList.add('correct');
+                        fb.className = 'sc-feedback ok';
+                        fb.innerHTML = '<strong>Correct.</strong> ' + expl;
+                    } else {
+                        opt.classList.add('wrong');
+                        if (opts[answer]) opts[answer].classList.add('reveal');
+                        fb.className = 'sc-feedback no';
+                        fb.innerHTML = '<strong>Not quite.</strong> ' + expl;
+                    }
+                });
+            });
+        });
+    })();
+</script>
+
+</div>
+</body>
+</html>

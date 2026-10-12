@@ -1,0 +1,64 @@
+Look for this site and related contect - Topics, balance and forces, Speed, velocity, acceleration
+https://www.gradegorilla.com/micro/forces/M_speed.php
+https://www.gradegorilla.com/micro/forces/M_motionGraphs.php
+https://www.gradegorilla.com/micro/forces/M_balancing.php
+https://www.gradegorilla.com/microIB25/Aforces/M_forces.php
+
+https://www.physicsclassroom.com/concept-builder/1d-kinematics/position-time-graphs-numerical-analysis/launch
+https://www.physicsclassroom.com/concept-builder/newtons-laws
+
+
+
+
+MYP10 Physics Motion, Models, Mechanics
+Content checklist
+Note: The best way to study this content is to work with applying the concepts to answer questions. 
+
+To study for the test, I recommend working on the practice tests posted on Managebac as well as the various homework and in-class sets of questions. 
+Just memorising what is written in this summary is not enough to do well on the unit test. 
+Graphs and gradients
+I can look at a (scatter) graph and decide whether the line of best fit is appropriate for data points. 
+I know that a line of best fit can be a straight line, or a curve. 
+Given a graph with a straight line of best fit, I can calculate the gradient of the line by choosing two points, taking their coordinates, using the formula m=yx=y2-y1x2-x1
+I can state the units of the gradient based on the units on the graph. (Gradient units = “y units” / “x units”). 
+By looking at the shape of a graph I can identify whether the gradient is 
+Positive, negative, or zero. 
+Constant, increasing or decreasing. 
+Describing motion in 1 dimension -- variables (position, velocity, acceleration) 
+Number line: analysing motion starts with creating a number line for reference: choosing a point to be 0, and a positive and negative direction. 
+I can interpret position values as referring to where an object is on the number line at any given time. Units m (or cm, km etc)
+I can interpret velocity numbers as giving “the rate of change of position” and also the “speed and direction” of a moving object. Positive velocity means moving in the positive direction, negative velocity means moving in the negative direction. Units m/s
+I can interpret acceleration numbers as giving “the rate of change of velocity”. Positive acceleration means the velocity number is increasing, negative acceleration means the velocity number is decreasing. 
+I can use acceleration and velocity together to decide whether an object is speeding up or slowing down, using the following rule: an object speeds up when velocity and acceleration are in the same direction, i.e.g, have the same sign. The velocity value will be getting further away from zero velocity. An object slows down when velocity and acceleration are in oppositie directions. The velocity value will be getting closer to zero. 
+“Change in” any quantity means “final value - initial value”. Symbol  (“delta”) . 
+Describing motion in 1 dimension -- graphs 
+I can interpret the shape of position-time graphs by matching them to verbal descriptions of motion such as
+Constant velocity, changing velocity, speeding up, slowing down, at rest, constant speed. 
+I can interpret the shape of velocity-time graphs by matching them to verbal descriptions of motion such as 
+Constant velocity, changing velocity, speeding up, slowing down, at rest, constant acceleration. 
+I can draw a position-time graph for constant velocity motion, given a starting position and a velocity. 
+I can find an object’s velocity by finding the gradient of a position-time graph. 
+I can find an object’s acceleration by finding the gradient of a velocity-time graph. 
+I can find an object’s change in position by finding the area under a velocity-time graph. 
+Describing motion in 1 dimension -- formulae 
+Also see formula sheet! 
+I can use the formula speed =distancetime
+I can apply the formula velocity=change in positionchange in time.
+I can apply the formula acceleration=change in velocitychange in time
+I can recognise a question which can be solved using the “uvast” formulae (motion with constant acceleration in a straight line). 
+I can solve simple problems with the “uvast” formulae, if I am told which formula to use. 
+I can solve more complex problems with “uvast” formulae, using the problem-solving strategy modelled in class. 
+Balanced and unbalanced forces
+I know that a force is a push or pull interaction between two objects. 
+I can identify pairs of forces acting between the same two objects, which are equal because of Newton’s 3rd law. (e.g. the force of the book on the table, the force of the table on the book.) 
+I can judge whether the forces acting on an object are balanced or unbalanced by considering whether the object has constant or changing velocity. 
+I can predict whether an object’s velocity will be constant or changing by knowing whether forces are balanced or unbalanced. (Newton’s 1st law)
+I can calculate gravitational force acting on an object using the formula Fg=mg
+Given a force diagram showing forces acting on one object, I can 
+Say whether the forces are balanced or unbalanced. 
+Find the direction of the net force. 
+Find the value of the net force in Newtons
+(We will only consider force diagrams where all forces are either vertical or horizontal. Diagonal forces come next year!) 
+I can calculate an acceleration value from net force and mass using the formula Fnet=ma (Newton’s 2nd law)
+
+

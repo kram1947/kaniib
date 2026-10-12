@@ -50,6 +50,7 @@ function extractQuestionsLiteral(js) {
         if (inStr) { if (c === inStr) inStr = null; continue; }
         if (c === '"' || c === "'" || c === '`') { inStr = c; continue; }
         if (c === '/' && js[i + 1] === '/') { const e = js.indexOf('\n', i); i = e < 0 ? js.length : e; continue; }
+        if (c === '/' && js[i + 1] === '*') { const e = js.indexOf('*/', i + 2); i = e < 0 ? js.length : e + 1; continue; }
         if (c === '[') depth++;
         else if (c === ']') { depth--; if (depth === 0) return js.slice(open, i + 1); }
     }

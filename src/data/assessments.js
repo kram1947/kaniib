@@ -13,6 +13,9 @@ export const topicsData = [
   { id: 'evolution', name: 'Evolution', icon: '🦎', color: 'rgba(16, 185, 129, 0.15)' },
   { id: 'data-analysis', name: 'Galápagos Data', icon: '📈', color: 'rgba(139, 92, 246, 0.15)' },
   { id: 'mutations', name: 'Mutations & Humans', icon: '🧬', color: 'rgba(236, 72, 153, 0.15)' },
+  { id: 'physics-graphs', name: 'Graphs & Motion Graphs', icon: '📈', color: 'rgba(6, 182, 212, 0.15)' },
+  { id: 'physics-kinematics', name: 'Speed, Velocity & SUVAT', icon: '🚀', color: 'rgba(245, 158, 11, 0.15)' },
+  { id: 'physics-forces', name: "Forces & Newton's Laws", icon: '⚖️', color: 'rgba(139, 92, 246, 0.15)' },
 ];
 
 // Hierarchy for the "Explore by Topic" sidebar: subject domain > topic.
@@ -26,10 +29,16 @@ export const topicGroupsData = [
     topicIds: ['number', 'algebra', 'geometry', 'trigonometry', 'probability', 'statistics']
   },
   {
-    id: 'grp-science',
-    name: 'Science',
-    icon: '🔬',
+    id: 'grp-biology',
+    name: 'Biology',
+    icon: '🧬',
     topicIds: ['biodiversity', 'origin-of-life', 'populations', 'evolution', 'data-analysis', 'mutations']
+  },
+  {
+    id: 'grp-physics',
+    name: 'Physics',
+    icon: '⚛️',
+    topicIds: ['physics-graphs', 'physics-kinematics', 'physics-forces']
   },
   {
     id: 'grp-society',
@@ -309,6 +318,57 @@ export const assessmentsData = [
     category: 'm10',
     badge: 'M10 Science',
     icon: '🦎',
+    iconBg: 'science',
+    subject: 'science'
+  },
+  {
+    id: 17,
+    title: 'M10 Physics: Motion, Models & Mechanics — Study Material',
+    description: 'Complete M10 Physics study unit with interactive self-checks: graphs and gradients, position/velocity/acceleration in 1D, position–time and velocity–time graphs, the SUVAT equations, free fall, Newton’s three laws, free-body diagrams and F = ma.',
+    topics: ['Graphs', 'Motion Graphs', 'SUVAT', "Newton's Laws"],
+    topicIds: ['physics-graphs', 'physics-kinematics', 'physics-forces'],
+    questionCount: 0,
+    time: 'Self-paced',
+    marks: 0,
+    difficulty: 0,
+    href: 'assessments/m10-physics-motion-study.html',
+    category: 'm10',
+    badge: 'M10 Physics',
+    icon: '⚛️',
+    iconBg: 'science',
+    subject: 'science'
+  },
+  {
+    id: 18,
+    title: 'Motion Graphs & Kinematics — Part 1',
+    description: 'Gradients and lines of best fit, position–time and velocity–time graph reading (slope and area), the speeding-up/slowing-down sign rule, SI units and conversions, free fall with g = 10 m/s², and multi-step SUVAT problem solving.',
+    topics: ['Graphs & Gradients', 'Motion Graphs', 'Kinematics', 'SUVAT'],
+    topicIds: ['physics-graphs', 'physics-kinematics'],
+    questionCount: 30,
+    time: '90',
+    marks: 110,
+    difficulty: 4,
+    href: 'assessments/m10-physics-motion-part1.html',
+    category: 'm10',
+    badge: 'M10 Physics',
+    icon: '📈',
+    iconBg: 'science',
+    subject: 'science'
+  },
+  {
+    id: 19,
+    title: "Forces & Newton's Laws — Part 2",
+    description: "Newton's three laws, balanced vs unbalanced forces, free-body diagrams, mass vs weight, F_net = ma and F_g = mg calculations, Newton's 3rd-law pair traps, proportionality reasoning, and a combined mechanics extended problem.",
+    topics: ["Newton's Laws", 'Forces & FBD', 'F = ma Calculations', 'Mixed Mechanics'],
+    topicIds: ['physics-forces', 'physics-kinematics'],
+    questionCount: 30,
+    time: '90',
+    marks: 112,
+    difficulty: 5,
+    href: 'assessments/m10-physics-motion-part2.html',
+    category: 'm10',
+    badge: 'M10 Physics',
+    icon: '⚖️',
     iconBg: 'science',
     subject: 'science'
   },
