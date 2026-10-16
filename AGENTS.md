@@ -11,8 +11,7 @@ Working reference for this repository. **Keep it accurate** — a stale line her
 
 > Brand is now `IB_Expert_ISSR` in all user-facing copy, including `index.html`'s title.
 > Do **not** rename the lowercase `kanimath_*` localStorage keys — doing so orphans every
-> student's saved attempt history. The literal credential `Kanimath@123` in the security
-> notes below is a historical record, not brand copy.
+> student's saved attempt history.
 
 ---
 
@@ -179,7 +178,8 @@ npm run validate
 > **URGENT — live credential exposure on `kaniib.vercel.app` (verified 2026-09-27).**
 > That domain still returns 200 and serves a **pre-auth-removal** bundle
 > (`/assets/index-DiHIj6vr.js`, ~405 kB) which contains the deleted
-> `AuthContext.jsx` **hardcoded password `Kanimath@123` in plain text**, plus
+> `AuthContext.jsx` **a hardcoded admin password in plain text** (literal redacted —
+> treat as compromised), plus
 > `@supabase/supabase-js` and `syncAuthCookie`. Anyone can read it by loading
 > the site — no login needed. Removing the file from git did not retract the
 > already-built bundle. **The only fix is deleting the Vercel project /
@@ -206,7 +206,7 @@ The local Vercel CLI token (`%APPDATA%\com.vercel.cli\Data\auth.json`) returns *
 
 ### Repaired (for reference — do not regress)
 - **Auth removed entirely** (2026-09-27). The Supabase project was gone, so the gate was dead weight: `middleware.ts` redirected every page to `/login`, and no login could ever satisfy it, because `syncAuthCookie` needed `session.access_token` that the local session never had. Deleted `middleware.ts`, `AuthContext.jsx`, `ProtectedRoute.jsx`, `lib/supabase.js`, `src/pages/auth/*`, `api/auth/*`, the `auth-*` and `navbar-user/logout` CSS, and the `@supabase/supabase-js` + `jose` deps. Bundle fell 405.7 kB → 184.0 kB.
-- **`AuthContext.jsx` had a hardcoded password in public Git** (`admin` / `Kanimath@123`) present since `050077c`. It is gone with the file, but treat that string as compromised anywhere else it was reused.
+- **`AuthContext.jsx` had a hardcoded password in public Git** (`admin` / [REDACTED]) present since `050077c`. It is gone with the file, but the literal remains in git history — treat that credential as permanently compromised anywhere it was reused; rotate it rather than relying on this scrub.
 - **5 assessments had a JavaScript syntax error and no quiz engine at all:** `myp4-statistics`, `myp4-comprehensive`, `myp4-sets-venn-probability`, `myp4-sets-venn-probability-advanced`, `myp4-statistics-elite`. Each had (a) a stray `});` with no opener, and (b) an orphaned `');` fragment inside `startQuiz()` where `document.getElementById('start-screen').classList.add('hidden');` belongs — evidence of an earlier bad edit. All now parse, have balanced braces, and execute `startQuiz()`.
 - **Registry `id: 7` ("Supply & Demand") pointed at the study page** `myp4-ins-supply-demand.html` (no quiz) while advertising 20 questions. Now points at `myp4-ins-supply-demand-assessment.html`.
 - **Wrong answer key** in `myp4-sets-venn-probability.html` (3-set Venn "exactly one instrument"): key was `170`, but the item's own working gives `250`. Corrected to `250`.
