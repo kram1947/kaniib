@@ -30,6 +30,9 @@ export default function Navbar() {
         <NavLink to="/study-timeline" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={() => setMobileOpen(false)}>
           Study Timeline
         </NavLink>
+        <NavLink to="/study-timeline/chemistry" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={() => setMobileOpen(false)}>
+          Chemistry Timeline
+        </NavLink>
       </div>
     </nav>
   );
