@@ -1,0 +1,305 @@
+Study Mode
+26/27 Unit 2: Quadratic models
+ Starts W3 Oct
+Current Unit
+6 Weeks
+0
+Lessons
+0
+Tasks
+Lessons & Resources
+
+No Resources in Stream
+At-a-Glance
+26/27 Unit 2: Quadratic models
+2 of 6
+weeks
+Description
+
+This unit focuses on a special model with many applications: quadratics. It is a continuation from Unit 2 with regards to the algebraic tools and the geometric connection to the Cartesian coordinate system. 
+
+*Key Concepts
+Form
+*Related Concept(s)
+Equivalence, Patterns, Change
+
+*Global Context
+Scientific and technical innovation
+
+
+Exploration to Develop:
+
+Models
+Adaptation
+Principles and discoveries
+*Content (topics, knowledge, skills)
+Algebraic expressions
+
+Expansion, simplification, factoring
+
+Difference of two squares
+
+Binomial squares
+
+Simplifying algebraic fractions and binomials
+
+
+
+Solving quadratic equations:
+
+Factorization
+
+Completing  the square
+
+Quadratic  formula
+
+Solving with GDC
+
+
+
+Parabolas
+
+Parabolas
+
+Axes intercepts
+
+Axis of symmetry, vertex
+
+Forms
+
+Determine quadratics
+
+Problem solving
+
+
+
+Imaginary and complex numbers (extended only)
+
+Show More 
+Skills
+Algebraic expressions
+
+Expansion, simplification, factoring
+
+Difference of two squares
+
+Binomial squares
+
+Simplifying algebraic fractions and binomials
+
+
+
+Solving quadratic equations:
+
+Factorization
+
+Completing  the square
+
+Quadratic  formula
+
+Solving with GDC
+
+
+
+Parabolas
+
+Parabolas
+
+Axes intercepts
+
+Axis of symmetry, vertex
+
+Forms
+
+Determine quadratics
+
+Problem solving
+
+
+
+Imaginary and complex numbers (extended only)
+
+Show Less 
+IB Learner Profile
+Communicators
+*MYP Assessment Criteria
+A: Knowing and understanding
+B: Investigating patterns
+C: Communicating
+Description
+
+*Conceptual Understanding
+In this unit we are exploring how principles and discoveries help shape models through adaptation to the context. We see how the form of a quadratic equation influences what patterns we see and how, while there is equivalence between different forms of equations, they are differently suitable to different questions. The shape of the parabola invites studetns to ask questions about change, contrasting the changing gradient of a parabola with the constant gradient of a linear function. The parabola represents an idealized model of movement through the air, which is in contrast both to Aristotle's views from Ancient times, but also to the observations made when air resistance is non-negligible. This formed part of the discovery of modern mechanics and will prompt reflection on what makes a good model,in different contexts.
+
+*Statement of Inquiry
+Quadratic equations are important models in many situations, and can be written in different forms. These forms, while equivalent, show different patterns and describe the change in variables in different ways. Adaptation of a model to suit a particular problem enables discoveries such as the principles of motion. It was also historically a driving force behind the need to rigorously understand how infinitesimal Changes can be described mathematically.
+
+*Inquiry Questions
+Type	Inquiry Questions
+Factual
+What is the connection between different forms of quadratic equations?
+Factual
+How much information do I need to fully describe different kinds of polynomials?
+Factual
+How can we interpret the parameters in different forms of quadratic equations?
+Conceptual
+How do we interpret the negative solution in cases of physical models?
+Conceptual
+What do we mean by a function?
+Debatable
+Are imaginary numbers more made up than for instance negative integers?
+Debatable
+Are some ways of solving a quadratic equation better than others?
+*ATL skills
+Communication
+1. Communication skills
+(1.2) Reading, writing and using language to gather and communicate information
+(1.2.f) Understand and use mathematical notation
+Thinking
+5a. Critical thinking skills
+(5.1) Analysing and evaluating issues and ideas
+(5.1.q) Use models and simulations to explore complex systems and issues
+
+
+Assessment
+
+26/27 Unit 2: Quadratic models
+
+ 6 Weeks
+ Last updated on Sep 22, 2026 by Wilhelm Tunemyr
+Unit Template:
+Standard
+Subjects:
+Standard Mathematics
+Grade:
+Grade 10
+Start date:
+Week 3, October
+Duration:
+6 Weeks
+*Key Concepts
+ Form is the shape and underlying structure of an entity or piece of work, including its organization, essential nature and external appearance.
+
+*Related Concept(s)
+Equivalence, Patterns, Change
+
+*Global Context
+Scientific and technical innovation
+*Content (topics, knowledge, skills)
+Algebraic expressions
+
+Expansion, simplification, factoring
+
+Difference of two squares
+
+Binomial squares
+
+Simplifying algebraic fractions and binomials
+
+
+
+Solving quadratic equations:
+
+Factorization
+
+Completing  the square
+
+Quadratic  formula
+
+Solving with GDC
+
+
+
+Parabolas
+
+Parabolas
+
+Axes intercepts
+
+Axis of symmetry, vertex
+
+Forms
+
+Determine quadratics
+
+Problem solving
+
+
+
+Imaginary and complex numbers (extended only)
+
+Skills
+Algebraic expressions
+
+Expansion, simplification, factoring
+
+Difference of two squares
+
+Binomial squares
+
+Simplifying algebraic fractions and binomials
+
+
+
+Solving quadratic equations:
+
+Factorization
+
+Completing  the square
+
+Quadratic  formula
+
+Solving with GDC
+
+
+
+Parabolas
+
+Parabolas
+
+Axes intercepts
+
+Axis of symmetry, vertex
+
+Forms
+
+Determine quadratics
+
+Problem solving
+
+
+
+Imaginary and complex numbers (extended only)
+
+IB Learner Profile
+Communicators
+*MYP Assessment Criteria
+A: Knowing and understanding
+B: Investigating patterns
+C: Communicating
+Description
+
+*Conceptual Understanding
+In this unit we are exploring how principles and discoveries help shape models through adaptation to the context. We see how the form of a quadratic equation influences what patterns we see and how, while there is equivalence between different forms of equations, they are differently suitable to different questions. The shape of the parabola invites studetns to ask questions about change, contrasting the changing gradient of a parabola with the constant gradient of a linear function. The parabola represents an idealized model of movement through the air, which is in contrast both to Aristotle's views from Ancient times, but also to the observations made when air resistance is non-negligible. This formed part of the discovery of modern mechanics and will prompt reflection on what makes a good model,in different contexts.
+
+*Statement of Inquiry
+Quadratic equations are important models in many situations, and can be written in different forms. These forms, while equivalent, show different patterns and describe the change in variables in different ways. Adaptation of a model to suit a particular problem enables discoveries such as the principles of motion. It was also historically a driving force behind the need to rigorously understand how infinitesimal Changes can be described mathematically.
+
+*Inquiry Questions
+Factual What is the connection between different forms of quadratic equations?
+
+Factual How much information do I need to fully describe different kinds of polynomials?
+
+Factual How can we interpret the parameters in different forms of quadratic equations?
+
+Conceptual How do we interpret the negative solution in cases of physical models?
+
+Conceptual What do we mean by a function?
+
+Debatable Are imaginary numbers more made up than for instance negative integers?
+
+Debatable Are some ways of solving a quadratic equation better than others?
+
+*ATL skills
+Communication
+Thinking
