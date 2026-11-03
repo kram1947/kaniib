@@ -1432,6 +1432,406 @@
             color: var(--primary-light);
         }
 
+        /* Chemistry Gantt Timeline */
+        .chem-timeline-page {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .chem-timeline-header {
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .chem-timeline-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--secondary-light);
+            margin-bottom: 16px;
+        }
+
+        .chem-timeline-badge .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--secondary-light);
+            border-radius: 50%;
+        }
+
+        .chem-timeline-header h1 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .chem-timeline-desc {
+            color: var(--text-secondary);
+            font-size: 15px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .chem-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 40px;
+        }
+
+        .chem-meta-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px 16px;
+            transition: all 0.2s;
+        }
+
+        .chem-meta-card:hover {
+            border-color: var(--primary);
+        }
+
+        .chem-meta-card-wide {
+            grid-column: span 4;
+        }
+
+        .chem-meta-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .chem-meta-value {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            word-break: break-word;
+        }
+
+        /* Gantt chart */
+        .chem-gantt {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .gantt-header {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            padding: 14px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            background: var(--bg-dark);
+        }
+
+        .gantt-label-col {
+            width: 260px;
+            flex-shrink: 0;
+            padding-right: 12px;
+        }
+
+        .gantt-time-scale {
+            display: flex;
+            flex: 1;
+            border-left: 1px solid var(--border-light);
+        }
+
+        .gantt-week {
+            width: 5%;
+            min-width: 30px;
+            text-align: center;
+            border-right: 1px solid var(--border-light);
+            padding: 4px 0;
+        }
+
+        .gantt-week-num {
+            font-size: 11px;
+        }
+
+        .gantt-body {
+            display: flex;
+        }
+
+        .gantt-labels {
+            width: 260px;
+            flex-shrink: 0;
+            border-right: 1px solid var(--border);
+            overflow-y: auto;
+            max-height: 520px;
+        }
+
+        .gantt-category {
+            padding: 10px 16px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .gantt-chart {
+            flex: 1;
+            position: relative;
+            overflow-y: auto;
+            max-height: 520px;
+        }
+
+        .gantt-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            z-index: 0;
+        }
+
+        .gantt-week-col {
+            width: 5%;
+            min-width: 30px;
+            border-right: 1px solid var(--border-light);
+            height: 26px;
+        }
+
+        .gantt-week-col:nth-child(odd) {
+            background: rgba(255, 255, 255, 0.015);
+        }
+
+        .gantt-milestones-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 26px;
+            z-index: 1;
+            pointer-events: none;
+            display: flex;
+        }
+
+        .gantt-row {
+            display: flex;
+            align-items: center;
+            height: 44px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .gantt-row:last-child {
+            border-bottom: none;
+        }
+
+        .gantt-row:hover {
+            background: rgba(99, 102, 241, 0.06);
+        }
+
+        .gantt-label {
+            width: 260px;
+            flex-shrink: 0;
+            padding: 0 16px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .gantt-bar-track {
+            flex: 1;
+            position: relative;
+            height: 20px;
+            padding-left: 2px;
+        }
+
+        .gantt-bar {
+            position: absolute;
+            top: 2px;
+            height: 16px;
+            border-radius: 4px;
+            z-index: 2;
+        }
+
+        .gantt-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            border-radius: 4px;
+            z-index: 3;
+        }
+
+        .gantt-progress-label {
+            position: absolute;
+            top: 50%;
+            left: 6px;
+            transform: translateY(-50%);
+            font-size: 10px;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.9);
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .gantt-meta {
+            width: 120px;
+            flex-shrink: 0;
+            padding: 0 12px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .gantt-range {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .gantt-milestone {
+            position: absolute;
+            top: 0;
+            height: 26px;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: auto;
+        }
+
+        .gantt-milestone-diamond {
+            width: 14px;
+            height: 14px;
+            background: var(--primary-light);
+            border: 2px solid var(--bg-card);
+            border-radius: 2px;
+            transform: rotate(45deg);
+            box-shadow: 0 2px 6px rgba(99, 102, 241, 0.35);
+        }
+
+        .gantt-milestone-label {
+            position: absolute;
+            top: 22px;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--primary-light);
+            white-space: nowrap;
+            transform: translateX(-50%);
+        }
+
+        .gantt-legend {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            padding: 16px;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+
+        .gantt-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* Weekly focus panel */
+        .chem-weekly-focus {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .chem-weekly-focus h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .weekly-focus-card {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .focus-title {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        .focus-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+        }
+
+        .focus-progress {
+            margin-bottom: 22px;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 10px;
+            background: var(--border-light);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 6px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .focus-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive gantt */
+        @media (max-width: 900px) {
+            .chem-meta-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .meta-card.wide {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .chem-meta-grid {
+                grid-template-columns: 1fr;
+            }
+            .meta-card.wide {
+                grid-column: span 1;
+            }
+        }
+
         /* Responsive timeline */
         @media (max-width: 768px) {
             .timeline-meta-grid {
