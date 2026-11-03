@@ -1123,6 +1123,334 @@
             opacity: 0.5;
         }
 
+        /* Study Timeline Page */
+        .timeline-page {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-header {
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .timeline-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary-light);
+            margin-bottom: 16px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-light);
+            border-radius: 50%;
+        }
+
+        .timeline-header h1 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 15px;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .timeline-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 40px;
+        }
+
+        .meta-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px 16px;
+            transition: all 0.2s;
+        }
+
+        .meta-card:hover {
+            border-color: var(--primary);
+        }
+
+        .meta-card.wide {
+            grid-column: span 3;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .meta-value {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            word-break: break-word;
+        }
+
+        /* Timeline chart */
+        .timeline-chart {
+            position: relative;
+            margin-bottom: 48px;
+        }
+
+        .timeline-axis {
+            width: 100%;
+            height: 2px;
+            display: block;
+            margin-bottom: 24px;
+        }
+
+        .timeline-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            background: var(--border-light);
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 3px solid var(--bg-card);
+            z-index: 2;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .timeline-dot.upcoming {
+            background: transparent;
+            border-color: var(--border-light);
+        }
+
+        .timeline-dot.current {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+        }
+
+        .timeline-dot.past {
+            background: var(--secondary-light);
+            border-color: var(--secondary);
+        }
+
+        .timeline-content {
+            position: relative;
+            z-index: 1;
+            width: 44%;
+            padding: 14px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin: 0 auto;
+            transition: all 0.3s;
+        }
+
+        .timeline-content.side-top {
+            margin-bottom: 30px;
+        }
+
+        .timeline-content.side-bottom {
+            margin-top: 30px;
+        }
+
+        .timeline-week {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--primary-light);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .timeline-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+
+        .timeline-subtitle {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .timeline-meta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .timeline-date {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .timeline-status {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .timeline-status.upcoming {
+            background: rgba(107, 114, 128, 0.15);
+            color: var(--text-muted);
+        }
+
+        .timeline-status.current {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary-light);
+        }
+
+        .timeline-status.past {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--secondary-light);
+        }
+
+        /* Weekly focus panel */
+        .timeline-weekly-focus {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .timeline-weekly-focus h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .weekly-focus-card {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .focus-title {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        .focus-subtitle {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .focus-schedule {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 22px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .focus-label {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 11px;
+        }
+
+        .focus-date {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .focus-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary-light);
+        }
+
+        /* Responsive timeline */
+        @media (max-width: 768px) {
+            .timeline-meta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .meta-card.wide {
+                grid-column: span 1;
+            }
+
+            .timeline-content {
+                width: 90%;
+            }
+
+            .timeline-weekly-focus {
+                padding: 20px 16px;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .navbar {
