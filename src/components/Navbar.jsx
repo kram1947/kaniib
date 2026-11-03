@@ -27,6 +27,9 @@ export default function Navbar() {
         <NavLink to="/features" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={() => setMobileOpen(false)}>
           Features
         </NavLink>
+        <NavLink to="/study-timeline" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={() => setMobileOpen(false)}>
+          Study Timeline
+        </NavLink>
       </div>
     </nav>
   );
