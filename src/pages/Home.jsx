@@ -4,7 +4,6 @@ import HeroSection from '../sections/HeroSection';
 import StatsSection from '../sections/StatsSection';
 import TopicsBrowser from '../sections/TopicsBrowser';
 import AssessmentGrid from '../sections/AssessmentGrid';
-import FeaturesSection from '../sections/FeaturesSection';
 import SiteFooter from '../sections/SiteFooter';
 
 export default function Home() {
@@ -68,7 +67,6 @@ export default function Home() {
         </main>
       </div>
 
-      <FeaturesSection />
       <SiteFooter />
     </div>
   );

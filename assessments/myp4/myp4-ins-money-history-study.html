@@ -95,6 +95,21 @@
             margin-bottom: 20px;
         }
 
+        .home-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            transition: opacity 0.2s;
+        }
+        .home-btn:hover { opacity: 0.9; }
+
         .topic-section {
             background: var(--bg-card);
             border-radius: 16px;
@@ -579,6 +594,8 @@
                 </div>
             </div>
         </header>
+
+        <a href="/" class="home-btn">&larr; Home</a>
 
         <section class="topic-section" id="framework">
             <h2><span class="icon">🎯</span> IB MYP Framework</h2>

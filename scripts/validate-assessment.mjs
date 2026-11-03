@@ -208,11 +208,19 @@ function validateFile(path) {
 /* -------------------------------------------------------------------- main */
 
 const args = process.argv.slice(2);
-const targets = args.length
-    ? args
-    : readdirSync(ASSESSMENTS_DIR)
-        .filter((f) => f.endsWith('.html') && f !== 'original_index.html')
-        .map((f) => join(ASSESSMENTS_DIR, f));
+
+/** Walk assessments/ recursively: files now live in subject subfolders. */
+function collectHtml(dir) {
+    const out = [];
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+        const full = join(dir, entry.name);
+        if (entry.isDirectory()) out.push(...collectHtml(full));
+        else if (entry.name.endsWith('.html') && entry.name !== 'original_index.html') out.push(full);
+    }
+    return out;
+}
+
+const targets = args.length ? args : collectHtml(ASSESSMENTS_DIR);
 
 console.log(`Validating ${targets.length} file(s) in ${ASSESSMENTS_DIR}/\n`);
 

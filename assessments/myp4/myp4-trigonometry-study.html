@@ -151,6 +151,13 @@
         }
         .topic-nav-item:hover { border-color: var(--primary); color: var(--primary-light); background: var(--bg-card-hover); }
 
+        .topic-nav-item.home-btn {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+        }
+        .topic-nav-item.home-btn:hover { opacity: 0.9; color: #fff; }
+
         .section { padding: 3rem 0; border-bottom: 1px solid var(--border); }
         .section:last-child { border-bottom: none; }
 
@@ -393,6 +400,7 @@
             <h1>📐 Trigonometry</h1>
             <p>Master the mathematics of triangles, angles, and real-world applications. Based on Haese Mathematics 9 MYP4 curriculum with interactive diagrams and practical examples.</p>
             <div class="topic-nav">
+                <a href="/" class="topic-nav-item home-btn">&larr; Home</a>
                 <a href="#basics" class="topic-nav-item">SOHCAHTOA</a>
                 <a href="#angles" class="topic-nav-item">Angles of Elevation</a>
                 <a href="#bearings" class="topic-nav-item">Bearings</a>

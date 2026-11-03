@@ -121,6 +121,13 @@
 
         .section-nav a:hover { border-color: var(--primary); color: var(--primary); }
 
+        .section-nav a.home-btn {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+        }
+        .section-nav a.home-btn:hover { opacity: 0.9; color: #fff; }
+
         /* ---------- Topic sections ---------- */
         .topic-section {
             margin-bottom: 28px;
@@ -566,6 +573,7 @@
     </header>
 
     <nav class="section-nav">
+        <a href="/" class="home-btn">&larr; Home</a>
         <a href="#s1">1. Graphs &amp; Gradients</a>
         <a href="#s2">2. Motion Variables</a>
         <a href="#s3">3. Motion Graphs</a>

@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IB MYP Mathematics - Quadratic Equations &amp; Models (M10) - Study Material</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --secondary: #06b6d4;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #475569;
+            --accent-violet: #8b5cf6;
+            --accent-pink: #ec4899;
+            --accent-amber: #f59e0b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .container { max-width: 1060px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        /* ---------- Header ---------- */
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding: 44px 32px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.16), rgba(6, 182, 212, 0.1));
+            border-radius: 20px;
+            border: 1px solid var(--primary);
+        }
+
+        .header .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            line-height: 1.25;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle { font-size: 17px; color: var(--text-secondary); margin-bottom: 24px; }
+
+        .header-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .header-meta span {
+            padding: 8px 16px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .header-meta span strong { color: var(--primary); }
+
+        /* ---------- Sticky section nav ---------- */
+        .section-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(15, 23, 42, 0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            margin: 0 -24px 32px;
+            padding: 12px 24px;
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+        }
+
+        .section-nav a {
+            flex-shrink: 0;
+            padding: 8px 14px;
+            border-radius: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .section-nav a:hover { border-color: var(--primary); color: var(--primary); }
+
+        .section-nav a.home-btn {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+        }
+        .section-nav a.home-btn:hover { opacity: 0.9; color: #fff; }
+
+        /* ---------- Topic sections ---------- */
+        .topic-section {
+            margin-bottom: 28px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            scroll-margin-top: 70px;
+        }
+
+        .topic-header {
+            padding: 24px 28px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(6, 182, 212, 0.06));
+            border-bottom: 1px solid var(--border);
+        }
+
+        .topic-num {
+            display: inline-block;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            color: var(--secondary);
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .topic-header h2 { font-size: 24px; font-weight: 700; }
+
+        .topic-content { padding: 28px; }
+
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 26px 0 12px;
+            padding-left: 12px;
+            border-left: 3px solid var(--primary);
+        }
+
+        h3:first-child { margin-top: 0; }
+
+        h4 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin: 18px 0 8px; }
+
+        p { margin-bottom: 12px; color: var(--text-secondary); }
+        p strong, li strong { color: var(--text-primary); }
+
+        ul, ol { margin: 0 0 14px 22px; color: var(--text-secondary); }
+        li { margin-bottom: 7px; }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            background: var(--bg-dark);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--secondary);
+        }
+
+        /* ---------- Tables ---------- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0 20px;
+            font-size: 14px;
+        }
+
+        th {
+            background: var(--bg-dark);
+            color: var(--primary);
+            text-align: left;
+            padding: 12px 14px;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 11px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+
+        tr:hover td { background: rgba(16, 185, 129, 0.05); }
+
+        /* ---------- Callouts ---------- */
+        .callout {
+            border-left: 3px solid var(--secondary);
+            background: rgba(6, 182, 212, 0.08);
+            padding: 16px 18px;
+            border-radius: 0 10px 10px 0;
+            margin: 16px 0;
+        }
+
+        .callout.key { border-left-color: var(--primary); background: rgba(16, 185, 129, 0.09); }
+        .callout.exam { border-left-color: var(--accent-amber); background: rgba(245, 158, 11, 0.08); }
+        .callout.warn { border-left-color: var(--danger); background: rgba(239, 68, 68, 0.08); }
+
+        .callout h4 {
+            margin: 0 0 8px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .callout.key h4 { color: var(--primary); }
+        .callout.exam h4 { color: var(--accent-amber); }
+        .callout.warn h4 { color: var(--danger); }
+        .callout h4:not(.key):not(.exam):not(.warn) { color: var(--secondary); }
+
+        .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+
+        /* ---------- Term grid ---------- */
+        .term-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+            margin: 14px 0 20px;
+        }
+
+        .term {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            transition: border-color 0.2s;
+        }
+
+        .term:hover { border-color: var(--primary); }
+
+        .term b {
+            display: block;
+            color: var(--primary);
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .term span { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+        /* ---------- Compare cards ---------- */
+        .compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        .compare .col {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .compare .col h4 { margin: 0 0 10px; font-size: 15px; }
+        .compare .col.a h4 { color: var(--secondary); }
+        .compare .col.b h4 { color: var(--accent-pink); }
+        .compare .col p { font-size: 14px; margin-bottom: 0; }
+
+        /* ---------- Figures (inline SVG) ---------- */
+        .fig {
+            margin: 20px 0 22px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 18px 14px;
+        }
+
+        .fig-title {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            color: var(--secondary);
+            margin-bottom: 12px;
+        }
+
+        .fig svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+        .fig-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 10px;
+            line-height: 1.55;
+        }
+
+        .fig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; }
+
+        /* shared SVG primitives - classes resolve against the page stylesheet */
+        svg .ax   { stroke: var(--border); stroke-width: 1; }
+        svg .gl   { stroke: var(--border); stroke-width: 1; stroke-dasharray: 3 3; opacity: .75; }
+        svg .tick { fill: var(--text-muted); font-size: 10px; font-family: 'Fira Code', monospace; }
+        svg .lbl  { fill: var(--text-secondary); font-size: 11px; font-family: 'Inter', sans-serif; }
+        svg .lbl-b{ fill: var(--text-primary); font-size: 11px; font-weight: 600; font-family: 'Inter', sans-serif; }
+        svg .ttl  { fill: var(--text-primary); font-size: 12px; font-weight: 700; font-family: 'Inter', sans-serif; }
+        svg .val  { fill: var(--secondary); font-size: 11px; font-weight: 600; font-family: 'Fira Code', monospace; }
+        svg .ln   { stroke: var(--primary); stroke-width: 2; fill: none; }
+        svg .ln-2 { stroke: var(--secondary); stroke-width: 2; fill: none; }
+        svg .fill-p { fill: rgba(16, 185, 129, .16); stroke: var(--primary); stroke-width: 1.5; }
+        svg .fill-c { fill: rgba(6, 182, 212, .14);  stroke: var(--secondary); stroke-width: 1.5; }
+        svg .fill-v { fill: rgba(139, 92, 246, .14);  stroke: var(--accent-violet); stroke-width: 1.5; }
+        svg .fill-a { fill: rgba(245, 158, 11, .14);  stroke: var(--accent-amber); stroke-width: 1.5; }
+        svg .fill-d { fill: rgba(239, 68, 68, .14);   stroke: var(--danger); stroke-width: 1.5; }
+        svg .arrow { stroke: var(--text-secondary); stroke-width: 1.6; fill: none; marker-end: url(#ah); }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary { background: var(--primary); color: #04211a; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .btn-secondary { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+        .cta {
+            margin: 40px 0;
+            padding: 36px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(6, 182, 212, 0.08));
+            border: 1px solid var(--primary);
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .cta h2 { font-size: 24px; margin-bottom: 8px; }
+        .cta p { margin-bottom: 24px; }
+        .cta .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .back-link:hover { color: var(--primary); }
+
+        .footer {
+            text-align: center;
+            padding: 32px 24px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .footer a { color: var(--primary); text-decoration: none; }
+
+        /* ---------- Print / mobile ---------- */
+        @media (max-width: 768px) {
+            .container { padding: 24px 16px 60px; }
+            .header { padding: 28px 20px; }
+            .header h1 { font-size: 27px; }
+            .topic-content { padding: 20px; }
+            .compare { grid-template-columns: 1fr; }
+            table { font-size: 13px; }
+            th, td { padding: 9px 10px; }
+            .fig { padding: 12px; }
+            .fig-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { background: #fff; color: #000; }
+            .section-nav, .btn, .cta { display: none; }
+            .topic-section { break-inside: avoid; border-color: #ccc; }
+            .fig { break-inside: avoid; background: #fff; border-color: #999; }
+            .fig svg { filter: none; }
+            svg .lbl, svg .tick, svg .lbl-b, svg .val { fill: #222; }
+            svg .ttl { fill: #000; }
+        }
+
+        /* ---------- Interactive self-check ---------- */
+        .selfcheck {
+            background: var(--bg-dark);
+            border: 1px solid var(--accent-violet);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin: 18px 0;
+        }
+        .selfcheck .sc-tag {
+            font-size: 11px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--accent-violet);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .selfcheck p.sc-q { color: var(--text-primary); font-weight: 500; margin-bottom: 12px; }
+        .sc-opt {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.15s;
+        }
+        .sc-opt:hover { border-color: var(--accent-violet); }
+        .sc-opt.correct { border-color: var(--primary); background: rgba(16,185,129,0.12); color: var(--text-primary); }
+        .sc-opt.wrong { border-color: var(--danger); background: rgba(239,68,68,0.10); color: var(--text-primary); }
+        .sc-opt.reveal { border-color: var(--primary); }
+        .sc-feedback { font-size: 13px; margin-top: 10px; padding: 10px 12px; border-radius: 8px; display: none; color: var(--text-secondary); line-height: 1.6; }
+        .sc-feedback.ok { display: block; background: rgba(16,185,129,0.10); border-left: 3px solid var(--primary); }
+        .sc-feedback.no { display: block; background: rgba(239,68,68,0.08); border-left: 3px solid var(--danger); }
+
+        /* ---------- Worked-example reveals ---------- */
+        .worked { margin: 16px 0; }
+        .worked summary {
+            cursor: pointer;
+            background: rgba(245,158,11,0.08);
+            border-left: 3px solid var(--accent-amber);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--accent-amber);
+            list-style: none;
+        }
+        .worked summary::-webkit-details-marker { display: none; }
+        .worked summary::before { content: '\25B8  '; }
+        .worked[open] summary::before { content: '\25BE  '; }
+        .worked .worked-body {
+            padding: 14px 18px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        .worked .worked-body p { margin-bottom: 8px; }
+        .worked .worked-body p:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <a href="/" class="back-link">&larr; Back to IB_Expert_ISSR Home</a>
+
+    <header class="header">
+        <div class="badge">IB MYP Mathematics &middot; M10 Session</div>
+        <h1>Quadratic Equations &amp; Models</h1>
+        <p class="subtitle">From factorising to the vertex form &mdash; reading, transforming and applying parabolas</p>
+        <div class="header-meta">
+            <span><strong>5</strong> topic groups</span>
+            <span><strong>Criterion A</strong> Knowing &amp; understanding</span>
+            <span><strong>Criterion B</strong> Investigating patterns</span>
+            <span><strong>Criterion C</strong> Communicating</span>
+            <span><strong>Criterion D</strong> Applying mathematics</span>
+        </div>
+    </header>
+
+    <nav class="section-nav">
+        <a href="/" class="home-btn">&larr; Home</a>
+        <a href="#s1">1. Parabolas &amp; Intercepts</a>
+        <a href="#s2">2. Axis &amp; Vertex</a>
+        <a href="#s3">3. Forms</a>
+        <a href="#s4">4. Models</a>
+        <a href="#s5">5. Discriminant &amp; Complex</a>
+        <a href="#glossary">Glossary</a>
+    </nav>
+
+    <!-- ================= SECTION 1 ================= -->
+    <section class="topic-section" id="s1">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 01 &middot; GRAPHS OF QUADRATICS</div>
+            <h2>Parabolas and Intercepts</h2>
+        </div>
+        <div class="topic-content">
+
+            <div class="callout key">
+                <h4>Exam task</h4>
+                <p>Given a quadratic in any form, you must be able to <strong>sketch its parabola</strong>, <strong>find both intercepts</strong>, and <strong>explain what each intercept means</strong>. The x-intercepts are the solutions of the equation; the y-intercept is the value of the function at x = 0.</p>
+            </div>
+
+            <h3>The shape of a parabola</h3>
+            <p>Every quadratic function <code>y = ax&sup2; + bx + c</code> (with a &ne; 0) graphs as a <strong>parabola</strong>. The coefficient <strong>a</strong> controls the width and the direction of opening, while <strong>c</strong> is the y-intercept.</p>
+            <ul>
+                <li><strong>a &gt; 0</strong>: the parabola opens upward and has a minimum point.</li>
+                <li><strong>a &lt; 0</strong>: the parabola opens downward and has a maximum point.</li>
+                <li>Larger |a| makes the parabola narrower; smaller |a| makes it wider. All parabolas are symmetric about a vertical line through the vertex.</li>
+            </ul>
+
+            <div class="fig">
+                <div class="fig-title">y = x&sup2; &minus; 6x + 8: two x-intercepts, one y-intercept and a vertex</div>
+                <svg viewBox="0 0 460 300" role="img" aria-label="Parabola y equals x squared minus 6x plus 8 with roots at 2 and 4, y-intercept 8 and vertex at 3, minus 1">
+                    <line class="ax" x1="40" y1="240" x2="440" y2="240"></line>
+                    <line class="ax" x1="60" y1="280" x2="60" y2="20"></line>
+                    <polyline class="ln" points="60,96 84,145 108,186 132,222 156,240 180,252 204,258 228,252 252,240 276,222 300,186 324,138 348,96 372,42"></polyline>
+                    <line class="gl" x1="204" y1="240" x2="204" y2="258"></line>
+                    <circle cx="156" cy="240" r="4" fill="#06b6d4"></circle>
+                    <circle cx="252" cy="240" r="4" fill="#06b6d4"></circle>
+                    <circle cx="204" cy="258" r="4" fill="#10b981"></circle>
+                    <circle cx="60" cy="96" r="4" fill="#f59e0b"></circle>
+                    <text class="val" x="144" y="262">(2, 0)</text>
+                    <text class="val" x="240" y="262">(4, 0)</text>
+                    <text class="val" x="212" y="274">(3, &minus;1)</text>
+                    <text class="val" x="70" y="90">(0, 8)</text>
+                    <text class="lbl" x="240" y="292">x</text>
+                    <text class="lbl" x="20" y="150" transform="rotate(-90 20 150)">y</text>
+                    <text class="ttl" x="280" y="70">y = x&sup2; &minus; 6x + 8</text>
+                </svg>
+                <p class="fig-note">The graph crosses the x-axis where y = 0 and crosses the y-axis where x = 0. The vertex sits on the axis of symmetry, midway between the two roots.</p>
+            </div>
+
+            <h3>Finding the intercepts</h3>
+            <table>
+                <thead><tr><th>Feature</th><th>How to find it</th><th>Example: y = x&sup2; &minus; 6x + 8</th></tr></thead>
+                <tbody>
+                    <tr><td>x-intercepts</td><td>Set y = 0, factorise or use the formula</td><td>(x &minus; 2)(x &minus; 4) = 0 &rarr; x = 2, x = 4</td></tr>
+                    <tr><td>y-intercept</td><td>Set x = 0 and evaluate</td><td>y = 8 &rarr; (0, 8)</td></tr>
+                    <tr><td>Axis of symmetry</td><td>x = &minus;b/(2a), or midpoint of the roots</td><td>x = 3</td></tr>
+                    <tr><td>Vertex</td><td>Substitute the axis value into the equation</td><td>y(3) = &minus;1 &rarr; (3, &minus;1)</td></tr>
+                </tbody>
+            </table>
+
+            <div class="compare">
+                <div class="col a">
+                    <h4>x-intercept</h4>
+                    <p>A point where the graph meets the x-axis, so y = 0. These are the <strong>solutions (roots)</strong> of the quadratic equation. A parabola can have 0, 1 or 2 x-intercepts.</p>
+                </div>
+                <div class="col b">
+                    <h4>y-intercept</h4>
+                    <p>A point where the graph meets the y-axis, so x = 0. Every quadratic has <strong>exactly one</strong> y-intercept, and it is simply the constant term c.</p>
+                </div>
+            </div>
+
+            <details class="worked">
+                <summary>Worked example &mdash; full sketch analysis of y = &minus;x&sup2; + 4x + 5</summary>
+                <div class="worked-body">
+                    <p><strong>y-intercept:</strong> at x = 0, y = 5, so (0, 5).</p>
+                    <p><strong>x-intercepts:</strong> solve &minus;x&sup2; + 4x + 5 = 0. Multiply by &minus;1: x&sup2; &minus; 4x &minus; 5 = 0 &rarr; (x &minus; 5)(x + 1) = 0, so x = 5 and x = &minus;1.</p>
+                    <p><strong>Axis of symmetry:</strong> x = &minus;b/(2a) = &minus;4/(2 &times; &minus;1) = 2. As a check, the midpoint of 5 and &minus;1 is also 2.</p>
+                    <p><strong>Vertex:</strong> y(2) = &minus;4 + 8 + 5 = 9, so (2, 9). Since a = &minus;1 &lt; 0, this is the <strong>maximum</strong>.</p>
+                    <p><strong>Sketch:</strong> a downward parabola through (&minus;1, 0), (0, 5), (2, 9) and (5, 0), symmetric about x = 2.</p>
+                </div>
+            </details>
+
+            <div class="selfcheck" data-answer="2">
+                <div class="sc-tag">Interactive set &middot; Self-check 1</div>
+                <p class="sc-q">The x-intercepts of y = x&sup2; &minus; 5x + 6 are:</p>
+                <div class="sc-opt">A. x = &minus;2 and x = &minus;3</div>
+                <div class="sc-opt">B. x = 2 and x = &minus;3</div>
+                <div class="sc-opt">C. x = 2 and x = 3</div>
+                <div class="sc-opt">D. x = 1 and x = 6</div>
+                <div class="sc-feedback"><span class="sc-expl">Factorise to (x &minus; 2)(x &minus; 3) = 0, giving x = 2 and x = 3. The numbers must multiply to +6 and add to +5, so both signs are negative inside the brackets &mdash; which reverses when each bracket is solved.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="0">
+                <div class="sc-tag">Interactive set &middot; Self-check 2</div>
+                <p class="sc-q">The y-intercept of y = 2x&sup2; &minus; 7x + 3 is:</p>
+                <div class="sc-opt">A. (0, 3)</div>
+                <div class="sc-opt">B. (3, 0)</div>
+                <div class="sc-opt">C. (0, &minus;7)</div>
+                <div class="sc-opt">D. (0, 2)</div>
+                <div class="sc-feedback"><span class="sc-expl">Set x = 0; the first two terms vanish and y = 3. The constant term c always gives the y-intercept. Option B swaps the coordinates, which is the most common trap.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="1">
+                <div class="sc-tag">Interactive set &middot; Self-check 3</div>
+                <p class="sc-q">A parabola has equation y = &minus;(x &minus; 1)(x + 5). Its x-intercepts are:</p>
+                <div class="sc-opt">A. x = 1 and x = 5</div>
+                <div class="sc-opt">B. x = 1 and x = &minus;5</div>
+                <div class="sc-opt">C. x = &minus;1 and x = 5</div>
+                <div class="sc-opt">D. x = &minus;1 and x = &minus;5</div>
+                <div class="sc-feedback"><span class="sc-expl">Each bracket set to zero gives x &minus; 1 = 0 (x = 1) and x + 5 = 0 (x = &minus;5). The factor (x + 5) corresponds to the intercept &minus;5, not +5.</span></div>
+            </div>
+
+            <div class="callout warn">
+                <h4>Do not confuse</h4>
+                <p><strong>Root, intercept and solution.</strong> The <em>root</em> is the number x; the <em>x-intercept</em> is the point (x, 0); the <em>solution</em> is the value that satisfies the equation. "Find the roots" asks for numbers like 2 and 4, while "state the x-intercepts" asks for coordinates (2, 0) and (4, 0).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 2 ================= -->
+    <section class="topic-section" id="s2">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 02 &middot; SYMMETRY AND TURNING POINTS</div>
+            <h2>Axis of Symmetry and Vertex</h2>
+        </div>
+        <div class="topic-content">
+
+            <div class="callout key">
+                <h4>Exam task</h4>
+                <p>You must be able to find the <strong>axis of symmetry</strong>, the <strong>vertex</strong>, and decide whether it gives a <strong>maximum or minimum</strong>. Three routes are examinable: the formula x = &minus;b/(2a), completing the square, and the midpoint of the roots.</p>
+            </div>
+
+            <h3>The axis of symmetry</h3>
+            <p>Every parabola is symmetric about the vertical line through its vertex. For <code>y = ax&sup2; + bx + c</code>, that line is:</p>
+            <p><strong>x = &minus;b / (2a)</strong></p>
+            <p>The vertex lies on this line, so its x-coordinate is the same value. Subtracting the sign of b is the single most common error in this unit.</p>
+
+            <div class="fig">
+                <div class="fig-title">The axis of symmetry passes through the vertex and bisects the parabola</div>
+                <svg viewBox="0 0 460 280" role="img" aria-label="Parabola with a dashed vertical axis of symmetry through its vertex, and the vertex labelled h comma k">
+                    <line class="ax" x1="40" y1="220" x2="440" y2="220"></line>
+                    <line class="ax" x1="230" y1="260" x2="230" y2="20"></line>
+                    <polyline class="ln" points="70,40 100,92 130,138 160,176 190,204 220,218 250,222 280,216 310,198 340,168 370,126 400,72"></polyline>
+                    <line x1="250" y1="30" x2="250" y2="240" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="6 4"></line>
+                    <circle cx="250" cy="222" r="5" fill="#10b981"></circle>
+                    <text class="val" x="258" y="250">vertex (h, k)</text>
+                    <text class="val" x="258" y="36">x = h</text>
+                    <text class="lbl" x="330" y="240">x</text>
+                    <text class="lbl" x="200" y="250" transform="rotate(-90 200 250)">y</text>
+                </svg>
+                <p class="fig-note">The dashed line is the axis of symmetry. Points on the parabola at equal horizontal distances from this line have the same height.</p>
+            </div>
+
+            <h3>Three routes to the vertex</h3>
+            <div class="compare">
+                <div class="col a">
+                    <h4>Formula</h4>
+                    <p>Compute x = &minus;b/(2a), then substitute that x into the equation to get y. Fastest for standard form, and always works.</p>
+                </div>
+                <div class="col b">
+                    <h4>Completing the square</h4>
+                    <p>Rewrite as y = a(x &minus; h)&sup2; + k. The vertex is (h, k) directly. Best when the question asks for vertex form or exact surds.</p>
+                </div>
+            </div>
+            <ul>
+                <li><strong>Midpoint of the roots:</strong> if the x-intercepts are p and q, the axis is x = (p + q)/2. This is often the quickest route when the roots are already known.</li>
+                <li><strong>Sign of a:</strong> a &gt; 0 gives a minimum at the vertex; a &lt; 0 gives a maximum. The y-coordinate of the vertex is that extreme value.</li>
+            </ul>
+
+            <table>
+                <thead><tr><th>Equation</th><th>Axis</th><th>Vertex</th><th>Extreme value</th></tr></thead>
+                <tbody>
+                    <tr><td>y = x&sup2; &minus; 6x + 8</td><td>x = 3</td><td>(3, &minus;1)</td><td>Minimum &minus;1</td></tr>
+                    <tr><td>y = &minus;x&sup2; + 4x + 5</td><td>x = 2</td><td>(2, 9)</td><td>Maximum 9</td></tr>
+                    <tr><td>y = 2x&sup2; + 8x + 6</td><td>x = &minus;2</td><td>(&minus;2, &minus;2)</td><td>Minimum &minus;2</td></tr>
+                    <tr><td>y = (x + 4)&sup2; &minus; 7</td><td>x = &minus;4</td><td>(&minus;4, &minus;7)</td><td>Minimum &minus;7</td></tr>
+                </tbody>
+            </table>
+
+            <details class="worked">
+                <summary>Worked example &mdash; vertex of y = 2x&sup2; + 8x + 6, and a sign-error critique</summary>
+                <div class="worked-body">
+                    <p><strong>Axis:</strong> x = &minus;b/(2a) = &minus;8/(2 &times; 2) = &minus;2.</p>
+                    <p><strong>Vertex:</strong> y(&minus;2) = 2(4) + 8(&minus;2) + 6 = 8 &minus; 16 + 6 = &minus;2, so (&minus;2, &minus;2).</p>
+                    <p><strong>Maximum or minimum:</strong> a = 2 &gt; 0, so the parabola opens upward and the vertex is a minimum.</p>
+                    <p><strong>Common error:</strong> a student writes x = +2, using +b/(2a). That places the vertex on the wrong side of the y-axis. Notice that the y-coordinate can still come out correct by coincidence, which is why the x-coordinate must be checked separately.</p>
+                    <p><strong>Check by completing the square:</strong> y = 2(x&sup2; + 4x) + 6 = 2[(x + 2)&sup2; &minus; 4] + 6 = 2(x + 2)&sup2; &minus; 2, confirming (&minus;2, &minus;2).</p>
+                </div>
+            </details>
+
+            <div class="selfcheck" data-answer="3">
+                <div class="sc-tag">Interactive set &middot; Self-check 1</div>
+                <p class="sc-q">The axis of symmetry of y = x&sup2; &minus; 10x + 21 is:</p>
+                <div class="sc-opt">A. x = &minus;5</div>
+                <div class="sc-opt">B. x = 10</div>
+                <div class="sc-opt">C. x = 21</div>
+                <div class="sc-opt">D. x = 5</div>
+                <div class="sc-feedback"><span class="sc-expl">x = &minus;b/(2a) = 10/2 = 5. The roots are 3 and 7, whose midpoint is also 5. Choosing &minus;5 applies an extra sign change that the formula already handles.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="1">
+                <div class="sc-tag">Interactive set &middot; Self-check 2</div>
+                <p class="sc-q">The vertex of y = (x + 4)&sup2; &minus; 7 is:</p>
+                <div class="sc-opt">A. (4, &minus;7)</div>
+                <div class="sc-opt">B. (&minus;4, &minus;7)</div>
+                <div class="sc-opt">C. (&minus;4, 7)</div>
+                <div class="sc-opt">D. (4, 7)</div>
+                <div class="sc-feedback"><span class="sc-expl">Compare with y = (x &minus; h)&sup2; + k. Since x + 4 = x &minus; (&minus;4), h = &minus;4, and k = &minus;7. The bracket sign reverses, just as it does for roots.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="0">
+                <div class="sc-tag">Interactive set &middot; Self-check 3</div>
+                <p class="sc-q">For y = &minus;3(x &minus; 2)&sup2; + 12, the maximum value is:</p>
+                <div class="sc-opt">A. 12</div>
+                <div class="sc-opt">B. &minus;12</div>
+                <div class="sc-opt">C. 2</div>
+                <div class="sc-opt">D. &minus;3</div>
+                <div class="sc-feedback"><span class="sc-expl">The squared term is at least zero, and a = &minus;3 makes the whole term non-positive, so the largest value is 12, reached at x = 2. The value 2 is the x-coordinate, not the maximum.</span></div>
+            </div>
+
+            <div class="callout warn">
+                <h4>Do not confuse</h4>
+                <p><strong>Axis value vs vertex.</strong> "Find the axis of symmetry" answers with a line, <code>x = 2</code>. "Find the vertex" answers with a point, <code>(2, 9)</code>. Writing the vertex as a single number, or the axis as a point, loses the communication mark even when the arithmetic is right.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 3 ================= -->
+    <section class="topic-section" id="s3">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 03 &middot; EQUIVALENT FORMS</div>
+            <h2>Forms of a Quadratic</h2>
+        </div>
+        <div class="topic-content">
+
+            <div class="callout key">
+                <h4>Exam task</h4>
+                <p>The same parabola can be written in three forms. Each form <strong>reveals different information instantly</strong>. You must be able to convert between them and choose the most efficient form for the question.</p>
+            </div>
+
+            <table>
+                <thead><tr><th>Form</th><th>Equation</th><th>Reveals immediately</th><th>Best for</th></tr></thead>
+                <tbody>
+                    <tr><td>Standard</td><td>y = ax&sup2; + bx + c</td><td>y-intercept (0, c); direction from a</td><td>Finding the y-intercept, using the formula</td></tr>
+                    <tr><td>Factored</td><td>y = a(x &minus; p)(x &minus; q)</td><td>x-intercepts p and q</td><td>Finding roots and the axis midpoint</td></tr>
+                    <tr><td>Vertex</td><td>y = a(x &minus; h)&sup2; + k</td><td>Vertex (h, k) and extreme value</td><td>Maximum/minimum problems and transformations</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout exam">
+                <h4>Command terms</h4>
+                <p><strong>Express</strong> or <strong>write in vertex form</strong> means complete the square and show the intermediate line. <strong>Hence</strong> means use the result you just found. <strong>Show that</strong> requires every algebraic step, not just the final equation.</p>
+            </div>
+
+            <h3>Converting between forms</h3>
+            <ul>
+                <li><strong>Factored &rarr; standard:</strong> expand the brackets and collect like terms.</li>
+                <li><strong>Standard &rarr; factored:</strong> factorise, often by inspection or the ac method.</li>
+                <li><strong>Standard &rarr; vertex:</strong> complete the square, or use x = &minus;b/(2a) and substitute.</li>
+                <li><strong>Vertex &rarr; standard:</strong> expand a(x &minus; h)&sup2; + k.</li>
+                <li><strong>Any form &rarr; a specific parabola:</strong> substitute a known point to find a.</li>
+            </ul>
+
+            <details class="worked">
+                <summary>Worked example 1 &mdash; from intercepts and a point to an equation</summary>
+                <div class="worked-body">
+                    <p><strong>Task:</strong> A parabola has x-intercepts at x = 2 and x = &minus;4 and passes through (0, &minus;8). Find its equation.</p>
+                    <p><strong>Step 1 &mdash; start factored:</strong> y = a(x &minus; 2)(x + 4).</p>
+                    <p><strong>Step 2 &mdash; substitute the point:</strong> &minus;8 = a(0 &minus; 2)(0 + 4) = &minus;8a, so a = 1.</p>
+                    <p><strong>Step 3 &mdash; expand:</strong> y = (x &minus; 2)(x + 4) = x&sup2; + 2x &minus; 8.</p>
+                    <p><strong>Check:</strong> x = 0 gives &minus;8; x = 2 and x = &minus;4 both give 0. All three conditions are satisfied.</p>
+                </div>
+            </details>
+
+            <details class="worked">
+                <summary>Worked example 2 &mdash; from vertex and a point to an equation</summary>
+                <div class="worked-body">
+                    <p><strong>Task:</strong> A parabola has vertex (3, &minus;2) and passes through (1, 6). Find its equation in vertex form.</p>
+                    <p><strong>Step 1 &mdash; start vertex form:</strong> y = a(x &minus; 3)&sup2; &minus; 2.</p>
+                    <p><strong>Step 2 &mdash; substitute the point:</strong> 6 = a(1 &minus; 3)&sup2; &minus; 2 = 4a &minus; 2.</p>
+                    <p><strong>Step 3 &mdash; solve:</strong> 4a = 8, so a = 2.</p>
+                    <p><strong>Answer:</strong> y = 2(x &minus; 3)&sup2; &minus; 2. Check: x = 1 gives 2(4) &minus; 2 = 6.</p>
+                </div>
+            </details>
+
+            <div class="selfcheck" data-answer="2">
+                <div class="sc-tag">Interactive set &middot; Self-check 1</div>
+                <p class="sc-q">Which equation is written in vertex form?</p>
+                <div class="sc-opt">A. y = 2x&sup2; + 3x &minus; 1</div>
+                <div class="sc-opt">B. y = (x &minus; 1)(x + 4)</div>
+                <div class="sc-opt">C. y = &minus;(x + 2)&sup2; + 5</div>
+                <div class="sc-opt">D. y &minus; 5 = 2x</div>
+                <div class="sc-feedback"><span class="sc-expl">Vertex form is y = a(x &minus; h)&sup2; + k. Only C has a squared bracket plus a constant outside it, revealing the vertex (&minus;2, 5). A is standard, B is factored, D is linear.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="0">
+                <div class="sc-tag">Interactive set &middot; Self-check 2</div>
+                <p class="sc-q">The factored form y = 3(x &minus; 1)(x + 5) has x-intercepts:</p>
+                <div class="sc-opt">A. x = 1 and x = &minus;5</div>
+                <div class="sc-opt">B. x = &minus;1 and x = 5</div>
+                <div class="sc-opt">C. x = 1 and x = 5</div>
+                <div class="sc-opt">D. x = &minus;1 and x = &minus;5</div>
+                <div class="sc-feedback"><span class="sc-expl">Set each bracket to zero: x &minus; 1 = 0 gives 1, and x + 5 = 0 gives &minus;5. The constant multiplier 3 stretches the graph but does not move the intercepts.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="3">
+                <div class="sc-tag">Interactive set &middot; Self-check 3</div>
+                <p class="sc-q">Expanding y = 2(x &minus; 3)&sup2; &minus; 8 gives:</p>
+                <div class="sc-opt">A. y = 2x&sup2; &minus; 6x + 10</div>
+                <div class="sc-opt">B. y = 2x&sup2; + 12x + 10</div>
+                <div class="sc-opt">C. y = 2x&sup2; &minus; 12x &minus; 8</div>
+                <div class="sc-opt">D. y = 2x&sup2; &minus; 12x + 10</div>
+                <div class="sc-feedback"><span class="sc-expl">(x &minus; 3)&sup2; = x&sup2; &minus; 6x + 9. Doubling gives 2x&sup2; &minus; 12x + 18, then subtracting 8 gives 2x&sup2; &minus; 12x + 10. Forgetting to double every term inside is the usual error.</span></div>
+            </div>
+
+            <div class="callout warn">
+                <h4>Do not confuse</h4>
+                <p><strong>The value of a.</strong> The leading coefficient a is the same in all three forms. Expanding or factorising changes how the expression is written, not the shape of the parabola. If a changes, you are looking at a different parabola.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 4 ================= -->
+    <section class="topic-section" id="s4">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 04 &middot; APPLYING QUADRATICS</div>
+            <h2>Quadratic Models</h2>
+        </div>
+        <div class="topic-content">
+
+            <div class="callout key">
+                <h4>Exam task</h4>
+                <p>Real contexts are marked on <strong>three things</strong>: the equation you form, the mathematical answer you obtain, and the interpretation of that answer in context. Always define variables, give units, and reject values that are physically impossible.</p>
+            </div>
+
+            <h3>The modelling cycle</h3>
+            <ol>
+                <li><strong>Define</strong> the variables and their units (time in seconds, height in metres).</li>
+                <li><strong>Form</strong> the quadratic from the information given.</li>
+                <li><strong>Solve</strong> using the most efficient method: vertex, roots or discriminant.</li>
+                <li><strong>Interpret</strong> the result in the original context, including the domain.</li>
+                <li><strong>Evaluate</strong> the model: state an assumption and its likely effect.</li>
+            </ol>
+
+            <table>
+                <thead><tr><th>What the question asks</th><th>Which part of the parabola</th><th>Typical method</th></tr></thead>
+                <tbody>
+                    <tr><td>Maximum height or revenue</td><td>Vertex</td><td>x = &minus;b/(2a), then substitute</td></tr>
+                    <tr><td>When it hits the ground</td><td>Positive x-intercept</td><td>Set y = 0 and solve</td></tr>
+                    <tr><td>Starting value</td><td>y-intercept</td><td>Set x = 0</td></tr>
+                    <tr><td>Is a target possible?</td><td>Discriminant</td><td>Compare the target with the maximum</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Projectile models</h3>
+            <p>A common model is <code>h = &minus;5t&sup2; + ut + h&#8320;</code>, where u is the initial upward velocity and h&#8320; is the starting height. The coefficient &minus;5 is an approximation of &minus;g/2 with g &asymp; 10 m/s&sup2;.</p>
+
+            <details class="worked">
+                <summary>Worked example &mdash; h = &minus;5t&sup2; + 30t</summary>
+                <div class="worked-body">
+                    <p><strong>Maximum height:</strong> the vertex occurs at t = &minus;b/(2a) = &minus;30/(&minus;10) = 3 s. Then h(3) = &minus;45 + 90 = 45 m.</p>
+                    <p><strong>Flight time:</strong> set h = 0: &minus;5t&sup2; + 30t = 0 &rarr; &minus;5t(t &minus; 6) = 0, so t = 0 (launch) or t = 6 s (landing). The flight time is 6 s.</p>
+                    <p><strong>Symmetry check:</strong> the landing time 6 s is twice the time to the vertex, 3 s, as expected for a symmetric parabola launched from ground level.</p>
+                    <p><strong>Interpretation:</strong> the model predicts a maximum height of 45 m at 3 s and a total flight time of 6 s, ignoring air resistance.</p>
+                </div>
+            </details>
+
+            <h3>Revenue and area models</h3>
+            <ul>
+                <li><strong>Revenue:</strong> R = price &times; quantity. If price depends on quantity, the product becomes quadratic and the vertex gives maximum revenue.</li>
+                <li><strong>Area with fixed perimeter:</strong> a rectangle with fixed fencing forms a quadratic in one side length; the vertex gives the maximum area.</li>
+                <li><strong>Domain:</strong> lengths and quantities cannot be negative, so reject negative roots even when the algebra produces them.</li>
+            </ul>
+
+            <details class="worked">
+                <summary>Worked example &mdash; revenue R = 60x &minus; 2x&sup2;</summary>
+                <div class="worked-body">
+                    <p><strong>Maximum revenue:</strong> a = &minus;2 &lt; 0, so a maximum exists. x = &minus;b/(2a) = &minus;60/(&minus;4) = 15 items.</p>
+                    <p><strong>Maximum value:</strong> R(15) = 900 &minus; 450 = 450, so the maximum revenue is $450.</p>
+                    <p><strong>Interpretation:</strong> selling 15 items maximises revenue. Selling more items lowers the price enough that total revenue falls.</p>
+                    <p><strong>Evaluation:</strong> the model assumes a linear price&ndash;quantity relationship; real demand may not behave this way at very high or very low quantities.</p>
+                </div>
+            </details>
+
+            <div class="selfcheck" data-answer="1">
+                <div class="sc-tag">Interactive set &middot; Self-check 1</div>
+                <p class="sc-q">A ball's height is h = &minus;5t&sup2; + 20t. It returns to the ground at:</p>
+                <div class="sc-opt">A. t = 2 s</div>
+                <div class="sc-opt">B. t = 4 s</div>
+                <div class="sc-opt">C. t = 20 s</div>
+                <div class="sc-opt">D. t = 5 s</div>
+                <div class="sc-feedback"><span class="sc-expl">Set h = 0: &minus;5t(t &minus; 4) = 0, so t = 0 or t = 4. The nonzero root is the landing time. The value t = 2 is when the ball reaches its maximum height, not when it lands.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="2">
+                <div class="sc-tag">Interactive set &middot; Self-check 2</div>
+                <p class="sc-q">Revenue R = 40x &minus; x&sup2; is maximised when x equals:</p>
+                <div class="sc-opt">A. 40</div>
+                <div class="sc-opt">B. 10</div>
+                <div class="sc-opt">C. 20</div>
+                <div class="sc-opt">D. 400</div>
+                <div class="sc-feedback"><span class="sc-expl">x = &minus;b/(2a) = &minus;40/(&minus;2) = 20. The maximum revenue is then 800 &minus; 400 = 400 dollars, but the question asks for the quantity, not the revenue.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="0">
+                <div class="sc-tag">Interactive set &middot; Self-check 3</div>
+                <p class="sc-q">For a projectile, the vertex of the height&ndash;time graph represents:</p>
+                <div class="sc-opt">A. The time and height of maximum height</div>
+                <div class="sc-opt">B. The launch height only</div>
+                <div class="sc-opt">C. The total flight time</div>
+                <div class="sc-opt">D. The acceleration due to gravity</div>
+                <div class="sc-feedback"><span class="sc-expl">The vertex coordinates are (time, height), so both the moment of greatest height and the height itself are read from it. The launch height is the y-intercept; the flight time is where the graph returns to h = 0.</span></div>
+            </div>
+
+            <div class="callout warn">
+                <h4>Do not confuse</h4>
+                <p><strong>Model answer vs real answer.</strong> A negative root usually represents a time before the motion started, and a negative length is impossible. State clearly that you reject it <em>because of the context</em>; simply crossing it out without a reason does not earn the interpretation mark.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 5 ================= -->
+    <section class="topic-section" id="s5">
+        <div class="topic-header">
+            <div class="topic-num">TOPIC GROUP 05 &middot; ROOTS AND THE DISCRIMINANT</div>
+            <h2>Discriminant and Complex Roots</h2>
+        </div>
+        <div class="topic-content">
+
+            <div class="callout key">
+                <h4>Exam task</h4>
+                <p>The discriminant <strong>&Delta; = b&sup2; &minus; 4ac</strong> tells you how many real roots a quadratic has <em>before</em> you solve it. A negative discriminant leads to complex roots, written as a &plusmn; bi.</p>
+            </div>
+
+            <table>
+                <thead><tr><th>Discriminant</th><th>Real roots</th><th>Graph</th><th>Typical wording</th></tr></thead>
+                <tbody>
+                    <tr><td>&Delta; &gt; 0</td><td>Two distinct real roots</td><td>Crosses the x-axis twice</td><td>"Show that the equation has two solutions"</td></tr>
+                    <tr><td>&Delta; = 0</td><td>One repeated real root</td><td>Touches the x-axis once</td><td>"Find k for equal roots"</td></tr>
+                    <tr><td>&Delta; &lt; 0</td><td>No real roots (two complex roots)</td><td>Never meets the x-axis</td><td>"Show that there are no real solutions"</td></tr>
+                </tbody>
+            </table>
+
+            <div class="fig">
+                <div class="fig-title">The three discriminant cases</div>
+                <div class="fig-grid">
+                    <svg viewBox="0 0 300 210" role="img" aria-label="Parabola crossing the x-axis twice, positive discriminant">
+                        <line class="ax" x1="20" y1="150" x2="280" y2="150"></line>
+                        <polyline class="ln" points="40,60 70,100 100,130 130,146 150,150 170,146 200,130 230,100 260,60"></polyline>
+                        <circle cx="130" cy="150" r="4" fill="#06b6d4"></circle>
+                        <circle cx="170" cy="150" r="4" fill="#06b6d4"></circle>
+                        <text class="ttl" x="70" y="28">&Delta; &gt; 0</text>
+                        <text class="lbl" x="60" y="178">two distinct real roots</text>
+                    </svg>
+                    <svg viewBox="0 0 300 210" role="img" aria-label="Parabola touching the x-axis once, zero discriminant">
+                        <line class="ax" x1="20" y1="150" x2="280" y2="150"></line>
+                        <polyline class="ln" points="40,50 70,96 100,130 130,148 150,150 170,148 200,130 230,96 260,50"></polyline>
+                        <circle cx="150" cy="150" r="5" fill="#10b981"></circle>
+                        <text class="ttl" x="70" y="28">&Delta; = 0</text>
+                        <text class="lbl" x="76" y="178">one repeated real root</text>
+                    </svg>
+                    <svg viewBox="0 0 300 210" role="img" aria-label="Parabola that never meets the x-axis, negative discriminant">
+                        <line class="ax" x1="20" y1="150" x2="280" y2="150"></line>
+                        <polyline class="ln" points="40,20 70,50 100,72 130,86 150,90 170,86 200,72 230,50 260,20"></polyline>
+                        <text class="ttl" x="70" y="28">&Delta; &lt; 0</text>
+                        <text class="lbl" x="56" y="178">no real roots (complex pair)</text>
+                    </svg>
+                </div>
+                <p class="fig-note">The discriminant is the part under the square root in the quadratic formula, so its sign decides whether that square root is real, zero or imaginary.</p>
+            </div>
+
+            <h3>Complex roots</h3>
+            <p>When the discriminant is negative, write the square root using <code>i = &radic;(&minus;1)</code>. For example, &radic;(&minus;16) = 4i. The two roots then form a <strong>conjugate pair</strong>: if one root is a + bi, the other is a &minus; bi.</p>
+            <p>Complex roots do not appear as x-intercepts. The parabola simply lies entirely above or entirely below the x-axis.</p>
+
+            <details class="worked">
+                <summary>Worked example &mdash; solve x&sup2; + 2x + 5 = 0</summary>
+                <div class="worked-body">
+                    <p><strong>Discriminant:</strong> b&sup2; &minus; 4ac = 4 &minus; 20 = &minus;16.</p>
+                    <p><strong>Square root:</strong> &radic;(&minus;16) = 4i.</p>
+                    <p><strong>Quadratic formula:</strong> x = (&minus;2 &plusmn; 4i)/2.</p>
+                    <p><strong>Simplify:</strong> divide every term by 2 to get x = &minus;1 &plusmn; 2i.</p>
+                    <p><strong>Conjugate pair:</strong> &minus;1 + 2i and &minus;1 &minus; 2i. The graph of y = x&sup2; + 2x + 5 does not cross the x-axis.</p>
+                </div>
+            </details>
+
+            <details class="worked">
+                <summary>Worked example &mdash; equal roots condition</summary>
+                <div class="worked-body">
+                    <p><strong>Task:</strong> Find k so that x&sup2; &minus; 4x + k = 0 has equal roots.</p>
+                    <p><strong>Condition:</strong> equal roots require &Delta; = 0, so b&sup2; &minus; 4ac = 0.</p>
+                    <p><strong>Substitute:</strong> 16 &minus; 4k = 0, hence k = 4.</p>
+                    <p><strong>Check:</strong> x&sup2; &minus; 4x + 4 = (x &minus; 2)&sup2;, which has the repeated root x = 2.</p>
+                </div>
+            </details>
+
+            <div class="selfcheck" data-answer="2">
+                <div class="sc-tag">Interactive set &middot; Self-check 1</div>
+                <p class="sc-q">The discriminant of x&sup2; &minus; 6x + 9 is:</p>
+                <div class="sc-opt">A. 72</div>
+                <div class="sc-opt">B. 36</div>
+                <div class="sc-opt">C. 0</div>
+                <div class="sc-opt">D. &minus;36</div>
+                <div class="sc-feedback"><span class="sc-expl">&Delta; = (&minus;6)&sup2; &minus; 4(1)(9) = 36 &minus; 36 = 0. The quadratic is (x &minus; 3)&sup2;, so the parabola touches the x-axis once at x = 3.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="0">
+                <div class="sc-tag">Interactive set &middot; Self-check 2</div>
+                <p class="sc-q">If b&sup2; &minus; 4ac = &minus;7, the equation has:</p>
+                <div class="sc-opt">A. No real roots &mdash; a complex conjugate pair</div>
+                <div class="sc-opt">B. One repeated real root</div>
+                <div class="sc-opt">C. Two distinct real roots</div>
+                <div class="sc-opt">D. Infinitely many roots</div>
+                <div class="sc-feedback"><span class="sc-expl">A negative discriminant means the square root is imaginary, so there are no real solutions. The two roots are complex conjugates, and the parabola does not meet the x-axis.</span></div>
+            </div>
+
+            <div class="selfcheck" data-answer="1">
+                <div class="sc-tag">Interactive set &middot; Self-check 3</div>
+                <p class="sc-q">The roots of x&sup2; &minus; 2x + 5 = 0 are:</p>
+                <div class="sc-opt">A. &minus;1 &plusmn; 2i</div>
+                <div class="sc-opt">B. 1 &plusmn; 2i</div>
+                <div class="sc-opt">C. 1 &plusmn; 4i</div>
+                <div class="sc-opt">D. 2 &plusmn; i</div>
+                <div class="sc-feedback"><span class="sc-expl">The discriminant is 4 &minus; 20 = &minus;16, so &radic;(&minus;16) = 4i. Then x = (2 &plusmn; 4i)/2 = 1 &plusmn; 2i. Remember to divide the whole numerator by 2.</span></div>
+            </div>
+
+            <div class="callout warn">
+                <h4>Do not confuse</h4>
+                <p><strong>"No real roots" is not "no solutions".</strong> A negative discriminant means no <em>real</em> roots. The equation still has two complex roots, and the parabola still exists &mdash; it just never crosses the x-axis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= GLOSSARY ================= -->
+    <section class="topic-section" id="glossary">
+        <div class="topic-header">
+            <div class="topic-num">REFERENCE</div>
+            <h2>Unit Keyword Glossary</h2>
+        </div>
+        <div class="topic-content">
+            <p>Every examinable keyword in the unit, defined in one line. Learn these definitions precisely &mdash; "define" and "state" questions award marks for the operational meaning, not for a vague paraphrase.</p>
+
+            <table>
+                <thead><tr><th>Keyword</th><th>Definition</th></tr></thead>
+                <tbody>
+                    <tr><td>Quadratic</td><td>A polynomial of degree 2, of the form ax&sup2; + bx + c with a &ne; 0</td></tr>
+                    <tr><td>Parabola</td><td>The U-shaped or inverted-U graph of a quadratic function</td></tr>
+                    <tr><td>Root</td><td>A value of x for which the quadratic equals zero; a solution of the equation</td></tr>
+                    <tr><td>x-intercept</td><td>A point (x, 0) where the graph meets the x-axis; corresponds to a real root</td></tr>
+                    <tr><td>y-intercept</td><td>The point (0, c) where the graph meets the y-axis</td></tr>
+                    <tr><td>Vertex</td><td>The turning point of a parabola: its maximum or minimum</td></tr>
+                    <tr><td>Axis of symmetry</td><td>The vertical line x = &minus;b/(2a) about which the parabola is symmetric</td></tr>
+                    <tr><td>Standard form</td><td>y = ax&sup2; + bx + c</td></tr>
+                    <tr><td>Factored form</td><td>y = a(x &minus; p)(x &minus; q), where p and q are the x-intercepts</td></tr>
+                    <tr><td>Vertex form</td><td>y = a(x &minus; h)&sup2; + k, where (h, k) is the vertex</td></tr>
+                    <tr><td>Completing the square</td><td>Rewriting ax&sup2; + bx + c as a squared bracket plus a constant</td></tr>
+                    <tr><td>Discriminant</td><td>&Delta; = b&sup2; &minus; 4ac; determines the number and type of roots</td></tr>
+                    <tr><td>Repeated root</td><td>The single root that occurs when the discriminant equals zero</td></tr>
+                    <tr><td>Maximum</td><td>The greatest y-value of a parabola that opens downward (a &lt; 0)</td></tr>
+                    <tr><td>Minimum</td><td>The least y-value of a parabola that opens upward (a &gt; 0)</td></tr>
+                    <tr><td>Domain (context)</td><td>The set of input values that make sense in a model, e.g. 0 &le; t &le; 6</td></tr>
+                    <tr><td>Imaginary unit i</td><td>The number defined by i&sup2; = &minus;1, so &radic;(&minus;1) = i</td></tr>
+                    <tr><td>Complex number</td><td>A number of the form a + bi, where a and b are real</td></tr>
+                    <tr><td>Conjugate pair</td><td>Roots a + bi and a &minus; bi, which occur together for real coefficients</td></tr>
+                    <tr><td>Modelling</td><td>Representing a real situation with a mathematical equation, then interpreting the solution</td></tr>
+                </tbody>
+            </table>
+
+            <div class="callout key">
+                <h4>Quadratic checklist &mdash; the fastest way to score</h4>
+                <p>For any quadratic: <strong>identify the form first</strong> (standard, factored or vertex), then choose the tool that reads the answer directly. For roots: <strong>factorise, complete the square, or use the formula</strong>. For the vertex: <strong>x = &minus;b/(2a)</strong>, then substitute. For a model: <strong>state the domain and interpret the answer in context</strong>. Check the sign of a before claiming a maximum or minimum.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <div class="cta">
+        <h2>Ready to test yourself?</h2>
+        <p>Two timed assessments cover the whole unit, weighted across Criteria A&ndash;D. Both include instant marking, a full mark scheme and PDF export.</p>
+        <div class="btns">
+            <a href="m10-math-quadratics-part1.html" class="btn btn-primary">Part 1: Solving Quadratics &rarr;</a>
+            <a href="m10-math-quadratics-part2.html" class="btn btn-secondary">Part 2: Graphs, Forms &amp; Models &rarr;</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        IB_Expert_ISSR &middot; IB MYP Mathematics &middot; M10 Session &middot; Quadratic Equations &amp; Models<br>
+        <a href="/">&larr; Back to IB_Expert_ISSR Home</a>
+    </footer>
+
+
+<script>
+    // Interactive self-check sets: click an option for instant feedback.
+    (function () {
+        document.querySelectorAll('.selfcheck').forEach(function (box) {
+            var answer = parseInt(box.getAttribute('data-answer'), 10);
+            var opts = Array.prototype.slice.call(box.querySelectorAll('.sc-opt'));
+            var fb = box.querySelector('.sc-feedback');
+            var explEl = box.querySelector('.sc-expl');
+            if (!opts.length || !fb || !explEl) return;
+            var expl = explEl.innerHTML;
+            opts.forEach(function (opt, i) {
+                opt.addEventListener('click', function () {
+                    if (box.getAttribute('data-done') === '1') return;
+                    box.setAttribute('data-done', '1');
+                    if (i === answer) {
+                        opt.classList.add('correct');
+                        fb.className = 'sc-feedback ok';
+                        fb.innerHTML = '<strong>Correct.</strong> ' + expl;
+                    } else {
+                        opt.classList.add('wrong');
+                        if (opts[answer]) opts[answer].classList.add('reveal');
+                        fb.className = 'sc-feedback no';
+                        fb.innerHTML = '<strong>Not quite.</strong> ' + expl;
+                    }
+                });
+            });
+        });
+    })();
+</script>
+
+</div>
+</body>
+</html>

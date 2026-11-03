@@ -57,8 +57,8 @@ mathapp/
 ├── vite.config.js
 ├── vercel.json                # vite, output dist, exact-match SPA rewrites
 ├── scripts/
-│   ├── copy-assets.mjs        # build: assessments/ -> dist/assessments/
-│   └── validate-assessment.mjs# content quality gate
+│   ├── copy-assets.mjs        # build: assessments/ (recursive) -> dist/assessments/
+│   └── validate-assessment.mjs# content quality gate; walks assessments/ recursively
 ├── .opencode/skills/ib-myp-assessment/SKILL.md   # authoring standard
 ├── src/
 │   ├── App.jsx                # routes (all public)
@@ -66,14 +66,13 @@ mathapp/
 │   ├── data/assessments.js    # topicsData + topicGroupsData + assessmentsData + comingSoonData
 │   ├── data/quizData.js
 │   ├── components/            # Navbar
-│   ├── sections/              # Hero, Stats, TopicsBrowser (topic sidebar), AssessmentGrid, Features, SiteFooter
+│   ├── sections/              # HeroSection, StatsSection, TopicsBrowser (topic sidebar), AssessmentGrid, SiteFooter
 │   ├── pages/                 # Home, Assessments, Topics, Features, Math, Quiz, Study, Sudoku, BioTech
 │   └── styles/global.css
-├── assessments/               # 19 static files
-│   ├── m10-science-ess-a-study.html
-│   ├── m10-science-ess-a-part1.html
-│   ├── m10-science-ess-a-part2.html
-│   ├── myp4-*.html            # 16 legacy files
+├── assessments/               # 27 static HTML files in subject folders
+│   ├── m10_math/              # quadratics study + parts 1–2; 26/ holds source PDFs and notes
+│   ├── m10_physics/           # motion + ESS study pages and parts 1–2
+│   ├── myp4/                  # 16 legacy MYP4 papers
 │   └── content/               # original source notes (.docx/.txt)
 └── dist/                      # build output — gitignored AND fully untracked since 09c810e's follow-up
 ```
@@ -90,7 +89,7 @@ The old auth paths (`/login`, `/signup`, `/forgot-password`, `/reset-password`, 
 
 ## 4. Assessment inventory
 
-16 registered · 330 questions · 1480 marks · 885 minutes. Authoritative source: `src/data/assessments.js`.
+22 registered · 450 questions · 1912 marks · 1245 minutes. Authoritative source: `src/data/assessments.js`.
 
 | id | subject | cat | title | Qs | time | marks | diff |
 |----|---------|-----|-------|----|------|-------|------|
@@ -110,11 +109,17 @@ The old auth paths (`/login`, `/signup`, `/forgot-password`, `/reset-password`, 
 | 14 | science | m10 | ESS Unit A: Evolution & Origin of Life (study) | – | Self-paced | – | 0 |
 | 15 | science | m10 | Evolution & Origin of Life — Part 1 | 30 | 90 | 138 | 4 |
 | 16 | science | m10 | Evolution & Origin of Life — Part 2 | 29 | 90 | 154 | 5 |
+| 17 | science | m10 | M10 Physics: Motion, Models & Mechanics (study) | – | Self-paced | – | 0 |
+| 18 | science | m10 | Motion Graphs & Kinematics — Part 1 | 30 | 90 | 110 | 4 |
+| 19 | science | m10 | Forces & Newton's Laws — Part 2 | 30 | 90 | 112 | 5 |
+| 20 | math | m10 | M10 Math: Quadratic Equations & Models (study) | – | Self-paced | – | 0 |
+| 21 | math | m10 | Quadratic Equations — Part 1: Solving Quadratics | 30 | 90 | 105 | 4 |
+| 22 | math | m10 | Quadratic Equations — Part 2: Graphs, Forms & Models | 30 | 90 | 105 | 5 |
 
 **Levels.** `category` drives the Home page tabs, which are **`myp4` / `m10` / `dp`** (plus `all`). `subject` drives the `/assessments` filter tabs (`all` / `math` / `ins` / `science`).
 
 - `myp4` — the 13 older papers (MYP4 maths and Individuals & Society), the original library.
-- `m10` — the M10 Science ESS Unit A track: 1 study page + 2 timed papers, `badge: 'M10 Science'`.
+- `m10` — three tracks: M10 Science ESS Unit A (ids 14–16, `badge: 'M10 Science'`), M10 Physics Motion & Mechanics (17–19, `badge: 'M10 Physics'`), and M10 Mathematics Quadratics (20–22, `badge: 'M10 Math'`). Each is 1 study page + 2 timed papers.
 - `dp` — placeholder only; nothing live yet.
 
 **There is no `myp5` value any more.** MYP5 was retired as a label and replaced outright by M10; a paper that would have been MYP5 belongs under `m10` with an `M10 …` badge. If you reintroduce `myp5`, `Home.jsx` has no tab for it and `global.css` has no `.badge-myp5`, so the card will render unfiltered and unstyled.
@@ -131,7 +136,7 @@ Follow `.opencode/skills/ib-myp-assessment/SKILL.md`. Minimum steps:
 2. `npm run validate` — must exit 0.
 3. Append to `assessmentsData` in `src/data/assessments.js`; add any new `topicIds` to `topicsData` **and** to the owning entry in `topicGroupsData`. A topic that is in neither shows as an orphan — the sidebar will not list it.
 4. For a new subject: add to `subjects` in `src/pages/Assessments.jsx` **and** add a `.card-icon.<name>` rule to `global.css`.
-5. `npm run build`, confirm `dist/assessments/<file>.html` exists.
+5. `npm run build`, confirm `dist/assessments/<folder>/<file>.html` exists.
 6. Update the inventory table in §4 of this file.
 
 Never hardcode assessment/question/minute totals. `StatsSection.jsx` derives them from `assessmentsData`.
