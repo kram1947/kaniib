@@ -721,7 +721,7 @@
 
         /* Assessment Cards */
         .container {
-            max-width: 1200px;
+            max-width: 1500px;
             margin: 0 auto;
             padding: 0 24px 80px;
         }
@@ -1018,7 +1018,7 @@
 
         /* History Panel */
         .history-section {
-            max-width: 1200px;
+            max-width: 1500px;
             margin: 0 auto;
             padding: 0 24px 60px;
         }
@@ -1125,7 +1125,7 @@
 
         /* Study Timeline Page */
         .timeline-page {
-            max-width: 1000px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -1434,7 +1434,7 @@
 
         /* Chemistry Gantt Timeline */
         .chem-timeline-page {
-            max-width: 1300px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 

@@ -8,7 +8,6 @@ export default function SiteFooter() {
           <a href="/topics">Topics</a>
           <a href="/assessments">Assessments</a>
         </nav>
-        <p className="footer-text">IB_Expert_ISSR • Master Mathematics with IB_Expert • IB Learning & Assessment</p>
       </div>
     </footer>
   );
