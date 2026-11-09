@@ -2317,3 +2317,114 @@
                 padding: 12px 16px;
             }
         }
+
+        /* Week Schedule (/study-timeline/chemistry) — week-scale variant of the M10 Gantt */
+        .m10-months-semesters {
+            display: grid;
+            grid-template-columns: repeat(11, 1fr);
+        }
+
+        .m10-month-head {
+            padding: 8px 4px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            border-right: 1px solid var(--border);
+        }
+
+        .m10-month-head:last-child {
+            border-right: none;
+        }
+
+        .m10-weeks {
+            display: grid;
+            grid-template-columns: repeat(44, 1fr);
+            border-top: 1px solid var(--border);
+        }
+
+        .m10-week-tick {
+            padding: 6px 0;
+            text-align: center;
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: var(--text-muted);
+            border-right: 1px solid var(--border);
+        }
+
+        .m10-week-tick:nth-child(4n) {
+            border-right-color: var(--border-light);
+        }
+
+        .m10-week-tick:last-child {
+            border-right: none;
+        }
+
+        .m10-week-grid-cell {
+            background-size: calc(100% / 44) 100%;
+        }
+
+        .m10-progress-chip {
+            flex-shrink: 0;
+            margin-left: auto;
+            padding: 2px 8px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 10px;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--secondary-light);
+        }
+
+        .m10-bar-progress {
+            height: 100%;
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 6px 0 0 6px;
+        }
+
+        .m10-milestone-row {
+            border-top: none;
+        }
+
+        .m10-milestone-row .m10-row-label {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .m10-milestone {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: default;
+            z-index: 2;
+        }
+
+        .m10-milestone-diamond {
+            width: 12px;
+            height: 12px;
+            background: var(--primary-light);
+            border: 2px solid var(--bg-card);
+            box-shadow: 0 0 0 2px var(--primary);
+            transform: rotate(45deg);
+            transition: transform 0.2s;
+        }
+
+        .m10-milestone:hover .m10-milestone-diamond {
+            transform: rotate(45deg) scale(1.25);
+        }
+
+        .m10-milestone-label {
+            margin-top: 4px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }

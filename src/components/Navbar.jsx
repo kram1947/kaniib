@@ -31,7 +31,7 @@ export default function Navbar() {
           Study Timeline
         </NavLink>
         <NavLink to="/study-timeline/chemistry" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={() => setMobileOpen(false)}>
-          Chemistry Timeline
+          Week Schedule
         </NavLink>
       </div>
     </nav>
