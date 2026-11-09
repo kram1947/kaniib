@@ -5,11 +5,9 @@ import SiteFooter from '../sections/SiteFooter';
 const MONTHS = ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
 const MONTH_COUNT = MONTHS.length;
 const WEEKS_PER_MONTH = 4;
-const TOTAL_WEEKS = MONTH_COUNT * WEEKS_PER_MONTH; // 44 grid weeks, Aug 2026 – Jun 2027
+const TOTAL_WEEKS = MONTH_COUNT * WEEKS_PER_MONTH;
 
-// The 20-week Chemistry unit starts in Week 3 of August (global grid week 3).
 const UNIT_START = 3;
-const UNIT_WEEKS = 20;
 const toGlobal = (unitWeek) => unitWeek + UNIT_START - 1;
 
 const unitMeta = {
@@ -79,12 +77,6 @@ const categories = [
   },
 ];
 
-const milestones = [
-  { id: 'm1', label: 'Milestone 1', week: 7, date: 'Sep 18', title: 'Atomic Model Complete' },
-  { id: 'm2', label: 'Milestone 2', week: 14, date: 'Oct 30', title: 'Bonding Mastery' },
-  { id: 'm3', label: 'Milestone 3', week: 20, date: 'Dec 11', title: 'Stoichiometry Competency' },
-];
-
 const FILTERS = [
   { id: 'all', label: 'Show All' },
   ...categories.map((c) => ({ id: c.id, label: c.name })),
@@ -147,6 +139,12 @@ function TaskRow({ task, color }) {
   );
 }
 
+const milestones = [
+  { id: 'm1', label: 'Milestone 1', week: 7, date: 'Sep 18', title: 'Atomic Model Complete' },
+  { id: 'm2', label: 'Milestone 2', week: 14, date: 'Oct 30', title: 'Bonding Mastery' },
+  { id: 'm3', label: 'Milestone 3', week: 20, date: 'Dec 11', title: 'Stoichiometry Competency' },
+];
+
 function MilestonesLayer() {
   return (
     <div className="m10-row m10-milestone-row">
@@ -173,14 +171,7 @@ function MilestonesLayer() {
 
 export default function StudyTimelineChemistry() {
   const [filter, setFilter] = useState('all');
-  const [activeWeek, setActiveWeek] = useState(1);
-
   const visibleGroups = filter === 'all' ? categories : categories.filter((c) => c.id === filter);
-
-  const allTasks = categories.flatMap((c) =>
-    c.tasks.map((t) => ({ ...t, category: c.name, color: c.color }))
-  );
-  const currentTask = allTasks.find((t) => activeWeek >= t.start && activeWeek <= t.end);
 
   return (
     <div>
@@ -259,43 +250,6 @@ export default function StudyTimelineChemistry() {
                     <span className="m10-legend-dot" style={{ background: c.color }} /> {c.name}
                   </span>
                 ))}
-              </div>
-              <div className="m10-footer-note">Chemistry A: Matter • {unitMeta.duration} from {unitMeta.startDate}</div>
-            </div>
-          </div>
-
-          <div className="timeline-weekly-focus">
-            <h2>Unit Week {activeWeek} Focus</h2>
-            <div className="weekly-focus-card">
-              {currentTask ? (
-                <>
-                  <div className="focus-title">{currentTask.name}</div>
-                  <div className="focus-subtitle">
-                    {currentTask.category} • Scheduled {globalRangeLabel(currentTask.start, currentTask.end)}
-                  </div>
-                  <div className="focus-progress">
-                    <div className="progress-track">
-                      <div className="progress-fill" style={{ width: `${currentTask.progress}%` }} />
-                    </div>
-                    <span className="progress-text">{currentTask.progress}% complete</span>
-                  </div>
-                </>
-              ) : (
-                <p>No scheduled task for this week.</p>
-              )}
-              <div className="focus-actions">
-                <button
-                  className="btn btn-outline"
-                  onClick={() => setActiveWeek(((activeWeek - 2 + UNIT_WEEKS) % UNIT_WEEKS) + 1)}
-                >
-                  ← Previous
-                </button>
-                <button
-                  className="btn btn-outline"
-                  onClick={() => setActiveWeek((activeWeek % UNIT_WEEKS) + 1)}
-                >
-                  Next →
-                </button>
               </div>
             </div>
           </div>

@@ -2428,3 +2428,160 @@
             color: var(--text-muted);
             white-space: nowrap;
         }
+
+        /* Unit planner + auto week focus */
+        .m10-auto-chip {
+            display: inline-block;
+            margin-left: 12px;
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 50px;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--secondary-light);
+            vertical-align: middle;
+        }
+
+        .m10-focus-topics {
+            margin: 0;
+            padding-left: 20px;
+            text-align: left;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .m10-assessment-callout {
+            margin: 0 auto;
+            max-width: 520px;
+            padding: 12px 18px;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            background: rgba(245, 158, 11, 0.12);
+            color: #fbbf24;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 10px;
+        }
+
+        .m10-planner {
+            margin-top: 40px;
+        }
+
+        .m10-planner h2 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .m10-planner-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .m10-planner-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            transition: border-color 0.2s;
+        }
+
+        .m10-planner-card:hover {
+            border-color: var(--primary);
+        }
+
+        .m10-planner-card.wide {
+            grid-column: span 3;
+        }
+
+        .m10-planner-card-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--primary-light);
+            margin-bottom: 12px;
+        }
+
+        .m10-planner-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .m10-planner-list {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .m10-planner-list strong {
+            color: var(--text-primary);
+        }
+
+        .m10-chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .m10-chip {
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 50px;
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            color: var(--primary-light);
+        }
+
+        .m10-inq-group {
+            margin-bottom: 14px;
+        }
+
+        .m10-inq-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .m10-inq-tag {
+            display: inline-block;
+            margin-bottom: 6px;
+            padding: 2px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 10px;
+        }
+
+        .m10-inq-tag.factual {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary-light);
+        }
+
+        .m10-inq-tag.conceptual {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--secondary-light);
+        }
+
+        .m10-inq-tag.debatable {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+        }
+
+        @media (max-width: 900px) {
+            .m10-planner-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .m10-planner-card.wide {
+                grid-column: span 1;
+            }
+        }
