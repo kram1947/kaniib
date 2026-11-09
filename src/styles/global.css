@@ -1993,3 +1993,327 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
+        /* M10 Curriculum Gantt Timeline (/study-timeline) */
+        .m10-page {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .m10-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .m10-card-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 28px;
+            background: var(--bg-dark);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .m10-badge {
+            display: inline-block;
+            padding: 4px 14px;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            color: var(--primary-light);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+        }
+
+        .m10-title {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 800;
+            margin-top: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .m10-subtitle {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .m10-filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .m10-filter-btn {
+            padding: 7px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 10px;
+            border: 1px solid var(--border-light);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .m10-filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary-light);
+        }
+
+        .m10-filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
+        .m10-scroll {
+            overflow-x: auto;
+        }
+
+        .m10-chart {
+            min-width: 960px;
+        }
+
+        .m10-header-grid,
+        .m10-group-header,
+        .m10-row {
+            display: grid;
+            grid-template-columns: 4fr 8fr;
+        }
+
+        .m10-header-label {
+            padding: 14px 24px;
+            border-right: 1px solid var(--border);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+        }
+
+        .m10-months-col {
+            border-left: 1px solid var(--border);
+        }
+
+        .m10-semesters {
+            display: grid;
+            grid-template-columns: 5fr 6fr;
+            background: rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .m10-semester {
+            padding: 8px 12px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+        }
+
+        .m10-months {
+            display: grid;
+            grid-template-columns: repeat(11, 1fr);
+        }
+
+        .m10-month {
+            padding: 10px 4px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            border-right: 1px solid var(--border);
+        }
+
+        .m10-month:last-child {
+            border-right: none;
+        }
+
+        .m10-month.peak {
+            color: var(--primary-light);
+            font-weight: 800;
+        }
+
+        .m10-body {
+            font-size: 14px;
+        }
+
+        .m10-group {
+            border-top: 1px solid var(--border);
+        }
+
+        .m10-group:first-child {
+            border-top: none;
+        }
+
+        .m10-group-header {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .m10-group-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .m10-group-icon {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .m10-month-grid-cell {
+            background-image: linear-gradient(to right, var(--border) 1px, transparent 1px);
+            background-size: calc(100% / 11) 100%;
+        }
+
+        .m10-row {
+            align-items: center;
+            border-top: 1px solid var(--border);
+            transition: background 0.2s;
+        }
+
+        .m10-row:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .m10-row.highlight {
+            background: rgba(99, 102, 241, 0.08);
+        }
+
+        .m10-row-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 24px 16px 32px;
+            border-right: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .m10-row-name.highlight {
+            color: var(--primary-light);
+            font-weight: 700;
+        }
+
+        .m10-pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            flex-shrink: 0;
+            animation: m10-pulse 1.6s ease-in-out infinite;
+        }
+
+        @keyframes m10-pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.75); }
+        }
+
+        .m10-row-track {
+            position: relative;
+            height: 100%;
+            padding: 16px 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .m10-bar {
+            position: relative;
+            height: 12px;
+            border-radius: 6px;
+            cursor: default;
+            transition: filter 0.2s, transform 0.2s;
+        }
+
+        .m10-bar:hover {
+            filter: brightness(1.2);
+            transform: scaleY(1.2);
+        }
+
+        .m10-bar::before,
+        .m10-bar::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            width: 3px;
+            height: 18px;
+            background-color: inherit;
+            border-radius: 2px;
+        }
+
+        .m10-bar::before { left: 0; }
+        .m10-bar::after { right: 0; }
+
+        .m10-empty {
+            padding: 40px 24px;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .m10-footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 28px;
+            background: var(--bg-dark);
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .m10-legend {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .m10-legend-title {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .m10-legend-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .m10-legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .m10-card-header {
+                flex-direction: column;
+            }
+
+            .m10-group-title {
+                padding: 12px 16px;
+            }
+
+            .m10-row-label {
+                padding: 12px 16px;
+            }
+        }
