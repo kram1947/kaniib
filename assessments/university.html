@@ -36,6 +36,8 @@ tr:nth-child(even) td{background:rgba(127,127,127,.04)}
 .callout.warn{background:var(--warn);border-left-color:var(--warnline)}
 .callout.warn h4{color:var(--warnline)}
 small{opacity:.8}
+.back{display:inline-block;margin-bottom:1.2rem;font-size:.85rem;text-decoration:none;padding:.35rem .85rem;border:1px solid var(--secondary);border-radius:4px;background:var(--card)}
+.back:hover{background:var(--callout)}
 .b{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;padding:.1rem .4rem;border-radius:3px;background:var(--secondary);color:#fff;vertical-align:middle}
 .b.f{background:var(--accent)}.b.c{background:#b7791f}.b.p{background:#c53030}
 @media (max-width:800px){body{display:block}nav{position:static;width:auto;padding:1rem}main{margin-left:0;width:100%;padding:1.25rem}}
@@ -71,6 +73,7 @@ small{opacity:.8}
 <li><a href="#m-verify">Validation Log</a></li></ul></div>
 </nav>
 <main>
+<a class="back" href="/">&#8592; Back to Home</a>
 <h1>Bio &amp; Tech University Guide</h1>
 <p>A roadmap for an IB student aiming for 38–42 points in DP2: English-taught bachelors across Europe in biomedicine/genetics (Group 1) and tech/AI/CS (Group 2), Swedish-taught engineering (Group 3), and the merit-conversion rules behind all Swedish admissions (Group 4). Assumed start: <strong>autumn 2029</strong>.</p>
 
@@ -98,9 +101,15 @@ small{opacity:.8}
 <thead><tr><th>Programme</th><th>University</th><th>Notes</th></tr></thead>
 <tbody>
 <tr><td><strong>Bachelor’s in Biomedicine</strong> (180 cr)</td><td>Karolinska Institutet <span class="b">Verified</span></td><td>English. Needs Biology 2, Chemistry 2, Maths 4, English 6. Master’s links: Biomedicine, Bioentrepreneurship, Toxicology. <strong>First intake autumn 2026, no cut-off history.</strong> Not a route to a medical degree.</td></tr>
-<tr><td>Experimental &amp; Industrial Biomedicine</td><td>Linköping <span class="b c">Unverified</span></td><td>Described in your draft as fully English with industry partners and a research semester; confirm language on liu.se.</td></tr>
-<tr><td>Bachelor’s in Life Science</td><td>Umeå <span class="b c">Unverified</span></td><td>Described as English-taught with chemistry or molecular biology specialisation; confirm language and selection weights.</td></tr>
+<tr><td><strong>Biomedicine Bachelor’s</strong> (180 cr)</td><td>Lund University <span class="b">Verified</span></td><td>English, 3 years, Lund. Needs Biology 2, Chemistry 2, Maths 4. Early international round: grades only. Later national round: <strong>66% grades + 34% SweSAT</strong>. Final-year students cannot be offered a place in the first round.</td></tr>
+<tr><td><strong>Experimental &amp; Industrial Biomedicine</strong> (180 cr)</td><td>Linköping <span class="b">Verified</span></td><td>English; awards a BSc in Medical Biology. Needs Biology 2, Chemistry 2, Maths 4, English 6; exempt from Swedish. Selection <strong>67% grades + 33% SweSAT</strong>. Industry-designed, with project courses, bioentrepreneurship and a research semester. LiU tells IB students to confirm general eligibility with University Admissions.</td></tr>
+<tr><td><strong>Biomedicine Bachelor’s</strong> (BMEPG)</td><td>Skövde <span class="b">Verified</span></td><td>English, 180 cr. Needs Maths 2, Science studies 2 (or Biology 1 + Chemistry 1), English 6: <strong>lower than Lund, KI and LiU</strong>. 67% grades + 33% SweSAT. Thesis can be done at a pharma company; partner exchanges include King’s College London.</td></tr>
+<tr><td><strong>Molecular Bioinformatics</strong> (MOBIG)</td><td>Skövde <span class="b">Verified</span></td><td>English, 180 cr. Genetics, Python and statistics; 30-credit thesis. Needs Maths 3b/3c, Science studies 2 (or Bio 1 + Chem 1), English 6. 67/33 selection. Fits the DNA/data track.</td></tr>
+<tr><td><strong>Molecular Biodesign</strong> (MOLBG)</td><td>Skövde <span class="b">Verified</span></td><td>English, 180 cr. Molecular biology and biotechnology: genetics, microbiology, bioinformatics, project management and entrepreneurship. Needs Maths 2, Science studies 2 (or Bio 1 + Chem 1), English 6. 67/33 selection.</td></tr>
+<tr><td>Bachelor’s in Life Science</td><td>Umeå <span class="b c">Unverified</span></td><td>From your earlier draft and Excel; confirm language and selection on umu.se. The three Umeå links you sent (Cell Biology 5MO100, Genetics and Evolution 5BI266, Introduction to Bioinformatics 5MO140) are <strong>single courses, not degree programmes</strong>, so they are omitted here.</td></tr>
 </tbody></table></div>
+<div class="callout"><h4>Why these were missing earlier</h4>
+<p>My first pass only checked KI and took LiU and Umeå from your draft. Lund and Skövde were simply not searched, which was an omission, and your links show they are all English-taught. All verified programmes need a student in DP2 to use the <strong>15 April national round</strong>, where SweSAT counts for 33–34%. Cut-offs are not published on these pages; check UHR’s statistics.</p></div>
 </section>
 
 <section id="bio-ireland">
@@ -322,11 +331,11 @@ small{opacity:.8}
 <ul>
 <li>Karolinska: English-taught, entry requirements and both admission rounds.</li>
 <li>antagning.se IB conversion table; merit compensation rule; maximum 22.50.</li>
-<li>Chalmers and KTH bioteknik cut-offs; Gothenburg English-taught tech programmes; EUC Frankfurt programme and fee; Maastricht fee and deadline.</li>
+<li>Lund, Linköping and Skövde English-taught biomedicine bachelors (language, entry, selection); Chalmers and KTH bioteknik cut-offs; Gothenburg English-taught tech programmes; EUC Frankfurt programme and fee; Maastricht fee and deadline.</li>
 </ul>
 <h4>Still unverified: confirm before relying</h4>
 <ul>
-<li>TCD Genetics 2026 cut-off, UCD and Galway IB figures, UC3M details, LiU and Umeå programme language, LiU Teknisk biologi and Lund/KTH physics figures, Edinburgh and UCL offer levels.</li>
+<li>TCD Genetics 2026 cut-off, UCD and Galway IB figures, UC3M details, Umeå Life Science language, LiU Teknisk biologi and Lund/KTH physics figures, Edinburgh and UCL offer levels.</li>
 </ul></div>
 <p>All figures are indicative; re-check every cut-off, fee and deadline on the official page in DP1 and again before applying.</p>
 </section>
