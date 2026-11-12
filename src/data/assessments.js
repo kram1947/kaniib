@@ -424,6 +424,23 @@ export const assessmentsData = [
     iconBg: 'math',
     subject: 'math'
   },
+  {
+    id: 23,
+    title: 'Quadratic Equations — Part 3: Level 8–10 Challenge',
+    description: 'The toughest paper in the series: hidden quadratics, discriminant parameter ranges, Vieta identities, symmetry arguments, integer and proof problems, intersection geometry, and optimisation with model critique.',
+    topics: ['Discriminant & Parameters', 'Hidden Quadratics', 'Roots & Vieta', 'Symmetry', 'Number Theory & Proof', 'Optimisation & Modelling'],
+    topicIds: ['quadratics'],
+    questionCount: 20,
+    time: '90',
+    marks: 108,
+    difficulty: 5,
+    href: 'assessments/m10_math/m10-math-quadratics-part3.html',
+    category: 'm10',
+    badge: 'M10 Math',
+    icon: '𝑥²',
+    iconBg: 'math',
+    subject: 'math'
+  },
 ];
 
 export const comingSoonData = [

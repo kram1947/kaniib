@@ -69,8 +69,8 @@ mathapp/
 │   ├── sections/              # HeroSection, StatsSection, TopicsBrowser (topic sidebar), AssessmentGrid, SiteFooter
 │   ├── pages/                 # Home, Assessments, Topics, Features, Math, Quiz, Study, Sudoku, BioTech
 │   └── styles/global.css
-├── assessments/               # 27 static HTML files in subject folders
-│   ├── m10_math/              # quadratics study + parts 1–2; 26/ holds source PDFs and notes
+├── assessments/               # 28 static HTML files in subject folders
+│   ├── m10_math/              # quadratics study + parts 1–3; 26/ holds source PDFs and notes
 │   ├── m10_physics/           # motion + ESS study pages and parts 1–2
 │   ├── myp4/                  # 16 legacy MYP4 papers
 │   └── content/               # original source notes (.docx/.txt)
@@ -89,7 +89,7 @@ The old auth paths (`/login`, `/signup`, `/forgot-password`, `/reset-password`, 
 
 ## 4. Assessment inventory
 
-22 registered · 450 questions · 1912 marks · 1245 minutes. Authoritative source: `src/data/assessments.js`.
+23 registered · 470 questions · 2020 marks · 1335 minutes. Authoritative source: `src/data/assessments.js`.
 
 | id | subject | cat | title | Qs | time | marks | diff |
 |----|---------|-----|-------|----|------|-------|------|
@@ -115,11 +115,12 @@ The old auth paths (`/login`, `/signup`, `/forgot-password`, `/reset-password`, 
 | 20 | math | m10 | M10 Math: Quadratic Equations & Models (study) | – | Self-paced | – | 0 |
 | 21 | math | m10 | Quadratic Equations — Part 1: Solving Quadratics | 30 | 90 | 105 | 4 |
 | 22 | math | m10 | Quadratic Equations — Part 2: Graphs, Forms & Models | 30 | 90 | 105 | 5 |
+| 23 | math | m10 | Quadratic Equations — Part 3: Level 8–10 Challenge | 20 | 90 | 108 | 5 |
 
 **Levels.** `category` drives the Home page tabs, which are **`myp4` / `m10` / `dp`** (plus `all`). `subject` drives the `/assessments` filter tabs (`all` / `math` / `ins` / `science`).
 
 - `myp4` — the 13 older papers (MYP4 maths and Individuals & Society), the original library.
-- `m10` — three tracks: M10 Science ESS Unit A (ids 14–16, `badge: 'M10 Science'`), M10 Physics Motion & Mechanics (17–19, `badge: 'M10 Physics'`), and M10 Mathematics Quadratics (20–22, `badge: 'M10 Math'`). Each is 1 study page + 2 timed papers.
+- `m10` — three tracks: M10 Science ESS Unit A (ids 14–16, `badge: 'M10 Science'`), M10 Physics Motion & Mechanics (17–19, `badge: 'M10 Physics'`), and M10 Mathematics Quadratics (20–23, `badge: 'M10 Math'`). Each is 1 study page + timed papers (Part 3 is the level 8–10 challenge).
 - `dp` — placeholder only; nothing live yet.
 
 **There is no `myp5` value any more.** MYP5 was retired as a label and replaced outright by M10; a paper that would have been MYP5 belongs under `m10` with an `M10 …` badge. If you reintroduce `myp5`, `Home.jsx` has no tab for it and `global.css` has no `.badge-myp5`, so the card will render unfiltered and unstyled.
