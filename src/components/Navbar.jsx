@@ -24,9 +24,9 @@ export default function Navbar() {
         <NavLink to="/topics" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={() => setMobileOpen(false)}>
           Topics
         </NavLink>
-        <NavLink to="/features" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={() => setMobileOpen(false)}>
-          Features
-        </NavLink>
+        <a href="/assessments/university.html" className="nav-link" onClick={() => setMobileOpen(false)}>
+          Uni Guide
+        </a>
         <NavLink to="/study-timeline" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} onClick={() => setMobileOpen(false)}>
           Study Timeline
         </NavLink>

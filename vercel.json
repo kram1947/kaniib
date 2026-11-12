@@ -10,10 +10,10 @@
   },
   "rewrites": [
     { "source": "/assessments", "destination": "/index.html" },
-    { "source": "/topics", "destination": "/index.html" },
-    { "source": "/features", "destination": "/index.html" }
+    { "source": "/topics", "destination": "/index.html" }
   ],
   "redirects": [
+    { "source": "/features", "destination": "/assessments/university.html", "permanent": false },
     { "source": "/login", "destination": "/", "permanent": false },
     { "source": "/signup", "destination": "/", "permanent": false },
     { "source": "/forgot-password", "destination": "/", "permanent": false },
